@@ -19,19 +19,31 @@ function Navbar({ items, searchbar }: {
         class={`md:hidden flex flex-row justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full px-5 gap-2`}
       >
         <div class={`w-[51px] flex justify-start`}>
-          <img class={`w-[35px] h-[35px]`} src="https://bergersonjoias.vteximg.com.br/arquivos/bj-v23-mobile-menu.png?v=637992066815930000" alt="Open menu button" />
+          <HeaderButton variant="menu" />
         </div>
         <a
           href="/"
           class={`flex-grow inline-flex justify-center items-center min-h-[${navbarHeight}]`}
           aria-label="Store logo"
         >
-          <img class={`w-[160px] h-[21px]`} src="https://bergersonjoias.vteximg.com.br/arquivos/LOGO-BERGERSON-v23-260x34px-v2.png?v=638066399283770000" alt="Logo Bergerson" />
+          <img
+            class={`w-[160px] h-[21px]`}
+            src="https://bergersonjoias.vteximg.com.br/arquivos/LOGO-BERGERSON-v23-260x34px-v2.png?v=638066399283770000"
+            alt="Logo Bergerson"
+          />
         </a>
 
         <div class="w-[51px] flex justify-between">
-          <img class={`w-[18px] h-[18px]`} src="https://bergersonjoias.vteximg.com.br/arquivos/icon-search-header.png" alt="Search products button" />
-          <img class={`w-[18px] h-[20px]`} src="https://www.bergersonjoias.com/arquivos/bg-v23-mybag.png?v=638000718382000000" alt="My cart button" />
+          <img
+            class={`w-[18px] h-[18px]`}
+            src="https://bergersonjoias.vteximg.com.br/arquivos/icon-search-header.png"
+            alt="Search products button"
+          />
+          <img
+            class={`w-[18px] h-[20px]`}
+            src="https://www.bergersonjoias.com/arquivos/bg-v23-mybag.png?v=638000718382000000"
+            alt="My cart button"
+          />
         </div>
       </div>
 
