@@ -64,7 +64,7 @@ function Navbar({ items, searchbar }: {
             />
           </a>
         </div>
-        <div class="px-3 flex-auto flex justify-between max-w-[893px]">
+        <div class="px-3 flex-auto flex justify-between max-w-[893px] h-[135px]">
           {items.map((item) => <NavItem item={item} />)}
         </div>
         <div class="flex-none w-[326px] flex items-center justify-between">
