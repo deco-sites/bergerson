@@ -14,7 +14,7 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
 
   const title = (
     <Text
-      class="flex-grow min-h-[40px] flex items-center justify-start"
+      class="flex-grow min-h-[40px] flex items-center justify-center uppercase"
       variant={level === 0 ? "menu" : "caption"}
     >
       {item.label}
@@ -24,7 +24,7 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
   return (
     <li>
       <div
-        class={`flex justify-between items-center w-full py-2 ${
+        class={`flex justify-between items-center w-full pb-2 ${
           level > 0 ? "pl-2" : ""
         }`}
         onClick={() => {
@@ -58,11 +58,6 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
       {hasChildren && (
         <ul class={`flex-col ${open.value === true ? "flex" : "hidden"}`}>
           <li>
-            <a href={item.href} class="w-full py-2 pl-2 inline-block">
-              <Text class="underline" variant="caption">
-                Ver todos
-              </Text>
-            </a>
           </li>
           {item.children!.map((node) => (
             <MenuItem
@@ -78,50 +73,16 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
 
 function Menu({ items }: Props) {
   return (
-    <>
-      <ul class="px-4 flex-grow flex flex-col divide-y divide-default">
+    <div>
+      <ul class="px-16 flex-grow flex flex-col divide-y divide-black">
         {items.map((item) => <MenuItem item={item} />)}
       </ul>
+      <div>
+        <ul class="px-16 flex-grow flex flex-col divide-y divide-black">
 
-      <ul class="flex flex-col py-2 bg-hover">
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="/wishlist"
-          >
-            <Icon id="Heart" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Lista de desejos</Text>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="MapPin" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Nossas lojas</Text>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="Phone" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Fale conosco</Text>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="User" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Minha conta</Text>
-          </a>
-        </li>
-      </ul>
-    </>
+        </ul>
+      </div>
+    </div>
   );
 }
 

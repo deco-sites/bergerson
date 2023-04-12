@@ -3,7 +3,7 @@ import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
 
 import NavItem from "./NavItem.tsx";
-import { navbarHeight } from "./constants.ts";
+import { navbarHeight, bergersonLogo } from "./constants.ts";
 import HeaderSearchMenu from "deco-sites/fashion/islands/HeaderSearchMenu.tsx";
 import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "deco-sites/fashion/components/search/Searchbar.tsx";
@@ -28,7 +28,7 @@ function Navbar({ items, searchbar }: {
         >
           <img
             class={`w-[160px] h-[21px]`}
-            src="https://bergersonjoias.vteximg.com.br/arquivos/LOGO-BERGERSON-v23-260x34px-v2.png?v=638066399283770000"
+            src={`${bergersonLogo}`}
             alt="Logo Bergerson"
           />
         </a>

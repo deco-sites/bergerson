@@ -4,6 +4,7 @@ import { useEffect, useRef } from "preact/hooks";
 import { IS_BROWSER } from "$fresh/runtime.ts";
 import { useSignal } from "@preact/signals";
 import type { JSX } from "preact";
+import { bergersonLogo } from "../header/constants.ts";
 
 import Icon from "./Icon.tsx";
 
@@ -85,10 +86,13 @@ const Modal = ({
         <div
           class={`bg-default flex flex-col max-h-full ${containerStyles[mode]}`}
         >
-          <header class="flex px-4 py-6 justify-between items-center border-b-1 border-default">
-            <h1>
-              <Text variant="heading-2">{title}</Text>
-            </h1>
+          <header class="flex px-4 py-[15px] h-[52px] justify-between items-center border-default">
+            <div class={`w-[19px]`}></div>
+            <img
+              class={`w-[150px] h-[19.6px]`}
+              src={`${bergersonLogo}`}
+              alt="Logo Bergerson"
+            />
             <Button variant="icon" onClick={onClose}>
               <Icon id="XMark" width={20} height={20} strokeWidth={2} />
             </Button>

@@ -24,13 +24,13 @@ type Props = Omit<JSX.IntrinsicElements["span"], "aria-level"> & {
 };
 
 const Text = forwardRef<HTMLSpanElement, Props>((
-  { tone = "default", variant = "body", class: _class = "", ...props },
+  { tone = "default", variant = "heading-3", class: _class = "", ...props },
   ref,
 ) => {
   return (
     <span
       {...props}
-      class={`font-${variant} text-${variant} text-${tone} ${_class}`}
+      class={`font-heading-1 text-${variant} text-${tone} ${_class}`}
       ref={ref}
     />
   );
