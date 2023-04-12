@@ -2079,7 +2079,7 @@
       "type": "string",
       "format": "image-uri"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Action": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@Action": {
       "type": "object",
       "properties": {
         "title": {
@@ -2097,6 +2097,29 @@
       ],
       "title": "Action"
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@ImageWithAction": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Image"
+        },
+        "action": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@Action",
+          "title": "Action"
+        }
+      },
+      "required": [
+        "image"
+      ],
+      "title": "ImageWithAction"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@ImageWithAction[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@ImageWithAction"
+      }
+    },
     "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML": {
       "type": "string",
       "format": "html"
@@ -2105,62 +2128,20 @@
       "type": "object",
       "properties": {
         "logo": {
-          "type": "object",
-          "properties": {
-            "image": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-              "title": "Image"
-            },
-            "action": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Action",
-              "title": "Action"
-            }
-          },
-          "required": [
-            "image"
-          ],
-          "title": "Logo",
-          "description": "image to be displayed before the texts"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@ImageWithAction",
+          "description": "image to be displayed before the texts",
+          "title": "Logo"
         },
         "detail": {
-          "type": "object",
-          "properties": {
-            "image": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-              "title": "Image"
-            },
-            "action": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Action",
-              "title": "Action"
-            }
-          },
-          "required": [
-            "image"
-          ],
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@ImageWithAction",
           "title": "Detail"
         },
         "products": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "image": {
-                "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-                "title": "Image"
-              },
-              "action": {
-                "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Action",
-                "title": "Action"
-              }
-            },
-            "required": [
-              "image"
-            ]
-          },
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@ImageWithAction[]",
           "title": "Products"
         },
         "action": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Action",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@Action",
           "title": "Action"
         },
         "text": {
@@ -4440,6 +4421,22 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9TbWFsbEZhZGVyU2hlbGYudHN4": {
+      "title": "./islands/SmallFaderShelf.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/SmallFaderShelf.tsx"
+          ],
+          "default": "./islands/SmallFaderShelf.tsx"
+        }
+      }
+    },
     "JGxpdmUvaGFuZGxlcnMvcm91dGVzU2VsZWN0aW9uLnRz": {
       "title": "$live/handlers/routesSelection.ts",
       "type": "object",
@@ -5443,6 +5440,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9XcmlzdHdhdGNoSGVyby50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9TbWFsbEZhZGVyU2hlbGYudHN4"
         }
       ]
     },

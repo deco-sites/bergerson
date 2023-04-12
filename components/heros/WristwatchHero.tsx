@@ -1,25 +1,17 @@
-import type { JSX } from "preact";
+import Actionable from "./Actionable.tsx";
 import { useSignal } from "@preact/signals";
-import { useEffect, useMemo } from "preact/hooks";
+import SmallFaderShelf from "./SmallFaderShelf.tsx";
+import { Action, ImageWithAction } from "./types.ts";
 import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
+import type { HTML } from "deco-sites/std/components/types.ts";
 import QuillText from "deco-sites/std/components/QuillText.tsx";
 import Button from "deco-sites/bergerson/components/ui/Button.tsx";
 
-import type {
-  HTML,
-  Image as LiveImage,
-} from "deco-sites/std/components/types.ts";
-
-export interface Action {
-  title: string;
-  href: string;
-}
-
 export interface Slide {
   /** @description image to be displayed before the texts */
-  logo: { image: LiveImage; action?: Action };
-  detail: { image: LiveImage; action?: Action };
-  products: { image: LiveImage; action?: Action }[];
+  logo: ImageWithAction;
+  detail: ImageWithAction;
+  products: ImageWithAction[];
   action: Action;
   text: HTML;
   /** @default right */
@@ -31,42 +23,10 @@ export interface Props {
   slides: Slide[];
 }
 
-/** TIMER PROPERTIES */
-let PRODUCT_TIMER: number;
-const TIMER_INTERVAL = 8000;
-
 export default function WristwatchHero(props: Props) {
   const { title, slides } = props;
   const currentSlide = useSignal(0);
-  const currentProduct = useSignal(0);
   const goTo = (n: number) => currentSlide.value = n;
-
-  // slide setup
-  // const slide = useMemo(() => slides[currentSlide.value], [currentSlide.value]);
-
-  useEffect(() => {
-    onChangeSlide();
-    return () => clearInterval(PRODUCT_TIMER);
-  }, [currentSlide.value]);
-
-  const onChangeSlide = () => {
-    if (PRODUCT_TIMER) clearInterval(PRODUCT_TIMER);
-    PRODUCT_TIMER = setInterval(changeProductImage, TIMER_INTERVAL);
-    currentProduct.value = 0;
-  };
-
-  const changeProductImage = () => {
-    const currentSlideProducts = slides[currentSlide.value].products;
-    const slideProductsLenght = currentSlideProducts.length - 1;
-
-    if (currentProduct.value >= slideProductsLenght) {
-      currentProduct.value = 0;
-      return;
-    }
-
-    currentProduct.value += 1;
-    return;
-  };
 
   const goToNext = () => {
     const slideLenght = slides.length - 1;
@@ -134,25 +94,14 @@ export default function WristwatchHero(props: Props) {
 
                 {/** products */}
                 <div
-                  class={`hidden lg:block w-[200px] h-[200px] bg-white absolute relative ${productClass}`}
+                  class={`hidden lg:block w-[200px] h-[200px] bg-white absolute ${productClass}`}
                 >
-                  {slide.products.map((product, productIndex) => {
-                    const isActive = productIndex === currentProduct.value;
-                    const opacityClass = isActive
-                      ? "opacity-100 z-10"
-                      : "opacity-0";
-
-                    return (
-                      <Actionable action={product.action}>
-                        <img
-                          src={product.image}
-                          alt={product.action?.title || title}
-                          key={`${slideIndex}-${productIndex}`}
-                          class={`h-[200px] w-[200px] object-cover transition ease-in-out duration-1000 absolute ${opacityClass}`}
-                        />
-                      </Actionable>
-                    );
-                  })}
+                  {isActive && (
+                    <SmallFaderShelf
+                      key={slideIndex}
+                      images={slide.products}
+                    />
+                  )}
                 </div>
 
                 {/** mobile title */}
@@ -210,19 +159,5 @@ export default function WristwatchHero(props: Props) {
         })}
       </ul>
     </div>
-  );
-}
-
-function Actionable(
-  props: { action?: Action; children: JSX.Element },
-): JSX.Element {
-  if (!props.action) {
-    return props.children;
-  }
-
-  return (
-    <a href={props.action.href}>
-      {props.children}
-    </a>
   );
 }
