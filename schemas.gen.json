@@ -2075,6 +2075,148 @@
       ],
       "title": "deco-sites/bergerson/components/ui/ShippingSimulation.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image": {
+      "type": "string",
+      "format": "image-uri"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Action": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        }
+      },
+      "required": [
+        "title",
+        "href"
+      ],
+      "title": "Action"
+    },
+    "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML": {
+      "type": "string",
+      "format": "html"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Slide": {
+      "type": "object",
+      "properties": {
+        "logo": {
+          "type": "object",
+          "properties": {
+            "image": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Image"
+            },
+            "action": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Action",
+              "title": "Action"
+            }
+          },
+          "required": [
+            "image"
+          ],
+          "title": "Logo",
+          "description": "image to be displayed before the texts"
+        },
+        "detail": {
+          "type": "object",
+          "properties": {
+            "image": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Image"
+            },
+            "action": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Action",
+              "title": "Action"
+            }
+          },
+          "required": [
+            "image"
+          ],
+          "title": "Detail"
+        },
+        "products": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "image": {
+                "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                "title": "Image"
+              },
+              "action": {
+                "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Action",
+                "title": "Action"
+              }
+            },
+            "required": [
+              "image"
+            ]
+          },
+          "title": "Products"
+        },
+        "action": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Action",
+          "title": "Action"
+        },
+        "text": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Text"
+        },
+        "textPosition": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "left"
+            },
+            {
+              "type": "string",
+              "const": "right"
+            }
+          ],
+          "type": "string",
+          "title": "Text Position",
+          "default": "right"
+        }
+      },
+      "required": [
+        "logo",
+        "detail",
+        "products",
+        "action",
+        "text",
+        "textPosition"
+      ],
+      "title": "Slide"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Slide[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Slide"
+      }
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "slides": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Slide[]",
+          "title": "Slides"
+        }
+      },
+      "required": [
+        "title",
+        "slides"
+      ],
+      "title": "deco-sites/bergerson/components/heros/WristwatchHero.tsx@Props"
+    },
     "ZGVjby1jeC9saXZlL2Jsb2Nrcy9mbGFnLnRz@Flag": {
       "$ref": "#/root/flags"
     },
@@ -2182,10 +2324,6 @@
         "sections"
       ],
       "title": "deco-cx/live/pages/LivePage.tsx@Props"
-    },
-    "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image": {
-      "type": "string",
-      "format": "image-uri"
     },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJHcmlkLnRzeA==@Banner": {
       "type": "object",
@@ -4281,6 +4419,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9XcmlzdHdhdGNoSGVyby50c3g=": {
+      "title": "./islands/WristwatchHero.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/WristwatchHero.tsx"
+          ],
+          "default": "./islands/WristwatchHero.tsx"
+        }
+      }
+    },
     "JGxpdmUvaGFuZGxlcnMvcm91dGVzU2VsZWN0aW9uLnRz": {
       "title": "$live/handlers/routesSelection.ts",
       "type": "object",
@@ -4709,6 +4868,27 @@
             "deco-sites/bergerson/sections/HeroLinks.tsx"
           ],
           "default": "deco-sites/bergerson/sections/HeroLinks.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvV3Jpc3R3YXRjaEhlcm8udHN4": {
+      "title": "deco-sites/bergerson/sections/WristwatchHero.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/bergerson/sections/WristwatchHero.tsx"
+          ],
+          "default": "deco-sites/bergerson/sections/WristwatchHero.tsx"
         }
       }
     },
@@ -5260,6 +5440,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9XaXNobGlzdEJ1dHRvbi50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9XcmlzdHdhdGNoSGVyby50c3g="
         }
       ]
     },
@@ -5347,6 +5530,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGVyb0xpbmtzLnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvV3Jpc3R3YXRjaEhlcm8udHN4"
         },
         {
           "$ref": "#/definitions/JGxpdmUvc2VjdGlvbnMvUGFnZUluY2x1ZGUudHN4"

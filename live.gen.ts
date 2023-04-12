@@ -18,6 +18,7 @@ import * as $$$$$7 from "./islands/ShippingSimulation.tsx";
 import * as $$$$$8 from "./islands/SliderJS.tsx";
 import * as $$$$$9 from "./islands/ViewSendEvent.tsx";
 import * as $$$$$10 from "./islands/WishlistButton.tsx";
+import * as $$$$$11 from "./islands/WristwatchHero.tsx";
 import * as $$$$$$$$0 from "./sections/BannerGrid.tsx";
 import * as $$$$$$$$1 from "./sections/BannerPLP.tsx";
 import * as $$$$$$$$2 from "./sections/Carousel.tsx";
@@ -34,6 +35,7 @@ import * as $$$$$$$$12 from "./sections/SearchResult.tsx";
 import * as $$$$$$$$13 from "./sections/WhatsApp.tsx";
 import * as $$$$$$$$14 from "./sections/WishlistGallery.tsx";
 import * as $$$$$$$$15 from "./sections/HeroLinks.tsx";
+import * as $$$$$$$$16 from "./sections/WristwatchHero.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_editorData from "$live/routes/live/editorData.ts";
@@ -113,6 +115,7 @@ const manifest: DecoManifest = {
     "./islands/SliderJS.tsx": $$$$$8,
     "./islands/ViewSendEvent.tsx": $$$$$9,
     "./islands/WishlistButton.tsx": $$$$$10,
+    "./islands/WristwatchHero.tsx": $$$$$11,
   },
   "sections": {
     "deco-sites/bergerson/sections/BannerGrid.tsx": $$$$$$$$0,
@@ -131,6 +134,7 @@ const manifest: DecoManifest = {
     "deco-sites/bergerson/sections/WhatsApp.tsx": $$$$$$$$13,
     "deco-sites/bergerson/sections/WishlistGallery.tsx": $$$$$$$$14,
     "deco-sites/bergerson/sections/HeroLinks.tsx": $$$$$$$$15,
+    "deco-sites/bergerson/sections/WristwatchHero.tsx": $$$$$$$$16,
     "$live/sections/PageInclude.tsx": i2$$$9,
     "deco-sites/std/sections/configYourViews.global.tsx": i2$$$0,
     "deco-sites/std/sections/SEO.tsx": i2$$$1,
