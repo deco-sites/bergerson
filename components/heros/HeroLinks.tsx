@@ -32,21 +32,21 @@ export default function HeroLinks(props: Props) {
       style={backgroundStyle}
       class="h-[100vh] max-h-[1120px] flex flex-row justify-between items-center relative"
     >
-      <div class="h-full md:max-w-[532px] w-full">
+      <div class="h-full lg:max-w-[532px] w-full">
         <img
           alt={alt}
           src={left}
-          class="h-full max-h-[1120px] w-full md:w-[532px] object-cover"
+          class="h-full max-h-[1120px] w-full lg:w-[532px] object-cover"
         />
       </div>
 
-      <ul class="md:mx-12 flex flex-col gap-[20px] flex-1 h-full w-full items-center justify-center absolute md:relative">
+      <ul class="lg:mx-12 flex flex-col gap-[32px] lg:gap-[20px] flex-1 h-full w-full items-center justify-center absolute lg:relative">
         {links.map((link) => {
           return (
-            <li class="relative md:h-[39px] md:w-[175px]">
+            <li class="relative lg:h-[39px] lg:w-[175px]">
               <a
                 href={link.href}
-                class="text-white md:text-default hover:font-bold font-serif text-[39px] tracking-wider leading-[39px] md:absolute"
+                class="text-white lg:text-default hover:font-bold font-serif text-[26px] lg:text-[39px] tracking-wider leading-[39px] lg:absolute"
               >
                 {link.label}
               </a>
@@ -55,7 +55,7 @@ export default function HeroLinks(props: Props) {
         })}
       </ul>
 
-      <div class="md:mx-12 hidden md:block h-full max-h-[440px] w-full max-w-[532px]">
+      <div class="lg:mx-12 hidden lg:block h-full max-h-[440px] w-full max-w-[532px]">
         <img
           alt={alt}
           src={right}
