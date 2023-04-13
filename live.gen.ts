@@ -11,13 +11,14 @@ import * as $$$$$0 from "./islands/AddToCartButton.tsx";
 import * as $$$$$1 from "./islands/HeaderButton.tsx";
 import * as $$$$$2 from "./islands/HeaderModals.tsx";
 import * as $$$$$3 from "./islands/HeaderSearchMenu.tsx";
-import * as $$$$$4 from "./islands/ProductImageZoom.tsx";
-import * as $$$$$5 from "./islands/SearchControls.tsx";
-import * as $$$$$6 from "./islands/SendEventButton.tsx";
-import * as $$$$$7 from "./islands/ShippingSimulation.tsx";
-import * as $$$$$8 from "./islands/SliderJS.tsx";
-import * as $$$$$9 from "./islands/ViewSendEvent.tsx";
-import * as $$$$$10 from "./islands/WishlistButton.tsx";
+import * as $$$$$4 from "./islands/NavItens.tsx";
+import * as $$$$$5 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$6 from "./islands/SearchControls.tsx";
+import * as $$$$$7 from "./islands/SendEventButton.tsx";
+import * as $$$$$8 from "./islands/ShippingSimulation.tsx";
+import * as $$$$$9 from "./islands/SliderJS.tsx";
+import * as $$$$$10 from "./islands/ViewSendEvent.tsx";
+import * as $$$$$11 from "./islands/WishlistButton.tsx";
 import * as $$$$$$$$0 from "./sections/BannerGrid.tsx";
 import * as $$$$$$$$1 from "./sections/BannerPLP.tsx";
 import * as $$$$$$$$2 from "./sections/Carousel.tsx";
@@ -105,13 +106,14 @@ const manifest: DecoManifest = {
     "./islands/HeaderButton.tsx": $$$$$1,
     "./islands/HeaderModals.tsx": $$$$$2,
     "./islands/HeaderSearchMenu.tsx": $$$$$3,
-    "./islands/ProductImageZoom.tsx": $$$$$4,
-    "./islands/SearchControls.tsx": $$$$$5,
-    "./islands/SendEventButton.tsx": $$$$$6,
-    "./islands/ShippingSimulation.tsx": $$$$$7,
-    "./islands/SliderJS.tsx": $$$$$8,
-    "./islands/ViewSendEvent.tsx": $$$$$9,
-    "./islands/WishlistButton.tsx": $$$$$10,
+    "./islands/NavItens.tsx": $$$$$4,
+    "./islands/ProductImageZoom.tsx": $$$$$5,
+    "./islands/SearchControls.tsx": $$$$$6,
+    "./islands/SendEventButton.tsx": $$$$$7,
+    "./islands/ShippingSimulation.tsx": $$$$$8,
+    "./islands/SliderJS.tsx": $$$$$9,
+    "./islands/ViewSendEvent.tsx": $$$$$10,
+    "./islands/WishlistButton.tsx": $$$$$11,
   },
   "sections": {
     "deco-sites/bergerson/sections/BannerGrid.tsx": $$$$$$$$0,
