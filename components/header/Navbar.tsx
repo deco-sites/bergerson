@@ -69,38 +69,38 @@ function Navbar({ items, searchbar }: {
         </div>
         <div class="flex-none w-[326px] flex items-center justify-between">
           <div class="flex gap-5 items-center">
-          <img
-            class={`w-[22px] h-[22px]`}
-            src="https://bergersonjoias.vteximg.com.br/arquivos/icon-search-header.png"
-            alt="Search products button"
-          />
-          <HeaderSearchMenu searchbar={searchbar} />
-          <Button
-            as="a"
-            variant="icon"
-            href="/wishlist"
-            aria-label="Wishlist"
-          >
             <img
-              class={`w-[22px] h-[24.8px]`}
-              src="https://www.bergersonjoias.com/arquivos/bg-v23-mybag.png?v=638000718382000000"
-              alt="My cart button"
+              class={`w-[22px] h-[22px]`}
+              src="https://bergersonjoias.vteximg.com.br/arquivos/icon-search-header.png"
+              alt="Search products button"
             />
-          </Button>
-          <Button
-            as="a"
-            variant="icon"
-            href="/login"
-            aria-label="Log in"
-          >
-            <img
-              class={`w-[22px] h-[24.2px]`}
-              src="https://bergersonjoias.vteximg.com.br/arquivos/Icon-my-account-header.png"
-              alt="My account button"
-            />
-          </Button>
+            <HeaderSearchMenu searchbar={searchbar} />
+            <Button
+              as="a"
+              variant="icon"
+              href="/wishlist"
+              aria-label="Wishlist"
+            >
+              <img
+                class={`w-[22px] h-[24.8px]`}
+                src="https://www.bergersonjoias.com/arquivos/bg-v23-mybag.png?v=638000718382000000"
+                alt="My cart button"
+              />
+            </Button>
+            <Button
+              as="a"
+              variant="icon"
+              href="/login"
+              aria-label="Log in"
+            >
+              <img
+                class={`w-[22px] h-[24.2px]`}
+                src="https://bergersonjoias.vteximg.com.br/arquivos/Icon-my-account-header.png"
+                alt="My account button"
+              />
+            </Button>
           </div>
-          
+
           <iframe
             src="https://static.rolex.com/retailers/clock/?colour=gold&amp;apiKey=903dce3692b5146aa14d49b74da13862&amp;lang=pt_br"
             style="width:170px;height:70px;border:0;margin:0;padding:0;overflow:hidden;z-index:0;position:relative;scroll:none;"

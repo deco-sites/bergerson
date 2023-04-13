@@ -79,7 +79,6 @@ function Menu({ items }: Props) {
       </ul>
       <div>
         <ul class="px-16 flex-grow flex flex-col divide-y divide-black">
-
         </ul>
       </div>
     </div>

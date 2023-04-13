@@ -43,7 +43,7 @@ function NavItem({ item }: { item: INavItem }) {
                 <>
                   <li
                     value={index}
-                    onMouseEnter={event => imageIndex.value = index}
+                    onMouseEnter={(event) => imageIndex.value = index}
                     onMouseLeave={() => imageIndex.value = 0}
                     class="group pb-2"
                   >

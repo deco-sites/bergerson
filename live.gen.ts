@@ -5,20 +5,22 @@
 import config from "./deno.json" assert { type: "json" };
 import { DecoManifest } from "$live/types.ts";
 
-import * as $$$$0 from "./routes/api/[...catchall].tsx";
-import * as $$$$1 from "./routes/_app.tsx";
+import * as $$$$0 from "./routes/_app.tsx";
+import * as $$$$1 from "./routes/api/[...catchall].tsx";
 import * as $$$$$0 from "./islands/AddToCartButton.tsx";
 import * as $$$$$1 from "./islands/HeaderButton.tsx";
 import * as $$$$$2 from "./islands/HeaderModals.tsx";
 import * as $$$$$3 from "./islands/HeaderSearchMenu.tsx";
-import * as $$$$$4 from "./islands/NavItens.tsx";
-import * as $$$$$5 from "./islands/ProductImageZoom.tsx";
-import * as $$$$$6 from "./islands/SearchControls.tsx";
-import * as $$$$$7 from "./islands/SendEventButton.tsx";
-import * as $$$$$8 from "./islands/ShippingSimulation.tsx";
-import * as $$$$$9 from "./islands/SliderJS.tsx";
-import * as $$$$$10 from "./islands/ViewSendEvent.tsx";
-import * as $$$$$11 from "./islands/WishlistButton.tsx";
+import * as $$$$$4 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$5 from "./islands/SearchControls.tsx";
+import * as $$$$$6 from "./islands/SendEventButton.tsx";
+import * as $$$$$7 from "./islands/ShippingSimulation.tsx";
+import * as $$$$$8 from "./islands/SliderJS.tsx";
+import * as $$$$$9 from "./islands/ViewSendEvent.tsx";
+import * as $$$$$10 from "./islands/WishlistButton.tsx";
+import * as $$$$$11 from "./islands/NavItens.tsx";
+import * as $$$$$12 from "./islands/SmallFaderShelf.tsx";
+import * as $$$$$13 from "./islands/WristwatchHero.tsx";
 import * as $$$$$$$$0 from "./sections/BannerGrid.tsx";
 import * as $$$$$$$$1 from "./sections/BannerPLP.tsx";
 import * as $$$$$$$$2 from "./sections/Carousel.tsx";
@@ -34,6 +36,8 @@ import * as $$$$$$$$11 from "./sections/ProductShelf.tsx";
 import * as $$$$$$$$12 from "./sections/SearchResult.tsx";
 import * as $$$$$$$$13 from "./sections/WhatsApp.tsx";
 import * as $$$$$$$$14 from "./sections/WishlistGallery.tsx";
+import * as $$$$$$$$15 from "./sections/HeroLinks.tsx";
+import * as $$$$$$$$16 from "./sections/WristwatchHero.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_editorData from "$live/routes/live/editorData.ts";
@@ -106,14 +110,16 @@ const manifest: DecoManifest = {
     "./islands/HeaderButton.tsx": $$$$$1,
     "./islands/HeaderModals.tsx": $$$$$2,
     "./islands/HeaderSearchMenu.tsx": $$$$$3,
-    "./islands/NavItens.tsx": $$$$$4,
-    "./islands/ProductImageZoom.tsx": $$$$$5,
-    "./islands/SearchControls.tsx": $$$$$6,
-    "./islands/SendEventButton.tsx": $$$$$7,
-    "./islands/ShippingSimulation.tsx": $$$$$8,
-    "./islands/SliderJS.tsx": $$$$$9,
-    "./islands/ViewSendEvent.tsx": $$$$$10,
-    "./islands/WishlistButton.tsx": $$$$$11,
+    "./islands/ProductImageZoom.tsx": $$$$$4,
+    "./islands/SearchControls.tsx": $$$$$5,
+    "./islands/SendEventButton.tsx": $$$$$6,
+    "./islands/ShippingSimulation.tsx": $$$$$7,
+    "./islands/SliderJS.tsx": $$$$$8,
+    "./islands/ViewSendEvent.tsx": $$$$$9,
+    "./islands/WishlistButton.tsx": $$$$$10,
+    "./islands/NavItens.tsx": $$$$$11,
+    "./islands/SmallFaderShelf.tsx": $$$$$12,
+    "./islands/WristwatchHero.tsx": $$$$$13,
   },
   "sections": {
     "deco-sites/bergerson/sections/BannerGrid.tsx": $$$$$$$$0,
@@ -131,6 +137,8 @@ const manifest: DecoManifest = {
     "deco-sites/bergerson/sections/SearchResult.tsx": $$$$$$$$12,
     "deco-sites/bergerson/sections/WhatsApp.tsx": $$$$$$$$13,
     "deco-sites/bergerson/sections/WishlistGallery.tsx": $$$$$$$$14,
+    "deco-sites/bergerson/sections/HeroLinks.tsx": $$$$$$$$15,
+    "deco-sites/bergerson/sections/WristwatchHero.tsx": $$$$$$$$16,
     "$live/sections/PageInclude.tsx": i2$$$9,
     "deco-sites/std/sections/configYourViews.global.tsx": i2$$$0,
     "deco-sites/std/sections/SEO.tsx": i2$$$1,
