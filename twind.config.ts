@@ -74,10 +74,10 @@ const options: Omit<Options, "selfURL"> = {
         "heading-1": ["56px", "67.2px"],
         "heading-2": ["24px", "28.8px"],
         "heading-3": ["20px", "24px"],
-        "menu": ["16px", "20px"],
+        "menu": ["15px", "19px"],
         "button": ["14px", "18px"],
         "body": ["16px", "20px"],
-        "caption": ["13px", "16px"],
+        "caption": ["14px", "16px"],
         "list-price": ["10px", "20px"],
       },
       fontWeight: {
@@ -115,6 +115,7 @@ const options: Omit<Options, "selfURL"> = {
         default: "0px 1px 4px 0px #0000001F",
         md: "0px 1px 5px 0px #00000024",
         lg: "0px 4px 10px 0px #0000001F",
+        "header": "0 3px 3px rgba(0, 0, 0, 7%)",
       },
     },
     fontFamily: {

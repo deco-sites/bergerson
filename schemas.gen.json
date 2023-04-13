@@ -2075,9 +2075,138 @@
       ],
       "title": "deco-sites/bergerson/components/ui/ShippingSimulation.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoYmFyLnRzeA==@EditableProps": {
+      "type": "object",
+      "properties": {
+        "placeholder": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Placeholder",
+          "description": "Search bar default placeholder message",
+          "default": "What are you looking for?"
+        },
+        "action": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Action",
+          "description": "When user clicks on the search button, navigate it to",
+          "default": "/s"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Name",
+          "description": "Querystring param used when navigating the user",
+          "default": "q"
+        },
+        "query": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Query"
+        }
+      },
+      "required": [],
+      "title": "EditableProps"
+    },
     "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image": {
       "type": "string",
       "format": "image-uri"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Label"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "title": "Label"
+              },
+              "href": {
+                "type": "string",
+                "title": "Href"
+              },
+              "image": {
+                "type": "object",
+                "properties": {
+                  "src": {
+                    "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                    "title": "Src"
+                  },
+                  "alt": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "title": "Alt"
+                  }
+                },
+                "required": [],
+                "title": "Image"
+              }
+            },
+            "required": [
+              "label",
+              "href"
+            ]
+          },
+          "title": "Children"
+        }
+      },
+      "required": [
+        "label",
+        "href"
+      ],
+      "title": "NavItem"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem"
+      }
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "searchbar": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoYmFyLnRzeA==@EditableProps",
+          "title": "Searchbar"
+        },
+        "navItems": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem[]",
+          "title": "Nav Items",
+          "description": "Navigation items used both on mobile and desktop menus"
+        },
+        "products": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
+          "title": "Products",
+          "description": "Product suggestions displayed on search"
+        },
+        "suggestions": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Suggestion|null",
+          "title": "Suggestions"
+        }
+      },
+      "required": [],
+      "title": "deco-sites/bergerson/components/header/Header.tsx@Props"
     },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@Action": {
       "type": "object",
@@ -2945,156 +3074,6 @@
       },
       "required": [],
       "title": "deco-sites/bergerson/components/footer/Footer.tsx@Props"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoYmFyLnRzeA==@EditableProps": {
-      "type": "object",
-      "properties": {
-        "placeholder": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Placeholder",
-          "description": "Search bar default placeholder message",
-          "default": "What are you looking for?"
-        },
-        "action": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Action",
-          "description": "When user clicks on the search button, navigate it to",
-          "default": "/s"
-        },
-        "name": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Name",
-          "description": "Querystring param used when navigating the user",
-          "default": "q"
-        },
-        "query": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Query"
-        }
-      },
-      "required": [],
-      "title": "EditableProps"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem": {
-      "type": "object",
-      "properties": {
-        "label": {
-          "type": "string",
-          "title": "Label"
-        },
-        "href": {
-          "type": "string",
-          "title": "Href"
-        },
-        "children": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "label": {
-                "type": "string",
-                "title": "Label"
-              },
-              "href": {
-                "type": "string",
-                "title": "Href"
-              },
-              "children": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "label": {
-                      "type": "string",
-                      "title": "Label"
-                    },
-                    "href": {
-                      "type": "string",
-                      "title": "Href"
-                    }
-                  },
-                  "required": [
-                    "label",
-                    "href"
-                  ]
-                },
-                "title": "Children"
-              }
-            },
-            "required": [
-              "label",
-              "href"
-            ]
-          },
-          "title": "Children"
-        },
-        "image": {
-          "type": "object",
-          "properties": {
-            "src": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-              "title": "Src"
-            },
-            "alt": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Alt"
-            }
-          },
-          "required": [],
-          "title": "Image"
-        }
-      },
-      "required": [
-        "label",
-        "href"
-      ],
-      "title": "NavItem"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem"
-      }
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@Props": {
-      "type": "object",
-      "properties": {
-        "searchbar": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoYmFyLnRzeA==@EditableProps",
-          "title": "Searchbar"
-        },
-        "navItems": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem[]",
-          "title": "Nav Items",
-          "description": "Navigation items used both on mobile and desktop menus"
-        },
-        "products": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
-          "title": "Products",
-          "description": "Product suggestions displayed on search"
-        },
-        "suggestions": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Suggestion|null",
-          "title": "Suggestions"
-        }
-      },
-      "required": [],
-      "title": "deco-sites/bergerson/components/header/Header.tsx@Props"
     },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9IaWdobGlnaHRzLnRzeA==@Highlight": {
       "type": "object",
@@ -4400,6 +4379,43 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9OYXZJdGVucy50c3g=": {
+      "title": "./islands/NavItens.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/NavItens.tsx"
+          ],
+          "default": "./islands/NavItens.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9TbWFsbEZhZGVyU2hlbGYudHN4": {
+      "title": "./islands/SmallFaderShelf.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/SmallFaderShelf.tsx"
+          ],
+          "default": "./islands/SmallFaderShelf.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9XcmlzdHdhdGNoSGVyby50c3g=": {
       "title": "./islands/WristwatchHero.tsx",
       "type": "object",
@@ -4418,22 +4434,6 @@
             "./islands/WristwatchHero.tsx"
           ],
           "default": "./islands/WristwatchHero.tsx"
-        }
-      }
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9TbWFsbEZhZGVyU2hlbGYudHN4": {
-      "title": "./islands/SmallFaderShelf.tsx",
-      "type": "object",
-      "required": [
-        "__resolveType"
-      ],
-      "properties": {
-        "__resolveType": {
-          "type": "string",
-          "enum": [
-            "./islands/SmallFaderShelf.tsx"
-          ],
-          "default": "./islands/SmallFaderShelf.tsx"
         }
       }
     },
@@ -5439,10 +5439,13 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9XaXNobGlzdEJ1dHRvbi50c3g="
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9XcmlzdHdhdGNoSGVyby50c3g="
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9OYXZJdGVucy50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9TbWFsbEZhZGVyU2hlbGYudHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9XcmlzdHdhdGNoSGVyby50c3g="
         }
       ]
     },

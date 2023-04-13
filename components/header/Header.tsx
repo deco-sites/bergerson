@@ -13,15 +13,11 @@ export interface NavItem {
   children?: Array<{
     label: string;
     href: string;
-    children?: Array<{
-      label: string;
-      href: string;
-    }>;
+    image?: {
+      src?: Image;
+      alt?: string;
+    };
   }>;
-  image?: {
-    src?: Image;
-    alt?: string;
-  };
 }
 
 export interface Props {

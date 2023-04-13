@@ -31,7 +31,11 @@ function MenuButton() {
         displayMenu.value = true;
       }}
     >
-      <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />
+      <img
+        class={`w-[35px] h-[35px]`}
+        src="https://bergersonjoias.vteximg.com.br/arquivos/bj-v23-mobile-menu.png?v=637992066815930000"
+        alt="Open menu button"
+      />
     </Button>
   );
 }
