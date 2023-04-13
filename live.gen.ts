@@ -91,8 +91,8 @@ import * as i2$$$8 from "deco-sites/std/sections/SEOPDP.tsx";
 
 const manifest: DecoManifest = {
   "routes": {
-    "./routes/api/[...catchall].tsx": $$$$0,
-    "./routes/_app.tsx": $$$$1,
+    "./routes/_app.tsx": $$$$0,
+    "./routes/api/[...catchall].tsx": $$$$1,
     "./routes/_middleware.ts": $live_middleware,
     "./routes/live/workbench.ts": $live_workbench,
     "./routes/live/editorData.ts": $live_editorData,

@@ -89,6 +89,7 @@ const options: Omit<Options, "selfURL"> = {
         "body": "400",
         "caption": "400",
         "list-price": "400",
+        "medium": "500",
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",
@@ -118,8 +119,8 @@ const options: Omit<Options, "selfURL"> = {
       },
     },
     fontFamily: {
-      sans: ["Albert Sans", "sans-serif"],
-      serif: ["inherit", "serif"],
+      sans: ["Montserrat", "sans-serif"],
+      serif: ["DM Serif Display", "serif"],
     },
     screens: {
       sm: "640px",
