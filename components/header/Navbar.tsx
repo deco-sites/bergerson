@@ -1,7 +1,6 @@
 import HeaderButton from "deco-sites/fashion/islands/HeaderButton.tsx";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
-
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import NavItem from "./NavItem.tsx";
 import {
   bergersonLogo,
@@ -12,10 +11,17 @@ import HeaderSearchMenu from "deco-sites/fashion/islands/HeaderSearchMenu.tsx";
 import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "deco-sites/fashion/components/search/Searchbar.tsx";
 
-function Navbar({ items, searchbar }: {
+export interface NavImage {
+  logo?: { src?: LiveImage; alt?: string };
+}
+
+function Navbar({ items, searchbar, img }: {
   items: INavItem[];
   searchbar: SearchbarProps;
+  img: NavImage;
 }) {
+  const logo = img.logo?.src
+  const logoAlt = img.logo?.alt
   return (
     <>
       {/* Mobile Version */}
@@ -30,11 +36,13 @@ function Navbar({ items, searchbar }: {
           class={`flex-grow inline-flex justify-center items-center min-h-[${navbarHeight}]`}
           aria-label="Store logo"
         >
-          <img
-            class={`w-[160px] h-[21px]`}
-            src={`${bergersonLogo}`}
-            alt="Logo Bergerson"
-          />
+          {logo === undefined ? <p>Logo</p> : (
+            <img
+              class={`w-[160px] h-[21px]`}
+              src={logo}
+              alt={logoAlt}
+            />
+          )}
         </a>
 
         <div class="w-[51px] flex justify-between">
@@ -57,11 +65,13 @@ function Navbar({ items, searchbar }: {
       >
         <div class="flex-none">
           <a href="/" aria-label="Store logo" class="block w-[160px]">
+          {logo === undefined ? <p>Logo</p> : (
             <img
               class={`w-[160px] h-[20.9px]`}
-              src={`${bergersonLogo}`}
-              alt="Logo Bergerson"
+              src={logo}
+              alt={logoAlt}
             />
+          )}
           </a>
         </div>
         <div class="px-3 flex-auto flex justify-between max-w-[893px] h-[135px]">

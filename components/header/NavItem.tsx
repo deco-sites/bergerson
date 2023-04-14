@@ -1,5 +1,4 @@
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Image from "deco-sites/std/components/Image.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import { useSignal } from "@preact/signals";
 import { headerHeightDesktop } from "./constants.ts";
