@@ -104,9 +104,9 @@ const Modal = ({
             </div>
             <div class="pb-4">
               <ul class="px-16 flex flex-col divide-y divide-black">
-                <ListItem href="/" name="Minha conta" />
-                <ListItem href="/" name="Resgate seu bônus" />
-                <ListItem href="/" name="B Magazine" />
+                <ListItem href="/" label="Minha conta" />
+                <ListItem href="/" label="Resgate seu bônus" />
+                <ListItem href="/" label="B Magazine" />
               </ul>
               <div class="w-full flex justify-center">
                 <iframe
