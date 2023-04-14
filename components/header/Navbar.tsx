@@ -1,27 +1,22 @@
 import HeaderButton from "deco-sites/fashion/islands/HeaderButton.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import NavItem from "./NavItem.tsx";
 import {
-  bergersonLogo,
   navbarHeight,
   navbarHeightDesktop,
 } from "./constants.ts";
 import HeaderSearchMenu from "deco-sites/fashion/islands/HeaderSearchMenu.tsx";
 import type { INavItem } from "./NavItem.tsx";
+import type { NavImage } from "./Header.tsx";
 import type { Props as SearchbarProps } from "deco-sites/fashion/components/search/Searchbar.tsx";
+import Logo from "../ui/Logo.tsx";
 
-export interface NavImage {
-  logo?: { src?: LiveImage; alt?: string };
-}
 
 function Navbar({ items, searchbar, img }: {
   items: INavItem[];
   searchbar: SearchbarProps;
   img: NavImage;
 }) {
-  const logo = img.logo?.src
-  const logoAlt = img.logo?.alt
   return (
     <>
       {/* Mobile Version */}
@@ -36,13 +31,7 @@ function Navbar({ items, searchbar, img }: {
           class={`flex-grow inline-flex justify-center items-center min-h-[${navbarHeight}]`}
           aria-label="Store logo"
         >
-          {logo === undefined ? <p>Logo</p> : (
-            <img
-              class={`w-[160px] h-[21px]`}
-              src={logo}
-              alt={logoAlt}
-            />
-          )}
+          <Logo img={img}/>
         </a>
 
         <div class="w-[51px] flex justify-between">
@@ -65,13 +54,7 @@ function Navbar({ items, searchbar, img }: {
       >
         <div class="flex-none">
           <a href="/" aria-label="Store logo" class="block w-[160px]">
-          {logo === undefined ? <p>Logo</p> : (
-            <img
-              class={`w-[160px] h-[20.9px]`}
-              src={logo}
-              alt={logoAlt}
-            />
-          )}
+          <Logo img={img}/>
           </a>
         </div>
         <div class="px-3 flex-auto flex justify-between max-w-[893px] h-[135px]">

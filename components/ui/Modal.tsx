@@ -7,6 +7,8 @@ import type { JSX } from "preact";
 import { bergersonLogo } from "../header/constants.ts";
 
 import Icon from "./Icon.tsx";
+import Logo from "./Logo.tsx";
+import type { NavImage } from "../header/Header.tsx";
 
 // Lazy load a <dialog> polyfill.
 if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
@@ -20,6 +22,7 @@ export type Props = JSX.IntrinsicElements["dialog"] & {
   mode?: "sidebar-right" | "sidebar-left" | "center";
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
+  img?: NavImage;
 };
 
 const dialogStyles = {
@@ -47,6 +50,7 @@ const Modal = ({
   onClose,
   children,
   loading,
+  img,
   ...props
 }: Props) => {
   const lazy = useSignal(false);
@@ -88,11 +92,7 @@ const Modal = ({
         >
           <header class="flex px-4 py-[15px] h-[52px] justify-between items-center border-default">
             <div class={`w-[19px]`}></div>
-            <img
-              class={`w-[150px] h-[19.6px]`}
-              src={`${bergersonLogo}`}
-              alt="Logo Bergerson"
-            />
+           {img && <Logo img={img} />}
             <Button variant="icon" onClick={onClose}>
               <Icon id="XMark" width={20} height={20} strokeWidth={2} />
             </Button>

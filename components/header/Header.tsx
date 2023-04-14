@@ -68,6 +68,7 @@ function Header(
       <Modals
         menu={{ items: navItems }}
         searchbar={searchbar}
+        img={navImage}
       />
     </header>
   );
