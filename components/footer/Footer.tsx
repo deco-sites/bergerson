@@ -4,10 +4,10 @@ import Copyright from "./Copyright.tsx";
 function Footer() {
   return (
     <>
-      <footer class="w-full px-[138px] pt-10 pb-5 bg-footer flex justify-between">
+      <footer class="w-full px-[138px] pt-10 pb-8 bg-footer flex justify-between">
         {/*first div*/}
         <div class="w-full max-w-[213.5px]">
-          <h3 class="text-center text-[15px] font-normal">
+          <h3 class="text-center text-[15px] font-normal leading-4">
             Fique por dentro de todas as novidades da{" "}
             <strong>Bergerson</strong>, faça parte da nossa lista de e-mail
           </h3>
@@ -128,22 +128,22 @@ function Footer() {
                   <img src="https://www.bergersonjoias.com/arquivos/v22-master.png?v=637872801515700000" />
                 </a>
               </li>
-              <li class="pr-1.5">
+              <li class="pr-2.5">
                 <a href="/">
                   <img src="https://www.bergersonjoias.com/arquivos/v22-visa.png?v=637872801518670000" />
                 </a>
               </li>
-              <li class="pr-1.5">
+              <li class="pr-2.5">
                 <a href="/">
                   <img src="https://www.bergersonjoias.com/arquivos/v22-hipercard.png?v=637872801512730000" />
                 </a>
               </li>
-              <li class="pr-1.5">
+              <li class="pr-2.5">
                 <a href="/">
                   <img src="https://www.bergersonjoias.com/arquivos/v22-elo.png?v=637872801509730000" />
                 </a>
               </li>
-              <li class="pr-1.5">
+              <li class="pr-2.5">
                 <a href="/">
                   <img src="https://www.bergersonjoias.com/arquivos/v22-boleto.png?v=637872801508330000" />
                 </a>
