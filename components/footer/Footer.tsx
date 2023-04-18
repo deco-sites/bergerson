@@ -4,7 +4,8 @@ import Copyright from "./Copyright.tsx";
 function Footer() {
   return (
     <>
-      <footer class="w-full px-[138px] pt-10 pb-8 bg-footer flex justify-between">
+      {/*Desktop*/}
+      <footer class="w-full px-[138px] pt-10 pb-8 bg-footer justify-between hidden lg:flex">
         {/*first div*/}
         <div class="w-full max-w-[213.5px]">
           <h3 class="text-center text-[15px] font-normal leading-4">
@@ -216,6 +217,10 @@ function Footer() {
         </div>
       </footer>
       <Copyright />
+      {/*Mobile*/}
+      <footer class="lg:w-full lg:h-64 lg:bg-badge lg:hidden">
+
+      </footer>
     </>
   );
 }
