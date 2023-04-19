@@ -10,7 +10,7 @@ function Footer() {
       children: ComponentChildren;
     },
   ) {
-    return <div class={`py-6 px-4 sm:py-12 sm:px-0 ${_class}`}>{children}</div>;
+    return <div class={`py-6 px-4 lg:py-12 lg:px-0 ${_class}`}>{children}</div>;
   }
 
   const footerData = {
@@ -104,8 +104,8 @@ function Footer() {
           </div>
         </div>
         {/*Center div*/}
-        <div class="w-[610px]">
-          <div class="w-[610px] flex justify-center">
+        <div class="w-full max-w-[610px]">
+          <div class="flex justify-center">
             {/*Institucional*/}
             <div class="w-1/3">
               <h3 class="font-serif text-[17px] mb-2.5">Institucional</h3>
@@ -184,7 +184,7 @@ function Footer() {
           </div>
         </div>
         {/*Last div*/}
-        <div class="w-[396.5px] mb-2.5">
+        <div class="w-full max-w-[396.5px] mb-2.5">
           <h3 class="font-serif text-[17px] mb-2.5">
             Nossas lojas
           </h3>

@@ -2036,6 +2036,29 @@
       ],
       "title": "deco-sites/std/commerce/occ/client.ts@ConfigOCC"
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRHJvcERvd24udHN4@Props": {
+      "type": "object",
+      "properties": {
+        "summary": {
+          "type": "string",
+          "title": "Summary"
+        },
+        "itens": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Itens"
+        },
+        "other": {
+          "title": "Other"
+        }
+      },
+      "required": [
+        "summary"
+      ],
+      "title": "deco-sites/bergerson\\components\\footer\\DropDown.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xzZWFyY2hcU2VhcmNoYmFyLnRzeA==@EditableProps": {
       "type": "object",
       "properties": {
@@ -3998,6 +4021,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9Ecm9wRG93bi50c3g=": {
+      "title": "./islands/DropDown.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRHJvcERvd24udHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/DropDown.tsx"
+          ],
+          "default": "./islands/DropDown.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9IZWFkZXJCdXR0b24udHN4": {
       "title": "./islands/HeaderButton.tsx",
       "type": "object",
@@ -5186,6 +5230,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9BZGRUb0NhcnRCdXR0b24udHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9Ecm9wRG93bi50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9IZWFkZXJCdXR0b24udHN4"
