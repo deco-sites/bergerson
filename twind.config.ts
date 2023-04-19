@@ -43,7 +43,7 @@ const options: Omit<Options, "selfURL"> = {
         "default": "#FFFFFF",
         "header": "#FFFFFF",
         "badge": "#8C3D3D", // shopping cart tem isso tambem
-        "footer": "#003232",
+        "footer": "#FBF9F6",
         "interactive": "#161616",
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
@@ -124,7 +124,7 @@ const options: Omit<Options, "selfURL"> = {
     },
     screens: {
       sm: "640px",
-      md: "768px",
+      md: "990px",
       lg: "1024px",
       xl: "1280px",
       "2xl": "1536px",

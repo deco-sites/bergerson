@@ -7,6 +7,9 @@ import type { JSX } from "preact";
 import { bergersonLogo } from "../header/constants.ts";
 
 import Icon from "./Icon.tsx";
+import Logo from "./Logo.tsx";
+import type { NavImage } from "../header/Header.tsx";
+import ListItem from "./ListItem.tsx";
 
 // Lazy load a <dialog> polyfill.
 if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
@@ -20,6 +23,7 @@ export type Props = JSX.IntrinsicElements["dialog"] & {
   mode?: "sidebar-right" | "sidebar-left" | "center";
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
+  img?: NavImage;
 };
 
 const dialogStyles = {
@@ -47,6 +51,7 @@ const Modal = ({
   onClose,
   children,
   loading,
+  img,
   ...props
 }: Props) => {
   const lazy = useSignal(false);
@@ -88,17 +93,31 @@ const Modal = ({
         >
           <header class="flex px-4 py-[15px] h-[52px] justify-between items-center border-default">
             <div class={`w-[19px]`}></div>
-            <img
-              class={`w-[150px] h-[19.6px]`}
-              src={`${bergersonLogo}`}
-              alt="Logo Bergerson"
-            />
+            {img && <Logo img={img} />}
             <Button variant="icon" onClick={onClose}>
               <Icon id="XMark" width={20} height={20} strokeWidth={2} />
             </Button>
           </header>
-          <div class="overflow-y-auto flex-grow flex flex-col">
-            {loading === "lazy" ? lazy.value && children : children}
+          <div class="overflow-y-auto flex-grow flex justify-between flex-col">
+            <div>
+              {loading === "lazy" ? lazy.value && children : children}
+            </div>
+            <div class="pb-4">
+              <ul class="px-16 flex flex-col divide-y divide-black">
+                <ListItem href="/" label="Minha conta" />
+                <ListItem href="/" label="Resgate seu bônus" />
+                <ListItem href="/" label="B Magazine" />
+              </ul>
+              <div class="w-full flex justify-center">
+                <iframe
+                  src="https://static.rolex.com/retailers/clock/?colour=gold&amp;apiKey=903dce3692b5146aa14d49b74da13862&amp;lang=pt_br"
+                  style="width:170px;height:70px;border:0;margin:0;padding:0;overflow:hidden;z-index:0;position:relative;scroll:none;"
+                  scrolling="NO"
+                  title="Rolex"
+                >
+                </iframe>
+              </div>
+            </div>
           </div>
         </div>
       </section>
