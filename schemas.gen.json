@@ -2036,46 +2036,7 @@
       ],
       "title": "deco-sites/std/commerce/occ/client.ts@ConfigOCC"
     },
-    "ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdnRleC90eXBlcy50cw==@SKU": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "number",
-          "title": "Id"
-        },
-        "quantity": {
-          "type": "number",
-          "title": "Quantity"
-        },
-        "seller": {
-          "type": "string",
-          "title": "Seller"
-        }
-      },
-      "required": [
-        "id",
-        "quantity",
-        "seller"
-      ],
-      "title": "SKU"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9TaGlwcGluZ1NpbXVsYXRpb24udHN4@Props": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdnRleC90eXBlcy50cw==@SKU"
-          },
-          "title": "Items"
-        }
-      },
-      "required": [
-        "items"
-      ],
-      "title": "deco-sites/bergerson/components/ui/ShippingSimulation.tsx@Props"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoYmFyLnRzeA==@EditableProps": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xzZWFyY2hcU2VhcmNoYmFyLnRzeA==@EditableProps": {
       "type": "object",
       "properties": {
         "placeholder": {
@@ -2120,7 +2081,7 @@
       "type": "string",
       "format": "image-uri"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZWFkZXJcSGVhZGVyLnRzeA==@NavItem": {
       "type": "object",
       "properties": {
         "label": {
@@ -2177,22 +2138,70 @@
       ],
       "title": "NavItem"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem[]": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZWFkZXJcSGVhZGVyLnRzeA==@NavItem[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZWFkZXJcSGVhZGVyLnRzeA==@NavItem"
       }
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@Props": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZWFkZXJcSGVhZGVyLnRzeA==@NavImage": {
+      "type": "object",
+      "properties": {
+        "logo": {
+          "type": "object",
+          "properties": {
+            "src": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Src"
+            },
+            "alt": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Alt"
+            }
+          },
+          "required": [],
+          "title": "Logo"
+        },
+        "badge": {
+          "type": "object",
+          "properties": {
+            "src": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Src"
+            },
+            "alt": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Alt"
+            }
+          },
+          "required": [],
+          "title": "Badge"
+        }
+      },
+      "required": [],
+      "title": "NavImage"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZWFkZXJcSGVhZGVyLnRzeA==@Props": {
       "type": "object",
       "properties": {
         "searchbar": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoYmFyLnRzeA==@EditableProps",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xzZWFyY2hcU2VhcmNoYmFyLnRzeA==@EditableProps",
           "title": "Searchbar"
         },
         "navItems": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZWFkZXJcSGVhZGVyLnRzeA==@NavItem[]",
           "title": "Nav Items",
+          "description": "Navigation items used both on mobile and desktop menus"
+        },
+        "navImage": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZWFkZXJcSGVhZGVyLnRzeA==@NavImage",
+          "title": "Nav Image",
           "description": "Navigation items used both on mobile and desktop menus"
         },
         "products": {
@@ -2206,9 +2215,48 @@
         }
       },
       "required": [],
-      "title": "deco-sites/bergerson/components/header/Header.tsx@Props"
+      "title": "deco-sites/bergerson\\components\\header\\Header.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@Action": {
+    "ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdnRleC90eXBlcy50cw==@SKU": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "title": "Id"
+        },
+        "quantity": {
+          "type": "number",
+          "title": "Quantity"
+        },
+        "seller": {
+          "type": "string",
+          "title": "Seller"
+        }
+      },
+      "required": [
+        "id",
+        "quantity",
+        "seller"
+      ],
+      "title": "SKU"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxTaGlwcGluZ1NpbXVsYXRpb24udHN4@Props": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdnRleC90eXBlcy50cw==@SKU"
+          },
+          "title": "Items"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "title": "deco-sites/bergerson\\components\\ui\\ShippingSimulation.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1x0eXBlcy50cw==@Action": {
       "type": "object",
       "properties": {
         "title": {
@@ -2226,7 +2274,7 @@
       ],
       "title": "Action"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@ImageWithAction": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1x0eXBlcy50cw==@ImageWithAction": {
       "type": "object",
       "properties": {
         "image": {
@@ -2234,7 +2282,7 @@
           "title": "Image"
         },
         "action": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@Action",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1x0eXBlcy50cw==@Action",
           "title": "Action"
         }
       },
@@ -2243,34 +2291,34 @@
       ],
       "title": "ImageWithAction"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@ImageWithAction[]": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1x0eXBlcy50cw==@ImageWithAction[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@ImageWithAction"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1x0eXBlcy50cw==@ImageWithAction"
       }
     },
     "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML": {
       "type": "string",
       "format": "html"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Slide": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1xXcmlzdHdhdGNoSGVyby50c3g=@Slide": {
       "type": "object",
       "properties": {
         "logo": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@ImageWithAction",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1x0eXBlcy50cw==@ImageWithAction",
           "description": "image to be displayed before the texts",
           "title": "Logo"
         },
         "detail": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@ImageWithAction",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1x0eXBlcy50cw==@ImageWithAction",
           "title": "Detail"
         },
         "products": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@ImageWithAction[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1x0eXBlcy50cw==@ImageWithAction[]",
           "title": "Products"
         },
         "action": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy90eXBlcy50cw==@Action",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1x0eXBlcy50cw==@Action",
           "title": "Action"
         },
         "text": {
@@ -2303,13 +2351,13 @@
       ],
       "title": "Slide"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Slide[]": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1xXcmlzdHdhdGNoSGVyby50c3g=@Slide[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Slide"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1xXcmlzdHdhdGNoSGVyby50c3g=@Slide"
       }
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Props": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1xXcmlzdHdhdGNoSGVyby50c3g=@Props": {
       "type": "object",
       "properties": {
         "title": {
@@ -2317,7 +2365,7 @@
           "title": "Title"
         },
         "slides": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Slide[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1xXcmlzdHdhdGNoSGVyby50c3g=@Slide[]",
           "title": "Slides"
         }
       },
@@ -2325,7 +2373,7 @@
         "title",
         "slides"
       ],
-      "title": "deco-sites/bergerson/components/heros/WristwatchHero.tsx@Props"
+      "title": "deco-sites/bergerson\\components\\heros\\WristwatchHero.tsx@Props"
     },
     "ZGVjby1jeC9saXZlL2Jsb2Nrcy9mbGFnLnRz@Flag": {
       "$ref": "#/root/flags"
@@ -2435,7 +2483,7 @@
       ],
       "title": "deco-cx/live/pages/LivePage.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJHcmlkLnRzeA==@Banner": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJHcmlkLnRzeA==@Banner": {
       "type": "object",
       "properties": {
         "srcMobile": {
@@ -2464,13 +2512,13 @@
       ],
       "title": "Banner"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJHcmlkLnRzeA==@Banner[]": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJHcmlkLnRzeA==@Banner[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJHcmlkLnRzeA==@Banner"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJHcmlkLnRzeA==@Banner"
       }
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJHcmlkLnRzeA==@Props": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJHcmlkLnRzeA==@Props": {
       "type": "object",
       "properties": {
         "title": {
@@ -2525,7 +2573,7 @@
           "description": "Item's border radius in px"
         },
         "banners": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJHcmlkLnRzeA==@Banner[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJHcmlkLnRzeA==@Banner[]",
           "title": "Banners"
         }
       },
@@ -2534,9 +2582,9 @@
         "borderRadius",
         "banners"
       ],
-      "title": "deco-sites/bergerson/components/ui/BannerGrid.tsx@Props"
+      "title": "deco-sites/bergerson\\components\\ui\\BannerGrid.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJQTFAudHN4@Banner": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJQTFAudHN4@Banner": {
       "type": "object",
       "properties": {
         "matcher": {
@@ -2592,13 +2640,13 @@
       ],
       "title": "Banner"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJQTFAudHN4@Banner[]": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJQTFAudHN4@Banner[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJQTFAudHN4@Banner"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJQTFAudHN4@Banner"
       }
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJQTFAudHN4@Props": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJQTFAudHN4@Props": {
       "type": "object",
       "properties": {
         "page": {
@@ -2606,14 +2654,14 @@
           "title": "Page"
         },
         "banners": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJQTFAudHN4@Banner[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJQTFAudHN4@Banner[]",
           "title": "Banners"
         }
       },
       "required": [],
-      "title": "deco-sites/bergerson/components/ui/BannerPLP.tsx@Props"
+      "title": "deco-sites/bergerson\\components\\ui\\BannerPLP.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJDYXJvdXNlbC50c3g=@Banner": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJDYXJvdXNlbC50c3g=@Banner": {
       "type": "object",
       "properties": {
         "desktop": {
@@ -2647,17 +2695,17 @@
       ],
       "title": "Banner"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJDYXJvdXNlbC50c3g=@Banner[]": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJDYXJvdXNlbC50c3g=@Banner[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJDYXJvdXNlbC50c3g=@Banner"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJDYXJvdXNlbC50c3g=@Banner"
       }
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJDYXJvdXNlbC50c3g=@Props": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJDYXJvdXNlbC50c3g=@Props": {
       "type": "object",
       "properties": {
         "images": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJDYXJvdXNlbC50c3g=@Banner[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJDYXJvdXNlbC50c3g=@Banner[]",
           "title": "Images"
         },
         "preload": {
@@ -2678,9 +2726,9 @@
         }
       },
       "required": [],
-      "title": "deco-sites/bergerson/components/ui/BannerCarousel.tsx@Props"
+      "title": "deco-sites/bergerson\\components\\ui\\BannerCarousel.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9GZWF0dXJlcy50c3g=@Feature": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxGZWF0dXJlcy50c3g=@Feature": {
       "type": "object",
       "properties": {
         "icon": {
@@ -2840,26 +2888,26 @@
       ],
       "title": "Feature"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9GZWF0dXJlcy50c3g=@Feature[]": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxGZWF0dXJlcy50c3g=@Feature[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9GZWF0dXJlcy50c3g=@Feature"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxGZWF0dXJlcy50c3g=@Feature"
       }
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9GZWF0dXJlcy50c3g=@Props": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxGZWF0dXJlcy50c3g=@Props": {
       "type": "object",
       "properties": {
         "features": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9GZWF0dXJlcy50c3g=@Feature[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxGZWF0dXJlcy50c3g=@Feature[]",
           "title": "Features"
         }
       },
       "required": [
         "features"
       ],
-      "title": "deco-sites/bergerson/components/ui/Features.tsx@Props"
+      "title": "deco-sites/bergerson\\components\\ui\\Features.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@StringItem": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRm9vdGVyLnRzeA==@StringItem": {
       "type": "object",
       "properties": {
         "label": {
@@ -2877,7 +2925,7 @@
       ],
       "title": "StringItem"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@IconItem": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRm9vdGVyLnRzeA==@IconItem": {
       "type": "object",
       "properties": {
         "icon": {
@@ -3024,23 +3072,23 @@
       ],
       "title": "IconItem"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@IconItem|StringItem": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRm9vdGVyLnRzeA==@IconItem|StringItem": {
       "anyOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@StringItem"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRm9vdGVyLnRzeA==@StringItem"
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@IconItem"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRm9vdGVyLnRzeA==@IconItem"
         }
       ]
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@IconItem|StringItem[]": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRm9vdGVyLnRzeA==@IconItem|StringItem[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@IconItem|StringItem"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRm9vdGVyLnRzeA==@IconItem|StringItem"
       }
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@Section": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRm9vdGVyLnRzeA==@Section": {
       "type": "object",
       "properties": {
         "label": {
@@ -3048,7 +3096,7 @@
           "title": "Label"
         },
         "children": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@IconItem|StringItem[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRm9vdGVyLnRzeA==@IconItem|StringItem[]",
           "title": "Children"
         }
       },
@@ -3058,296 +3106,24 @@
       ],
       "title": "Section"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@Section[]": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRm9vdGVyLnRzeA==@Section[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@Section"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRm9vdGVyLnRzeA==@Section"
       }
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@Props": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRm9vdGVyLnRzeA==@Props": {
       "type": "object",
       "properties": {
         "sections": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@Section[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRm9vdGVyLnRzeA==@Section[]",
           "title": "Sections"
         }
       },
       "required": [],
-      "title": "deco-sites/bergerson/components/footer/Footer.tsx@Props"
+      "title": "deco-sites/bergerson\\components\\footer\\Footer.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9IaWdobGlnaHRzLnRzeA==@Highlight": {
-      "type": "object",
-      "properties": {
-        "src": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-          "title": "Src"
-        },
-        "alt": {
-          "type": "string",
-          "title": "Alt"
-        },
-        "href": {
-          "type": "string",
-          "title": "Href"
-        },
-        "label": {
-          "type": "string",
-          "title": "Label"
-        }
-      },
-      "required": [
-        "src",
-        "alt",
-        "href",
-        "label"
-      ],
-      "title": "Highlight"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9IaWdobGlnaHRzLnRzeA==@Highlight[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9IaWdobGlnaHRzLnRzeA==@Highlight"
-      }
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9IaWdobGlnaHRzLnRzeA==@Props": {
-      "type": "object",
-      "properties": {
-        "highlights": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9IaWdobGlnaHRzLnRzeA==@Highlight[]",
-          "title": "Highlights"
-        },
-        "title": {
-          "type": "string",
-          "title": "Title"
-        }
-      },
-      "required": [
-        "title"
-      ],
-      "title": "deco-sites/bergerson/components/ui/Highlights.tsx@Props"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9MaW5rVHJlZS50c3g=@Link": {
-      "type": "object",
-      "properties": {
-        "label": {
-          "type": "string",
-          "title": "Label"
-        },
-        "href": {
-          "type": "string",
-          "title": "Href"
-        }
-      },
-      "required": [
-        "label",
-        "href"
-      ],
-      "title": "Link"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9MaW5rVHJlZS50c3g=@Link[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9MaW5rVHJlZS50c3g=@Link"
-      }
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9MaW5rVHJlZS50c3g=@Social": {
-      "type": "object",
-      "properties": {
-        "label": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "Instagram"
-            },
-            {
-              "type": "string",
-              "const": "Facebook"
-            }
-          ],
-          "type": "string",
-          "title": "Label"
-        },
-        "href": {
-          "type": "string",
-          "title": "Href"
-        }
-      },
-      "required": [
-        "label",
-        "href"
-      ],
-      "title": "Social"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9MaW5rVHJlZS50c3g=@Social[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9MaW5rVHJlZS50c3g=@Social"
-      }
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9MaW5rVHJlZS50c3g=@Props": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Title"
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Description"
-        },
-        "links": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9MaW5rVHJlZS50c3g=@Link[]",
-          "title": "Links"
-        },
-        "bgImage": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-          "title": "Bg Image"
-        },
-        "avatar": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-          "title": "Avatar"
-        },
-        "social": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9MaW5rVHJlZS50c3g=@Social[]",
-          "title": "Social"
-        }
-      },
-      "required": [],
-      "title": "deco-sites/bergerson/components/ui/LinkTree.tsx@Props"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@Props": {
-      "type": "object",
-      "properties": {
-        "page": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductDetailsPage|null",
-          "title": "Page"
-        },
-        "variant": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "front-back"
-            },
-            {
-              "type": "string",
-              "const": "slider"
-            },
-            {
-              "type": "string",
-              "const": "auto"
-            }
-          ],
-          "type": "string",
-          "title": "Variant",
-          "description": "Ask for the developer to remove this option since this is here to help development only and should not be used in production"
-        }
-      },
-      "required": [
-        "page"
-      ],
-      "title": "deco-sites/bergerson/components/product/ProductDetails.tsx@Props"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3RTaGVsZi50c3g=@Props": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string",
-          "title": "Title"
-        },
-        "products": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
-          "title": "Products"
-        },
-        "itemsPerPage": {
-          "type": [
-            "number",
-            "null"
-          ],
-          "title": "Items Per Page"
-        }
-      },
-      "required": [
-        "title",
-        "products"
-      ],
-      "title": "deco-sites/bergerson/components/product/ProductShelf.tsx@Props"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3RHYWxsZXJ5LnRzeA==@Columns": {
-      "type": "object",
-      "properties": {
-        "mobile": {
-          "type": [
-            "number",
-            "null"
-          ],
-          "title": "Mobile"
-        },
-        "desktop": {
-          "type": [
-            "number",
-            "null"
-          ],
-          "title": "Desktop"
-        }
-      },
-      "required": [],
-      "title": "Columns"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoUmVzdWx0LnRzeA==@Props": {
-      "type": "object",
-      "properties": {
-        "page": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductListingPage|null",
-          "title": "Page"
-        },
-        "variant": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "aside"
-            },
-            {
-              "type": "string",
-              "const": "drawer"
-            }
-          ],
-          "type": "string",
-          "title": "Variant",
-          "description": "Use drawer for mobile like behavior on desktop. Aside for rendering the filters alongside the products"
-        },
-        "columns": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3RHYWxsZXJ5LnRzeA==@Columns",
-          "description": "Number of products per line on grid",
-          "title": "Columns"
-        }
-      },
-      "required": [
-        "page",
-        "columns"
-      ],
-      "title": "deco-sites/bergerson/components/search/SearchResult.tsx@Props"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9XaGF0c0FwcC50c3g=@Props": {
-      "type": "object",
-      "properties": {
-        "phone": {
-          "type": [
-            "number",
-            "null"
-          ],
-          "title": "Phone"
-        }
-      },
-      "required": [],
-      "title": "deco-sites/bergerson/components/ui/WhatsApp.tsx@Props"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9IZXJvTGlua3MudHN4@Link": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1xIZXJvTGlua3MudHN4@Link": {
       "type": "object",
       "properties": {
         "href": {
@@ -3365,17 +3141,17 @@
       ],
       "title": "Link"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9IZXJvTGlua3MudHN4@Link[]": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1xIZXJvTGlua3MudHN4@Link[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9IZXJvTGlua3MudHN4@Link"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1xIZXJvTGlua3MudHN4@Link"
       }
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9IZXJvTGlua3MudHN4@Props": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1xIZXJvTGlua3MudHN4@Props": {
       "type": "object",
       "properties": {
         "links": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9IZXJvTGlua3MudHN4@Link[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1xIZXJvTGlua3MudHN4@Link[]",
           "title": "Links"
         },
         "background": {
@@ -3411,7 +3187,279 @@
         "background",
         "detail"
       ],
-      "title": "deco-sites/bergerson/components/heros/HeroLinks.tsx@Props"
+      "title": "deco-sites/bergerson\\components\\heros\\HeroLinks.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxIaWdobGlnaHRzLnRzeA==@Highlight": {
+      "type": "object",
+      "properties": {
+        "src": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Src"
+        },
+        "alt": {
+          "type": "string",
+          "title": "Alt"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        },
+        "label": {
+          "type": "string",
+          "title": "Label"
+        }
+      },
+      "required": [
+        "src",
+        "alt",
+        "href",
+        "label"
+      ],
+      "title": "Highlight"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxIaWdobGlnaHRzLnRzeA==@Highlight[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxIaWdobGlnaHRzLnRzeA==@Highlight"
+      }
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxIaWdobGlnaHRzLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "highlights": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxIaWdobGlnaHRzLnRzeA==@Highlight[]",
+          "title": "Highlights"
+        },
+        "title": {
+          "type": "string",
+          "title": "Title"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "title": "deco-sites/bergerson\\components\\ui\\Highlights.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxMaW5rVHJlZS50c3g=@Link": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Label"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        }
+      },
+      "required": [
+        "label",
+        "href"
+      ],
+      "title": "Link"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxMaW5rVHJlZS50c3g=@Link[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxMaW5rVHJlZS50c3g=@Link"
+      }
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxMaW5rVHJlZS50c3g=@Social": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "Instagram"
+            },
+            {
+              "type": "string",
+              "const": "Facebook"
+            }
+          ],
+          "type": "string",
+          "title": "Label"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        }
+      },
+      "required": [
+        "label",
+        "href"
+      ],
+      "title": "Social"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxMaW5rVHJlZS50c3g=@Social[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxMaW5rVHJlZS50c3g=@Social"
+      }
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxMaW5rVHJlZS50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Title"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Description"
+        },
+        "links": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxMaW5rVHJlZS50c3g=@Link[]",
+          "title": "Links"
+        },
+        "bgImage": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Bg Image"
+        },
+        "avatar": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Avatar"
+        },
+        "social": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxMaW5rVHJlZS50c3g=@Social[]",
+          "title": "Social"
+        }
+      },
+      "required": [],
+      "title": "deco-sites/bergerson\\components\\ui\\LinkTree.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xwcm9kdWN0XFByb2R1Y3REZXRhaWxzLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductDetailsPage|null",
+          "title": "Page"
+        },
+        "variant": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "front-back"
+            },
+            {
+              "type": "string",
+              "const": "slider"
+            },
+            {
+              "type": "string",
+              "const": "auto"
+            }
+          ],
+          "type": "string",
+          "title": "Variant",
+          "description": "Ask for the developer to remove this option since this is here to help development only and should not be used in production"
+        }
+      },
+      "required": [
+        "page"
+      ],
+      "title": "deco-sites/bergerson\\components\\product\\ProductDetails.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xwcm9kdWN0XFByb2R1Y3RTaGVsZi50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "products": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
+          "title": "Products"
+        },
+        "itemsPerPage": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Items Per Page"
+        }
+      },
+      "required": [
+        "title",
+        "products"
+      ],
+      "title": "deco-sites/bergerson\\components\\product\\ProductShelf.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xwcm9kdWN0XFByb2R1Y3RHYWxsZXJ5LnRzeA==@Columns": {
+      "type": "object",
+      "properties": {
+        "mobile": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Mobile"
+        },
+        "desktop": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Desktop"
+        }
+      },
+      "required": [],
+      "title": "Columns"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xzZWFyY2hcU2VhcmNoUmVzdWx0LnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductListingPage|null",
+          "title": "Page"
+        },
+        "variant": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "aside"
+            },
+            {
+              "type": "string",
+              "const": "drawer"
+            }
+          ],
+          "type": "string",
+          "title": "Variant",
+          "description": "Use drawer for mobile like behavior on desktop. Aside for rendering the filters alongside the products"
+        },
+        "columns": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xwcm9kdWN0XFByb2R1Y3RHYWxsZXJ5LnRzeA==@Columns",
+          "description": "Number of products per line on grid",
+          "title": "Columns"
+        }
+      },
+      "required": [
+        "page",
+        "columns"
+      ],
+      "title": "deco-sites/bergerson\\components\\search\\SearchResult.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxXaGF0c0FwcC50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Phone"
+        }
+      },
+      "required": [],
+      "title": "deco-sites/bergerson\\components\\ui\\WhatsApp.tsx@Props"
     },
     "ZGVjby1jeC9saXZlL3NlY3Rpb25zL1BhZ2VJbmNsdWRlLnRzeA==@Props": {
       "type": "object",
@@ -4262,6 +4310,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9OYXZJdGVucy50c3g=": {
+      "title": "./islands/NavItens.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZWFkZXJcSGVhZGVyLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/NavItens.tsx"
+          ],
+          "default": "./islands/NavItens.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9Qcm9kdWN0SW1hZ2Vab29tLnRzeA==": {
       "title": "./islands/ProductImageZoom.tsx",
       "type": "object",
@@ -4315,7 +4384,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9TaGlwcGluZ1NpbXVsYXRpb24udHN4@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxTaGlwcGluZ1NpbXVsYXRpb24udHN4@Props"
         }
       ],
       "required": [
@@ -4344,6 +4413,22 @@
             "./islands/SliderJS.tsx"
           ],
           "default": "./islands/SliderJS.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9TbWFsbEZhZGVyU2hlbGYudHN4": {
+      "title": "./islands/SmallFaderShelf.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/SmallFaderShelf.tsx"
+          ],
+          "default": "./islands/SmallFaderShelf.tsx"
         }
       }
     },
@@ -4379,49 +4464,12 @@
         }
       }
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9OYXZJdGVucy50c3g=": {
-      "title": "./islands/NavItens.tsx",
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@Props"
-        }
-      ],
-      "required": [
-        "__resolveType"
-      ],
-      "properties": {
-        "__resolveType": {
-          "type": "string",
-          "enum": [
-            "./islands/NavItens.tsx"
-          ],
-          "default": "./islands/NavItens.tsx"
-        }
-      }
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9TbWFsbEZhZGVyU2hlbGYudHN4": {
-      "title": "./islands/SmallFaderShelf.tsx",
-      "type": "object",
-      "required": [
-        "__resolveType"
-      ],
-      "properties": {
-        "__resolveType": {
-          "type": "string",
-          "enum": [
-            "./islands/SmallFaderShelf.tsx"
-          ],
-          "default": "./islands/SmallFaderShelf.tsx"
-        }
-      }
-    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9XcmlzdHdhdGNoSGVyby50c3g=": {
       "title": "./islands/WristwatchHero.tsx",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1xXcmlzdHdhdGNoSGVyby50c3g=@Props"
         }
       ],
       "required": [
@@ -4547,7 +4595,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJHcmlkLnRzeA==@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJHcmlkLnRzeA==@Props"
         }
       ],
       "required": [
@@ -4568,7 +4616,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJQTFAudHN4@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJQTFAudHN4@Props"
         }
       ],
       "required": [
@@ -4589,7 +4637,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9CYW5uZXJDYXJvdXNlbC50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxCYW5uZXJDYXJvdXNlbC50c3g=@Props"
         }
       ],
       "required": [
@@ -4642,7 +4690,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9GZWF0dXJlcy50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxGZWF0dXJlcy50c3g=@Props"
         }
       ],
       "required": [
@@ -4663,7 +4711,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRm9vdGVyLnRzeA==@Props"
         }
       ],
       "required": [
@@ -4684,7 +4732,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZWFkZXJcSGVhZGVyLnRzeA==@Props"
         }
       ],
       "required": [
@@ -4700,12 +4748,33 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGVyb0xpbmtzLnRzeA==": {
+      "title": "deco-sites/bergerson/sections/HeroLinks.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1xIZXJvTGlua3MudHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/bergerson/sections/HeroLinks.tsx"
+          ],
+          "default": "deco-sites/bergerson/sections/HeroLinks.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGlnaGxpZ2h0cy50c3g=": {
       "title": "deco-sites/bergerson/sections/Highlights.tsx",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9IaWdobGlnaHRzLnRzeA==@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxIaWdobGlnaHRzLnRzeA==@Props"
         }
       ],
       "required": [
@@ -4726,7 +4795,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9MaW5rVHJlZS50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxMaW5rVHJlZS50c3g=@Props"
         }
       ],
       "required": [
@@ -4747,7 +4816,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xwcm9kdWN0XFByb2R1Y3REZXRhaWxzLnRzeA==@Props"
         }
       ],
       "required": [
@@ -4768,7 +4837,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3RTaGVsZi50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xwcm9kdWN0XFByb2R1Y3RTaGVsZi50c3g=@Props"
         }
       ],
       "required": [
@@ -4789,7 +4858,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoUmVzdWx0LnRzeA==@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xzZWFyY2hcU2VhcmNoUmVzdWx0LnRzeA==@Props"
         }
       ],
       "required": [
@@ -4810,7 +4879,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9XaGF0c0FwcC50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1x1aVxXaGF0c0FwcC50c3g=@Props"
         }
       ],
       "required": [
@@ -4831,7 +4900,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoUmVzdWx0LnRzeA==@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xzZWFyY2hcU2VhcmNoUmVzdWx0LnRzeA==@Props"
         }
       ],
       "required": [
@@ -4847,33 +4916,12 @@
         }
       }
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGVyb0xpbmtzLnRzeA==": {
-      "title": "deco-sites/bergerson/sections/HeroLinks.tsx",
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9IZXJvTGlua3MudHN4@Props"
-        }
-      ],
-      "required": [
-        "__resolveType"
-      ],
-      "properties": {
-        "__resolveType": {
-          "type": "string",
-          "enum": [
-            "deco-sites/bergerson/sections/HeroLinks.tsx"
-          ],
-          "default": "deco-sites/bergerson/sections/HeroLinks.tsx"
-        }
-      }
-    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvV3Jpc3R3YXRjaEhlcm8udHN4": {
       "title": "deco-sites/bergerson/sections/WristwatchHero.tsx",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9XcmlzdHdhdGNoSGVyby50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZXJvc1xXcmlzdHdhdGNoSGVyby50c3g=@Props"
         }
       ],
       "required": [
@@ -5418,6 +5466,9 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9IZWFkZXJTZWFyY2hNZW51LnRzeA=="
         },
         {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9OYXZJdGVucy50c3g="
+        },
+        {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9Qcm9kdWN0SW1hZ2Vab29tLnRzeA=="
         },
         {
@@ -5433,16 +5484,13 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9TbGlkZXJKUy50c3g="
         },
         {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9TbWFsbEZhZGVyU2hlbGYudHN4"
+        },
+        {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9WaWV3U2VuZEV2ZW50LnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9XaXNobGlzdEJ1dHRvbi50c3g="
-        },
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9OYXZJdGVucy50c3g="
-        },
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9TbWFsbEZhZGVyU2hlbGYudHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9XcmlzdHdhdGNoSGVyby50c3g="
@@ -5511,6 +5559,9 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGVhZGVyLnRzeA=="
         },
         {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGVyb0xpbmtzLnRzeA=="
+        },
+        {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGlnaGxpZ2h0cy50c3g="
         },
         {
@@ -5530,9 +5581,6 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvV2lzaGxpc3RHYWxsZXJ5LnRzeA=="
-        },
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGVyb0xpbmtzLnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvV3Jpc3R3YXRjaEhlcm8udHN4"
