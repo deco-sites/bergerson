@@ -5,6 +5,7 @@ import { useUI } from "deco-sites/fashion/sdk/useUI.ts";
 import type { Props as MenuProps } from "deco-sites/fashion/components/header/Menu.tsx";
 import type { Props as SearchbarProps } from "deco-sites/fashion/components/search/Searchbar.tsx";
 import Loading from "deco-sites/fashion/components/ui/Loading.tsx";
+import { NavImage } from "./Header.tsx";
 
 const Menu = lazy(() =>
   import("deco-sites/fashion/components/header/Menu.tsx")
@@ -19,9 +20,10 @@ const Searchbar = lazy(() =>
 interface Props {
   menu: MenuProps;
   searchbar?: SearchbarProps;
+  img?: NavImage;
 }
 
-function Modals({ menu, searchbar }: Props) {
+function Modals({ menu, searchbar, img }: Props) {
   const { displayCart, displayMenu, displaySearchbar } = useUI();
 
   return (
@@ -30,6 +32,7 @@ function Modals({ menu, searchbar }: Props) {
         title="Menu"
         mode="sidebar-left"
         loading="lazy"
+        img={img}
         open={displayMenu.value}
         onClose={() => {
           displayMenu.value = false;
