@@ -20,7 +20,7 @@ function WhatsApp() {
       </div>
       <div>
         <a
-          href="https://www.bergersonjoias.com/arquivos/tdz-bj-v23-blog.png?v=638022137341030000"
+          href="https://blog.bergersonjoias.com/"
           class="w-[50px] fixed bottom-16 right-2 z-40"
           aria-label="Visit Blog"
         >
