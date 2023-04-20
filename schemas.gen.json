@@ -2156,6 +2156,11 @@
           "title": "Nav Items",
           "description": "Navigation items used both on mobile and desktop menus"
         },
+        "navImage": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xoZWFkZXJcSGVhZGVyLnRzeA==@NavImage",
+          "title": "Nav Image",
+          "description": "Navigation items used both on mobile and desktop menus"
+        },
         "products": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
           "title": "Products",
@@ -3041,8 +3046,13 @@
       }
     },
     "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRm9vdGVyLnRzeA==@Section": {
+    },
       "type": "object",
       "properties": {
+        "href": {
+          "type": "string",
+          "title": "Href"
+        },
         "label": {
           "type": "string",
           "title": "Label"
@@ -3053,10 +3063,10 @@
         }
       },
       "required": [
-        "label",
-        "children"
+        "href",
+        "label"
       ],
-      "title": "Section"
+      "title": "Link"
     },
     "ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRm9vdGVyLnRzeA==@Section[]": {
       "type": "array",
@@ -4197,6 +4207,27 @@
             "./islands/AddToCartButton.tsx"
           ],
           "default": "./islands/AddToCartButton.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9Ecm9wRG93bi50c3g=": {
+      "title": "./islands/DropDown.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb25cY29tcG9uZW50c1xmb290ZXJcRHJvcERvd24udHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/DropDown.tsx"
+          ],
+          "default": "./islands/DropDown.tsx"
         }
       }
     },
@@ -5388,6 +5419,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9BZGRUb0NhcnRCdXR0b24udHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9Ecm9wRG93bi50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9IZWFkZXJCdXR0b24udHN4"

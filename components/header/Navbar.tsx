@@ -1,20 +1,21 @@
 import HeaderButton from "deco-sites/fashion/islands/HeaderButton.tsx";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
-
 import NavItem from "./NavItem.tsx";
 import {
-  bergersonLogo,
   navbarHeight,
   navbarHeightDesktop,
 } from "./constants.ts";
 import HeaderSearchMenu from "deco-sites/fashion/islands/HeaderSearchMenu.tsx";
 import type { INavItem } from "./NavItem.tsx";
+import type { NavImage } from "./Header.tsx";
 import type { Props as SearchbarProps } from "deco-sites/fashion/components/search/Searchbar.tsx";
+import Logo from "../ui/Logo.tsx";
 
-function Navbar({ items, searchbar }: {
+
+function Navbar({ items, searchbar, img }: {
   items: INavItem[];
   searchbar: SearchbarProps;
+  img: NavImage;
 }) {
   return (
     <>
@@ -30,11 +31,7 @@ function Navbar({ items, searchbar }: {
           class={`flex-grow inline-flex justify-center items-center min-h-[${navbarHeight}]`}
           aria-label="Store logo"
         >
-          <img
-            class={`w-[160px] h-[21px]`}
-            src={`${bergersonLogo}`}
-            alt="Logo Bergerson"
-          />
+          <Logo img={img}/>
         </a>
 
         <div class="w-[51px] flex justify-between">
@@ -57,11 +54,7 @@ function Navbar({ items, searchbar }: {
       >
         <div class="flex-none">
           <a href="/" aria-label="Store logo" class="block w-[160px]">
-            <img
-              class={`w-[160px] h-[20.9px]`}
-              src={`${bergersonLogo}`}
-              alt="Logo Bergerson"
-            />
+          <Logo img={img}/>
           </a>
         </div>
         <div class="px-3 flex-auto flex justify-between max-w-[893px] h-[135px]">
@@ -100,14 +93,7 @@ function Navbar({ items, searchbar }: {
               />
             </Button>
           </div>
-
-          <iframe
-            src="https://static.rolex.com/retailers/clock/?colour=gold&amp;apiKey=903dce3692b5146aa14d49b74da13862&amp;lang=pt_br"
-            style="width:170px;height:70px;border:0;margin:0;padding:0;overflow:hidden;z-index:0;position:relative;scroll:none;"
-            scrolling="NO"
-            title="Rolex"
-          >
-          </iframe>
+          <img class="w-[170px] h-[70px]" src={img.badge?.src} alt={img.badge?.alt} />
         </div>
       </div>
     </>
