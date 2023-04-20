@@ -131,7 +131,6 @@ function Searchbar({
             defaultValue={query}
             onInput={(e) => {
               const value = e.currentTarget.value;
-              console.log(suggestions?.value);
               if (value) {
                 sendAnalyticsEvent({
                   name: "search",
