@@ -148,8 +148,11 @@ export default function WristwatchHero(props: Props) {
                   <QuillText html={slide.text} />
                 </div>
 
-                <div class="mx-[15px]">
-                  <Button as="a" href={slide.action.href} variant="primary">
+                <div class="mx-[15px] border-y-1 w-[90%] flex flex-row justify-center border-inspire p-2.5">
+                  <Button as="a" 
+                  variant="inspire"
+                  class=""
+                  href={slide.action.href} >
                     {slide.action.title}
                   </Button>
                 </div>

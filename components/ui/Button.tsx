@@ -21,6 +21,8 @@ const variants = {
     "h-[36px] px-3 rounded bg-interactive-inverse font-button text-button border-transparent hover:bg-hover active:border-interactive disabled:border-transparent disabled:text-subdued focus:outline-none",
   icon:
     "h-[36px] rounded-full text-default border-transparent focus:outline-none",
+  inspire:
+    "h[36px] focus:border  bg-transparent  transparent text-black border-none uppercase font-semibold",
 };
 
 const Button = forwardRef<HTMLButtonElement, Props>(({
