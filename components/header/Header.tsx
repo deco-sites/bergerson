@@ -1,5 +1,5 @@
 import Modals from "deco-sites/fashion/islands/HeaderModals.tsx";
-import type { Image } from "deco-sites/std/components/types.ts";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import type { EditableProps as SearchbarProps } from "deco-sites/fashion/components/search/Searchbar.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
@@ -14,10 +14,14 @@ export interface NavItem {
     label: string;
     href: string;
     image?: {
-      src?: Image;
+      src?: LiveImage;
       alt?: string;
     };
   }>;
+}
+export interface NavImage {
+  logo?: { src?: LiveImage; alt?: string };
+  badge?: { src?: LiveImage; alt?: string };
 }
 
 export interface Props {
@@ -28,6 +32,11 @@ export interface Props {
    * @description Navigation items used both on mobile and desktop menus
    */
   navItems?: NavItem[];
+  /**
+   * @title Logo and badge image
+   * @description Navigation items used both on mobile and desktop menus
+   */
+  navImage?: NavImage;
 
   /**
    * @title Product suggestions
@@ -46,6 +55,7 @@ function Header(
     searchbar: _searchbar,
     products,
     navItems = [],
+    navImage,
     suggestions,
   }: Props,
 ) {
@@ -53,12 +63,12 @@ function Header(
   return (
     <header class={`h-[${headerHeight}]`}>
       <div class="bg-default fixed w-full z-50">
-        <Navbar items={navItems} searchbar={searchbar} />
+        <Navbar items={navItems} searchbar={searchbar} img={navImage!} />
       </div>
-
       <Modals
         menu={{ items: navItems }}
         searchbar={searchbar}
+        img={navImage}
       />
     </header>
   );
