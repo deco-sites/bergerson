@@ -55,10 +55,9 @@ function ProductCard({ product, preload, itemListName }: Props) {
     name,
     image: images,
     offers,
-    isVariantOf,
   } = product;
   const [front, back] = images ?? [];
-  const { listPrice, price, seller } = useOffer(offers);
+  const { price, seller } = useOffer(offers);
 
   return (
     <div
@@ -68,18 +67,11 @@ function ProductCard({ product, preload, itemListName }: Props) {
     >
       <a href={url} aria-label="product link">
         <div class="relative w-full">
-          <div class="absolute top-0 right-0">
-            <WishlistIcon
-              productId={isVariantOf?.productGroupID}
-              sku={productID}
-              title={name}
-            />
-          </div>
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={200}
-            height={279}
+            width={304}
+            height={304}
             class="rounded w-full group-hover:hidden"
             preload={preload}
             loading={preload ? "eager" : "lazy"}
@@ -88,9 +80,9 @@ function ProductCard({ product, preload, itemListName }: Props) {
           <Image
             src={back?.url ?? front.url!}
             alt={back?.alternateName ?? front.alternateName}
-            width={200}
-            height={279}
-            class="rounded w-full hidden group-hover:block"
+            width={304}
+            height={304}
+            class="w-full hidden group-hover:block"
             sizes="(max-width: 640px) 50vw, 20vw"
           />
           {seller && (
@@ -102,7 +94,6 @@ function ProductCard({ product, preload, itemListName }: Props) {
               }}
             >
               <Sizes {...product} />
-              <Button as="a" href={product.url}>Visualizar Produto</Button>
               {/* FIXME: Understand why fresh breaks rendering this component */}
               {
                 /* <SendEventButton
@@ -130,24 +121,20 @@ function ProductCard({ product, preload, itemListName }: Props) {
         </div>
 
         <div class="flex flex-col gap-1 py-2">
-          <Text
-            class="overflow-hidden overflow-ellipsis whitespace-nowrap"
-            variant="caption"
-          >
+          <span class="text-[15px] uppercase font-heading-1 ">
             {name}
-          </Text>
-          <div class="flex items-center gap-2">
-            <Text
-              class="line-through"
-              variant="list-price"
-              tone="subdued"
-            >
-              {formatPrice(listPrice, offers!.priceCurrency!)}
-            </Text>
+          </span>
+          <div class="pt-6 pb-3 flex items-center justify-between">
+            <span class="text-xs font-semibold font-serif text-[#585858]">
+              10x R$30.657,90
+            </span>
             <Text variant="caption" tone="price">
               {formatPrice(price, offers!.priceCurrency!)}
             </Text>
           </div>
+          <button class="py-2 border-t-1 border-b-1 border-[#ffd049] mt-2 text-lg font-bold">
+            COMPRAR
+          </button>
         </div>
       </a>
     </div>
