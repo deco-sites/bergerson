@@ -1,6 +1,5 @@
 import ProductCard from "deco-sites/fashion/components/product/ProductCard.tsx";
 import Container from "deco-sites/fashion/components/ui/Container.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
 import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
 import SliderControllerJS from "deco-sites/fashion/islands/SliderJS.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
@@ -11,9 +10,10 @@ import type { Product } from "deco-sites/std/commerce/types.ts";
 import ViewSendEvent from "deco-sites/fashion/islands/ViewSendEvent.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
+import { useSignal } from "@preact/signals";
 
 export interface Props {
-  title: string;
+  title: string[];
   products: LoaderReturnType<Product[] | null>;
   itemsPerPage?: number;
 }
@@ -28,38 +28,86 @@ function ProductShelf({
     return null;
   }
 
+  if (title.length > 3) {
+    throw new Error("Category limit is 3");
+  }
+  const onOff = useSignal(false);
+
+  const changeTextColor = (addColor: string, removeColor: string, event: MouseEvent) => {
+    if (event.target instanceof HTMLElement) {
+      event?.target.classList.add(addColor)
+      event?.target.classList.remove(removeColor)
+    }
+  }
+
+  const handleClick = (event: MouseEvent) => {
+    if (event.target instanceof HTMLElement) {
+      if (onOff.value === false) {
+        changeTextColor("text-black", "text-[#ccc]", event)
+        onOff.value = !onOff.value;
+      } else {
+        changeTextColor("text-[#ccc]", "text-black", event)
+        onOff.value = !onOff.value;
+      }
+    } 
+  };
+  
   return (
-    <Container
+    <div
       id={id}
-      class="grid grid-cols-[48px_1fr_48px] grid-rows-[48px_1fr_48px_1fr] py-10 px-0 sm:px-5"
+      class="grid grid-cols-[106px_1fr_106px] grid-rows-[48px_1fr_48px_1fr] py-[100px] px-0 sm:px-5"
     >
-      <h2 class="text-center row-start-1 col-span-full">
-        <Text variant="heading-2">{title}</Text>
-      </h2>
+      <ul class="flex col-start-2 text-4xl font-serif font-heading-1 justify-center items-center gap-[30px] text-[#ccc]">
+        {title.map((currentItem, index) => (
+          title.length == index + 1
+            ? (
+              <li
+                onClick={handleClick}
+                class={`py-2.5 px-[15px] cursor-pointer text-[#ccc]`}
+              >
+                {currentItem}
+              </li>
+            )
+            : (
+              <>
+                <li
+                  onClick={handleClick}
+                  class={`py-2.5 px-[15px] cursor-pointer text-[#ccc]`}
+                >
+                  {currentItem}
+                </li>
+                <img
+                  class="w-6 h-[17px]"
+                  src="https://www.bergersonjoias.com/arquivos/bergerson-star.png?v=637998171695470000"
+                />
+              </>
+            )
+        ))}
+      </ul>
 
       <Slider
-        class="gap-6 col-span-full row-start-2 row-end-5"
+        class="gap-6 row-start-2 row-end-5"
         snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
       >
         {products?.map((product) => (
           <div class="min-w-[270px] max-w-[270px] sm:min-w-[292px] sm:max-w-[292px]">
-            <ProductCard product={product} itemListName={title} />
+            <ProductCard product={product} />
           </div>
         ))}
       </Slider>
 
       <>
         <div class="hidden relative sm:block z-10 col-start-1 row-start-3">
-          <div class="absolute right-1/2 bg-interactive-inverse rounded-full border-default border">
+          <div class="absolute right-1/2">
             <Button variant="icon" data-slide="prev" aria-label="Previous item">
-              <Icon size={20} id="ChevronLeft" strokeWidth={3} />
+              <Icon size={30} id="ChevronLeft" strokeWidth={3} />
             </Button>
           </div>
         </div>
         <div class="hidden relative sm:block z-10 col-start-3 row-start-3">
-          <div class="absolute left-1/2 bg-interactive-inverse rounded-full border-default border">
+          <div class="absolute left-1/2">
             <Button variant="icon" data-slide="next" aria-label="Next item">
-              <Icon size={20} id="ChevronRight" strokeWidth={3} />
+              <Icon size={30} id="ChevronRight" strokeWidth={3} />
             </Button>
           </div>
         </div>
@@ -71,7 +119,6 @@ function ProductShelf({
         event={{
           name: "view_item_list",
           params: {
-            item_list_name: title,
             items: products.map((product) =>
               mapProductToAnalyticsItem({
                 product,
@@ -81,7 +128,7 @@ function ProductShelf({
           },
         }}
       />
-    </Container>
+    </div>
   );
 }
 
