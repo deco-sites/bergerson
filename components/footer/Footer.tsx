@@ -247,7 +247,7 @@ function Footer() {
           </div>
         </div>
       </footer>
-      
+
       {/*Mobile*/}
       <footer class="lg:w-full lg:h-64 lg:bg-badge lg:hidden">
         {/*Contact*/}

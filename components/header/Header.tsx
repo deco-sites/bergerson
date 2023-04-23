@@ -65,7 +65,6 @@ function Header(
       <div class="bg-default fixed w-full z-50">
         <Navbar items={navItems} searchbar={searchbar} img={navImage!} />
       </div>
-
       <Modals
         menu={{ items: navItems }}
         searchbar={searchbar}
