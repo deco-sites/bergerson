@@ -3,9 +3,8 @@ import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import type { EditableProps as SearchbarProps } from "deco-sites/fashion/components/search/Searchbar.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
-
 import Navbar from "./Navbar.tsx";
-import { headerHeight } from "./constants.ts";
+import { navbarHeight, navbarHeightDesktop } from "./constants.ts";
 
 export interface NavItem {
   label: string;
@@ -61,7 +60,7 @@ function Header(
 ) {
   const searchbar = { ..._searchbar, products, suggestions };
   return (
-    <header class={`h-[${headerHeight}]`}>
+    <header class={`lg:h-[${navbarHeightDesktop}] h-[${navbarHeight}]`}>
       <div class="bg-default fixed w-full z-50">
         <Navbar items={navItems} searchbar={searchbar} img={navImage!} />
       </div>
