@@ -1,11 +1,7 @@
 import HeaderButton from "deco-sites/fashion/islands/HeaderButton.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import NavItem from "./NavItem.tsx";
-import {
-  bergersonLogo,
-  navbarHeight,
-  navbarHeightDesktop,
-} from "./constants.ts";
+import { navbarHeight, navbarHeightDesktop } from "./constants.ts";
 import HeaderSearchMenu from "deco-sites/fashion/islands/HeaderSearchMenu.tsx";
 import type { INavItem } from "./NavItem.tsx";
 import type { NavImage } from "./Header.tsx";
