@@ -149,10 +149,12 @@ export default function WristwatchHero(props: Props) {
                 </div>
 
                 <div class="mx-[15px] border-y-1 w-[90%] flex flex-row justify-center border-inspire p-2.5">
-                  <Button as="a" 
-                  variant="inspire"
-                  class=""
-                  href={slide.action.href} >
+                  <Button
+                    as="a"
+                    variant="quaternary"
+                    class=""
+                    href={slide.action.href}
+                  >
                     {slide.action.title}
                   </Button>
                 </div>

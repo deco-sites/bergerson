@@ -5,39 +5,40 @@
 import config from "./deno.json" assert { type: "json" };
 import { DecoManifest } from "$live/types.ts";
 
-import * as $$$$0 from "./routes/api/[...catchall].tsx";
-import * as $$$$1 from "./routes/_app.tsx";
-import * as $$$$$0 from "./islands/AddToCartButton.tsx";
+import * as $$$$0 from "./routes/_app.tsx";
+import * as $$$$1 from "./routes/api/[...catchall].tsx";
+import * as $$$$$0 from "./islands/SliderJS.tsx";
 import * as $$$$$1 from "./islands/HeaderButton.tsx";
-import * as $$$$$2 from "./islands/HeaderModals.tsx";
-import * as $$$$$3 from "./islands/HeaderSearchMenu.tsx";
-import * as $$$$$4 from "./islands/NavItens.tsx";
-import * as $$$$$5 from "./islands/ProductImageZoom.tsx";
-import * as $$$$$6 from "./islands/SearchControls.tsx";
-import * as $$$$$7 from "./islands/SendEventButton.tsx";
-import * as $$$$$8 from "./islands/ShippingSimulation.tsx";
-import * as $$$$$9 from "./islands/SliderJS.tsx";
-import * as $$$$$10 from "./islands/SmallFaderShelf.tsx";
-import * as $$$$$11 from "./islands/ViewSendEvent.tsx";
-import * as $$$$$12 from "./islands/WishlistButton.tsx";
-import * as $$$$$13 from "./islands/WristwatchHero.tsx";
-import * as $$$$$$$$0 from "./sections/BannerGrid.tsx";
+import * as $$$$$2 from "./islands/SearchControls.tsx";
+import * as $$$$$3 from "./islands/SmallFaderShelf.tsx";
+import * as $$$$$4 from "./islands/HeaderSearchMenu.tsx";
+import * as $$$$$5 from "./islands/ShippingSimulation.tsx";
+import * as $$$$$6 from "./islands/ViewSendEvent.tsx";
+import * as $$$$$7 from "./islands/WishlistButton.tsx";
+import * as $$$$$8 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$9 from "./islands/WristwatchHero.tsx";
+import * as $$$$$10 from "./islands/DropDown.tsx";
+import * as $$$$$11 from "./islands/SendEventButton.tsx";
+import * as $$$$$12 from "./islands/HeaderModals.tsx";
+import * as $$$$$13 from "./islands/NavItens.tsx";
+import * as $$$$$14 from "./islands/AddToCartButton.tsx";
+import * as $$$$$$$$0 from "./sections/LinkTree.tsx";
 import * as $$$$$$$$1 from "./sections/BannerPLP.tsx";
-import * as $$$$$$$$2 from "./sections/Carousel.tsx";
-import * as $$$$$$$$3 from "./sections/CookieConsent.tsx";
-import * as $$$$$$$$4 from "./sections/DesignSystem.story.tsx";
-import * as $$$$$$$$5 from "./sections/Features.tsx";
-import * as $$$$$$$$6 from "./sections/Footer.tsx";
-import * as $$$$$$$$7 from "./sections/Header.tsx";
-import * as $$$$$$$$8 from "./sections/HeroLinks.tsx";
-import * as $$$$$$$$9 from "./sections/Highlights.tsx";
-import * as $$$$$$$$10 from "./sections/LinkTree.tsx";
+import * as $$$$$$$$2 from "./sections/HeroLinks.tsx";
+import * as $$$$$$$$3 from "./sections/DesignSystem.story.tsx";
+import * as $$$$$$$$4 from "./sections/CookieConsent.tsx";
+import * as $$$$$$$$5 from "./sections/WristwatchHero.tsx";
+import * as $$$$$$$$6 from "./sections/Header.tsx";
+import * as $$$$$$$$7 from "./sections/ProductShelf.tsx";
+import * as $$$$$$$$8 from "./sections/WishlistGallery.tsx";
+import * as $$$$$$$$9 from "./sections/Features.tsx";
+import * as $$$$$$$$10 from "./sections/BannerGrid.tsx";
 import * as $$$$$$$$11 from "./sections/ProductDetails.tsx";
-import * as $$$$$$$$12 from "./sections/ProductShelf.tsx";
-import * as $$$$$$$$13 from "./sections/SearchResult.tsx";
-import * as $$$$$$$$14 from "./sections/WhatsApp.tsx";
-import * as $$$$$$$$15 from "./sections/WishlistGallery.tsx";
-import * as $$$$$$$$16 from "./sections/WristwatchHero.tsx";
+import * as $$$$$$$$12 from "./sections/SearchResult.tsx";
+import * as $$$$$$$$13 from "./sections/Carousel.tsx";
+import * as $$$$$$$$14 from "./sections/Footer.tsx";
+import * as $$$$$$$$15 from "./sections/WhatsApp.tsx";
+import * as $$$$$$$$16 from "./sections/Highlights.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_editorData from "$live/routes/live/editorData.ts";
@@ -95,8 +96,8 @@ import * as i2$$$8 from "deco-sites/std/sections/SEOPDP.tsx";
 
 const manifest: DecoManifest = {
   "routes": {
-    "./routes/api/[...catchall].tsx": $$$$0,
-    "./routes/_app.tsx": $$$$1,
+    "./routes/_app.tsx": $$$$0,
+    "./routes/api/[...catchall].tsx": $$$$1,
     "./routes/_middleware.ts": $live_middleware,
     "./routes/live/workbench.ts": $live_workbench,
     "./routes/live/editorData.ts": $live_editorData,
@@ -106,39 +107,40 @@ const manifest: DecoManifest = {
     "./routes/[...catchall].tsx": $live_catchall,
   },
   "islands": {
-    "./islands/AddToCartButton.tsx": $$$$$0,
+    "./islands/SliderJS.tsx": $$$$$0,
     "./islands/HeaderButton.tsx": $$$$$1,
-    "./islands/HeaderModals.tsx": $$$$$2,
-    "./islands/HeaderSearchMenu.tsx": $$$$$3,
-    "./islands/NavItens.tsx": $$$$$4,
-    "./islands/ProductImageZoom.tsx": $$$$$5,
-    "./islands/SearchControls.tsx": $$$$$6,
-    "./islands/SendEventButton.tsx": $$$$$7,
-    "./islands/ShippingSimulation.tsx": $$$$$8,
-    "./islands/SliderJS.tsx": $$$$$9,
-    "./islands/SmallFaderShelf.tsx": $$$$$10,
-    "./islands/ViewSendEvent.tsx": $$$$$11,
-    "./islands/WishlistButton.tsx": $$$$$12,
-    "./islands/WristwatchHero.tsx": $$$$$13,
+    "./islands/SearchControls.tsx": $$$$$2,
+    "./islands/SmallFaderShelf.tsx": $$$$$3,
+    "./islands/HeaderSearchMenu.tsx": $$$$$4,
+    "./islands/ShippingSimulation.tsx": $$$$$5,
+    "./islands/ViewSendEvent.tsx": $$$$$6,
+    "./islands/WishlistButton.tsx": $$$$$7,
+    "./islands/ProductImageZoom.tsx": $$$$$8,
+    "./islands/WristwatchHero.tsx": $$$$$9,
+    "./islands/DropDown.tsx": $$$$$10,
+    "./islands/SendEventButton.tsx": $$$$$11,
+    "./islands/HeaderModals.tsx": $$$$$12,
+    "./islands/NavItens.tsx": $$$$$13,
+    "./islands/AddToCartButton.tsx": $$$$$14,
   },
   "sections": {
-    "deco-sites/bergerson/sections/BannerGrid.tsx": $$$$$$$$0,
+    "deco-sites/bergerson/sections/LinkTree.tsx": $$$$$$$$0,
     "deco-sites/bergerson/sections/BannerPLP.tsx": $$$$$$$$1,
-    "deco-sites/bergerson/sections/Carousel.tsx": $$$$$$$$2,
-    "deco-sites/bergerson/sections/CookieConsent.tsx": $$$$$$$$3,
-    "deco-sites/bergerson/sections/DesignSystem.story.tsx": $$$$$$$$4,
-    "deco-sites/bergerson/sections/Features.tsx": $$$$$$$$5,
-    "deco-sites/bergerson/sections/Footer.tsx": $$$$$$$$6,
-    "deco-sites/bergerson/sections/Header.tsx": $$$$$$$$7,
-    "deco-sites/bergerson/sections/HeroLinks.tsx": $$$$$$$$8,
-    "deco-sites/bergerson/sections/Highlights.tsx": $$$$$$$$9,
-    "deco-sites/bergerson/sections/LinkTree.tsx": $$$$$$$$10,
+    "deco-sites/bergerson/sections/HeroLinks.tsx": $$$$$$$$2,
+    "deco-sites/bergerson/sections/DesignSystem.story.tsx": $$$$$$$$3,
+    "deco-sites/bergerson/sections/CookieConsent.tsx": $$$$$$$$4,
+    "deco-sites/bergerson/sections/WristwatchHero.tsx": $$$$$$$$5,
+    "deco-sites/bergerson/sections/Header.tsx": $$$$$$$$6,
+    "deco-sites/bergerson/sections/ProductShelf.tsx": $$$$$$$$7,
+    "deco-sites/bergerson/sections/WishlistGallery.tsx": $$$$$$$$8,
+    "deco-sites/bergerson/sections/Features.tsx": $$$$$$$$9,
+    "deco-sites/bergerson/sections/BannerGrid.tsx": $$$$$$$$10,
     "deco-sites/bergerson/sections/ProductDetails.tsx": $$$$$$$$11,
-    "deco-sites/bergerson/sections/ProductShelf.tsx": $$$$$$$$12,
-    "deco-sites/bergerson/sections/SearchResult.tsx": $$$$$$$$13,
-    "deco-sites/bergerson/sections/WhatsApp.tsx": $$$$$$$$14,
-    "deco-sites/bergerson/sections/WishlistGallery.tsx": $$$$$$$$15,
-    "deco-sites/bergerson/sections/WristwatchHero.tsx": $$$$$$$$16,
+    "deco-sites/bergerson/sections/SearchResult.tsx": $$$$$$$$12,
+    "deco-sites/bergerson/sections/Carousel.tsx": $$$$$$$$13,
+    "deco-sites/bergerson/sections/Footer.tsx": $$$$$$$$14,
+    "deco-sites/bergerson/sections/WhatsApp.tsx": $$$$$$$$15,
+    "deco-sites/bergerson/sections/Highlights.tsx": $$$$$$$$16,
     "$live/sections/PageInclude.tsx": i2$$$9,
     "deco-sites/std/sections/configYourViews.global.tsx": i2$$$0,
     "deco-sites/std/sections/SEO.tsx": i2$$$1,

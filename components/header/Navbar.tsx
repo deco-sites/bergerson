@@ -2,6 +2,7 @@ import HeaderButton from "deco-sites/fashion/islands/HeaderButton.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import NavItem from "./NavItem.tsx";
 import { navbarHeight, navbarHeightDesktop } from "./constants.ts";
+import { navbarHeight, navbarHeightDesktop } from "./constants.ts";
 import HeaderSearchMenu from "deco-sites/fashion/islands/HeaderSearchMenu.tsx";
 import type { INavItem } from "./NavItem.tsx";
 import type { NavImage } from "./Header.tsx";
@@ -75,6 +76,7 @@ function Menu({ items, searchbar, img }: {
           aria-label="Store logo"
         >
           <Logo img={img} />
+          <Logo img={img} />
         </a>
 
         <div class="w-[51px] flex justify-between">
@@ -103,6 +105,7 @@ function Menu({ items, searchbar, img }: {
       >
         <div class="flex-none">
           <a href="/" aria-label="Store logo" class="block w-[160px]">
+            <Logo img={img} />
             <Logo img={img} />
           </a>
         </div>
