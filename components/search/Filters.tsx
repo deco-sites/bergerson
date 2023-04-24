@@ -21,12 +21,27 @@ const redundantFilters = (filter: Filter): boolean => {
 };
 
 function FilterValues({ values }: FilterToggle) {
-  const goTo = (url: string) => () => {
-    window.location.href = url;
-  };
+  const goTo = (url: string) => () => (window.location.href = url);
+  const selectedValue = values.find((value) => value.selected);
+
+  if (selectedValue) {
+    return (
+      <>
+        <a href={selectedValue.url} class="flex items-center gap-2">
+          <span class="text-xs">{selectedValue.label}</span>
+        </a>
+
+        <a href={selectedValue.url} class="flex items-center gap-2">
+          <span class="text-xs">
+            Veja todas as opções
+          </span>
+        </a>
+      </>
+    );
+  }
 
   return (
-    <ul class="flex flex-wrap gap-2 flex-col md:(shadow-lg p-2 absolute top-full) w-full z-10 bg-white mt-4">
+    <>
       {values.map(({ label, url, selected, quantity }) => {
         return (
           <a href={url} class="flex items-center gap-2">
@@ -42,7 +57,7 @@ function FilterValues({ values }: FilterToggle) {
           </a>
         );
       })}
-    </ul>
+    </>
   );
 }
 
@@ -60,7 +75,11 @@ function renderFilter(filter: FilterToggle) {
         <Icon id="ChevronDown" width={16} height={16} strokeWidth={1} />
       </span>
 
-      {isOpen.value && <FilterValues {...filter} />}
+      {isOpen.value && (
+        <ul class="flex flex-wrap gap-4 flex-col md:(shadow-lg p-3 absolute top-full) w-full z-10 bg-white mt-4">
+          <FilterValues {...filter} />
+        </ul>
+      )}
     </li>
   );
 }

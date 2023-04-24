@@ -36,29 +36,16 @@ export interface Props {
    * @description Navigation items used both on mobile and desktop menus
    */
   navImage?: NavImage;
-
-  /**
-   * @title Product suggestions
-   * @description Product suggestions displayed on search
-   */
-  products?: LoaderReturnType<Product[] | null>;
-
-  /**
-   * @title Enable Top Search terms
-   */
-  suggestions?: LoaderReturnType<Suggestion | null>;
 }
 
 function Header(
   {
     searchbar: _searchbar,
-    products,
     navItems = [],
     navImage,
-    suggestions,
   }: Props,
 ) {
-  const searchbar = { ..._searchbar, products, suggestions };
+  const searchbar = { ..._searchbar };
   return (
     <header class={`lg:h-[${navbarHeightDesktop}] h-[${navbarHeight}]`}>
       <div class="bg-default fixed w-full z-50">

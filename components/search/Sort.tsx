@@ -34,7 +34,7 @@ function Sort({ sortOptions }: Props) {
       >
         {sortOptions.map(({ value, label }) => (
           <option key={value} value={value} selected={value === sort}>
-            <Text variant="caption">{label} {console.log(value, label)}</Text>
+            <Text variant="caption">{label}</Text>
           </option>
         ))}
       </select>
