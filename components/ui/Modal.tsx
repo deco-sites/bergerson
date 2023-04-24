@@ -4,7 +4,6 @@ import { useEffect, useRef } from "preact/hooks";
 import { IS_BROWSER } from "$fresh/runtime.ts";
 import { useSignal } from "@preact/signals";
 import type { JSX } from "preact";
-import { bergersonLogo } from "../header/constants.ts";
 
 import Icon from "./Icon.tsx";
 import Logo from "./Logo.tsx";

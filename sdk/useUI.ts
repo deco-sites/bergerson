@@ -14,7 +14,7 @@ const state = {
   displayCart,
   displayMenu,
   displaySearchbar,
-  details
+  details,
 };
 
 export const useUI = () => state;
