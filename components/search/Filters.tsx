@@ -86,7 +86,7 @@ function renderFilter(filter: FilterToggle) {
 
 function Filters({ filters }: Props) {
   return (
-    <ul class="flex flex-col gap-4 md:(grid grid-cols-5 gap-20)">
+    <ul class="flex flex-col gap-4 md:(grid grid-cols-5 gap-x-20 gap-y-8)">
       {filters
         .filter(isToggle)
         .filter(redundantFilters)

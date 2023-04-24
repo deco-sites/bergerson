@@ -22,7 +22,7 @@ function SearchControls(
       </div>
 
       <div class="flex flex-col">
-        <h1 class="font-bold uppercase">{lastBreadcrumb.name}</h1>
+        <h1 class="font-bold uppercase">{lastBreadcrumb?.name}</h1>
         <hr class="mt-4 md:mb-6" />
 
         <div class="hidden md:block">

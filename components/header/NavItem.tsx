@@ -46,7 +46,7 @@ function NavItem({ item }: { item: INavItem }) {
                     onMouseLeave={() => imageIndex.value = 0}
                     class="group pb-2"
                   >
-                    <a href="#">
+                    <a href={item.href}>
                       <Text
                         class="uppercase hover:font-extrabold"
                         variant="menu"
