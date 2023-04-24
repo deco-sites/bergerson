@@ -31,7 +31,7 @@ function MenuSearchbar(
   return (
     <>
       <div
-        class={` min-w-[991px] hidden md:flex flex-row justify-between items-center shadow-header w-full px-[70px] h-[${navbarHeightDesktop}]`}
+        class={` max-w-[1700px] min-w-[991px] hidden md:flex flex-row justify-between items-center shadow-header w-full px-[70px] h-[${navbarHeightDesktop}]`}
       >
         <div class="flex-none">
           <a href="/" aria-label="Store logo" class="block w-[160px]">
@@ -88,7 +88,7 @@ function Menu({ items, searchbar, img }: {
               alt="Search products button"
             />
           </Button>
-          <Button variant="icon">
+          <Button variant="icon" as="a" href="/checkout" aria-label="My cart">
             <img
               class={`w-[18px] h-[20px]`}
               src="https://www.bergersonjoias.com/arquivos/bg-v23-mybag.png?v=638000718382000000"
@@ -99,7 +99,7 @@ function Menu({ items, searchbar, img }: {
       </div>
       {/* Desktop */}
       <div
-        class={`hidden  md:flex flex-row justify-between items-center shadow-header w-full px-[70px] h-[${navbarHeightDesktop}]`}
+        class={`max-w-[1700px] hidden  md:flex flex-row justify-between items-center shadow-header w-full px-[70px] h-[${navbarHeightDesktop}]`}
       >
         <div class="flex-none">
           <a href="/" aria-label="Store logo" class="block w-[160px]">
@@ -125,8 +125,8 @@ function Menu({ items, searchbar, img }: {
             <Button
               as="a"
               variant="icon"
-              href="/wishlist"
-              aria-label="Wishlist"
+              href="/checkout"
+              aria-label="My cart"
             >
               <img
                 class={`w-[22px] h-[24.8px]`}
@@ -147,11 +147,17 @@ function Menu({ items, searchbar, img }: {
               />
             </Button>
           </div>
-          <img
-            class="w-[170px] h-[70px] header:block hidden "
-            src={img.badge?.src}
-            alt={img.badge?.alt}
-          />
+          <Button
+            as="a"
+            variant="icon"
+            href={img.badge?.href}
+          >
+            <img
+              class="w-[170px] h-[70px] header:block hidden "
+              src={img.badge?.src}
+              alt={img.badge?.alt}
+            />
+          </Button>
         </div>
       </div>
     </>
