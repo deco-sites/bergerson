@@ -148,7 +148,7 @@ export default function WristwatchHero(props: Props) {
                   <QuillText html={slide.text} />
                 </div>
 
-                <div class="mx-[15px] border-y-1 w-[90%] flex flex-row justify-center border-inspire p-2.5">
+                <div class="mx-[15px] border-y-1 w-[90%] flex flex-row justify-center border-primary p-2.5">
                   <Button
                     as="a"
                     variant="quaternary"

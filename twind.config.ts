@@ -64,7 +64,7 @@ const options: Omit<Options, "selfURL"> = {
         "default-inverse": "#FFFFFF",
         "interactive": "#161616",
         "focus": "#3379EF",
-        "inspire": " #FFD049",
+        "primary": " #FFD049",
         "positive": "#1A7346",
         "critical": "#B44125",
       },
