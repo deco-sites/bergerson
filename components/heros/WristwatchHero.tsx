@@ -144,7 +144,7 @@ export default function WristwatchHero(props: Props) {
                   />
                 </Actionable>
 
-                <div class="lg:block hidden text-body font-sans font-medium">
+                <div class="lg:block hidden text-body font-mont font-medium">
                   <QuillText html={slide.text} />
                 </div>
 

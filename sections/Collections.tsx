@@ -1,11 +1,6 @@
-export interface Props {
-  title: string;
-}
+import Collections from "deco-sites/fashion/components/ui/Collections.tsx";
+import type { Props } from "deco-sites/fashion/components/ui/Collections.tsx";
 
-export default function Collections({ title }: Props) {
-  return (
-    <div class="bg-red-900 w-full text-center p-2 ">
-      <span class="text-white font-bold ">{title}</span>
-    </div>
-  );
+export default function CollectionSection(props: Props) {
+  return <Collections {...props} />;
 }

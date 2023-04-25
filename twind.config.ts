@@ -52,6 +52,7 @@ const options: Omit<Options, "selfURL"> = {
       textColor: {
         "default": "#161616",
         "default-inverse": "#FFFFFF",
+        "primary": "#333333",
         "subdued": "#66736C",
         "subdued-inverse": "#C6C6C6",
         "price": "#8C3D3D",
@@ -120,7 +121,8 @@ const options: Omit<Options, "selfURL"> = {
       },
     },
     fontFamily: {
-      sans: ["Montserrat", "sans-serif"],
+      mont: ["Montserrat", "sans-serif"],
+      sans: ["sans-serif"],
       serif: ["DM Serif Display", "serif"],
     },
     screens: {
