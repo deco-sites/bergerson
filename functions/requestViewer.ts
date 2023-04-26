@@ -10,8 +10,7 @@ export interface RequestViewer {
  */
 const requestViewer: LoaderFunction<
   null,
-  RequestViewer | null,
-  null
+  RequestViewer | null
 > = (request) => {
   return new Promise((res) => {
     res({ data: { request } });

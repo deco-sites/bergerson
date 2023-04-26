@@ -147,7 +147,7 @@ const legacyPLPLoader: LoaderFunction<
 
   const count = props.count ?? 12;
   const maybeMap = props.map || url.searchParams.get("map") || undefined;
-  const maybeTerm = props.term || ctx.params["0"] || "";
+  const maybeTerm = props.term || ctx?.params?.["0"] || "";
   const page = Number(url.searchParams.get("page")) || 0;
   const O = (url.searchParams.get("O") || url.searchParams.get("sort") ||
     sortOptions[0].value) as LegacySort;
