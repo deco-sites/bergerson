@@ -108,13 +108,13 @@ const Modal = ({
                 <ListItem href="/" label="B Magazine" />
               </ul>
               <div class="w-full flex justify-center">
-                <iframe
-                  src="https://static.rolex.com/retailers/clock/?colour=gold&amp;apiKey=903dce3692b5146aa14d49b74da13862&amp;lang=pt_br"
-                  style="width:170px;height:70px;border:0;margin:0;padding:0;overflow:hidden;z-index:0;position:relative;scroll:none;"
-                  scrolling="NO"
-                  title="Rolex"
-                >
-                </iframe>
+                <a href={img?.badge?.href}>
+                  <img
+                    class={`w-[160px] h-[70px]`}
+                    src={img?.badge?.src}
+                    alt={img?.badge?.alt}
+                  />
+                </a>
               </div>
             </div>
           </div>
