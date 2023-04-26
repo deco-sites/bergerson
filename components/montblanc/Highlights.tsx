@@ -39,7 +39,7 @@ function Highlights(props: Props) {
                   class="flex flex-1 w-full h-full object-cover transition group-hover:scale-110"
                 />
 
-                <div class="absolute top-0 w-full h-full flex items-center justify-center">
+                <div class="absolute top-0 w-full h-full flex items-center justify-center bg-black bg-opacity-30">
                   <p class="text-white text-xl">
                     {item.title}
                   </p>
@@ -63,7 +63,7 @@ function Highlights(props: Props) {
                     class="flex flex-1 w-full h-full object-cover transition group-hover:scale-110"
                   />
 
-                  <div class="absolute top-0 w-full h-full flex items-center justify-center">
+                  <div class="absolute top-0 w-full h-full flex items-center justify-center bg-black bg-opacity-30">
                     <p class="text-white text-xl">
                       {item.title}
                     </p>

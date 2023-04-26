@@ -4,7 +4,6 @@ import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import SliderControllerJS from "deco-sites/fashion/islands/SliderJS.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-import { animation, keyframes, tw } from "twind/css";
 
 import {
   Slider,
