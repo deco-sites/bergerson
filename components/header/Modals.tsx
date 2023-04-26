@@ -44,21 +44,6 @@ function Modals({ menu, searchbar, img }: Props) {
       </Modal>
 
       <Modal
-        title="Buscar"
-        mode="sidebar-right"
-        loading="lazy"
-        open={displaySearchbar.value &&
-          window?.matchMedia("(max-width: 767px)")?.matches}
-        onClose={() => {
-          displaySearchbar.value = false;
-        }}
-      >
-        <Suspense fallback={<Loading />}>
-          <Searchbar {...searchbar} />
-        </Suspense>
-      </Modal>
-
-      <Modal
         title="Minha sacola"
         mode="sidebar-right"
         loading="lazy"

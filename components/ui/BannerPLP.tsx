@@ -1,17 +1,12 @@
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
-import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
+import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
+import Container from "deco-sites/bergerson/components/ui/Container.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import { RequestViewer } from "deco-sites/bergerson/functions/requestViewer.ts";
 
 export interface Banner {
   /** @description RegExp to enable this banner on the current URL. Use /feminino/* to display this banner on feminino category  */
   matcher: string;
-  /** @description text to be rendered on top of the image */
-  title?: string;
-  /** @description text to be rendered on top of the image */
-  subtitle?: string;
   image: {
     /** @description Image for big screens */
     desktop: LiveImage;
@@ -20,67 +15,60 @@ export interface Banner {
     /** @description image alt text */
     alt?: string;
   };
+  description?: {
+    logo: LiveImage;
+    text: string;
+  };
 }
 
 export interface Props {
-  page?: LoaderReturnType<ProductListingPage | null>;
+  requestViewer?: LoaderReturnType<RequestViewer | null>;
   banners?: Banner[];
 }
 
 function BannerUI({ banner }: { banner: Banner }) {
-  const { title, subtitle, image } = banner;
+  const { image, description } = banner;
 
   return (
-    <div class="grid grid-cols-1 grid-rows-1">
-      <Picture preload class="col-start-1 col-span-1 row-start-1 row-span-1">
-        <Source
-          src={image.mobile}
-          width={360}
-          height={120}
-          media="(max-width: 767px)"
-        />
-        <Source
-          src={image.desktop}
-          width={1440}
-          height={200}
-          media="(min-width: 767px)"
-        />
-        <img class="w-full" src={image.desktop} alt={image.alt ?? title} />
-      </Picture>
+    <>
+      <div class="grid grid-cols-1 grid-rows-1">
+        <Picture preload class="col-start-1 col-span-1 row-start-1 row-span-1">
+          <Source
+            width={360}
+            src={image.mobile}
+            media="(max-width: 767px)"
+          />
+          <Source
+            width={1440}
+            src={image.desktop}
+            media="(min-width: 767px)"
+          />
+          <img class="w-full" src={image.desktop} alt={image.alt} />
+        </Picture>
+      </div>
 
-      <Container class="flex flex-col items-center justify-center sm:items-start col-start-1 col-span-1 row-start-1 row-span-1 w-full">
-        <h1>
-          <Text variant="heading-1" tone="default-inverse">
-            {title}
-          </Text>
-        </h1>
-        <h2>
-          <Text variant="heading-3" tone="default-inverse">
-            {subtitle}
-          </Text>
-        </h2>
-      </Container>
-    </div>
+      {description && (
+        <Container class="px-4 sm:py-10 flex flex-col gap-2 items-center justify-center">
+          <img
+            alt={image.alt}
+            src={description.logo}
+            class="mx-[15px] h-[115px] w-full lg:w-[200px] object-contain"
+          />
+
+          <p class="text-center">{description.text}</p>
+        </Container>
+      )}
+    </>
   );
 }
 
-/**
- * TODO: run the matcher agains the true URL instead on the breadcrumb.
- * This way we can remove the need for a loader. This can be done on live@1.x
- */
-function Banner({ page, banners = [] }: Props) {
-  if (!page || page.breadcrumb.itemListElement.length === 0) {
+function Banner({ requestViewer, banners = [] }: Props) {
+  if (!requestViewer) {
     return null;
   }
 
-  const { item: canonical } = page
-    .breadcrumb
-    .itemListElement
-    .reduce((curr, acc) => curr.position > acc.position ? curr : acc);
-
-  const matching = banners.find(({ matcher }) =>
-    new RegExp(matcher).test(canonical)
-  );
+  const url = new URL(requestViewer.request.url);
+  const matching = banners.find(({ matcher }) => matcher === url.pathname);
 
   if (!matching) {
     return null;

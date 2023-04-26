@@ -1,11 +1,8 @@
+import Navbar from "./Navbar.tsx";
+import { navbarHeight, navbarHeightDesktop } from "./constants.ts";
 import Modals from "deco-sites/fashion/islands/HeaderModals.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import type { EditableProps as SearchbarProps } from "deco-sites/fashion/components/search/Searchbar.tsx";
-import type { LoaderReturnType } from "$live/types.ts";
-import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
-
-import Navbar from "./Navbar.tsx";
-import { headerHeight } from "./constants.ts";
 
 export interface NavItem {
   label: string;
@@ -21,7 +18,7 @@ export interface NavItem {
 }
 export interface NavImage {
   logo?: { src?: LiveImage; alt?: string };
-  badge?: { src?: LiveImage; alt?: string };
+  badge?: { src?: LiveImage; alt?: string; href?: string };
 }
 
 export interface Props {
@@ -31,43 +28,29 @@ export interface Props {
    * @title Navigation items
    * @description Navigation items used both on mobile and desktop menus
    */
-  navItems?: NavItem[];
+  menu?: NavItem[];
   /**
    * @title Logo and badge image
    * @description Navigation items used both on mobile and desktop menus
    */
   navImage?: NavImage;
-
-  /**
-   * @title Product suggestions
-   * @description Product suggestions displayed on search
-   */
-  products?: LoaderReturnType<Product[] | null>;
-
-  /**
-   * @title Enable Top Search terms
-   */
-  suggestions?: LoaderReturnType<Suggestion | null>;
 }
 
 function Header(
   {
     searchbar: _searchbar,
-    products,
-    navItems = [],
+    menu = [],
     navImage,
-    suggestions,
   }: Props,
 ) {
-  const searchbar = { ..._searchbar, products, suggestions };
+  const searchbar = { ..._searchbar };
   return (
-    <header class={`h-[${headerHeight}]`}>
-      <div class="bg-default fixed w-full z-50">
-        <Navbar items={navItems} searchbar={searchbar} img={navImage!} />
+    <header class={` lg:h-[${navbarHeightDesktop}] h-[${navbarHeight}]`}>
+      <div class="flex items-center justify-center bg-default fixed w-full z-50">
+        <Navbar items={menu} searchbar={searchbar} img={navImage!} />
       </div>
-
       <Modals
-        menu={{ items: navItems }}
+        menu={{ items: menu }}
         searchbar={searchbar}
         img={navImage}
       />

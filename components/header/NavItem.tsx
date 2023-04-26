@@ -37,16 +37,16 @@ function NavItem({ item }: { item: INavItem }) {
               src={children[imageIndex.value].image?.src}
               alt=""
             />
-            <ul class="flex flex-col items-start justify-center pl-20 pt-6">
+            <ul class="flex flex-col flex-wrap items-start justify-center pl-20  max-h-[356px]">
               {children.map((item, index) => (
                 <>
                   <li
                     value={index}
                     onMouseEnter={(event) => imageIndex.value = index}
                     onMouseLeave={() => imageIndex.value = 0}
-                    class="group pb-2"
+                    class="group py-2.5 pr-20"
                   >
-                    <a href="#">
+                    <a href={item.href}>
                       <Text
                         class="uppercase hover:font-extrabold"
                         variant="menu"

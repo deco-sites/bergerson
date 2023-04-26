@@ -1,5 +1,7 @@
+import Icon from "../ui/Icon.tsx";
+import { useSignal } from "@preact/signals";
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Avatar from "deco-sites/fashion/components/ui/Avatar.tsx";
+
 import type {
   Filter,
   FilterToggle,
@@ -10,67 +12,85 @@ interface Props {
   filters: ProductListingPage["filters"];
 }
 
-const isToggle = (filter: Filter): filter is FilterToggle =>
-  filter["@type"] === "FilterToggle";
+const isToggle = (filter: Filter): filter is FilterToggle => {
+  return filter["@type"] === "FilterToggle";
+};
 
-function FilterValues({ key, values }: FilterToggle) {
-  const flexDirection = key === "tamanho" || key === "cor"
-    ? "flex-row"
-    : "flex-col";
+const redundantFilters = (filter: Filter): boolean => {
+  return filter.key !== "Departments" && filter.key !== "Brands";
+};
+
+function FilterValues({ values }: FilterToggle) {
+  const goTo = (url: string) => () => (window.location.href = url);
+  const selectedValue = values.find((value) => value.selected);
+
+  if (selectedValue) {
+    return (
+      <>
+        <a href={selectedValue.url} class="flex items-center gap-2">
+          <span class="text-xs">{selectedValue.label}</span>
+        </a>
+
+        <a href={selectedValue.url} class="flex items-center gap-2">
+          <span class="text-xs">
+            Veja todas as opções
+          </span>
+        </a>
+      </>
+    );
+  }
 
   return (
-    <ul class={`flex flex-wrap gap-2 ${flexDirection}`}>
-      {values.map(({ label, value, url, selected, quantity }) => {
-        if (key === "cor") {
-          return (
-            <a href={url}>
-              <Avatar
-                // deno-lint-ignore no-explicit-any
-                content={value as any}
-                disabled={selected}
-                variant="color"
-              />
-            </a>
-          );
-        }
-
-        if (key === "tamanho") {
-          return (
-            <a href={url}>
-              <Avatar
-                content={label}
-                disabled={selected}
-                variant="abbreviation"
-              />
-            </a>
-          );
-        }
-
+    <>
+      {values.map(({ label, url, selected, quantity }) => {
         return (
           <a href={url} class="flex items-center gap-2">
-            <input type="checkbox" checked={selected} class="hidden" />
-            <Text variant="caption">{label}</Text>
-            <Text tone="subdued" variant="caption">
-              ({quantity})
-            </Text>
+            <input
+              readOnly
+              type="checkbox"
+              checked={selected}
+              onClick={goTo(url)}
+              class="cursor-pointer"
+            />
+
+            <span class="text-xs">{label} ({quantity})</span>
           </a>
         );
       })}
-    </ul>
+    </>
+  );
+}
+
+function renderFilter(filter: FilterToggle) {
+  const isOpen = useSignal(false);
+  const toggle = () => (isOpen.value = !isOpen.value);
+
+  return (
+    <li
+      class="relative flex flex-col"
+      onClick={toggle}
+    >
+      <span class="flex flex-row justify-between cursor-pointer">
+        <Text variant="caption">{filter.label}</Text>
+        <Icon id="ChevronDown" width={16} height={16} strokeWidth={1} />
+      </span>
+
+      {isOpen.value && (
+        <ul class="flex flex-wrap gap-4 flex-col md:(shadow-lg p-3 absolute top-full) w-full z-10 bg-white mt-4">
+          <FilterValues {...filter} />
+        </ul>
+      )}
+    </li>
   );
 }
 
 function Filters({ filters }: Props) {
   return (
-    <ul class="flex flex-col gap-6 p-4">
+    <ul class="flex flex-col gap-4 md:(grid grid-cols-5 gap-x-20 gap-y-8)">
       {filters
         .filter(isToggle)
-        .map((filter) => (
-          <li class="flex flex-col gap-4">
-            <Text variant="body">{filter.label}</Text>
-            <FilterValues {...filter} />
-          </li>
-        ))}
+        .filter(redundantFilters)
+        .map(renderFilter)}
     </ul>
   );
 }

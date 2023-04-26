@@ -1,10 +1,15 @@
 import { useId } from "preact/hooks";
 import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import SliderControllerJS from "deco-sites/fashion/islands/SliderJS.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import { animation, keyframes, tw } from "twind/css";
+
+import {
+  Slider,
+  SliderDots,
+} from "deco-sites/fashion/components/ui/Slider.tsx";
 
 export interface Banner {
   /** @description desktop otimized image */
@@ -39,25 +44,25 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
   } = image;
 
   return (
-    <div class="relative min-w-[100vw] overflow-y-hidden">
+    <div class="relative min-w-[100vw] h-full overflow-y-hidden">
       <a href={href ?? "#"}>
         <Picture class="w-full" preload={lcp}>
           <Source
             media="(max-width: 767px)"
             fetchPriority={lcp ? "high" : "auto"}
             src={mobile}
-            width={899}
-            height={1939}
+            width={833}
+            height={556}
           />
           <Source
             media="(min-width: 768px)"
             fetchPriority={lcp ? "high" : "auto"}
             src={desktop}
-            width={1920}
-            height={1000}
+            width={2667}
+            height={903}
           />
           <img
-            class="object-cover w-full h-full"
+            class="object-cover w-full"
             loading={lcp ? "eager" : "lazy"}
             src={desktop}
             alt={alt}
@@ -105,6 +110,31 @@ function Controls() {
   );
 }
 
+function ProgressiveDots({ images, interval = 0 }: Props) {
+  return (
+    <>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          @property --dot-progress {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 0%;
+          }`,
+        }}
+      >
+      </style>
+      <SliderDots class="hidden lg:flex col-span-full gap-4 z-10 row-start-4 scrollbar-none">
+        {images?.map((_) => (
+          <div class="py-6">
+            <div class="w-[13px] h-[13px] rounded-full bg-white opacity-50 group-disabled:opacity-100" />
+          </div>
+        ))}
+      </SliderDots>
+    </>
+  );
+}
+
 function BannerCarousel({ images, preload, interval }: Props) {
   const id = useId();
 
@@ -120,6 +150,7 @@ function BannerCarousel({ images, preload, interval }: Props) {
       </Slider>
 
       <Controls />
+      <ProgressiveDots images={images} interval={interval} />
       <SliderControllerJS rootId={id} interval={interval && interval * 1e3} />
     </div>
   );

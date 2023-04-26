@@ -14,7 +14,6 @@ const useSort = () =>
 // TODO: Replace with "search utils"
 const applySort = (e: JSX.TargetedEvent<HTMLSelectElement, Event>) => {
   const urlSearchParams = new URLSearchParams(window.location.search);
-
   urlSearchParams.set(SORT_QUERY_PARAM, e.currentTarget.value);
   window.location.search = urlSearchParams.toString();
 };
@@ -25,18 +24,21 @@ function Sort({ sortOptions }: Props) {
   const sort = useSort();
 
   return (
-    <select
-      id="sort"
-      name="sort"
-      onInput={applySort}
-      class="w-min h-[36px] px-1 rounded m-2 text-button font-button text-default hover:bg-hover cursor-pointer outline-none"
-    >
-      {sortOptions.map(({ value, label }) => (
-        <option key={value} value={value} selected={value === sort}>
-          <Text variant="caption">{label}</Text>
-        </option>
-      ))}
-    </select>
+    <div class="flex flex-1 md:flex-none flex-row gap-4 items-center justify-center ml-auto">
+      <span class="font-semibold text-xs hidden md:block">Ordenar por:</span>
+      <select
+        id="sort"
+        name="sort"
+        onInput={applySort}
+        class="border-1 border-gray-400 rounded w-full md:w-min h-[34px] px-1 rounded m-2 text-sm text-gray-700 bg-white cursor-pointer outline-none"
+      >
+        {sortOptions.map(({ value, label }) => (
+          <option key={value} value={value} selected={value === sort}>
+            <Text variant="caption">{label}</Text>
+          </option>
+        ))}
+      </select>
+    </div>
   );
 }
 

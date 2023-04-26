@@ -64,6 +64,7 @@ const options: Omit<Options, "selfURL"> = {
         "default-inverse": "#FFFFFF",
         "interactive": "#161616",
         "focus": "#3379EF",
+        "primary": " #FFD049",
         "positive": "#1A7346",
         "critical": "#B44125",
       },
@@ -115,7 +116,7 @@ const options: Omit<Options, "selfURL"> = {
         default: "0px 1px 4px 0px #0000001F",
         md: "0px 1px 5px 0px #00000024",
         lg: "0px 4px 10px 0px #0000001F",
-        "header": "0 3px 3px rgba(0, 0, 0, 7%)",
+        "header": "0 3px 0 rgba(0, 0, 0, 7%)",
       },
     },
     fontFamily: {
@@ -125,6 +126,7 @@ const options: Omit<Options, "selfURL"> = {
     screens: {
       sm: "640px",
       md: "990px",
+      header: "1170px",
       lg: "1024px",
       xl: "1280px",
       "2xl": "1536px",
