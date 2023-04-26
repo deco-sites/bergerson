@@ -52,24 +52,27 @@ import * as $$$$$$$$20 from "./sections/Carousel.tsx";
 import * as $$$$$$$$21 from "./sections/Features.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
+import * as $live_invoke from "$live/routes/live/invoke/index.ts";
 import * as $live_editorData from "$live/routes/live/editorData.ts";
 import * as $live_inspect from "$live/routes/live/inspect.ts";
 import * as $live_meta from "$live/routes/live/_meta.ts";
 import * as $live_previews from "$live/routes/live/previews/[...block].tsx";
 import * as $live_catchall from "$live/routes/[...catchall].tsx";
-import * as i2$$$$0 from "$live/handlers/routesSelection.ts";
-import * as i2$$$$1 from "$live/handlers/router.ts";
 import * as i2$$$$2 from "$live/handlers/devPage.ts";
 import * as i2$$$$3 from "$live/handlers/fresh.ts";
+import * as i2$$$$1 from "$live/handlers/router.ts";
+import * as i2$$$$0 from "$live/handlers/routesSelection.ts";
 import * as i2$$$$$0 from "$live/pages/LivePage.tsx";
 import * as i2$$$9 from "$live/sections/PageInclude.tsx";
+import * as i1$$$1 from "$live/sections/Slot.tsx";
+import * as i1$$$2 from "$live/sections/UseSlot.tsx";
+import * as i2$$$$$$6 from "$live/matchers/MatchAlways.ts";
 import * as i2$$$$$$0 from "$live/matchers/MatchDate.ts";
-import * as i2$$$$$$1 from "$live/matchers/MatchUserAgent.ts";
-import * as i2$$$$$$2 from "$live/matchers/MatchSite.ts";
+import * as i2$$$$$$5 from "$live/matchers/MatchEnvironment.ts";
 import * as i2$$$$$$3 from "$live/matchers/MatchMulti.ts";
 import * as i2$$$$$$4 from "$live/matchers/MatchRandom.ts";
-import * as i2$$$$$$5 from "$live/matchers/MatchEnvironment.ts";
-import * as i2$$$$$$6 from "$live/matchers/MatchAlways.ts";
+import * as i2$$$$$$2 from "$live/matchers/MatchSite.ts";
+import * as i2$$$$$$1 from "$live/matchers/MatchUserAgent.ts";
 import * as i2$$$$$$$0 from "$live/flags/audience.ts";
 import * as i2$$$$$$$1 from "$live/flags/everyone.ts";
 import * as i2$0 from "deco-sites/std/functions/vtexConfig.ts";
@@ -129,15 +132,17 @@ const manifest: DecoManifest = {
     "deco-sites/std/functions/vtexLegacyRelatedProductsLoader.ts": i2$17,
   },
   "routes": {
-    "./routes/api/[...catchall].tsx": $$$$0,
     "./routes/_app.tsx": $$$$1,
     "./routes/_middleware.ts": $live_middleware,
-    "./routes/live/workbench.ts": $live_workbench,
+    "./routes/[...catchall].tsx": $live_catchall,
+    "./routes/api/[...catchall].tsx": $$$$0,
+    "./routes/index.tsx": $live_catchall,
+    "./routes/live/_meta.ts": $live_meta,
     "./routes/live/editorData.ts": $live_editorData,
     "./routes/live/inspect.ts": $live_inspect,
-    "./routes/live/_meta.ts": $live_meta,
+    "./routes/live/invoke/index.ts": $live_invoke,
     "./routes/live/previews/[...block].tsx": $live_previews,
-    "./routes/[...catchall].tsx": $live_catchall,
+    "./routes/live/workbench.ts": $live_workbench,
   },
   "islands": {
     "./islands/HeaderButton.tsx": $$$$$0,
@@ -188,43 +193,47 @@ const manifest: DecoManifest = {
     "deco-sites/std/sections/SEO.tsx": i2$$$1,
     "deco-sites/std/sections/SEOPLP.tsx": i2$$$2,
     "deco-sites/std/sections/configOCC.global.tsx": i2$$$3,
-    "deco-sites/std/sections/Analytics.tsx": i2$$$4,
     "deco-sites/std/sections/configShopify.global.tsx": i2$$$5,
     "deco-sites/std/sections/configVNDA.global.tsx": i2$$$6,
     "deco-sites/std/sections/configVTEX.global.tsx": i2$$$7,
+    "deco-sites/std/sections/configYourViews.global.tsx": i2$$$0,
+    "deco-sites/std/sections/SEO.tsx": i2$$$1,
     "deco-sites/std/sections/SEOPDP.tsx": i2$$$8,
+    "deco-sites/std/sections/SEOPLP.tsx": i2$$$2,
   },
   "handlers": {
-    "$live/handlers/routesSelection.ts": i2$$$$0,
-    "$live/handlers/router.ts": i2$$$$1,
     "$live/handlers/devPage.ts": i2$$$$2,
     "$live/handlers/fresh.ts": i2$$$$3,
+    "$live/handlers/router.ts": i2$$$$1,
+    "$live/handlers/routesSelection.ts": i2$$$$0,
   },
   "pages": {
     "$live/pages/LivePage.tsx": i2$$$$$0,
   },
   "matchers": {
+    "$live/matchers/MatchAlways.ts": i2$$$$$$6,
     "$live/matchers/MatchDate.ts": i2$$$$$$0,
-    "$live/matchers/MatchUserAgent.ts": i2$$$$$$1,
-    "$live/matchers/MatchSite.ts": i2$$$$$$2,
+    "$live/matchers/MatchEnvironment.ts": i2$$$$$$5,
     "$live/matchers/MatchMulti.ts": i2$$$$$$3,
     "$live/matchers/MatchRandom.ts": i2$$$$$$4,
-    "$live/matchers/MatchEnvironment.ts": i2$$$$$$5,
-    "$live/matchers/MatchAlways.ts": i2$$$$$$6,
+    "$live/matchers/MatchSite.ts": i2$$$$$$2,
+    "$live/matchers/MatchUserAgent.ts": i2$$$$$$1,
   },
   "flags": {
     "$live/flags/audience.ts": i2$$$$$$$0,
     "$live/flags/everyone.ts": i2$$$$$$$1,
   },
   "accounts": {
-    "deco-sites/std/accounts/vnda.ts": i2$$0,
-    "deco-sites/std/accounts/yourViews.ts": i2$$1,
-    "deco-sites/std/accounts/vtex.ts": i2$$2,
-    "deco-sites/std/accounts/shopify.ts": i2$$3,
     "deco-sites/std/accounts/occ.ts": i2$$4,
+    "deco-sites/std/accounts/shopify.ts": i2$$3,
+    "deco-sites/std/accounts/vnda.ts": i2$$0,
+    "deco-sites/std/accounts/vtex.ts": i2$$2,
+    "deco-sites/std/accounts/yourViews.ts": i2$$1,
   },
   "config": config,
   "baseUrl": import.meta.url,
 };
 
-export default manifest;
+export type Manifest = typeof manifest;
+
+export default manifest satisfies DecoManifest;
