@@ -1,5 +1,4 @@
 import ProductCard from "deco-sites/fashion/components/product/ProductCard.tsx";
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
 import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
 import SliderControllerJS from "deco-sites/fashion/islands/SliderJS.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
