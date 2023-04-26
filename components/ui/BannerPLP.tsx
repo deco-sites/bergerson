@@ -1,7 +1,7 @@
 import type { LoaderReturnType } from "$live/types.ts";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import { RequestViewer } from "deco-sites/bergerson/functions/requestViewer.ts";
 
 export interface Banner {
   /** @description RegExp to enable this banner on the current URL. Use /feminino/* to display this banner on feminino category  */
@@ -17,7 +17,7 @@ export interface Banner {
 }
 
 export interface Props {
-  page?: LoaderReturnType<ProductListingPage | null>;
+  requestViewer?: LoaderReturnType<RequestViewer | null>;
   banners?: Banner[];
 }
 
@@ -43,23 +43,14 @@ function BannerUI({ banner }: { banner: Banner }) {
   );
 }
 
-/**
- * TODO: run the matcher agains the true URL instead on the breadcrumb.
- * This way we can remove the need for a loader. This can be done on live@1.x
- */
-function Banner({ page, banners = [] }: Props) {
-  if (!page || page.breadcrumb.itemListElement.length === 0) {
+function Banner({ requestViewer, banners = [] }: Props) {
+  if (!requestViewer) {
     return null;
   }
 
-  const { item: canonical } = page
-    .breadcrumb
-    .itemListElement
-    .reduce((curr, acc) => curr.position > acc.position ? curr : acc);
-
-  const matching = banners.find(({ matcher }) => {
-    return new RegExp(matcher).test(canonical);
-  });
+  const url = new URL(requestViewer.request.url);
+  const pathname = url.pathname.toLocaleLowerCase();
+  const matching = banners.find(({ matcher }) => matcher === pathname);
 
   if (!matching) {
     return null;
