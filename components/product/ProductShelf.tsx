@@ -32,25 +32,29 @@ function ProductShelf({
   }
   const onOff = useSignal(false);
 
-  const changeTextColor = (addColor: string, removeColor: string, event: MouseEvent) => {
+  const changeTextColor = (
+    addColor: string,
+    removeColor: string,
+    event: MouseEvent,
+  ) => {
     if (event.target instanceof HTMLElement) {
-      event?.target.classList.add(addColor)
-      event?.target.classList.remove(removeColor)
+      event?.target.classList.add(addColor);
+      event?.target.classList.remove(removeColor);
     }
-  }
+  };
 
   const handleClick = (event: MouseEvent) => {
     if (event.target instanceof HTMLElement) {
       if (onOff.value === false) {
-        changeTextColor("text-black", "text-[#ccc]", event)
+        changeTextColor("text-black", "text-[#ccc]", event);
         onOff.value = !onOff.value;
       } else {
-        changeTextColor("text-[#ccc]", "text-black", event)
+        changeTextColor("text-[#ccc]", "text-black", event);
         onOff.value = !onOff.value;
       }
-    } 
+    }
   };
-  
+
   return (
     <div
       id={id}
