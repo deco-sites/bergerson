@@ -55,9 +55,9 @@ function ProductShelf({
   return (
     <div
       id={id}
-      class="mb-5 grid grid-cols-[106px_1fr_106px] grid-rows-[48px_1fr_48px_1fr] py-[100px] px-0 sm:px-5"
+      class="mb-5 grid grid-cols-[106px_1fr_106px] grid-rows-[155px_1fr_48px_1fr] py-[100px] px-0 sm:px-5"
     >
-      <ul class="flex col-start-2 text-4xl font-serif font-heading-1 justify-center items-center gap-[30px] text-[#ccc]">
+      <ul class="self-start flex col-start-2 text-4xl font-serif font-heading-1 justify-center items-center gap-[30px] text-[#ccc]">
         {title.map((currentItem, index) => (
           title.length == index + 1
             ? (
@@ -86,7 +86,7 @@ function ProductShelf({
       </ul>
 
       <Slider
-        class="gap-6 row-start-2 row-end-5"
+        class="gap-[60px] row-start-2 row-end-5"
         snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
       >
         {products?.map((product) => (

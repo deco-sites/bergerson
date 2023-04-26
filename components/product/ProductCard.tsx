@@ -70,7 +70,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={304}
+            width={380}
             height={304}
             class="rounded w-full group-hover:hidden"
             preload={preload}
@@ -80,7 +80,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
           <Image
             src={back?.url ?? front.url!}
             alt={back?.alternateName ?? front.alternateName}
-            width={304}
+            width={380}
             height={304}
             class="w-full hidden group-hover:block"
             sizes="(max-width: 640px) 50vw, 20vw"
@@ -120,11 +120,11 @@ function ProductCard({ product, preload, itemListName }: Props) {
           )}
         </div>
 
-        <div class="flex flex-col gap-1 py-2">
-          <span class="text-[15px] uppercase font-heading-1 ">
+        <div class="flex flex-col gap-1 py-2 ">
+          <span class="h-12 text-[15px] uppercase font-heading-1">
             {name}
           </span>
-          <div class="pt-6 pb-3 flex items-center justify-between">
+          <div class="py-2 flex items-center justify-between">
             <span class="text-xs font-semibold font-serif text-[#585858]">
               10x R$30.657,90
             </span>
@@ -132,7 +132,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
               {formatPrice(price, offers!.priceCurrency!)}
             </Text>
           </div>
-          <button class="py-2 border-t-1 border-b-1 border-[#ffd049] mt-2 text-lg font-bold">
+          <button class="py-2.5 border-t-1 border-b-1 border-[#ffd049] mt-2 text-lg font-bold">
             COMPRAR
           </button>
         </div>
