@@ -1,9 +1,20 @@
-function WhatsApp() {
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+
+export interface Props {
+  /** @description put the country number and your fullnumber */
+  whatsappNumber: number;
+  whatsappImage: LiveImage;
+  blogLink: string;
+  blogImage: LiveImage;
+}
+
+function WhatsApp(props: Props) {
+  const { whatsappNumber, whatsappImage, blogLink, blogImage } = props;
   return (
     <>
       <div>
         <a
-          href="https://api.whatsapp.com/send?phone=554133238025"
+          href={`https://api.whatsapp.com/send?phone=${whatsappNumber}`}
           class="w-[50px] fixed bottom-2 right-2 z-40"
           aria-label="Chat on WhatsApp"
         >
@@ -13,14 +24,14 @@ function WhatsApp() {
           >
             <img
               alt="WhatsApp button"
-              src="https://www.bergersonjoias.com/arquivos/tdz-bj-v23-blog.png?v=638022137341030000"
+              src={whatsappImage}
             />
           </button>
         </a>
       </div>
       <div>
         <a
-          href="https://www.bergersonjoias.com/arquivos/tdz-bj-v23-blog.png?v=638022137341030000"
+          href={blogLink}
           class="w-[50px] fixed bottom-16 right-2 z-40"
           aria-label="Visit Blog"
         >
@@ -30,7 +41,7 @@ function WhatsApp() {
           >
             <img
               alt="Blog button"
-              src="https://www.bergersonjoias.com/arquivos/tdz-bj-v23-whatsapp.png?v=638022137341200000"
+              src={blogImage}
             />
           </button>
         </a>
