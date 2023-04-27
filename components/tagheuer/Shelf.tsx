@@ -145,10 +145,12 @@ export default function TagHeuerShelf(props: Props) {
 
         <div id={id} class="flex flex-1 md:(h-[420px] -ml-[620px])">
           <div class="grid grid-cols-1 grid-rows-[1fr_64px] md:(grid-cols-[420px_1fr])">
-            <img
-              src={activeCollection?.inspiration}
-              class="hidden md:(block w-[420px] h-[420px] object-cover)"
-            />
+            <a href={`/tag-heuer/${activeCollection?.slug}`}>
+              <img
+                src={activeCollection?.inspiration}
+                class="hidden md:(block w-[420px] h-[420px] object-cover)"
+              />
+            </a>
 
             <Slider
               class="gap-6 md:(col-start-2 row-start-1 row-end-1) overflow-x-scroll scrollbar-none"
