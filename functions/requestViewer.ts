@@ -1,7 +1,8 @@
-import type { LoaderFunction } from "$live/types.ts";
+import type { LoaderContext, LoaderFunction } from "$live/types.ts";
 
 export interface RequestViewer {
   request: Request;
+  context: LoaderContext;
 }
 
 /**
@@ -11,9 +12,9 @@ export interface RequestViewer {
 const requestViewer: LoaderFunction<
   null,
   RequestViewer | null
-> = (request) => {
+> = (request, context) => {
   return new Promise((res) => {
-    res({ data: { request } });
+    res({ data: { request, context } });
   });
 };
 
