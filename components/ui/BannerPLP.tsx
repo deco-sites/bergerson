@@ -1,7 +1,8 @@
 import type { LoaderReturnType } from "$live/types.ts";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import Container from "deco-sites/bergerson/components/ui/Container.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import { RequestViewer } from "deco-sites/bergerson/functions/requestViewer.ts";
 
 export interface Banner {
   /** @description RegExp to enable this banner on the current URL. Use /feminino/* to display this banner on feminino category  */
@@ -14,52 +15,60 @@ export interface Banner {
     /** @description image alt text */
     alt?: string;
   };
+  description?: {
+    logo: LiveImage;
+    text: string;
+  };
 }
 
 export interface Props {
-  page?: LoaderReturnType<ProductListingPage | null>;
+  requestViewer?: LoaderReturnType<RequestViewer | null>;
   banners?: Banner[];
 }
 
 function BannerUI({ banner }: { banner: Banner }) {
-  const { image } = banner;
+  const { image, description } = banner;
 
   return (
-    <div class="grid grid-cols-1 grid-rows-1">
-      <Picture preload class="col-start-1 col-span-1 row-start-1 row-span-1">
-        <Source
-          width={360}
-          src={image.mobile}
-          media="(max-width: 767px)"
-        />
-        <Source
-          width={1440}
-          src={image.desktop}
-          media="(min-width: 767px)"
-        />
-        <img class="w-full" src={image.desktop} alt={image.alt} />
-      </Picture>
-    </div>
+    <>
+      <div class="grid grid-cols-1 grid-rows-1">
+        <Picture preload class="col-start-1 col-span-1 row-start-1 row-span-1">
+          <Source
+            width={360}
+            src={image.mobile}
+            media="(max-width: 767px)"
+          />
+          <Source
+            width={1440}
+            src={image.desktop}
+            media="(min-width: 767px)"
+          />
+          <img class="w-full" src={image.desktop} alt={image.alt} />
+        </Picture>
+      </div>
+
+      {description && (
+        <Container class="px-4 sm:py-10 flex flex-col gap-2 items-center justify-center">
+          <img
+            alt={image.alt}
+            src={description.logo}
+            class="mx-[15px] h-[115px] w-full lg:w-[200px] object-contain"
+          />
+
+          <p class="text-center">{description.text}</p>
+        </Container>
+      )}
+    </>
   );
 }
 
-/**
- * TODO: run the matcher agains the true URL instead on the breadcrumb.
- * This way we can remove the need for a loader. This can be done on live@1.x
- */
-function Banner({ page, banners = [] }: Props) {
-  if (!page || page.breadcrumb.itemListElement.length === 0) {
+function Banner({ requestViewer, banners = [] }: Props) {
+  if (!requestViewer) {
     return null;
   }
 
-  const { item: canonical } = page
-    .breadcrumb
-    .itemListElement
-    .reduce((curr, acc) => curr.position > acc.position ? curr : acc);
-
-  const matching = banners.find(({ matcher }) => {
-    return new RegExp(matcher).test(canonical);
-  });
+  const url = new URL(requestViewer.request.url);
+  const matching = banners.find(({ matcher }) => matcher === url.pathname);
 
   if (!matching) {
     return null;

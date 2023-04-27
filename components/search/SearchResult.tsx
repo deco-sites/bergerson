@@ -1,7 +1,6 @@
+import Pagination from "../ui/Pagination.tsx";
 import Container from "deco-sites/fashion/components/ui/Container.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import SearchControls from "deco-sites/fashion/islands/SearchControls.tsx";
 import ViewSendEvent from "deco-sites/fashion/islands/ViewSendEvent.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
@@ -46,27 +45,7 @@ function Result({
         </div>
 
         <div class="flex flex-row items-center justify-center gap-2 my-4 mt-6">
-          <a rel="prev" href={pageInfo.previousPage ?? "#"}>
-            <Button
-              disabled={!pageInfo.previousPage}
-              variant="icon"
-              aria-label="previous page"
-            >
-              <Icon id="ChevronLeft" width={20} height={20} strokeWidth={2} />
-            </Button>
-          </a>
-          <Text variant="caption">
-            {pageInfo.currentPage + 1}
-          </Text>
-          <a rel="next" href={pageInfo.nextPage ?? "#"}>
-            <Button
-              disabled={!pageInfo.nextPage}
-              variant="icon"
-              aria-label="next page"
-            >
-              <Icon id="ChevronRight" width={20} height={20} strokeWidth={2} />
-            </Button>
-          </a>
+          <Pagination pageInfo={pageInfo} />
         </div>
       </Container>
       <ViewSendEvent
