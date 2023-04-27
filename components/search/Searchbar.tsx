@@ -145,9 +145,10 @@ function Searchbar({
             aria-controls="search-suggestion"
             autocomplete="off"
           />
-          <Button
-            variant="icon"
+          <button
+            type="submit"
             aria-label="Search"
+            class="focus:outline-none"
             htmlFor="searchbar"
             tabIndex={-1}
           >
@@ -158,7 +159,7 @@ function Searchbar({
               height={20}
               strokeWidth={0.01}
             />
-          </Button>
+          </button>
         </form>
         <CloseButton />
       </div>
