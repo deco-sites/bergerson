@@ -11,13 +11,12 @@ export interface INavItem {
 }
 
 function NavItem({ item }: { item: INavItem }) {
-  const { href, label, children, image } = item;
-
+  const { href, label, children } = item;
   const imageIndex = useSignal(0);
 
   return (
     <li class="group flex items-center">
-      <a href={href} class="px-4 py-3">
+      <a href={href} class="h-full px-6 flex items-center">
         <Text
           class="group-hover:border-black border-solid border-b-[3px] border-white uppercase"
           variant="caption"
@@ -42,9 +41,9 @@ function NavItem({ item }: { item: INavItem }) {
                 <>
                   <li
                     value={index}
-                    onMouseEnter={(event) => imageIndex.value = index}
-                    onMouseLeave={() => imageIndex.value = 0}
                     class="group py-2.5 pr-20"
+                    onMouseLeave={() => (imageIndex.value = 0)}
+                    onMouseEnter={() => (imageIndex.value = index)}
                   >
                     <a href={item.href}>
                       <Text

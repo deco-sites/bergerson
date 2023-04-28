@@ -15,25 +15,27 @@ import * as $$$$$0 from "./islands/TagHeuerHeader.tsx";
 import * as $$$$$1 from "./islands/WristwatchHero.tsx";
 import * as $$$$$2 from "./islands/HeaderModals.tsx";
 import * as $$$$$3 from "./islands/HeaderButton.tsx";
-import * as $$$$$4 from "./islands/SearchControls.tsx";
-import * as $$$$$5 from "./islands/SpotlightHero.tsx";
-import * as $$$$$6 from "./islands/DropDown.tsx";
-import * as $$$$$7 from "./islands/AddToCartButton.tsx";
-import * as $$$$$8 from "./islands/TagHeuerShelf.tsx";
-import * as $$$$$9 from "./islands/WishlistButton.tsx";
-import * as $$$$$10 from "./islands/CollectionPLP.tsx";
-import * as $$$$$11 from "./islands/HeaderSearchMenu.tsx";
-import * as $$$$$12 from "./islands/ShippingSimulation.tsx";
-import * as $$$$$13 from "./islands/RolexHeader.tsx";
-import * as $$$$$14 from "./islands/Filters.tsx";
-import * as $$$$$15 from "./islands/BannerPLP.tsx";
-import * as $$$$$16 from "./islands/SendEventButton.tsx";
-import * as $$$$$17 from "./islands/ViewSendEvent.tsx";
-import * as $$$$$18 from "./islands/ProductImageZoom.tsx";
-import * as $$$$$19 from "./islands/SmallFaderShelf.tsx";
-import * as $$$$$20 from "./islands/SliderJS.tsx";
-import * as $$$$$21 from "./islands/NavItens.tsx";
-import * as $$$$$22 from "./islands/ProductShelf.tsx";
+import * as $$$$$4 from "./islands/TagHeuerPLP.tsx";
+import * as $$$$$5 from "./islands/SearchControls.tsx";
+import * as $$$$$6 from "./islands/SpotlightHero.tsx";
+import * as $$$$$7 from "./islands/DropDown.tsx";
+import * as $$$$$8 from "./islands/AddToCartButton.tsx";
+import * as $$$$$9 from "./islands/TagHeuerShelf.tsx";
+import * as $$$$$10 from "./islands/WishlistButton.tsx";
+import * as $$$$$11 from "./islands/CollectionPLP.tsx";
+import * as $$$$$12 from "./islands/HeaderSearchMenu.tsx";
+import * as $$$$$13 from "./islands/ShippingSimulation.tsx";
+import * as $$$$$14 from "./islands/RolexHeader.tsx";
+import * as $$$$$15 from "./islands/Filters.tsx";
+import * as $$$$$16 from "./islands/BannerPLP.tsx";
+import * as $$$$$17 from "./islands/SendEventButton.tsx";
+import * as $$$$$18 from "./islands/ViewSendEvent.tsx";
+import * as $$$$$19 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$20 from "./islands/Header.tsx";
+import * as $$$$$21 from "./islands/SmallFaderShelf.tsx";
+import * as $$$$$22 from "./islands/SliderJS.tsx";
+import * as $$$$$23 from "./islands/NavItens.tsx";
+import * as $$$$$24 from "./islands/ProductShelf.tsx";
 import * as $$$$$$$$0 from "./sections/Features.tsx";
 import * as $$$$$$$$1 from "./sections/CartierPage.tsx";
 import * as $$$$$$$$2 from "./sections/RolexFooter.tsx";
@@ -169,28 +171,30 @@ const manifest = {
     "./routes/live/workbench.ts": $live_workbench,
   },
   "islands": {
-    "./islands/AddToCartButton.tsx": $$$$$7,
-    "./islands/BannerPLP.tsx": $$$$$15,
-    "./islands/CollectionPLP.tsx": $$$$$10,
-    "./islands/DropDown.tsx": $$$$$6,
-    "./islands/Filters.tsx": $$$$$14,
+    "./islands/AddToCartButton.tsx": $$$$$8,
+    "./islands/BannerPLP.tsx": $$$$$16,
+    "./islands/CollectionPLP.tsx": $$$$$11,
+    "./islands/DropDown.tsx": $$$$$7,
+    "./islands/Filters.tsx": $$$$$15,
+    "./islands/Header.tsx": $$$$$20,
     "./islands/HeaderButton.tsx": $$$$$3,
     "./islands/HeaderModals.tsx": $$$$$2,
-    "./islands/HeaderSearchMenu.tsx": $$$$$11,
-    "./islands/NavItens.tsx": $$$$$21,
-    "./islands/ProductImageZoom.tsx": $$$$$18,
-    "./islands/ProductShelf.tsx": $$$$$22,
-    "./islands/RolexHeader.tsx": $$$$$13,
-    "./islands/SearchControls.tsx": $$$$$4,
-    "./islands/SendEventButton.tsx": $$$$$16,
-    "./islands/ShippingSimulation.tsx": $$$$$12,
-    "./islands/SliderJS.tsx": $$$$$20,
-    "./islands/SmallFaderShelf.tsx": $$$$$19,
-    "./islands/SpotlightHero.tsx": $$$$$5,
+    "./islands/HeaderSearchMenu.tsx": $$$$$12,
+    "./islands/NavItens.tsx": $$$$$23,
+    "./islands/ProductImageZoom.tsx": $$$$$19,
+    "./islands/ProductShelf.tsx": $$$$$24,
+    "./islands/RolexHeader.tsx": $$$$$14,
+    "./islands/SearchControls.tsx": $$$$$5,
+    "./islands/SendEventButton.tsx": $$$$$17,
+    "./islands/ShippingSimulation.tsx": $$$$$13,
+    "./islands/SliderJS.tsx": $$$$$22,
+    "./islands/SmallFaderShelf.tsx": $$$$$21,
+    "./islands/SpotlightHero.tsx": $$$$$6,
     "./islands/TagHeuerHeader.tsx": $$$$$0,
-    "./islands/TagHeuerShelf.tsx": $$$$$8,
-    "./islands/ViewSendEvent.tsx": $$$$$17,
-    "./islands/WishlistButton.tsx": $$$$$9,
+    "./islands/TagHeuerPLP.tsx": $$$$$4,
+    "./islands/TagHeuerShelf.tsx": $$$$$9,
+    "./islands/ViewSendEvent.tsx": $$$$$18,
+    "./islands/WishlistButton.tsx": $$$$$10,
     "./islands/WristwatchHero.tsx": $$$$$1,
   },
   "sections": {

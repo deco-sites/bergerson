@@ -63,7 +63,7 @@ function MenuSearchbar(
   );
 }
 
-function Menu({ items, searchbar, img, cartImage }: {
+function Menu({ items, img, cartImage }: {
   items: INavItem[];
   searchbar: SearchbarProps;
   img: NavImage;
@@ -118,7 +118,7 @@ function Menu({ items, searchbar, img, cartImage }: {
             <Logo img={img} />
           </a>
         </div>
-        <div class="px-3 flex-auto flex justify-between max-w-[893px]  h-[135px]">
+        <div class="px-3 flex-auto flex max-w-[893px] h-[135px]">
           {items.map((item) => <NavItem item={item} />)}
         </div>
         <div class="flex-none  flex items-center justify-between">
@@ -153,10 +153,11 @@ function Menu({ items, searchbar, img, cartImage }: {
               href="/login"
               aria-label="Log in"
             >
-              <img
-                class={`w-[22px] h-[24.2px]`}
-                src="https://bergersonjoias.vteximg.com.br/arquivos/Icon-my-account-header.png"
-                alt="My account button"
+              <Icon
+                id="User"
+                width={24}
+                height={24}
+                alt="Search products button"
               />
             </Button>
           </div>

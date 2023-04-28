@@ -3338,6 +3338,31 @@
       ],
       "title": "deco-sites/bergerson/components/tagheuer/Header.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy90YWdoZXVlci9QTFAudHN4@Props": {
+      "type": "object",
+      "properties": {
+        "logo": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Logo"
+        },
+        "page": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductListingPage|null",
+          "title": "Page"
+        },
+        "requestViewer": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vZnVuY3Rpb25zL3JlcXVlc3RWaWV3ZXIudHM=@RequestViewer|null",
+          "title": "Request Viewer"
+        },
+        "tagHeuerConfig": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvVGFnSGV1ZXIuZ2xvYmFsLnRzeA==@Props|null",
+          "title": "Tag Heuer Config"
+        }
+      },
+      "required": [
+        "page"
+      ],
+      "title": "deco-sites/bergerson/components/tagheuer/PLP.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy90YWdoZXVlci9TaGVsZi50c3g=@Props": {
       "type": "object",
       "properties": {
@@ -4844,31 +4869,6 @@
       ],
       "title": "deco-sites/bergerson/components/tagheuer/Description.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy90YWdoZXVlci9QTFAudHN4@Props": {
-      "type": "object",
-      "properties": {
-        "logo": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-          "title": "Logo"
-        },
-        "page": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductListingPage|null",
-          "title": "Page"
-        },
-        "requestViewer": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vZnVuY3Rpb25zL3JlcXVlc3RWaWV3ZXIudHM=@RequestViewer|null",
-          "title": "Request Viewer"
-        },
-        "tagHeuerConfig": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvVGFnSGV1ZXIuZ2xvYmFsLnRzeA==@Props|null",
-          "title": "Tag Heuer Config"
-        }
-      },
-      "required": [
-        "page"
-      ],
-      "title": "deco-sites/bergerson/components/tagheuer/PLP.tsx@Props"
-    },
     "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy9BbmFseXRpY3MudHN4@Props": {
       "type": "object",
       "properties": {
@@ -5828,6 +5828,27 @@
         }
       }
     },
+    "Li9pc2xhbmRzL0hlYWRlci50c3g=": {
+      "title": "./islands/Header.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/Header.tsx"
+          ],
+          "default": "./islands/Header.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL0hlYWRlckJ1dHRvbi50c3g=": {
       "title": "./islands/HeaderButton.tsx",
       "type": "object",
@@ -6079,6 +6100,27 @@
             "./islands/TagHeuerHeader.tsx"
           ],
           "default": "./islands/TagHeuerHeader.tsx"
+        }
+      }
+    },
+    "Li9pc2xhbmRzL1RhZ0hldWVyUExQLnRzeA==": {
+      "title": "./islands/TagHeuerPLP.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy90YWdoZXVlci9QTFAudHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/TagHeuerPLP.tsx"
+          ],
+          "default": "./islands/TagHeuerPLP.tsx"
         }
       }
     },
@@ -7616,6 +7658,9 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL0ZpbHRlcnMudHN4"
         },
         {
+          "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlci50c3g="
+        },
+        {
           "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlckJ1dHRvbi50c3g="
         },
         {
@@ -7656,6 +7701,9 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1RhZ0hldWVySGVhZGVyLnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1RhZ0hldWVyUExQLnRzeA=="
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1RhZ0hldWVyU2hlbGYudHN4"
