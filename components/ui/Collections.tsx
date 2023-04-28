@@ -32,7 +32,7 @@ export default function Collections({ collections, interval }: Props) {
       {/* Mobile */}
       <Container
         id={id}
-        class="md:hidden grid grid-cols-[40px_1fr_40px] grid-rows-[1fr_1fr_26px_1fr] w-full "
+        class="md:hidden grid grid-cols-[40px_1fr_40px] grid-rows-[1fr_1fr_26px_1fr] w-full mb-[100px]"
       >
         <Slider class=" gap-6 col-span-full row-start-1 row-end-5 scrollbar-none">
           {collections?.map((collection) => (
@@ -125,7 +125,7 @@ function ItemMobile(
       <Text class="h-[245px] w-[85%] text-center text-base leading-6 font-light text-primary font-mont mb-[15px] overflow-hidden ">
         {description}
       </Text>
-      <div class="mx-[15px] border-y-1 w-full flex flex-row justify-center border-primary p-2.5">
+      <div class=" border-y-1 w-[80%] flex flex-row justify-center border-primary p-2.5">
         <Button variant="quaternary" href={href} class="">
           {titleButton}
         </Button>
