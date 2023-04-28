@@ -128,8 +128,12 @@ export default function Spotlight(props: Props) {
                     />
                   </div>
 
-                  <div class="mx-[15px]">
-                    <Button as="a" href={slide.action.href} variant="primary">
+                  <div class="mx-[15px] border-y-1 border-black p-2.5">
+                    <Button
+                      as="a"
+                      variant="quaternary"
+                      href={slide.action.href}
+                    >
                       {slide.action.title}
                     </Button>
                   </div>

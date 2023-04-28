@@ -14,7 +14,7 @@ export interface Props {
 export default function MontblancDescription(props: Props) {
   return (
     <div class="bg-black">
-      <Container class="py-20 px-5">
+      <Container class="sm:max-w-[1000px] py-20 px-5">
         <div class="flex flex-col sm:flex-row gap-8 items-center justify-center sm:items-start">
           <img src={props.detail} alt="Montblanc" class="w-full object-cover" />
 
@@ -24,7 +24,10 @@ export default function MontblancDescription(props: Props) {
               src={props.logo}
               alt="Montblanc"
             />
-            <QuillText html={props.text} />
+
+            <div class="text-gray-500">
+              <QuillText html={props.text} />
+            </div>
 
             <div class="mt-8 block">
               <a

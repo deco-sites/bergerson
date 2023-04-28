@@ -25,8 +25,8 @@ function ProductCard({ product, preload }: Props) {
   return (
     <div
       data-deco="view-product"
-      class="w-full group h-full"
       id={`product-card-${productID}`}
+      class="w-full group h-full bg-white"
     >
       <a href={url} aria-label="product link" class="h-full flex flex-col">
         <div class="relative w-full bg-white">
@@ -50,25 +50,16 @@ function ProductCard({ product, preload }: Props) {
           />
         </div>
 
-        <div class="flex flex-col gap-1 py-2 h-full">
-          <span class="text-[16px] uppercase font-heading-1 text-center mb-auto">
+        <div class="flex flex-col gap-1 py-2 h-full px-4">
+          <span class="text-[16px] uppercase font-heading-1 text-center mb-auto truncate">
             {name}
           </span>
 
-          <div class="py-2 flex items-center justify-between">
-            {price && (
-              <span class="font-semibold font-serif text-[#585858]">
-                10x {formatPrice(price / 10, offers!.priceCurrency!)}
-              </span>
-            )}
+          <div class="py-2 flex items-center justify-center">
             <span class="text-lg">
               {formatPrice(price, offers!.priceCurrency!)}
             </span>
           </div>
-
-          <button class="uppercase py-2.5 border-t-1 border-b-1 border-[#ffd049] mt-2 text-lg font-bold">
-            Comprar
-          </button>
         </div>
       </a>
     </div>

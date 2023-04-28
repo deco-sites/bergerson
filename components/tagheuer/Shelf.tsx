@@ -1,13 +1,13 @@
 import { useId } from "preact/hooks";
 import { animation, tw } from "twind/css";
 import { useSignal } from "@preact/signals";
+import ProductCard from "./ProductCard.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import type { Product } from "deco-sites/std/commerce/types.ts";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
 import SliderControllerJS from "deco-sites/fashion/islands/SliderJS.tsx";
-import ProductCard from "deco-sites/fashion/components/product/ProductCard.tsx";
 import type { Props as TagHeuerConfig } from "deco-sites/bergerson/sections/TagHeuer.global.tsx";
 
 export interface Props {
@@ -160,7 +160,7 @@ export default function TagHeuerShelf(props: Props) {
             </a>
 
             <Slider
-              class="gap-6 md:(col-start-2 row-start-1 row-end-1) overflow-x-scroll scrollbar-none"
+              class="gap-6 col-start-1 row-start-1 md:(col-start-2 row-start-1 row-end-1) overflow-x-scroll scrollbar-none"
               snap="snap-center block first:ml-6 last:mr-6"
             >
               {collectionProducts?.map((product) => (
