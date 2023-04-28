@@ -74,7 +74,6 @@ function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
     );
   };
 
-  
   const footerData = {
     institucional: [
       "Sobre a bergerson",
@@ -336,19 +335,19 @@ function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
         {/*Drop down*/}
         <FooterContainer class="text-[#4b4b4b]">
           <DropDownItem
-            summary="Institucional"
-            itens={footerData.institucional}
+            title={column1.title}
+            itens={column1.footerLink}
           />
           <DropDownItem
-            summary="Políticas"
-            itens={footerData.politicas}
+            title={column2.title}
+            itens={column2.footerLink}
           />
           <DropDownItem
-            summary="Ajuda"
-            itens={footerData.ajuda}
+            title={column3.title}
+            itens={column3.footerLink}
           />
           <DropDownItem
-            summary="Fale conosco"
+            title="Fale conosco"
             other={
               <p>
                 Para entrar em contato é só ligar 0800 0414130 ou através do
@@ -356,6 +355,44 @@ function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
                 de segunda a sexta-feira das 08h30 às 11:30h e das 13h30 às
                 17h30 (exceto feriados).
               </p>
+            }
+          />
+          <DropDownItem
+            title="Formas de pagamento"
+            other={paymentMethod.map((item) => (
+              <li class="pr-2.5">
+                <a href="/">
+                  <img src={item.src} alt={item.alt} />
+                </a>
+              </li>
+            ))}
+          />
+          <DropDownItem
+            title="Nossas Lojas"
+            other={
+              <div class="flex flex-col">
+                <div class="w-[396.5px] mb-2.5">
+                  <ul class="">
+                    {address.map((item, index) => (
+                      <>
+                        <button
+                          class="focus:outline-none focus:border-b-2 border-black"
+                          onClick={(e) => getCurrentAddress(e, index)}
+                        >
+                          <li class="pr-1 pb-1 cursor-pointer border-black">
+                            {item.city}
+                          </li>
+                        </button>
+                      </>
+                    ))}
+                  </ul>
+                </div>
+                <div class="font-light">
+                  <div class="mb-5">
+                    {setCurrentAddress()}
+                  </div>
+                </div>
+              </div>
             }
           />
         </FooterContainer>
