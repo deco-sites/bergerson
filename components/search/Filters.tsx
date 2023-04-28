@@ -67,7 +67,7 @@ function renderFilter(filter: FilterToggle) {
 
   return (
     <li
-      class="relative flex flex-col"
+      class="relative flex flex-col gap-4 md:(gap-0)"
       onClick={toggle}
     >
       <span class="flex flex-row justify-between cursor-pointer">
@@ -76,7 +76,7 @@ function renderFilter(filter: FilterToggle) {
       </span>
 
       {isOpen.value && (
-        <ul class="flex flex-wrap gap-4 flex-col md:(shadow-lg p-3 absolute top-full) w-full z-10 bg-white mt-4">
+        <ul class="flex flex-wrap gap-8 flex-col md:(gap-4 shadow-lg p-3 absolute top-full) w-full z-10 bg-white mt-4">
           <FilterValues {...filter} />
         </ul>
       )}
@@ -86,7 +86,7 @@ function renderFilter(filter: FilterToggle) {
 
 function Filters({ filters }: Props) {
   return (
-    <ul class="flex flex-col gap-4 md:(grid grid-cols-5 gap-x-20 gap-y-8)">
+    <ul class="flex flex-col gap-8 md:(grid grid-cols-5 gap-x-20 gap-y-8)">
       {filters
         .filter(isToggle)
         .filter(redundantFilters)
