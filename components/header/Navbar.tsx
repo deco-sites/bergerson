@@ -39,7 +39,7 @@ function MenuSearchbar(
   return (
     <>
       <div
-        class={` max-w-[1700px] min-w-[991px] hidden md:flex flex-row justify-between items-center shadow-header w-full px-[70px] h-[${navbarHeightDesktop}]`}
+        class={` max-w-[1700px] min-w-[991px] hidden md:flex flex-row justify-between items-center w-full px-[70px] h-[${navbarHeightDesktop}]`}
       >
         <div class="flex-none">
           <a href="/" aria-label="Store logo" class="block w-[160px]">
@@ -49,7 +49,7 @@ function MenuSearchbar(
         <HeaderSearchMenu searchbar={searchbar} />
       </div>
       <div
-        class={`md:hidden flex flex-row  items-center h-[${navbarHeight}] border-b-1 border-default w-full px-3`}
+        class={`md:hidden flex flex-row  items-center h-[${navbarHeight}] w-full px-3`}
       >
         <div class="flex-none">
           <a href="/" aria-label="Store logo" class="block w-[160px]">
@@ -73,7 +73,7 @@ function Menu({ items, searchbar, img, cartImage }: {
     <>
       {/* Mobile */}
       <div
-        class={`md:hidden flex flex-row justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full px-5 gap-2`}
+        class={`md:hidden flex flex-row justify-between items-center h-[${navbarHeight}] w-full px-5 gap-2`}
       >
         <div class={`w-[51px] flex justify-start`}>
           <HeaderButton variant="menu" />
@@ -108,7 +108,7 @@ function Menu({ items, searchbar, img, cartImage }: {
       </div>
       {/* Desktop */}
       <div
-        class={`max-w-[1700px] hidden  md:flex flex-row justify-between items-center shadow-header w-full px-[70px] h-[${navbarHeightDesktop}]`}
+        class={`max-w-[1700px] hidden md:flex flex-row justify-between items-center w-full px-[70px] h-[${navbarHeightDesktop}]`}
       >
         <div class="flex-none">
           <a href="/" aria-label="Store logo" class="block w-[160px]">
