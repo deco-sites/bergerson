@@ -7,8 +7,8 @@ import type { JSX } from "preact";
 
 import Icon from "./Icon.tsx";
 import Logo from "./Logo.tsx";
-import type { NavImage } from "../header/Header.tsx";
 import ListItem from "./ListItem.tsx";
+import type { NavImage } from "../header/Header.tsx";
 
 // Lazy load a <dialog> polyfill.
 if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
@@ -100,22 +100,6 @@ const Modal = ({
           <div class="overflow-y-auto flex-grow flex justify-between flex-col">
             <div>
               {loading === "lazy" ? lazy.value && children : children}
-            </div>
-            <div class="pb-4">
-              <ul class="px-16 flex flex-col divide-y divide-black">
-                <ListItem href="/" label="Minha conta" />
-                <ListItem href="/" label="Resgate seu bônus" />
-                <ListItem href="/" label="B Magazine" />
-              </ul>
-              <div class="w-full flex justify-center">
-                <a href={img?.badge?.href}>
-                  <img
-                    class={`w-[160px] h-[70px]`}
-                    src={img?.badge?.src}
-                    alt={img?.badge?.alt}
-                  />
-                </a>
-              </div>
             </div>
           </div>
         </div>
