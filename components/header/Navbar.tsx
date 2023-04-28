@@ -33,6 +33,7 @@ function Navbar({ items, searchbar, img, cartImage }: {
     </>
   );
 }
+
 function MenuSearchbar(
   { searchbar, img }: { searchbar: SearchbarProps; img: NavImage },
 ) {
@@ -61,6 +62,7 @@ function MenuSearchbar(
     </>
   );
 }
+
 function Menu({ items, searchbar, img, cartImage }: {
   items: INavItem[];
   searchbar: SearchbarProps;
@@ -92,8 +94,9 @@ function Menu({ items, searchbar, img, cartImage }: {
             variant="icon"
           >
             <Icon
+              width={24}
+              height={24}
               id="MagnifyingGlass"
-              class={`w-[18px] h-[18px]`}
               alt="Search products button"
             />
           </Button>
@@ -125,8 +128,9 @@ function Menu({ items, searchbar, img, cartImage }: {
               variant="icon"
             >
               <Icon
+                width={24}
+                height={24}
                 id="MagnifyingGlass"
-                class={`w-[18px] h-[18px]`}
                 alt="Search products button"
               />
             </Button>
@@ -162,9 +166,9 @@ function Menu({ items, searchbar, img, cartImage }: {
             href={img.badge?.href}
           >
             <img
-              class="w-[170px] h-[70px] header:block hidden "
               src={img.badge?.src}
               alt={img.badge?.alt}
+              class="w-[170px] h-[70px] header:block hidden object-contain"
             />
           </Button>
         </div>
