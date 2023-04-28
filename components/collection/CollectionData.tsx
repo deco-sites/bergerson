@@ -2,12 +2,12 @@ import type { LoaderReturnType } from "$live/types.ts";
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
 import Container from "deco-sites/fashion/components/ui/Container.tsx";
 import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
+import Pagination from "deco-sites/bergerson/components/ui/Pagination.tsx";
 
 import type {
   FilterToggleValue,
   ProductListingPage,
 } from "deco-sites/std/commerce/types.ts";
-import Pagination from "../ui/Pagination.tsx";
 
 export interface Props {
   /**
@@ -34,20 +34,7 @@ function Result({
   const categories = category?.values as FilterToggleValue[];
 
   return (
-    <Container class="px-4 sm:py-10 flex flex-col gap-12">
-      <ul class="flex gap-6 flex-col lg:flex-row flex-wrap items-center justify-center">
-        {categories.map((category) => (
-          <li>
-            <a
-              href={category.url}
-              class="font-serif font-bold text-xl lg:text-2xl text-gray-500 hover:text-black"
-            >
-              {category.label} ({category.quantity})
-            </a>
-          </li>
-        ))}
-      </ul>
-
+    <Container class="px-4 sm:pb-10 flex flex-col gap-12 mt-12">
       <div class="flex flex-row">
         <ProductGallery products={products} columns={columns} />
       </div>
