@@ -130,6 +130,13 @@ export default function TagHeuerShelf(props: Props) {
   const controllerProps = { activeTab: activeTab.value, changeTab: onChange };
   const activeCollection = collections?.find((_, i) => i === activeTab.value);
 
+  const collectionProducts = products?.filter((product) => {
+    const addProperties = product.additionalProperty ?? [];
+    const clusters = addProperties.filter((add) => add.name === "cluster");
+    const clustersIds = clusters.map((cluster) => cluster.propertyID);
+    return clustersIds.includes(activeCollection?.clusterId.toString());
+  });
+
   return (
     <div class="bg-[#fafafa] relative py-20">
       <div class="md:max-w-[1500px] mx-auto px-5 flex flex-col md:flex-row">
@@ -156,7 +163,7 @@ export default function TagHeuerShelf(props: Props) {
               class="gap-6 md:(col-start-2 row-start-1 row-end-1) overflow-x-scroll scrollbar-none"
               snap="snap-center block first:ml-6 last:mr-6"
             >
-              {products?.map((product) => (
+              {collectionProducts?.map((product) => (
                 <div class="min-w-[270px] max-w-[270px] md:min-w-[292px] md:max-w-[292px]">
                   <ProductCard product={product} />
                 </div>

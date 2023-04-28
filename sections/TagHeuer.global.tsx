@@ -4,6 +4,7 @@ import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 export interface Collection {
   name: string;
   nickname: string;
+  clusterId: number;
   description: HTML;
   avatar: LiveImage;
   inspiration: LiveImage;

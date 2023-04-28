@@ -4,14 +4,17 @@ import QuillText from "deco-sites/std/components/QuillText.tsx";
 import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
 import Container from "deco-sites/fashion/components/ui/Container.tsx";
 import SliderControllerJS from "deco-sites/fashion/islands/SliderJS.tsx";
+import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import { RequestViewer } from "deco-sites/bergerson/functions/requestViewer.ts";
+import SearchResult from "deco-sites/bergerson/components/search/SearchResult.tsx";
 import type { Props as TagHeuerConfig } from "deco-sites/bergerson/sections/TagHeuer.global.tsx";
 
 export interface Props {
   logo?: LiveImage;
-  tagHeuerConfig?: LoaderReturnType<TagHeuerConfig | null>;
+  page: LoaderReturnType<ProductListingPage | null>;
   requestViewer?: LoaderReturnType<RequestViewer | null>;
+  tagHeuerConfig?: LoaderReturnType<TagHeuerConfig | null>;
 }
 
 function MenuMobile(props: Props) {
@@ -67,7 +70,7 @@ function MenuDesktop(props: Props) {
 }
 
 function PLP(props: Props) {
-  const { tagHeuerConfig, requestViewer } = props;
+  const { tagHeuerConfig, requestViewer, page } = props;
   const slug: string = requestViewer?.context?.params?.slug!;
   const matching = tagHeuerConfig?.collections.find((col) => col.slug === slug);
 
@@ -89,6 +92,12 @@ function PLP(props: Props) {
         <div class="text-[#666]">
           <QuillText html={matching.description} />
         </div>
+
+        <SearchResult
+          page={page}
+          resultsOnly={true}
+          columns={{ desktop: 3, mobile: 1 }}
+        />
       </div>
     </Container>
   );

@@ -15,6 +15,7 @@ export interface Props {
    * @description Number of products per line on grid
    */
   columns: Columns;
+  resultsOnly?: boolean;
 }
 
 function NotFound() {
@@ -28,8 +29,17 @@ function NotFound() {
 function Result({
   page,
   columns,
+  resultsOnly,
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
+
+  if (resultsOnly) {
+    return (
+      <Container class="px-4 sm:py-10">
+        <ProductGallery products={products} columns={columns} />
+      </Container>
+    );
+  }
 
   return (
     <>
