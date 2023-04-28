@@ -10,17 +10,12 @@
  */
 
 import { useEffect, useRef } from "preact/compat";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import ProductCard from "deco-sites/fashion/components/product/ProductCard.tsx";
-import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
-import { useAutocomplete } from "deco-sites/std/commerce/vtex/hooks/useAutocomplete.ts";
 import { useUI } from "deco-sites/fashion/sdk/useUI.ts";
-import { sendAnalyticsEvent } from "deco-sites/std/commerce/sdk/sendAnalyticsEvent.ts";
+import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
+import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
-
-import SearchTermList from "./SearchTermList.tsx";
+import { sendAnalyticsEvent } from "deco-sites/std/commerce/sdk/sendAnalyticsEvent.ts";
+import { useAutocomplete } from "deco-sites/std/commerce/vtex/hooks/useAutocomplete.ts";
 
 function CloseButton() {
   const { displaySearchbar } = useUI();
@@ -75,12 +70,10 @@ function Searchbar({
   action = "/s",
   name = "q",
   query,
-  products,
   suggestions: _suggestions,
 }: Props) {
-  const searches = _suggestions?.searches;
+  const { setSearch } = useAutocomplete();
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const { setSearch, suggestions } = useAutocomplete();
 
   useEffect(() => {
     if (!searchInputRef.current) {
@@ -89,13 +82,6 @@ function Searchbar({
 
     searchInputRef.current.focus();
   }, []);
-
-  const hasSuggestions = !!suggestions.value;
-  const emptySuggestions = suggestions.value?.searches?.length === 0;
-  const _products = suggestions.value?.products &&
-      suggestions.value?.products?.length !== 0
-    ? suggestions.value.products
-    : products;
 
   return (
     <div class="flex flex-col flex-grow md:px-16 px-3">

@@ -1,24 +1,11 @@
 import Icon from "../ui/Icon.tsx";
 import { useSignal } from "@preact/signals";
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
-
-import type {
-  Filter,
-  FilterToggle,
-  ProductListingPage,
-} from "deco-sites/std/commerce/types.ts";
+import type { Filter, FilterToggle } from "deco-sites/std/commerce/types.ts";
 
 interface Props {
-  filters: ProductListingPage["filters"];
+  filters: FilterToggle[];
 }
-
-const isToggle = (filter: Filter): filter is FilterToggle => {
-  return filter["@type"] === "FilterToggle";
-};
-
-const redundantFilters = (filter: Filter): boolean => {
-  return filter.key !== "Departments" && filter.key !== "Brands";
-};
 
 function FilterValues({ values }: FilterToggle) {
   const goTo = (url: string) => () => (window.location.href = url);
@@ -87,10 +74,7 @@ function renderFilter(filter: FilterToggle) {
 function Filters({ filters }: Props) {
   return (
     <ul class="flex flex-col gap-8 md:(grid grid-cols-5 gap-x-20 gap-y-8)">
-      {filters
-        .filter(isToggle)
-        .filter(redundantFilters)
-        .map(renderFilter)}
+      {filters.map(renderFilter)}
     </ul>
   );
 }
