@@ -34,7 +34,7 @@ export default function Collections({ collections, interval }: Props) {
         id={id}
         class="md:hidden grid grid-cols-[40px_1fr_40px] grid-rows-[1fr_1fr_26px_1fr] w-full mb-[100px]"
       >
-        <Slider class=" gap-6 col-span-full row-start-1 row-end-5 scrollbar-none">
+        <Slider class="gap-6 col-span-full row-start-1 row-end-5 scrollbar-none overflow-x-scroll">
           {collections?.map((collection) => (
             <div class="w-[100vw] flex items-center justify-center">
               <ItemMobile {...collection} />
