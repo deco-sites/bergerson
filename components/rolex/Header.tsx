@@ -19,7 +19,7 @@ export default function Header(props: Props) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <Container class="py-2 px-5 flex flex-row gap-8 items-center justify-between md:justify-center relative">
+    <Container class="p-5 flex flex-row gap-8 items-center justify-between md:justify-center relative border-b-1 border-gray-100 border-solid">
       <img src={props.logo} alt="Rolex" />
 
       {/* desktop menu */}

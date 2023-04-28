@@ -21,5 +21,7 @@
   "deno.inlayHints.functionLikeReturnTypes.enabled": false,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "denoland.vscode-deno",
-  "nuxt.isNuxtApp": false
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  }
 }
