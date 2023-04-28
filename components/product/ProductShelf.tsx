@@ -10,22 +10,43 @@ import SliderControllerJS from "deco-sites/fashion/islands/SliderJS.tsx";
 import ProductCard from "deco-sites/fashion/components/product/ProductCard.tsx";
 
 export interface Props {
-  title: string[];
-  products: LoaderReturnType<Product[] | null>;
-  itemsPerPage?: number;
+  firstCollectionTitle?: string;
+  secondCollectionTitle?: string;
+  thirdCollectionTitle?: string;
+  firstProductCollection?: LoaderReturnType<Product[] | null>;
+  secondProductCollection?: LoaderReturnType<Product[] | null>;
+  thirdProductCollection?: LoaderReturnType<Product[] | null>;
 }
 
-function ProductShelf({
-  title,
-  products,
-}: Props) {
+function ProductShelf(props: Props) {
+  const {
+    firstCollectionTitle,
+    secondCollectionTitle,
+    thirdCollectionTitle,
+    firstProductCollection,
+    secondProductCollection,
+    thirdProductCollection,
+  } = props;
+
+  const id = useId() + firstProductCollection?.length +
+    secondProductCollection?.length + thirdProductCollection?.length;
+
   const activeCollection = useSignal(0);
-  const id = useId() + title.length.toString() + products?.length.toString();
   const changeCollection = (i: number) => () => (activeCollection.value = i);
 
-  if (!products || products.length === 0) {
-    return null;
-  }
+  const title = [
+    firstCollectionTitle,
+    secondCollectionTitle,
+    thirdCollectionTitle,
+  ].filter(Boolean);
+
+  const collections = [
+    firstProductCollection,
+    secondProductCollection,
+    thirdProductCollection,
+  ].filter(Boolean);
+
+  const products = collections[activeCollection.value];
 
   return (
     <Container
