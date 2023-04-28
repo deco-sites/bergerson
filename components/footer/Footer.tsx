@@ -74,6 +74,7 @@ function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
     );
   };
 
+  
   const footerData = {
     institucional: [
       "Sobre a bergerson",
@@ -94,6 +95,7 @@ function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
       "Regulamento de Promoções",
     ],
   };
+
   return (
     <>
       {/*Desktop*/}
@@ -187,10 +189,11 @@ function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
             </div>
             {/*Ajuda*/}
             <div class="w-1/3">
-              <h3 class="font-serif text-[17px] mb-2.5">Ajuda</h3>
+              <h3 class="font-serif text-[17px] mb-2.5">{column3.title}</h3>
               <ul>
-                <FooterLink href="/" label="Ajuda" />
-                <FooterLink href="/" label="Formas de pagamento" />
+                {column3.footerLink.map((item) => (
+                  <FooterLink href={item.href} label={item.label} />
+                ))}
               </ul>
             </div>
           </div>
@@ -235,12 +238,14 @@ function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
             <ul class="flex">
               {address.map((item, index) => (
                 <>
-                  <li
-                    class="pr-1 pb-1 cursor-pointer border-black"
-                    onClick={(e) => getCurrentAddress(e, index)}
-                  >
-                    {item.city}
-                  </li>
+                  <button class="focus:outline-none focus:border-b-2 border-black">
+                    <li
+                      class="pr-1 pb-1 cursor-pointer border-black"
+                      onClick={(e) => getCurrentAddress(e, index)}
+                    >
+                      {item.city}
+                    </li>
+                  </button>
                 </>
               ))}
             </ul>
