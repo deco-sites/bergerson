@@ -30,7 +30,7 @@ function SearchControls(
         </div>
       </div>
 
-      <div class="flex flex-row items-center justify-between md:(gap-4 mt-12) gap-2 py-4 sm:py-0">
+      <div class="flex flex-row items-center justify-between md:(gap-4 mt-12) gap-2 pt-4 sm:pt-0">
         <div class="md:hidden flex-1 border-1 border-solid border-gray-400 rounded">
           <Button
             variant="tertiary"
