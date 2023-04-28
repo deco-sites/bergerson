@@ -45,7 +45,7 @@ export interface Props {
 }
 
 const sortOptions = [
-  { value: "OrderByScoreDESC", label: "" },
+  { value: "OrderByScoreDESC", label: "Selecione" },
   { value: "OrderByReleaseDateDESC", label: "Data de lançamento" },
   { value: "OrderByPriceASC", label: "Menor preço" },
   { value: "OrderByPriceDESC", label: "Maior preço" },
