@@ -78,7 +78,7 @@ function ProductShelf({
       >
         {products?.map((product) => (
           <div class="min-w-[270px] max-w-[270px] sm:min-w-[292px] sm:max-w-[292px]">
-            <ProductCard product={product} itemListName={title} />
+            <ProductCard product={product} />
           </div>
         ))}
       </Slider>

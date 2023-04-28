@@ -1,52 +1,16 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Avatar from "deco-sites/fashion/components/ui/Avatar.tsx";
 import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
 import { formatPrice } from "deco-sites/fashion/sdk/format.ts";
-import { useVariantPossibilities } from "deco-sites/fashion/sdk/useVariantPossiblities.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
-
-/**
- * A simple, inplace sku selector to be displayed once the user hovers the product card
- * It takes the user to the pdp once the user clicks on a given sku. This is interesting to
- * remove JS from the frontend
- */
-function Sizes(product: Product) {
-  const possibilities = useVariantPossibilities(product);
-  const options = Object.entries(
-    possibilities["TAMANHO"] ?? possibilities["Tamanho"] ?? {},
-  );
-
-  return (
-    <ul class="flex justify-center items-center gap-2">
-      {options.map(([value, urls]) => {
-        const url = urls.find((url) => url === product.url) || urls[0];
-
-        return (
-          <a href={url}>
-            <Avatar
-              class="bg-default"
-              variant="abbreviation"
-              content={value}
-              disabled={url === product.url}
-            />
-          </a>
-        );
-      })}
-    </ul>
-  );
-}
 
 interface Props {
   product: Product;
   /** Preload card image */
   preload?: boolean;
-
-  /** @description used for analytics event */
-  itemListName?: string;
 }
 
-function ProductCard({ product, preload, itemListName }: Props) {
+function ProductCard({ product, preload }: Props) {
   const {
     url,
     productID,
@@ -54,84 +18,56 @@ function ProductCard({ product, preload, itemListName }: Props) {
     image: images,
     offers,
   } = product;
+
   const [front, back] = images ?? [];
-  const { price, seller } = useOffer(offers);
+  const { price } = useOffer(offers);
 
   return (
     <div
       data-deco="view-product"
+      class="w-full group h-full"
       id={`product-card-${productID}`}
-      class="w-full group"
     >
-      <a href={url} aria-label="product link">
+      <a href={url} aria-label="product link" class="h-full flex flex-col">
         <div class="relative w-full">
           <Image
+            width={500}
+            height={500}
             src={front.url!}
-            alt={front.alternateName}
-            width={380}
-            height={304}
-            class="rounded w-full group-hover:hidden"
             preload={preload}
+            alt={front.alternateName}
             loading={preload ? "eager" : "lazy"}
             sizes="(max-width: 640px) 50vw, 20vw"
+            class="rounded w-full group-hover:hidden object-contain"
           />
           <Image
+            width={500}
+            height={500}
             src={back?.url ?? front.url!}
-            alt={back?.alternateName ?? front.alternateName}
-            width={380}
-            height={304}
-            class="w-full hidden group-hover:block"
             sizes="(max-width: 640px) 50vw, 20vw"
+            alt={back?.alternateName ?? front.alternateName}
+            class="w-full hidden group-hover:block object-contain"
           />
-          {seller && (
-            <div
-              class="absolute bottom-0 hidden sm:group-hover:flex flex-col gap-2 w-full p-2 bg-opacity-10"
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.2)",
-                backdropFilter: "blur(2px)",
-              }}
-            >
-              <Sizes {...product} />
-              {/* FIXME: Understand why fresh breaks rendering this component */}
-              {
-                /* <SendEventButton
-                as="a"
-                href={product.url}
-                event={{
-                  name: "select_item",
-                  params: {
-                    item_list_name: itemListName,
-                    items: [
-                      mapProductToAnalyticsItem({
-                        product,
-                        price,
-                        listPrice,
-                      }),
-                    ],
-                  },
-                }}
-              >
-                Visualizar Produto
-              </SendEventButton> */
-              }
-            </div>
-          )}
         </div>
 
-        <div class="flex flex-col gap-1 py-2 ">
-          <span class="h-12 text-[15px] uppercase font-heading-1">
+        <div class="flex flex-col gap-1 py-2 h-full">
+          <span class="text-[16px] uppercase font-heading-1 text-center mb-auto">
             {name}
           </span>
+
           <div class="py-2 flex items-center justify-between">
-            <span class="text-xs font-semibold font-serif text-[#585858]">
-              10x R$30.657,90
-            </span>
-            <Text variant="caption" tone="price">
+            {price && (
+              <span class="font-semibold font-serif text-[#585858]">
+                10x {formatPrice(price / 10, offers!.priceCurrency!)}
+              </span>
+            )}
+            <span class="text-lg">
               {formatPrice(price, offers!.priceCurrency!)}
-            </Text>
+            </span>
           </div>
-          <button class="py-2.5 border-t-1 border-b-1 border-[#ffd049] mt-2 text-lg font-bold">
-            COMPRAR
+
+          <button class="uppercase py-2.5 border-t-1 border-b-1 border-[#ffd049] mt-2 text-lg font-bold">
+            Comprar
           </button>
         </div>
       </a>
