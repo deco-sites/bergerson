@@ -68,9 +68,9 @@ function ProductShelf(props: Props) {
                 {!isFirst && (
                   <img
                     width={24}
-                    height={17}
+                    height={12.21}
                     src="/black-star.png"
-                    class="hidden md:block opacity-50 w-[24px] h-[17px]"
+                    class="hidden md:block opacity-50 w-[24px] h-[12.21px]"
                   />
                 )}
 

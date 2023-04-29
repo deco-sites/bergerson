@@ -4237,6 +4237,10 @@
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy91aS9GbG9hdExpbmtzLnRzeA==@Items": {
       "type": "object",
       "properties": {
+        "alt": {
+          "type": "string",
+          "title": "Alt"
+        },
         "link": {
           "type": "string",
           "title": "Link"
@@ -4247,6 +4251,7 @@
         }
       },
       "required": [
+        "alt",
         "link",
         "image"
       ],
