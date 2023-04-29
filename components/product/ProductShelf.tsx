@@ -89,7 +89,7 @@ function ProductShelf(props: Props) {
       >
         {products?.map((product) => (
           <div class="min-w-[270px] max-w-[270px] sm:min-w-[292px] sm:max-w-[292px]">
-            <ProductCard product={product} />
+            <ProductCard product={product} preload={false} />
           </div>
         ))}
       </Slider>

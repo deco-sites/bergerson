@@ -165,7 +165,7 @@ export default function TagHeuerShelf(props: Props) {
             >
               {collectionProducts?.map((product) => (
                 <div class="min-w-[270px] max-w-[270px] md:min-w-[292px] md:max-w-[292px]">
-                  <ProductCard product={product} />
+                  <ProductCard product={product} preload={false} />
                 </div>
               ))}
             </Slider>
