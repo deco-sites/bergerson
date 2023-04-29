@@ -91,13 +91,14 @@ function Menu({ items, img, cartImage }: {
         <div class="w-[51px] flex justify-between">
           <Button
             onClick={() => displaySearchbar.value = true}
+            aria-label="Pesquisar produtos"
             variant="icon"
           >
             <Icon
               width={24}
               height={24}
               id="MagnifyingGlass"
-              alt="Search products button"
+              alt="Pesquisar produtos"
             />
           </Button>
           <Button variant="icon" as="a" href="/checkout" aria-label="My cart">
@@ -125,13 +126,14 @@ function Menu({ items, img, cartImage }: {
           <div class="flex gap-5 items-center header:pr-4 ">
             <Button
               onClick={() => displaySearchbar.value = true}
+              aria-label="Pesquisar produtos"
               variant="icon"
             >
               <Icon
                 width={24}
                 height={24}
                 id="MagnifyingGlass"
-                alt="Search products button"
+                alt="Pesquisar produtos"
               />
             </Button>
 

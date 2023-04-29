@@ -129,7 +129,7 @@ function Searchbar({
           />
           <button
             type="submit"
-            aria-label="Search"
+            aria-label="Pesquisar produtos"
             class="focus:outline-none"
             htmlFor="searchbar"
             tabIndex={-1}

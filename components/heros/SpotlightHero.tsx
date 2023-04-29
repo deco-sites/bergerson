@@ -75,7 +75,7 @@ export default function Spotlight(props: Props) {
                 <Actionable action={slide.detail.action}>
                   <img
                     src={slide.detail.image}
-                    alt={slide.detail.action?.title}
+                    alt={slide.detail.action?.title ?? "Bergerson"}
                     class="h-full w-full max-h-[460px] md:max-h-[1120px] object-cover"
                   />
                 </Actionable>
