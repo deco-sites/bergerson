@@ -6,9 +6,26 @@ export interface Props {
   youtubeId: string;
 }
 
+// deno-lint-ignore no-explicit-any
+const windowMock = window as any;
+
+const embedYoutube = (videoId: string) => `
+  function onYouTubeIframeAPIReady() {
+    window.TAG_HEUER_VIDEO = new YT.Player('player', {
+      width: '100%',
+      height: '100%',
+      videoId: '${videoId}',
+    });
+  }
+`;
+
 export default function Header(props: Props) {
   const isPlaying = useSignal(false);
-  const playVideo = () => (isPlaying.value = true);
+
+  const playVideo = () => {
+    if (windowMock.TAG_HEUER_VIDEO) windowMock.TAG_HEUER_VIDEO.playVideo();
+    isPlaying.value = true;
+  };
 
   return (
     <div class="bg-black w-full h-[310px] sm:h-[410px] relative flex items-center justify-center">
@@ -16,7 +33,7 @@ export default function Header(props: Props) {
         {!isPlaying.value && (
           <div
             onClick={playVideo}
-            class="cursor-pointer w-full h-full object-cover absolute top-0 left-0 z-0 flex items-center justify-center"
+            class="cursor-pointer w-full h-full object-cover absolute top-0 left-0 z-10 flex items-center justify-center"
           >
             <img
               src={props.videoCover}
@@ -27,11 +44,19 @@ export default function Header(props: Props) {
           </div>
         )}
 
-        <iframe
-          class="inset-0 w-full h-full"
-          src={`https://www.youtube.com/embed/${props.youtubeId}`}
-          frameBorder="0"
-          allowFullScreen
+        <div class="w-full h-full relative">
+          <div id="player" class="inset-0 top-0 z-0" />
+        </div>
+
+        <script
+          defer
+          type="text/javascript"
+          src="https://www.youtube.com/iframe_api"
+        />
+
+        <script
+          async
+          dangerouslySetInnerHTML={{ __html: embedYoutube(props.youtubeId) }}
         />
       </div>
     </div>
