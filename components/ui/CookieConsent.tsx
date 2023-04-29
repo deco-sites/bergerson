@@ -71,13 +71,13 @@ function CookieConsent() {
     <>
       <style dangerouslySetInnerHTML={{ __html: styleContent }} />
       <script
-        defer
+        async
         charSet="UTF-8"
         type="text/javascript"
         src="https://cdn.cookie-script.com/s/9a691e22311ca302830a0cf322edf008.js"
       />
       <script
-        defer
+        async
         type="text/javascript"
         src="/rlx-consent-v3.js"
       />
