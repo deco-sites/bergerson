@@ -1,4 +1,3 @@
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import { useEffect, useRef } from "preact/hooks";
 import { IS_BROWSER } from "$fresh/runtime.ts";
@@ -7,7 +6,6 @@ import type { JSX } from "preact";
 
 import Icon from "./Icon.tsx";
 import Logo from "./Logo.tsx";
-import ListItem from "./ListItem.tsx";
 import type { NavImage } from "../header/Header.tsx";
 
 // Lazy load a <dialog> polyfill.

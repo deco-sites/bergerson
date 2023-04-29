@@ -3,7 +3,6 @@ import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import Container from "deco-sites/bergerson/components/ui/Container.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import { RequestViewer } from "deco-sites/bergerson/functions/requestViewer.ts";
-import { request } from "https://esm.sh/v115/websocket@1.0.34/deno/websocket.mjs";
 
 export interface Banner {
   /** @description RegExp to enable this banner on the current URL. Use /feminino/* to display this banner on feminino category  */
