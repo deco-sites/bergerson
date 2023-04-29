@@ -86,6 +86,8 @@ export default function WristwatchHero(props: Props) {
               >
                 <Actionable action={slide.detail.action}>
                   <img
+                    loading="lazy"
+                    decoding="async"
                     src={slide.detail.image}
                     alt={slide.detail.action?.title || title}
                     class="h-[600px] w-full lg:w-[728px] object-cover"
@@ -138,8 +140,10 @@ export default function WristwatchHero(props: Props) {
 
                 <Actionable action={slide.logo.action}>
                   <img
-                    alt={slide.logo.action?.title || title}
+                    loading="lazy"
+                    decoding="async"
                     src={slide.logo.image}
+                    alt={slide.logo.action?.title || title}
                     class="mx-[15px] h-[115px] w-full lg:w-[200px] object-contain"
                   />
                 </Actionable>
