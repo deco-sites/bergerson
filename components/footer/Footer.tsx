@@ -27,15 +27,23 @@ export interface Address {
   telephone?: string;
 }
 
+export interface SocialMedia {
+  link: string;
+  logo: Image;
+}
+
 export interface Props {
   paymentMethod: Image[];
   column1: Column;
   column2: Column;
   column3: Column;
   address: Address[];
+  socialMedias: SocialMedia[];
 }
 
-function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
+function Footer(
+  { paymentMethod, column1, column2, column3, address, socialMedias }: Props,
+) {
   function FooterContainer(
     { children, class: _class = "" }: {
       class?: string;
@@ -74,27 +82,6 @@ function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
     );
   };
 
-  const footerData = {
-    institucional: [
-      "Sobre a bergerson",
-      "Fale conosco",
-      "Nossas Lojas",
-      "Cuidados com as Joias",
-    ],
-    politicas: [
-      "Política de Privacidade",
-      "Políticas de Garantia",
-      "Políticas de Serviço",
-      "Políticas de Trocas e Devoluções",
-      "Políticas de Entrega",
-      "Política PLD/FTP",
-    ],
-    ajuda: [
-      "Dúvidas Frequentes",
-      "Regulamento de Promoções",
-    ],
-  };
-
   return (
     <>
       {/*Desktop*/}
@@ -129,38 +116,15 @@ function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
             </span>
             <div class="w-full">
               <ul class="flex justify-center">
-                <li class="pr-1.5">
-                  <a href="https://blog.bergersonjoias.com/">
-                    <img
-                      src="https://bergersonjoias.vteximg.com.br/arquivos/v22-blog.png?v=637872801506300000"
-                      alt="Bergerson blog"
-                    />
-                  </a>
-                </li>
-                <li class="pr-1.5">
-                  <a href="https://www.facebook.com/bergersonjoias/">
-                    <img
-                      src="https://bergersonjoias.vteximg.com.br/arquivos/v22-facebook.png?v=637872801511300000"
-                      alt="Bergerson facebook page"
-                    />
-                  </a>
-                </li>
-                <li class="pr-1.5">
-                  <a href="https://www.instagram.com/bergersonjoias/?hl=pt-br">
-                    <img
-                      src="https://www.bergersonjoias.com/arquivos/v22-instagram.png?v=637872801514130000"
-                      alt="Bergerson blog"
-                    />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://br.pinterest.com/bergersonjoiasoficial/">
-                    <img
-                      src="https://www.bergersonjoias.com/arquivos/v22-pinterest.png?v=637872801517400000"
-                      alt="Bergerson pinterest"
-                    />
-                  </a>
-                </li>
+                {socialMedias.map((items) => {
+                  return (
+                    <li class="pr-1.5">
+                      <a href={items.link}>
+                        <img src={items.logo.src} alt={items.logo.alt} />
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
@@ -348,32 +312,28 @@ function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
           />
           <DropDownItem
             title="Fale conosco"
-            other={
+            other={[
               <p>
                 Para entrar em contato é só ligar 0800 0414130 ou através do
                 e-mail atendimento@bergerson.com. Nosso horário de atendimento é
                 de segunda a sexta-feira das 08h30 às 11:30h e das 13h30 às
                 17h30 (exceto feriados).
-              </p>
-            }
+              </p>,
+            ]}
           />
           <DropDownItem
             title="Formas de pagamento"
-            other={
-              <>
-                {paymentMethod.map((item) => (
-                  <li class="pr-2.5">
-                    <a href="/">
-                      <img src={item.src} alt={item.alt} />
-                    </a>
-                  </li>
-                ))}
-              </>
-            }
+            other={paymentMethod.map((item) => (
+              <li class="pr-2.5">
+                <a href="/">
+                  <img src={item.src} alt={item.alt} />
+                </a>
+              </li>
+            ))}
           />
           <DropDownItem
             title="Nossas Lojas"
-            other={
+            other={[
               <div class="flex flex-col">
                 <div class="w-[396.5px] mb-2.5">
                   <ul class="">
@@ -396,8 +356,8 @@ function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
                     {setCurrentAddress()}
                   </div>
                 </div>
-              </div>
-            }
+              </div>,
+            ]}
           />
         </FooterContainer>
       </footer>

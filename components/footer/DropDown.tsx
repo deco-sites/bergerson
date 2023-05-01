@@ -7,7 +7,7 @@ import { FooterLink as Link } from "./Footer.tsx";
 export interface Props {
   itens?: Link[];
   title: string;
-  other?: JSX.Element;
+  other?: JSX.Element[];
 }
 
 function DropDownItem({ title, itens, other }: Props) {
