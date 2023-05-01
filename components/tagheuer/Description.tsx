@@ -13,13 +13,15 @@ export interface Props {
 export default function Description(props: Props) {
   return (
     <div class="relative overflow-hidden py-20 md:mt-[120px] flex flex-col items-center justify-center">
-      <img
-        width={398}
-        height={66}
-        src={props.logo}
-        alt={props.title}
-        class="w-[265px] h-[44px]"
-      />
+      <div class="w-[265px] h-[44px]">
+        <img
+          width={398}
+          height={66}
+          src={props.logo}
+          alt={props.title}
+          class="w-full h-full"
+        />
+      </div>
 
       <Container class="mt-20 px-5 sm:max-w-[1500px]">
         <h1 class="ml-[15px] text-4xl md:text-6xl mb-8">{props.title}</h1>
