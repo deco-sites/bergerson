@@ -47,9 +47,10 @@ export default function SmallFaderShelf(props: Props) {
           <Actionable action={image.action}>
             <Picture>
               <Source
-                src={image.image}
                 width={200}
                 height={200}
+                src={image.image}
+                media="(min-width: 0px)"
               />
               <img
                 loading="lazy"
