@@ -2700,6 +2700,10 @@
           "description": "RegExp to enable this banner on the current URL. Use /feminino/* to display this banner on feminino category",
           "title": "Matcher"
         },
+        "name": {
+          "type": "string",
+          "title": "Name"
+        },
         "firstSection": {
           "type": "object",
           "properties": {
@@ -2850,7 +2854,8 @@
         }
       },
       "required": [
-        "matcher"
+        "matcher",
+        "name"
       ],
       "title": "Banner"
     },
@@ -2860,6 +2865,51 @@
         "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9jb2xsZWN0aW9uL0NvbGxlY3Rpb25QTFAudHN4@Banner"
       },
       "title": "Banner[]"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkL2ludGVyZmFjZS50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "description": {
+          "type": "string",
+          "title": "Description"
+        },
+        "image": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "description": "Recommended: 1200 x 630 px (up to 5MB)",
+          "title": "Image"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "website"
+            },
+            {
+              "type": "string",
+              "const": "article"
+            }
+          ],
+          "type": "string",
+          "title": "Type"
+        },
+        "themeColor": {
+          "type": "string",
+          "description": "Suggested color that browsers should use to customize the display of the page or of the surrounding user interface",
+          "title": "Theme Color"
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "image",
+        "type",
+        "themeColor"
+      ],
+      "title": "Props"
     },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9jb2xsZWN0aW9uL0NvbGxlY3Rpb25QTFAudHN4@Props": {
       "type": "object",
@@ -2871,9 +2921,15 @@
         "banners": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9jb2xsZWN0aW9uL0NvbGxlY3Rpb25QTFAudHN4@Banner[]",
           "title": "Banners"
+        },
+        "head": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkL2ludGVyZmFjZS50c3g=@Props",
+          "title": "Head"
         }
       },
-      "required": [],
+      "required": [
+        "head"
+      ],
       "title": "deco-sites/bergerson/components/collection/CollectionPLP.tsx@Props"
     },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@FooterLink": {
@@ -4418,51 +4474,6 @@
         "items"
       ],
       "title": "deco-sites/bergerson/components/ui/FloatLinks.tsx@Props"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkL2ludGVyZmFjZS50c3g=@Props": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string",
-          "title": "Title"
-        },
-        "description": {
-          "type": "string",
-          "title": "Description"
-        },
-        "image": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-          "description": "Recommended: 1200 x 630 px (up to 5MB)",
-          "title": "Image"
-        },
-        "type": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "website"
-            },
-            {
-              "type": "string",
-              "const": "article"
-            }
-          ],
-          "type": "string",
-          "title": "Type"
-        },
-        "themeColor": {
-          "type": "string",
-          "description": "Suggested color that browsers should use to customize the display of the page or of the surrounding user interface",
-          "title": "Theme Color"
-        }
-      },
-      "required": [
-        "title",
-        "description",
-        "image",
-        "type",
-        "themeColor"
-      ],
-      "title": "deco-sites/bergerson/components/head/interface.tsx@Props"
     },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9IZXJvTGlua3MudHN4@Link": {
       "type": "object",
