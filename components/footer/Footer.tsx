@@ -2,8 +2,40 @@ import FooterLink from "../ui/FooterLink.tsx";
 import Copyright from "./Copyright.tsx";
 import type { ComponentChildren } from "preact";
 import DropDownItem from "./DropDown.tsx";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import { useSignal } from "@preact/signals";
 
-function Footer() {
+export interface Image {
+  src: LiveImage;
+  alt?: string;
+}
+
+export interface FooterLink {
+  href: string;
+  label: string;
+}
+
+export interface Column {
+  title: string;
+  footerLink: FooterLink[];
+}
+
+export interface Address {
+  city?: string;
+  establishment?: string;
+  address?: string;
+  telephone?: string;
+}
+
+export interface Props {
+  paymentMethod: Image[];
+  column1: Column;
+  column2: Column;
+  column3: Column;
+  address: Address[];
+}
+
+function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
   function FooterContainer(
     { children, class: _class = "" }: {
       class?: string;
@@ -12,6 +44,35 @@ function Footer() {
   ) {
     return <div class={`py-6 px-4 lg:py-12 lg:px-0 ${_class}`}>{children}</div>;
   }
+
+  const currentIndex = useSignal(0);
+
+  const getCurrentAddress = (
+    event: MouseEvent,
+    index: number,
+  ) => {
+    if (event.target instanceof HTMLElement) {
+      currentIndex.value = index;
+    }
+  };
+
+  const setCurrentAddress = () => {
+    const currentCity = currentIndex.value;
+
+    return (
+      <ul>
+        <li>
+          {address[currentCity].establishment}
+        </li>
+        <li>
+          {address[currentCity].address}
+        </li>
+        <li>
+          {address[currentCity].telephone}
+        </li>
+      </ul>
+    );
+  };
 
   const footerData = {
     institucional: [
@@ -33,10 +94,11 @@ function Footer() {
       "Regulamento de Promoções",
     ],
   };
+
   return (
     <>
       {/*Desktop*/}
-      <footer class="w-full px-16 pt-10 pb-8 bg-footer justify-between hidden lg:flex">
+      <footer class="w-full px-28 pt-10 pb-8 bg-footer justify-between hidden lg:flex">
         {/*first div*/}
         <div class="w-full max-w-[213.5px]">
           <h3 class="text-center text-[15px] font-normal leading-4">
@@ -108,32 +170,29 @@ function Footer() {
           <div class="flex justify-center">
             {/*Institucional*/}
             <div class="w-1/3">
-              <h3 class="font-serif text-[17px] mb-2.5">Institucional</h3>
+              <h3 class="font-serif text-[17px] mb-2.5">{column1.title}</h3>
               <ul>
-                <FooterLink href="/" label="Sobre a Bergerson" />
-                <FooterLink href="/" label="Fale Conosco" />
-                <FooterLink href="/" label="Nossas Lojas" />
-                <FooterLink href="/" label="Cuidados com as Joias" />
+                {column1.footerLink.map((item) => (
+                  <FooterLink href={item.href} label={item.label} />
+                ))}
               </ul>
             </div>
             {/*Politica*/}
             <div class="w-1/3">
-              <h3 class="font-serif text-[17px] mb-2.5">Políticas</h3>
+              <h3 class="font-serif text-[17px] mb-2.5">{column2.title}</h3>
               <ul>
-                <FooterLink href="/" label="Política de Privacidade" />
-                <FooterLink href="/" label="Políticas de Garantia" />
-                <FooterLink href="/" label="Políticas de Serviço" />
-                <FooterLink href="/" label="Políticas de Trocas e Devoluções" />
-                <FooterLink href="/" label="Políticas de Entrega" />
-                <FooterLink href="/" label="Política PLD/FTP" />
+                {column2.footerLink.map((item) => (
+                  <FooterLink href={item.href} label={item.label} />
+                ))}
               </ul>
             </div>
             {/*Ajuda*/}
             <div class="w-1/3">
-              <h3 class="font-serif text-[17px] mb-2.5">Ajuda</h3>
+              <h3 class="font-serif text-[17px] mb-2.5">{column3.title}</h3>
               <ul>
-                <FooterLink href="/" label="Ajuda" />
-                <FooterLink href="/" label="Formas de pagamento" />
+                {column3.footerLink.map((item) => (
+                  <FooterLink href={item.href} label={item.label} />
+                ))}
               </ul>
             </div>
           </div>
@@ -142,7 +201,7 @@ function Footer() {
             <h3 class="font-serif text-[17px] mb-2">
               Fale conosco
             </h3>
-            <p class="text-[15px]">
+            <p class="text-[#333] leading-5">
               Para entrar em contato é só ligar 0800 0414130 ou através do
               e-mail atendimento@bergerson.com. Nosso horário de atendimento é
               de segunda a sexta-feira das 08h30 às 11:30h e das 13h30 às 17h30
@@ -151,35 +210,20 @@ function Footer() {
           </div>
           {/*Formas de pagamento*/}
           <div>
-            <h3 class="font-serif text-[17px] mb-2">
+            <h3
+              class="font-serif text-[17px] mb-2.5"
+              style="line-height:18.7px"
+            >
               Formas de pagamento
             </h3>
-            <ul class="flex">
-              <li class="pr-1.5">
-                <a href="/">
-                  <img src="https://www.bergersonjoias.com/arquivos/v22-master.png?v=637872801515700000" />
-                </a>
-              </li>
-              <li class="pr-2.5">
-                <a href="/">
-                  <img src="https://www.bergersonjoias.com/arquivos/v22-visa.png?v=637872801518670000" />
-                </a>
-              </li>
-              <li class="pr-2.5">
-                <a href="/">
-                  <img src="https://www.bergersonjoias.com/arquivos/v22-hipercard.png?v=637872801512730000" />
-                </a>
-              </li>
-              <li class="pr-2.5">
-                <a href="/">
-                  <img src="https://www.bergersonjoias.com/arquivos/v22-elo.png?v=637872801509730000" />
-                </a>
-              </li>
-              <li class="pr-2.5">
-                <a href="/">
-                  <img src="https://www.bergersonjoias.com/arquivos/v22-boleto.png?v=637872801508330000" />
-                </a>
-              </li>
+            <ul class="flex items-center">
+              {paymentMethod.map((item) => (
+                <li class="pr-2.5">
+                  <a href="/">
+                    <img src={item.src} alt={item.alt} />
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -191,58 +235,23 @@ function Footer() {
           {/*City list flex*/}
           <div class="w-[396.5px] mb-2.5">
             <ul class="flex">
-              <li class="border-b-2 border-black pr-1">
-                <a href="">Curitiba</a>
-              </li>
-              <li class="pr-1">
-                <a href="">Londrina</a>
-              </li>
-              <li class="pr-1">
-                <a href="">Maringá</a>
-              </li>
-              <li class="pr-1">
-                <a href="">Joinville</a>
-              </li>
-              <li class="pr-1">
-                <a href="">Porto Alegre</a>
-              </li>
+              {address.map((item, index) => (
+                <>
+                  <button class="focus:outline-none focus:border-b-2 border-black">
+                    <li
+                      class="pr-1 pb-1 cursor-pointer border-black"
+                      onClick={(e) => getCurrentAddress(e, index)}
+                    >
+                      {item.city}
+                    </li>
+                  </button>
+                </>
+              ))}
             </ul>
           </div>
           <div class="font-light">
-            {/*Endereço 1*/}
             <div class="mb-5">
-              <ul>
-                <li>
-                  Park Shopping Barigüi
-                </li>
-                <li>
-                  R. Prof. Pedro Viriato P. de Souza, 600
-                </li>
-                <li>
-                  41 3373 3231
-                </li>
-              </ul>
-            </div>
-            {/*Endereço 2*/}
-            <div>
-              <ul>
-                <li>
-                  Shopping Pátio Batel
-                </li>
-                <li>
-                  Avenida do Batel, 1868 | Lojas 253/254
-                </li>
-                <li>
-                  Curitiba 80420-090
-                </li>
-                <li>
-                  Paraná
-                </li>
-                <li>Brasil</li>
-                <li>
-                  41 3023 2840
-                </li>
-              </ul>
+              {setCurrentAddress()}
             </div>
           </div>
         </div>
@@ -326,19 +335,19 @@ function Footer() {
         {/*Drop down*/}
         <FooterContainer class="text-[#4b4b4b]">
           <DropDownItem
-            summary="Institucional"
-            itens={footerData.institucional}
+            title={column1.title}
+            itens={column1.footerLink}
           />
           <DropDownItem
-            summary="Políticas"
-            itens={footerData.politicas}
+            title={column2.title}
+            itens={column2.footerLink}
           />
           <DropDownItem
-            summary="Ajuda"
-            itens={footerData.ajuda}
+            title={column3.title}
+            itens={column3.footerLink}
           />
           <DropDownItem
-            summary="Fale conosco"
+            title="Fale conosco"
             other={
               <p>
                 Para entrar em contato é só ligar 0800 0414130 ou através do
@@ -346,6 +355,44 @@ function Footer() {
                 de segunda a sexta-feira das 08h30 às 11:30h e das 13h30 às
                 17h30 (exceto feriados).
               </p>
+            }
+          />
+          <DropDownItem
+            title="Formas de pagamento"
+            other={paymentMethod.map((item) => (
+              <li class="pr-2.5">
+                <a href="/">
+                  <img src={item.src} alt={item.alt} />
+                </a>
+              </li>
+            ))}
+          />
+          <DropDownItem
+            title="Nossas Lojas"
+            other={
+              <div class="flex flex-col">
+                <div class="w-[396.5px] mb-2.5">
+                  <ul class="">
+                    {address.map((item, index) => (
+                      <>
+                        <button
+                          class="focus:outline-none focus:border-b-2 border-black"
+                          onClick={(e) => getCurrentAddress(e, index)}
+                        >
+                          <li class="pr-1 pb-1 cursor-pointer border-black">
+                            {item.city}
+                          </li>
+                        </button>
+                      </>
+                    ))}
+                  </ul>
+                </div>
+                <div class="font-light">
+                  <div class="mb-5">
+                    {setCurrentAddress()}
+                  </div>
+                </div>
+              </div>
             }
           />
         </FooterContainer>

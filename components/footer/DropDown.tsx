@@ -1,15 +1,16 @@
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
 import { JSX } from "preact/jsx-runtime";
 import { css, tw } from "twind/css";
-import { useUI } from "../../sdk/useUI.ts";
 import { useSignal } from "@preact/signals";
+import FooterLink from "../ui/FooterLink.tsx";
+import { FooterLink as Link } from "./Footer.tsx";
 export interface Props {
-  summary: string;
-  itens?: string[];
+  itens?: Link[];
+  title: string;
   other?: JSX.Element;
 }
 
-function DropDownItem({ summary, itens, other }: Props) {
+function DropDownItem({ title, itens, other }: Props) {
   const open = useSignal(false);
 
   return (
@@ -25,22 +26,15 @@ function DropDownItem({ summary, itens, other }: Props) {
                   : "after:rotate-0"
               }  ${css({ "&::after": { content: '"\\2193"' } })}`}
             >
-              {summary}
+              {title}
             </summary>
 
             <ul class="flex flex-col gap-2 px-2 pt-2">
               {itens
                 ? itens.map((item) => (
-                  <li>
-                    <a
-                      href="/"
-                      class="text-[13px] hover:border-b-1 hover:border-[#4b4b4b]"
-                    >
-                      {item}
-                    </a>
-                  </li>
+                  <FooterLink href={item.href} label={item.label} />
                 ))
-                : <div>{other}</div>}
+                : <div class="flex">{other}</div>}
             </ul>
           </details>
         </Text>
