@@ -21,6 +21,8 @@ export default function CollectionList(props: Props) {
           <a href={`/tag-heuer/${collection.slug}`}>
             <div class="flex flex-1 flex-col gap-2 items-center justify-center w-full h-full">
               <img
+                loading="lazy"
+                decoding="async"
                 alt={collection.name}
                 src={collection.avatar}
                 class="w-full h-[410px] object-cover"

@@ -13,7 +13,7 @@ export interface Props {
 export default function Description(props: Props) {
   return (
     <div class="relative overflow-hidden py-20 md:mt-[120px] flex flex-col items-center justify-center">
-      <img src={props.logo} alt={props.title} />
+      <img width={265} height={44} src={props.logo} alt={props.title} />
 
       <Container class="mt-20 px-5 sm:max-w-[1500px]">
         <h1 class="ml-[15px] text-4xl md:text-6xl mb-8">{props.title}</h1>
@@ -29,6 +29,10 @@ export default function Description(props: Props) {
                 <div class="flex flex-1 w-full max-w-[348px] h-full">
                   <img
                     src={image}
+                    width={348}
+                    height={348}
+                    loading="lazy"
+                    decoding="async"
                     alt={props.title}
                     class="w-full h-full object-cover"
                   />
