@@ -82,6 +82,8 @@ function FirstSection({ data }: { data: Banner["firstSection"] }) {
           media="(min-width: 767px)"
         />
         <img
+          width="100%"
+          height={210}
           class="w-full h-[210px] lg:h-screen object-cover"
           src={data.image.desktop}
           alt={data.image.alt}
@@ -174,6 +176,8 @@ function ThirdSection({ data }: { data: Banner["thirdSection"] }) {
               media="(min-width: 767px)"
             />
             <img
+              width={200}
+              height={200}
               class="w-full h-full object-cover"
               src={data.spotlight.desktop}
               alt={data.spotlight.alt}
