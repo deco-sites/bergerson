@@ -15,6 +15,7 @@ const embedYoutube = (videoId: string) => `
       width: '100%',
       height: '100%',
       videoId: '${videoId}',
+      host: 'https://www.youtube.com',
     });
   }
 `;

@@ -15,7 +15,6 @@ export default function Description(props: Props) {
     <div class="relative overflow-hidden py-20 md:mt-[120px] flex flex-col items-center justify-center">
       <img
         width={265}
-        height={44}
         src={props.logo}
         alt={props.title}
         class="w-[265px] h-[44px]"
