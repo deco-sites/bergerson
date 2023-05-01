@@ -10,6 +10,11 @@ export interface Props {
 const windowMock = window as any;
 
 const embedYoutube = (videoId: string) => `
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
   function onYouTubeIframeAPIReady() {
     window.TAG_HEUER_VIDEO = new YT.Player('player', {
       width: '100%',
@@ -54,12 +59,6 @@ export default function Header(props: Props) {
         <div class="w-full h-full relative">
           <div id="player" class="inset-0 top-0 z-0" />
         </div>
-
-        <script
-          defer
-          type="text/javascript"
-          src="https://www.youtube.com/iframe_api"
-        />
 
         <script
           async
