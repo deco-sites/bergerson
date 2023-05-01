@@ -10,18 +10,21 @@ export interface Props {
 const windowMock = window as any;
 
 const embedYoutube = (videoId: string) => `
-  var tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-  function onYouTubeIframeAPIReady() {
-    window.TAG_HEUER_VIDEO = new YT.Player('player', {
-      width: '100%',
-      height: '100%',
-      videoId: '${videoId}',
-    });
-  }
+  window.addEventListener('load', () => {
+    var tag = document.createElement('script');
+    tag.async = true;
+    tag.src = "/youtube_api.js";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  
+    window.onYouTubeIframeAPIReady = function() {
+      window.TAG_HEUER_VIDEO = new YT.Player('player', {
+        width: '100%',
+        height: '100%',
+        videoId: '${videoId}'
+      });
+    }
+  })
 `;
 
 export default function Header(props: Props) {
