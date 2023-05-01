@@ -18,7 +18,7 @@ export interface Props {
 
 function CollectionLink(props: Config) {
   return (
-    <Container class="px-4 sm:pt-10 flex flex-col gap-12">
+    <Container class="px-4 pt-10 flex flex-col gap-12">
       <ul class="flex gap-6 flex-col lg:flex-row flex-wrap items-center justify-center">
         {props.links.map((category) => (
           <li>

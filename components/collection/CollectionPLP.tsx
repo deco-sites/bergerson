@@ -86,12 +86,12 @@ function FirstSection({ data }: { data: Banner["firstSection"] }) {
           height={210}
           class="w-full h-[210px] lg:h-screen object-cover"
           src={data.image.desktop}
-          alt={data.image.alt}
+          alt={data.image.alt ?? "Bergerson"}
         />
       </Picture>
 
       <div class="flex flex-1 w-full h-full absolute items-center justify-center">
-        <div class="max-w-[600px] w-full flex items-center justify-between">
+        <div class="max-w-[600px] w-full flex items-center justify-center md:justify-between">
           <img
             width="57"
             height="29"
@@ -142,8 +142,8 @@ function ThirdSection({ data }: { data: Banner["thirdSection"] }) {
 
   return (
     <div class="flex flex-col lg:flex-row flex-1 h-screen relative">
-      <div class="flex flex-1 h-full w-full">
-        <Picture class="col-start-1 col-span-1 row-start-1 row-span-1 w-full">
+      <div class="flex flex-1 h-full w-full relative">
+        <Picture class="w-full h-full absolute z-0">
           <Source
             width={360}
             src={data.leftImage.mobile}
@@ -157,14 +157,14 @@ function ThirdSection({ data }: { data: Banner["thirdSection"] }) {
           <img
             class="w-full h-full object-cover"
             src={data.leftImage.desktop}
-            alt={data.leftImage.alt}
+            alt={data.leftImage.alt ?? "Bergerson"}
           />
         </Picture>
       </div>
 
-      <div class="flex flex-1 w-full h-full absolute items-center justify-center">
+      <div class="flex flex-1 w-full h-full absolute z-10 items-center justify-center">
         <div class="w-[200px] h-[200px] bg-white">
-          <Picture class="col-start-1 col-span-1 row-start-1 row-span-1 w-full">
+          <Picture class="w-full">
             <Source
               width={360}
               src={data.spotlight.mobile}
@@ -180,14 +180,14 @@ function ThirdSection({ data }: { data: Banner["thirdSection"] }) {
               height={200}
               class="w-full h-full object-cover"
               src={data.spotlight.desktop}
-              alt={data.spotlight.alt}
+              alt={data.spotlight.alt ?? "Bergerson"}
             />
           </Picture>
         </div>
       </div>
 
-      <div class="flex flex-1 h-full w-full">
-        <Picture class="col-start-1 col-span-1 row-start-1 row-span-1 w-full">
+      <div class="flex flex-1 h-full w-full relative">
+        <Picture class="w-full h-full absolute z-0">
           <Source
             width={360}
             src={data.rightImage.mobile}
@@ -201,7 +201,7 @@ function ThirdSection({ data }: { data: Banner["thirdSection"] }) {
           <img
             class="w-full h-full object-cover"
             src={data.rightImage.desktop}
-            alt={data.rightImage.alt}
+            alt={data.rightImage.alt ?? "Bergerson"}
           />
         </Picture>
       </div>
@@ -241,7 +241,7 @@ function Banner({ head, requestViewer, banners = [] }: Props) {
   return (
     <>
       <Head title={finalTitle} description={finalDescription} {...headProps} />
-      <BannerUI banner={matching} />;
+      <BannerUI banner={matching} />
     </>
   );
 }
