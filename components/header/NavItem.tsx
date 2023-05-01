@@ -32,9 +32,11 @@ function NavItem({ item }: { item: INavItem }) {
             style={{ top: "0px", left: "0px" }}
           >
             <img
+              alt={label}
+              loading="lazy"
+              decoding="async"
               class="w-[300px] h-[300px]"
               src={children[imageIndex.value].image?.src}
-              alt=""
             />
             <ul class="flex flex-col flex-wrap items-start justify-center pl-20  max-h-[356px]">
               {children.map((item, index) => (
