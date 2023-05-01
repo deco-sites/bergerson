@@ -359,13 +359,17 @@ function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
           />
           <DropDownItem
             title="Formas de pagamento"
-            other={paymentMethod.map((item) => (
-              <li class="pr-2.5">
-                <a href="/">
-                  <img src={item.src} alt={item.alt} />
-                </a>
-              </li>
-            ))}
+            other={
+              <>
+                {paymentMethod.map((item) => (
+                  <li class="pr-2.5">
+                    <a href="/">
+                      <img src={item.src} alt={item.alt} />
+                    </a>
+                  </li>
+                ))}
+              </>
+            }
           />
           <DropDownItem
             title="Nossas Lojas"
