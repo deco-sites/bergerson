@@ -9,10 +9,10 @@ interface Props {
 }
 
 /** TIMER PROPERTIES */
-let PRODUCT_TIMER: number;
 const TIMER_INTERVAL = 1500;
 
 export default function SmallFaderShelf(props: Props) {
+  let PRODUCT_TIMER: number;
   const currentImage = useSignal(0);
 
   useEffect(() => {

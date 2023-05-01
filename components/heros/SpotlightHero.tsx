@@ -4,6 +4,7 @@ import SmallFaderShelf from "./SmallFaderShelf.tsx";
 import { Action, ImageWithAction } from "./types.ts";
 import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import Button from "deco-sites/bergerson/components/ui/Button.tsx";
+import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 
 export interface Slide {
   /** @description image to be displayed before the texts */
@@ -69,17 +70,31 @@ export default function Spotlight(props: Props) {
           const liClass = `${baseClass} ${baseOpacityClass} ${opacityClass}`;
 
           return (
-            <li class={`${liClass} bg-[${slide.baseColor}]`}>
+            <li class={`${liClass} h-screen bg-[${slide.baseColor}]`}>
               {/** detail */}
               <div class="relative w-full h-full max-h-[460px] md:max-h-[1120px] flex flex-1">
                 <Actionable action={slide.detail.action}>
-                  <img
-                    loading="lazy"
-                    decoding="async"
-                    src={slide.detail.image}
-                    alt={slide.detail.action?.title ?? "Bergerson"}
-                    class="h-full w-full max-h-[460px] md:max-h-[1120px] object-cover"
-                  />
+                  <Picture class="w-full">
+                    <Source
+                      media="(max-width: 767px)"
+                      src={slide.detail.image}
+                      width={450}
+                      height={450}
+                    />
+                    <Source
+                      media="(min-width: 768px)"
+                      src={slide.detail.image}
+                      width={750}
+                      height={750}
+                    />
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src={slide.detail.image}
+                      alt={slide.detail.action?.title ?? "Bergerson"}
+                      class="h-full w-full max-h-[460px] md:max-h-[1120px] object-cover"
+                    />
+                  </Picture>
                 </Actionable>
 
                 {/** products */}
