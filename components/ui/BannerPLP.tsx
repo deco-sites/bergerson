@@ -35,11 +35,13 @@ function BannerUI({ banner }: { banner: Banner }) {
         <Picture preload class="col-start-1 col-span-1 row-start-1 row-span-1">
           <Source
             width={360}
+            height={275}
             src={image.mobile}
             media="(max-width: 767px)"
           />
           <Source
             width={1440}
+            height={190}
             src={image.desktop}
             media="(min-width: 767px)"
           />
@@ -50,6 +52,8 @@ function BannerUI({ banner }: { banner: Banner }) {
       {description && (
         <Container class="px-4 sm:py-10 flex flex-col gap-2 items-center justify-center">
           <img
+            width={200}
+            height={115}
             alt={image.alt}
             src={description.logo}
             class="mx-[15px] h-[115px] w-full lg:w-[200px] object-contain"

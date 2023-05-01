@@ -170,6 +170,8 @@ function Menu({ items, img, cartImage }: {
             href={img.badge?.href}
           >
             <img
+              loading="lazy"
+              decoding="async"
               src={img.badge?.src}
               alt={img.badge?.alt ?? "Rolex"}
               class="w-[170px] h-[70px] header:block hidden object-contain"
