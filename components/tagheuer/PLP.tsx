@@ -88,7 +88,7 @@ function PLP(props: Props) {
   return (
     <Container class="py-20 px-0 sm:px-5 flex flex-col md:flex-row gap-12 md:gap-20">
       <div class="w-full md:w-[300px] flex flex-col gap-6 mt-[6px] px-[15px] md:px-0">
-        <img src={props.logo} width={200} />
+        <img alt="Tag Heuer" src={props.logo} width={190} height={30} />
         <MenuMobile {...props} />
         <MenuDesktop {...props} />
       </div>

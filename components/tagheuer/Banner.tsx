@@ -22,11 +22,13 @@ function Banner(props: Props) {
       <Picture preload class="col-start-1 col-span-1 row-start-1 row-span-1">
         <Source
           width={360}
+          height={400}
           src={matching.banner.mobile}
           media="(max-width: 767px)"
         />
         <Source
           width={1440}
+          height={440}
           src={matching.banner.desktop}
           media="(min-width: 767px)"
         />
