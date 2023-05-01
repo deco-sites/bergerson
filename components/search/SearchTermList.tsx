@@ -15,7 +15,7 @@ export default function SearchTermList({ terms, title, ...ulProps }: Props) {
       <ul {...ulProps} class="flex flex-col gap-6">
         {terms.map(({ term }) => (
           <li>
-            <a href={`/s?q=${term}`} class="flex gap-4 items-center">
+            <a href={`/busca?q=${term}`} class="flex gap-4 items-center">
               <Text variant="body">
                 <Icon
                   id="MagnifyingGlass"

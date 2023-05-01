@@ -1,60 +1,86 @@
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
-import { useId } from "preact/hooks";
-
-const script = (id: string) => `
-const callback = () => {
-  const KEY = 'store-cookie-consent';
-  const ACCEPTED = 'accepted';
-  const HIDDEN = "translate-y-[200%]";
-  
-  const consent = localStorage.getItem(KEY);
-  const elem = document.getElementById("${id}");
-  
-  if (consent !== ACCEPTED) {
-    elem.querySelector('[data-button-cc-accept]').addEventListener('click', function () {
-      localStorage.setItem(KEY, ACCEPTED);
-      elem.classList.add(HIDDEN);
-    });
-    elem.querySelector('[data-button-cc-close]').addEventListener('click', function () {
-      elem.classList.add(HIDDEN);
-    });
-    elem.classList.remove(HIDDEN);
+const styleContent = `
+  .cookiealert {
+    display: none;
+    position: fixed;
+    z-index: 999999;
+    left: 1.7rem;
+    bottom: 1.7rem;
+    padding: 2rem;
+    background: #f5f5f5;
+    width: 290px;
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: left;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
   }
-};
 
-window.addEventListener('scroll', callback, { once: true });
+  .cookiealert .closeAlert {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 15px;
+    color: #666;
+    background: #fff;
+    border-radius: 50%;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .cookiealert h5 {
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+  }
+
+  .cookiealert p {
+    line-height: 20px;
+    color: #000;
+  }
+
+  .cookiealert a {
+    color: #999;
+    text-decoration: underline !important;
+  }
+
+  .cookiealert .acceptcookies {
+    background: #1b1b1b;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    padding: 0 20px;
+    width: auto;
+    height: 38px;
+    line-height: 38px;
+    margin-top: 1rem;
+  }
+
+  .cookiealert.show {
+    display: block;
+  }
 `;
 
 function CookieConsent() {
-  const id = `cookie-consent-${useId()}`;
-
   return (
     <>
-      <div
-        id={id}
-        class="transform-gpu translate-y-[200%] transition fixed bottom-0 sm:bottom-4 w-screen z-50"
-      >
-        <Container class="px-4 py-4 rounded border border-default flex flex-col sm:flex-row gap-4 items-start sm:items-center shadow bg-default">
-          <Text class="flex-grow" variant="caption">
-            Utilizamos cookies em nosso site para melhorar seu desempenho,
-            segurança e personalizar conteúdo e anúncios.
-          </Text>
-
-          <a href="https://www.deco.cx">
-            <Text class="underline" variant="caption">
-              Nossa política de privacidade
-            </Text>
-          </a>
-
-          <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
-            <Button data-button-cc-accept variant="primary">Aceitar</Button>
-            <Button data-button-cc-close variant="secondary">Fechar</Button>
-          </div>
-        </Container>
-      </div>
-      <script type="module" dangerouslySetInnerHTML={{ __html: script(id) }} />
+      <style dangerouslySetInnerHTML={{ __html: styleContent }} />
+      <script
+        async
+        charSet="UTF-8"
+        type="text/javascript"
+        src="https://cdn.cookie-script.com/s/9a691e22311ca302830a0cf322edf008.js"
+      />
+      <script
+        async
+        type="text/javascript"
+        src="/rlx-consent-v3.js"
+      />
     </>
   );
 }

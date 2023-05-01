@@ -45,6 +45,7 @@ export interface Props {
 }
 
 const sortOptions = [
+  { value: "OrderByScoreDESC", label: "Selecione" },
   { value: "OrderByReleaseDateDESC", label: "Data de lançamento" },
   { value: "OrderByPriceASC", label: "Menor preço" },
   { value: "OrderByPriceDESC", label: "Maior preço" },
@@ -147,10 +148,10 @@ const legacyPLPLoader: LoaderFunction<
 
   const count = props.count ?? 12;
   const maybeMap = props.map || url.searchParams.get("map") || undefined;
-  const maybeTerm = props.term || ctx.params["0"] || "";
+  const maybeTerm = props.term || ctx?.params?.["0"] || "";
   const page = Number(url.searchParams.get("page")) || 0;
   const O = (url.searchParams.get("O") || url.searchParams.get("sort") ||
-    sortOptions[0].value) as LegacySort;
+    undefined) as LegacySort;
   const ft = props.ft || url.searchParams.get("ft") ||
     url.searchParams.get("q") || "";
   const fq = props.fq || url.searchParams.get("fq") || "";
@@ -158,13 +159,6 @@ const legacyPLPLoader: LoaderFunction<
   const _to = (page + 1) * count - 1;
 
   const pageTypes = await pageTypesFromPathname(maybeTerm, vtex);
-
-  if (pageTypes.length === 0 && !ft) {
-    return {
-      data: null,
-      status: 404,
-    };
-  }
 
   const missingParams = typeof maybeMap !== "string" || !maybeTerm;
   const [map, term] = missingParams

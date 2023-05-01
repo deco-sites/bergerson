@@ -34,6 +34,7 @@ export interface Props {
    * @description Navigation items used both on mobile and desktop menus
    */
   navImage?: NavImage;
+  cartImage: LiveImage;
 }
 
 function Header(
@@ -41,13 +42,20 @@ function Header(
     searchbar: _searchbar,
     menu = [],
     navImage,
+    cartImage,
   }: Props,
 ) {
   const searchbar = { ..._searchbar };
+
   return (
-    <header class={` lg:h-[${navbarHeightDesktop}] h-[${navbarHeight}]`}>
-      <div class="flex items-center justify-center bg-default fixed w-full z-50">
-        <Navbar items={menu} searchbar={searchbar} img={navImage!} />
+    <header class={`lg:h-[${navbarHeightDesktop}] h-[${navbarHeight}]`}>
+      <div class="flex items-center justify-center bg-default fixed w-full z-50 shadow-header border-b-1 border-default">
+        <Navbar
+          items={menu}
+          searchbar={searchbar}
+          img={navImage!}
+          cartImage={cartImage}
+        />
       </div>
       <Modals
         menu={{ items: menu }}

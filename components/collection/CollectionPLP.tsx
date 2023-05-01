@@ -214,7 +214,7 @@ function BannerUI({ banner }: { banner: Banner }) {
 }
 
 function Banner({ requestViewer, banners = [] }: Props) {
-  if (!requestViewer) {
+  if (!requestViewer || !requestViewer.request.url) {
     return null;
   }
 

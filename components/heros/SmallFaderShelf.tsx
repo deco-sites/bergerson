@@ -45,8 +45,10 @@ export default function SmallFaderShelf(props: Props) {
         return (
           <Actionable action={image.action}>
             <img
+              loading="lazy"
+              decoding="async"
               src={image.image}
-              alt={image.action?.title}
+              alt={image.action?.title ?? "Bergerson"}
               class={`h-[200px] w-[200px] object-cover transition ease-in-out duration-1000 absolute ${opacityClass}`}
             />
           </Actionable>

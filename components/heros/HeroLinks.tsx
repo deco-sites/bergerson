@@ -22,9 +22,9 @@ export default function HeroLinks(props: Props) {
   const { left, right, alt } = detail;
 
   const backgroundStyle = {
-    backgroundImage: `url('${background}')`,
     backgroundSize: "100% 100%",
     backgroundRepeat: "no-repeat",
+    backgroundImage: `url('${background}')`,
   };
 
   return (
@@ -36,6 +36,8 @@ export default function HeroLinks(props: Props) {
         <img
           alt={alt}
           src={left}
+          loading="lazy"
+          decoding="async"
           class="h-full max-h-[1120px] w-full lg:w-[532px] object-cover"
         />
       </div>
@@ -59,6 +61,8 @@ export default function HeroLinks(props: Props) {
         <img
           alt={alt}
           src={right}
+          loading="lazy"
+          decoding="async"
           class="h-full max-h-[440px] max-w-[375px] object-cover"
         />
       </div>

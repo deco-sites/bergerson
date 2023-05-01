@@ -8,7 +8,7 @@ export interface Banner {
   /**
    * @description Image alt text
    */
-  alt: string;
+  title?: string;
   /**
    * @description When you click you go to
    */
@@ -41,16 +41,14 @@ export default function BannnerGrid({
   banners = [],
 }: Props) {
   return (
-    <Container>
+    <Container class="mt-4">
       <section class="w-full px-4 md:px-0 mx-auto">
         {title &&
           (
-            <div class="py-6 md:py-0 md:pb-[40px] flex items-center mt-6">
-              <h2 class={"text-lg leading-5 font-semibold uppercase "}>
+            <div class="py-4 flex items-center mt-6">
+              <h2 class={"text-lg leading-5 font-semibold"}>
                 {title}
               </h2>
-
-              <div class="bg-[#e5e5ea] h-[1px] w-full ml-4"></div>
             </div>
           )}
         <div
@@ -62,10 +60,10 @@ export default function BannnerGrid({
               : banners.length
           }`}
         >
-          {banners.map(({ href, srcMobile, srcDesktop, alt }) => (
+          {banners.map(({ href, srcMobile, srcDesktop, title }) => (
             <a
               href={href}
-              class={`overflow-hidden ${
+              class={`group overflow-hidden ${
                 borderRadius?.mobile && `rounded-[${borderRadius.mobile}px]`
               } ${
                 borderRadius?.desktop
@@ -73,28 +71,32 @@ export default function BannnerGrid({
                   : `sm:rounded-none`
               }`}
             >
-              <Picture>
+              <Picture
+                preload
+                class="col-start-1 col-span-1 row-start-1 row-span-1"
+              >
                 <Source
-                  media="(max-width: 767px)"
+                  width={360}
                   src={srcMobile}
-                  width={100}
-                  height={100}
+                  media="(max-width: 767px)"
                 />
                 <Source
-                  media="(min-width: 768px)"
+                  width={1440}
                   src={srcDesktop ? srcDesktop : srcMobile}
-                  width={250}
-                  height={250}
+                  media="(min-width: 767px)"
                 />
                 <img
                   class="w-full"
-                  sizes="(max-width: 640px) 100vw, 30vw"
-                  src={srcMobile}
-                  alt={alt}
-                  decoding="async"
-                  loading="lazy"
+                  src={srcDesktop ? srcDesktop : srcMobile}
+                  alt={title}
                 />
               </Picture>
+
+              {title && (
+                <span class="transition block mt-2 uppercase text-sm text-gray-500 group-hover:text-black">
+                  {title}
+                </span>
+              )}
             </a>
           ))}
         </div>

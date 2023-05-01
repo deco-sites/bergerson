@@ -27,6 +27,10 @@ function GlobalTags() {
       <meta name="theme-color" content="#221E1F" />
       <meta name="msapplication-TileColor" content="#221E1F" />
 
+      {/* Preconnect */}
+      <link rel="preconnect" href="https://cookie-script.com" />
+      <link rel="preconnect" href="https://cdn.cookie-script.com" />
+
       {
         /*
          * Include fonts

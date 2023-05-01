@@ -1,133 +1,136 @@
-import ProductCard from "deco-sites/fashion/components/product/ProductCard.tsx";
-import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
-import SliderControllerJS from "deco-sites/fashion/islands/SliderJS.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import { useId } from "preact/hooks";
-import type { LoaderReturnType } from "$live/types.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
-import ViewSendEvent from "deco-sites/fashion/islands/ViewSendEvent.tsx";
-import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
-import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
 import { useSignal } from "@preact/signals";
+import type { LoaderReturnType } from "$live/types.ts";
+import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
+import type { Product } from "deco-sites/std/commerce/types.ts";
+import Button from "deco-sites/fashion/components/ui/Button.tsx";
+import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
+import Container from "deco-sites/fashion/components/ui/Container.tsx";
+import SliderControllerJS from "deco-sites/fashion/islands/SliderJS.tsx";
+import ProductCard from "deco-sites/fashion/components/product/ProductCard.tsx";
 
 export interface Props {
-  title: string[];
-  products: LoaderReturnType<Product[] | null>;
-  itemsPerPage?: number;
+  firstCollectionTitle?: string;
+  secondCollectionTitle?: string;
+  thirdCollectionTitle?: string;
+  firstProductCollection?: LoaderReturnType<Product[] | null>;
+  secondProductCollection?: LoaderReturnType<Product[] | null>;
+  thirdProductCollection?: LoaderReturnType<Product[] | null>;
 }
 
-function ProductShelf({
-  title,
-  products,
-}: Props) {
-  const id = useId();
+function ProductShelf(props: Props) {
+  const {
+    firstCollectionTitle,
+    secondCollectionTitle,
+    thirdCollectionTitle,
+    firstProductCollection,
+    secondProductCollection,
+    thirdProductCollection,
+  } = props;
 
-  if (!products || products.length === 0) {
-    return null;
-  }
+  const id = useId() + firstProductCollection?.length +
+    secondProductCollection?.length + thirdProductCollection?.length;
 
-  if (title.length > 3) {
-    throw new Error("Category limit is 3");
-  }
-  const onOff = useSignal(false);
+  const activeCollection = useSignal(0);
+  const changeCollection = (i: number) => () => (activeCollection.value = i);
 
-  const changeTextColor = (addColor: string, removeColor: string, event: MouseEvent) => {
-    if (event.target instanceof HTMLElement) {
-      event?.target.classList.add(addColor)
-      event?.target.classList.remove(removeColor)
-    }
-  }
+  const title = [
+    firstCollectionTitle,
+    secondCollectionTitle,
+    thirdCollectionTitle,
+  ].filter(Boolean);
 
-  const handleClick = (event: MouseEvent) => {
-    if (event.target instanceof HTMLElement) {
-      if (onOff.value === false) {
-        changeTextColor("text-black", "text-[#ccc]", event)
-        onOff.value = !onOff.value;
-      } else {
-        changeTextColor("text-[#ccc]", "text-black", event)
-        onOff.value = !onOff.value;
-      }
-    } 
-  };
-  
+  const collections = [
+    firstProductCollection,
+    secondProductCollection,
+    thirdProductCollection,
+  ].filter(Boolean);
+
+  const products = collections[activeCollection.value];
+
   return (
-    <div
+    <Container
       id={id}
-      class="mb-5 grid grid-cols-[106px_1fr_106px] grid-rows-[155px_1fr_48px_1fr] py-[100px] px-0 sm:px-5"
+      class="grid grid-cols-[38px_1fr_38px] grid-rows-[1fr_1fr_38px_1fr] md:grid-rows-[96px_1fr_38px_1fr] py-20 px-0 sm:px-5"
     >
-      <ul class="self-start flex col-start-2 text-4xl font-serif font-heading-1 justify-center items-center gap-[30px] text-[#ccc]">
-        {title.map((currentItem, index) => (
-          title.length == index + 1
-            ? (
-              <li
-                onClick={handleClick}
-                class={`py-2.5 px-[15px] cursor-pointer text-[#ccc]`}
+      <div class="row-start-1 col-span-full flex flex-row w-full px-5">
+        <div class="font-serif flex flex-col gap-2 md:gap-8 flex-1 w-full text-2xl font-semibold md:(flex-row text-4xl) items-center justify-center">
+          {title.map((t, i) => {
+            const isFirst = i === 0;
+            const isActive = i === activeCollection.value;
+            const titleClass = isActive ? "" : "opacity-50";
+
+            return (
+              <div
+                onClick={changeCollection(i)}
+                class="flex flex-row gap-8 cursor-pointer items-center"
               >
-                {currentItem}
-              </li>
-            )
-            : (
-              <>
-                <li
-                  onClick={handleClick}
-                  class={`py-2.5 px-[15px] cursor-pointer text-[#ccc]`}
-                >
-                  {currentItem}
-                </li>
-                <img
-                  class="w-6 h-[17px]"
-                  src="https://www.bergersonjoias.com/arquivos/bergerson-star.png?v=637998171695470000"
-                />
-              </>
-            )
-        ))}
-      </ul>
+                {!isFirst && (
+                  <img
+                    width={24}
+                    height={12.21}
+                    src="/black-star.png"
+                    class="hidden md:block opacity-50 w-[24px] h-[12.21px]"
+                  />
+                )}
+
+                <span class={titleClass}>
+                  {t}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
 
       <Slider
-        class="gap-[60px] row-start-2 row-end-5"
+        class="gap-6 col-span-full row-start-2 row-end-5 scrollbar-none overflow-x-scroll"
         snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
       >
         {products?.map((product) => (
-          <div class="w-[380px]">
-            <ProductCard product={product} />
+          <div class="min-w-[270px] max-w-[270px] sm:min-w-[292px] sm:max-w-[292px]">
+            <ProductCard product={product} preload={false} />
           </div>
         ))}
       </Slider>
 
-      <>
-        <div class="hidden relative sm:block z-10 col-start-1 row-start-3">
-          <div class="absolute right-1/2">
-            <Button variant="icon" data-slide="prev" aria-label="Previous item">
-              <Icon size={30} id="ChevronLeft" strokeWidth={3} />
-            </Button>
-          </div>
+      {/** CONTROLS MOBILE */}
+      <div class="block relative z-10 col-start-1 row-start-3">
+        <div class="absolute left-5">
+          <Button
+            variant="icon"
+            data-slide="prev"
+            aria-label="Previous item"
+          >
+            <Icon
+              size={32}
+              id="ChevronLeft"
+              strokeWidth={3}
+              class="text-black"
+            />
+          </Button>
         </div>
-        <div class="hidden relative sm:block z-10 col-start-3 row-start-3">
-          <div class="absolute left-1/2">
-            <Button variant="icon" data-slide="next" aria-label="Next item">
-              <Icon size={30} id="ChevronRight" strokeWidth={3} />
-            </Button>
-          </div>
+      </div>
+
+      <div class="block relative z-10 col-start-3 row-start-3">
+        <div class="absolute right-5">
+          <Button
+            variant="icon"
+            data-slide="next"
+            aria-label="Next item"
+          >
+            <Icon
+              size={32}
+              id="ChevronRight"
+              strokeWidth={3}
+              class="text-black"
+            />
+          </Button>
         </div>
-      </>
+      </div>
 
       <SliderControllerJS rootId={id} />
-
-      <ViewSendEvent
-        event={{
-          name: "view_item_list",
-          params: {
-            items: products.map((product) =>
-              mapProductToAnalyticsItem({
-                product,
-                ...(useOffer(product.offers)),
-              })
-            ),
-          },
-        }}
-      />
-    </div>
+    </Container>
   );
 }
 

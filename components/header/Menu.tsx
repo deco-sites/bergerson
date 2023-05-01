@@ -22,43 +22,47 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
   );
 
   return (
-    <li>
+    <li class={level === 0 ? "border-b-1 border-black border-solid" : ""}>
       <div
-        class={`flex justify-between items-center w-full pb-2 ${
-          level > 0 ? "pl-2" : ""
-        }`}
+        class="flex justify-between items-center w-full pb-2"
         onClick={() => {
           if (hasChildren) open.value = !open.value;
         }}
       >
+        <span class="flex w-[20px] h-[20px]" />
+
         {hasChildren
           ? title
           : <a class="w-full inline-block" href={item.href}>{title}</a>}
 
-        {hasChildren && (
-          <Button variant="icon">
-            <Icon
-              class={open.value === true ? "hidden" : "block"}
-              id="Plus"
-              height={20}
-              width={20}
-              strokeWidth={1.5}
-            />
-            <Icon
-              class={open.value === true ? "block" : "hidden"}
-              id="Minus"
-              height={20}
-              width={20}
-              strokeWidth={1.5}
-            />
-          </Button>
-        )}
+        {hasChildren
+          ? (
+            <Button variant="icon">
+              <Icon
+                class={open.value === true ? "hidden" : "block"}
+                id="Plus"
+                height={20}
+                width={20}
+                strokeWidth={1.5}
+              />
+              <Icon
+                class={open.value === true ? "block" : "hidden"}
+                id="Minus"
+                height={20}
+                width={20}
+                strokeWidth={1.5}
+              />
+            </Button>
+          )
+          : <span class="flex w-[20px] h-[20px]" />}
       </div>
 
       {hasChildren && (
-        <ul class={`flex-col ${open.value === true ? "flex" : "hidden"}`}>
-          <li>
-          </li>
+        <ul
+          class={`flex-col ${
+            open.value === true ? "flex" : "hidden"
+          } border-t-1 border-black border-solid`}
+        >
           {item.children!.map((node) => (
             <MenuItem
               item={node}
@@ -74,13 +78,9 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
 function Menu({ items }: Props) {
   return (
     <div>
-      <ul class="px-16 flex-grow flex flex-col divide-y divide-black">
+      <ul class="px-16 flex-grow flex flex-col">
         {items.map((item) => <MenuItem item={item} />)}
       </ul>
-      <div>
-        <ul class="px-16 flex-grow flex flex-col divide-y divide-black">
-        </ul>
-      </div>
     </div>
   );
 }

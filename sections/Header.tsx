@@ -1,8 +1,2 @@
-import Header from "deco-sites/fashion/components/header/Header.tsx";
-import type { Props } from "deco-sites/fashion/components/header/Header.tsx";
-
-function HeaderSection(props: Props) {
-  return <Header {...props} />;
-}
-
-export default HeaderSection;
+export { default } from "deco-sites/bergerson/islands/Header.tsx";
+export type { Props } from "deco-sites/bergerson/islands/Header.tsx";

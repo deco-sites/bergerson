@@ -2,36 +2,45 @@ import HeaderButton from "deco-sites/fashion/islands/HeaderButton.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import NavItem from "./NavItem.tsx";
 import { navbarHeight, navbarHeightDesktop } from "./constants.ts";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import HeaderSearchMenu from "deco-sites/fashion/islands/HeaderSearchMenu.tsx";
 import type { INavItem } from "./NavItem.tsx";
 import type { NavImage } from "./Header.tsx";
 import type { Props as SearchbarProps } from "deco-sites/fashion/components/search/Searchbar.tsx";
 import Logo from "../ui/Logo.tsx";
 import { useUI } from "../../sdk/useUI.ts";
+import Icon from "../ui/Icon.tsx";
 
-function Navbar({ items, searchbar, img }: {
+function Navbar({ items, searchbar, img, cartImage }: {
   items: INavItem[];
   searchbar: SearchbarProps;
   img: NavImage;
+  cartImage: LiveImage;
 }) {
   const { displaySearchbar } = useUI();
   const open = displaySearchbar.value;
 
   return (
     <>
-      {(open)
-        ? <MenuSearchbar searchbar={searchbar} img={img} />
-        : <Menu items={items} searchbar={searchbar} img={img} />}
+      {(open) ? <MenuSearchbar searchbar={searchbar} img={img} /> : (
+        <Menu
+          items={items}
+          searchbar={searchbar}
+          img={img}
+          cartImage={cartImage}
+        />
+      )}
     </>
   );
 }
+
 function MenuSearchbar(
   { searchbar, img }: { searchbar: SearchbarProps; img: NavImage },
 ) {
   return (
     <>
       <div
-        class={` max-w-[1700px] min-w-[991px] hidden md:flex flex-row justify-between items-center shadow-header w-full px-[70px] h-[${navbarHeightDesktop}]`}
+        class={` max-w-[1700px] min-w-[991px] hidden md:flex flex-row justify-between items-center w-full px-[70px] h-[${navbarHeightDesktop}]`}
       >
         <div class="flex-none">
           <a href="/" aria-label="Store logo" class="block w-[160px]">
@@ -41,7 +50,7 @@ function MenuSearchbar(
         <HeaderSearchMenu searchbar={searchbar} />
       </div>
       <div
-        class={`md:hidden flex flex-row  items-center h-[${navbarHeight}] border-b-1 border-default w-full px-3`}
+        class={`md:hidden flex flex-row  items-center h-[${navbarHeight}] w-full px-3`}
       >
         <div class="flex-none">
           <a href="/" aria-label="Store logo" class="block w-[160px]">
@@ -53,10 +62,12 @@ function MenuSearchbar(
     </>
   );
 }
-function Menu({ items, searchbar, img }: {
+
+function Menu({ items, img, cartImage }: {
   items: INavItem[];
   searchbar: SearchbarProps;
   img: NavImage;
+  cartImage: LiveImage;
 }) {
   const { displaySearchbar } = useUI();
 
@@ -64,7 +75,7 @@ function Menu({ items, searchbar, img }: {
     <>
       {/* Mobile */}
       <div
-        class={`md:hidden flex flex-row justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full px-5 gap-2`}
+        class={`md:hidden flex flex-row justify-between items-center h-[${navbarHeight}] w-full px-5 gap-2`}
       >
         <div class={`w-[51px] flex justify-start`}>
           <HeaderButton variant="menu" />
@@ -80,18 +91,20 @@ function Menu({ items, searchbar, img }: {
         <div class="w-[51px] flex justify-between">
           <Button
             onClick={() => displaySearchbar.value = true}
+            aria-label="Pesquisar produtos"
             variant="icon"
           >
-            <img
-              class={`w-[18px] h-[18px]`}
-              src="https://bergersonjoias.vteximg.com.br/arquivos/icon-search-header.png"
-              alt="Search products button"
+            <Icon
+              width={24}
+              height={24}
+              id="MagnifyingGlass"
+              alt="Pesquisar produtos"
             />
           </Button>
           <Button variant="icon" as="a" href="/checkout" aria-label="My cart">
             <img
               class={`w-[18px] h-[20px]`}
-              src="https://www.bergersonjoias.com/arquivos/bg-v23-mybag.png?v=638000718382000000"
+              src={cartImage}
               alt="My cart button"
             />
           </Button>
@@ -99,26 +112,28 @@ function Menu({ items, searchbar, img }: {
       </div>
       {/* Desktop */}
       <div
-        class={`max-w-[1700px] hidden  md:flex flex-row justify-between items-center shadow-header w-full px-[70px] h-[${navbarHeightDesktop}]`}
+        class={`max-w-[1700px] hidden md:flex flex-row justify-between items-center w-full px-[70px] h-[${navbarHeightDesktop}]`}
       >
         <div class="flex-none">
           <a href="/" aria-label="Store logo" class="block w-[160px]">
             <Logo img={img} />
           </a>
         </div>
-        <div class="px-3 flex-auto flex justify-between max-w-[893px]  h-[135px]">
+        <div class="px-3 flex-auto flex max-w-[893px] h-[135px]">
           {items.map((item) => <NavItem item={item} />)}
         </div>
         <div class="flex-none  flex items-center justify-between">
           <div class="flex gap-5 items-center header:pr-4 ">
             <Button
               onClick={() => displaySearchbar.value = true}
+              aria-label="Pesquisar produtos"
               variant="icon"
             >
-              <img
-                class={`w-[22px] h-[22px]`}
-                src="https://bergersonjoias.vteximg.com.br/arquivos/icon-search-header.png"
-                alt="Search products button"
+              <Icon
+                width={24}
+                height={24}
+                id="MagnifyingGlass"
+                alt="Pesquisar produtos"
               />
             </Button>
 
@@ -130,7 +145,7 @@ function Menu({ items, searchbar, img }: {
             >
               <img
                 class={`w-[22px] h-[24.8px]`}
-                src="https://www.bergersonjoias.com/arquivos/bg-v23-mybag.png?v=638000718382000000"
+                src={cartImage}
                 alt="My cart button"
               />
             </Button>
@@ -140,10 +155,11 @@ function Menu({ items, searchbar, img }: {
               href="/login"
               aria-label="Log in"
             >
-              <img
-                class={`w-[22px] h-[24.2px]`}
-                src="https://bergersonjoias.vteximg.com.br/arquivos/Icon-my-account-header.png"
-                alt="My account button"
+              <Icon
+                id="User"
+                width={24}
+                height={24}
+                alt="Search products button"
               />
             </Button>
           </div>
@@ -153,9 +169,9 @@ function Menu({ items, searchbar, img }: {
             href={img.badge?.href}
           >
             <img
-              class="w-[170px] h-[70px] header:block hidden "
               src={img.badge?.src}
               alt={img.badge?.alt}
+              class="w-[170px] h-[70px] header:block hidden object-contain"
             />
           </Button>
         </div>

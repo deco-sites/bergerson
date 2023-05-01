@@ -74,8 +74,10 @@ export default function Spotlight(props: Props) {
               <div class="relative w-full h-full max-h-[460px] md:max-h-[1120px] flex flex-1">
                 <Actionable action={slide.detail.action}>
                   <img
+                    loading="lazy"
+                    decoding="async"
                     src={slide.detail.image}
-                    alt={slide.detail.action?.title}
+                    alt={slide.detail.action?.title ?? "Bergerson"}
                     class="h-full w-full max-h-[460px] md:max-h-[1120px] object-cover"
                   />
                 </Actionable>
@@ -97,6 +99,8 @@ export default function Spotlight(props: Props) {
                   <img
                     width="57"
                     height="29"
+                    loading="lazy"
+                    decoding="async"
                     alt="black star"
                     src="/black-star.png"
                     class="hidden md:block"
@@ -128,8 +132,12 @@ export default function Spotlight(props: Props) {
                     />
                   </div>
 
-                  <div class="mx-[15px]">
-                    <Button as="a" href={slide.action.href} variant="primary">
+                  <div class="mx-[15px] border-y-1 border-black p-2.5">
+                    <Button
+                      as="a"
+                      variant="quaternary"
+                      href={slide.action.href}
+                    >
                       {slide.action.title}
                     </Button>
                   </div>

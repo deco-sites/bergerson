@@ -1,4 +1,3 @@
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import { useEffect, useRef } from "preact/hooks";
 import { IS_BROWSER } from "$fresh/runtime.ts";
@@ -8,7 +7,6 @@ import type { JSX } from "preact";
 import Icon from "./Icon.tsx";
 import Logo from "./Logo.tsx";
 import type { NavImage } from "../header/Header.tsx";
-import ListItem from "./ListItem.tsx";
 
 // Lazy load a <dialog> polyfill.
 if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
@@ -100,22 +98,6 @@ const Modal = ({
           <div class="overflow-y-auto flex-grow flex justify-between flex-col">
             <div>
               {loading === "lazy" ? lazy.value && children : children}
-            </div>
-            <div class="pb-4">
-              <ul class="px-16 flex flex-col divide-y divide-black">
-                <ListItem href="/" label="Minha conta" />
-                <ListItem href="/" label="Resgate seu bônus" />
-                <ListItem href="/" label="B Magazine" />
-              </ul>
-              <div class="w-full flex justify-center">
-                <iframe
-                  src="https://static.rolex.com/retailers/clock/?colour=gold&amp;apiKey=903dce3692b5146aa14d49b74da13862&amp;lang=pt_br"
-                  style="width:170px;height:70px;border:0;margin:0;padding:0;overflow:hidden;z-index:0;position:relative;scroll:none;"
-                  scrolling="NO"
-                  title="Rolex"
-                >
-                </iframe>
-              </div>
             </div>
           </div>
         </div>

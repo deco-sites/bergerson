@@ -15,6 +15,27 @@ export interface Props {
   }>;
 }
 
+// deno-lint-ignore no-explicit-any
+function renderItem(item: any) {
+  return (
+    <div class="w-[133px] h-[170px] sm:(w-[168px] h-[215px]) lg:(w-[208px] h-[266px]) relative overflow-hidden">
+      <a href={item.href} class="group">
+        <img
+          src={item.image}
+          alt={item.title}
+          class="flex flex-1 w-full h-full object-cover transition group-hover:scale-110"
+        />
+
+        <div class="absolute top-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+          <p class="text-white md:text-xl font-semibold text-center">
+            {item.title}
+          </p>
+        </div>
+      </a>
+    </div>
+  );
+}
+
 function Highlights(props: Props) {
   const { title, items } = props;
   const id = useId();
@@ -30,47 +51,15 @@ function Highlights(props: Props) {
         </h1>
 
         <div class="hidden md:flex flex-row justify-between gap-6">
-          {items.map((item) => (
-            <div class="max-w-[208px] min-w-[168px] h-[215px] w-full relative overflow-hidden">
-              <a href={item.href} class="group">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  class="flex flex-1 w-full h-full object-cover transition group-hover:scale-110"
-                />
-
-                <div class="absolute top-0 w-full h-full flex items-center justify-center">
-                  <p class="text-white text-xl">
-                    {item.title}
-                  </p>
-                </div>
-              </a>
-            </div>
-          ))}
+          {items.map(renderItem)}
         </div>
 
         <div class="md:hidden grid grid-cols-[48px_1fr_48px] grid-rows-[1fr_48px_1fr]">
           <Slider
-            class="gap-6 col-span-full row-start-1 row-end-5 scrollbar-none"
+            class="gap-6 col-span-full row-start-1 row-end-5 scrollbar-none overflow-x-scroll"
             snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
           >
-            {items.map((item) => (
-              <div class="min-w-[215px] max-w-[215px] h-[215px] w-full relative">
-                <a href={item.href} class="group">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    class="flex flex-1 w-full h-full object-cover transition group-hover:scale-110"
-                  />
-
-                  <div class="absolute top-0 w-full h-full flex items-center justify-center">
-                    <p class="text-white text-xl">
-                      {item.title}
-                    </p>
-                  </div>
-                </a>
-              </div>
-            ))}
+            {items.map(renderItem)}
           </Slider>
 
           <>
