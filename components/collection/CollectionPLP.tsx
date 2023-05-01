@@ -143,7 +143,7 @@ function ThirdSection({ data }: { data: Banner["thirdSection"] }) {
   return (
     <div class="flex flex-col lg:flex-row flex-1 h-screen relative">
       <div class="flex flex-1 h-full w-full relative">
-        <Picture class="w-full h-full absolute z-0">
+        <Picture preload={false} class="w-full h-full absolute z-0">
           <Source
             width={360}
             src={data.leftImage.mobile}
@@ -155,6 +155,8 @@ function ThirdSection({ data }: { data: Banner["thirdSection"] }) {
             media="(min-width: 767px)"
           />
           <img
+            loading="lazy"
+            decoding="async"
             class="w-full h-full object-cover"
             src={data.leftImage.desktop}
             alt={data.leftImage.alt ?? "Bergerson"}
@@ -164,7 +166,7 @@ function ThirdSection({ data }: { data: Banner["thirdSection"] }) {
 
       <div class="flex flex-1 w-full h-full absolute z-10 items-center justify-center">
         <div class="w-[200px] h-[200px] bg-white">
-          <Picture class="w-full">
+          <Picture class="w-full" preload={false}>
             <Source
               width={360}
               src={data.spotlight.mobile}
@@ -178,6 +180,8 @@ function ThirdSection({ data }: { data: Banner["thirdSection"] }) {
             <img
               width={200}
               height={200}
+              loading="lazy"
+              decoding="async"
               class="w-full h-full object-cover"
               src={data.spotlight.desktop}
               alt={data.spotlight.alt ?? "Bergerson"}
@@ -187,7 +191,7 @@ function ThirdSection({ data }: { data: Banner["thirdSection"] }) {
       </div>
 
       <div class="flex flex-1 h-full w-full relative">
-        <Picture class="w-full h-full absolute z-0">
+        <Picture class="w-full h-full absolute z-0" preload={false}>
           <Source
             width={360}
             src={data.rightImage.mobile}
@@ -199,8 +203,10 @@ function ThirdSection({ data }: { data: Banner["thirdSection"] }) {
             media="(min-width: 767px)"
           />
           <img
-            class="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
             src={data.rightImage.desktop}
+            class="w-full h-full object-cover"
             alt={data.rightImage.alt ?? "Bergerson"}
           />
         </Picture>
