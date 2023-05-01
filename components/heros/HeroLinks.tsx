@@ -61,6 +61,8 @@ export default function HeroLinks(props: Props) {
         <img
           alt={alt}
           src={right}
+          width={375}
+          height={440}
           loading="lazy"
           decoding="async"
           class="h-full max-h-[440px] max-w-[375px] object-cover"

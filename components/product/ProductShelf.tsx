@@ -69,6 +69,7 @@ function ProductShelf(props: Props) {
                   <img
                     width={24}
                     height={12.21}
+                    alt="Black start"
                     src="/black-star.png"
                     class="hidden md:block opacity-50 w-[24px] h-[12.21px]"
                   />
