@@ -56,12 +56,13 @@ export default function Header(props: Props) {
         </div>
 
         <script
-          async
+          defer
           type="text/javascript"
           src="https://www.youtube.com/iframe_api"
         />
 
         <script
+          async
           dangerouslySetInnerHTML={{ __html: embedYoutube(props.youtubeId) }}
         />
       </div>
