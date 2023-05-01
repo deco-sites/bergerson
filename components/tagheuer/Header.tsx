@@ -15,7 +15,7 @@ const embedYoutube = (videoId: string) => `
       width: '100%',
       height: '100%',
       videoId: '${videoId}',
-      host: 'https://deco-sites-bergerson.deno.dev')',
+      host: 'https://deco-sites-bergerson.deno.dev',
     });
   }
 `;
