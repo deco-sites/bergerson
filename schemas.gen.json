@@ -4475,6 +4475,24 @@
       ],
       "title": "deco-sites/bergerson/components/ui/FloatLinks.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGVhZFBMUC50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductListingPage|null",
+          "title": "Page"
+        },
+        "head": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkL2ludGVyZmFjZS50c3g=@Props",
+          "title": "Head"
+        }
+      },
+      "required": [
+        "page",
+        "head"
+      ],
+      "title": "deco-sites/bergerson/sections/HeadPLP.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZXJvcy9IZXJvTGlua3MudHN4@Link": {
       "type": "object",
       "properties": {
@@ -6916,6 +6934,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGVhZFBMUC50c3g=": {
+      "title": "deco-sites/bergerson/sections/HeadPLP.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGVhZFBMUC50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/bergerson/sections/HeadPLP.tsx"
+          ],
+          "default": "deco-sites/bergerson/sections/HeadPLP.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGVyb0xpbmtzLnRzeA==": {
       "title": "deco-sites/bergerson/sections/HeroLinks.tsx",
       "type": "object",
@@ -8104,6 +8143,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGVhZGVyLnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGVhZFBMUC50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGVyb0xpbmtzLnRzeA=="

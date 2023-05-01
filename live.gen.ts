@@ -55,27 +55,28 @@ import * as $$$$$$$$14 from "./sections/Footer.tsx";
 import * as $$$$$$$$15 from "./sections/Head.tsx";
 import * as $$$$$$$$16 from "./sections/MontblancShelf.tsx";
 import * as $$$$$$$$17 from "./sections/WishlistGallery.tsx";
-import * as $$$$$$$$18 from "./sections/SpotlightHero.tsx";
-import * as $$$$$$$$19 from "./sections/TagHeuerCollectionList.tsx";
-import * as $$$$$$$$20 from "./sections/TagHeuer.global.tsx";
-import * as $$$$$$$$21 from "./sections/TagHeuerShelf.tsx";
-import * as $$$$$$$$22 from "./sections/CollectionPLP.tsx";
-import * as $$$$$$$$23 from "./sections/LinkTree.tsx";
-import * as $$$$$$$$24 from "./sections/TagHeuerDescription.tsx";
-import * as $$$$$$$$25 from "./sections/RolexHeader.tsx";
-import * as $$$$$$$$26 from "./sections/BannerPLP.tsx";
-import * as $$$$$$$$27 from "./sections/CollectionData.tsx";
-import * as $$$$$$$$28 from "./sections/TagHeuerBanner.tsx";
-import * as $$$$$$$$29 from "./sections/ProductDetails.tsx";
-import * as $$$$$$$$30 from "./sections/MontblancCarousel.tsx";
-import * as $$$$$$$$31 from "./sections/HeroLinks.tsx";
-import * as $$$$$$$$32 from "./sections/CollectionLinks.tsx";
-import * as $$$$$$$$33 from "./sections/FloatLinks.tsx";
-import * as $$$$$$$$34 from "./sections/Header.tsx";
-import * as $$$$$$$$35 from "./sections/SearchResult.tsx";
-import * as $$$$$$$$36 from "./sections/CookieConsent.tsx";
-import * as $$$$$$$$37 from "./sections/ProductShelf.tsx";
-import * as $$$$$$$$38 from "./sections/Carousel.tsx";
+import * as $$$$$$$$18 from "./sections/HeadPLP.tsx";
+import * as $$$$$$$$19 from "./sections/SpotlightHero.tsx";
+import * as $$$$$$$$20 from "./sections/TagHeuerCollectionList.tsx";
+import * as $$$$$$$$21 from "./sections/TagHeuer.global.tsx";
+import * as $$$$$$$$22 from "./sections/TagHeuerShelf.tsx";
+import * as $$$$$$$$23 from "./sections/CollectionPLP.tsx";
+import * as $$$$$$$$24 from "./sections/LinkTree.tsx";
+import * as $$$$$$$$25 from "./sections/TagHeuerDescription.tsx";
+import * as $$$$$$$$26 from "./sections/RolexHeader.tsx";
+import * as $$$$$$$$27 from "./sections/BannerPLP.tsx";
+import * as $$$$$$$$28 from "./sections/CollectionData.tsx";
+import * as $$$$$$$$29 from "./sections/TagHeuerBanner.tsx";
+import * as $$$$$$$$30 from "./sections/ProductDetails.tsx";
+import * as $$$$$$$$31 from "./sections/MontblancCarousel.tsx";
+import * as $$$$$$$$32 from "./sections/HeroLinks.tsx";
+import * as $$$$$$$$33 from "./sections/CollectionLinks.tsx";
+import * as $$$$$$$$34 from "./sections/FloatLinks.tsx";
+import * as $$$$$$$$35 from "./sections/Header.tsx";
+import * as $$$$$$$$36 from "./sections/SearchResult.tsx";
+import * as $$$$$$$$37 from "./sections/CookieConsent.tsx";
+import * as $$$$$$$$38 from "./sections/ProductShelf.tsx";
+import * as $$$$$$$$39 from "./sections/Carousel.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_invoke from "$live/routes/live/invoke/index.ts";
@@ -206,42 +207,43 @@ const manifest = {
     "$live/sections/Slot.tsx": i1$$$1,
     "$live/sections/UseSlot.tsx": i1$$$2,
     "deco-sites/bergerson/sections/BannerGrid.tsx": $$$$$$$$11,
-    "deco-sites/bergerson/sections/BannerPLP.tsx": $$$$$$$$26,
-    "deco-sites/bergerson/sections/Carousel.tsx": $$$$$$$$38,
+    "deco-sites/bergerson/sections/BannerPLP.tsx": $$$$$$$$27,
+    "deco-sites/bergerson/sections/Carousel.tsx": $$$$$$$$39,
     "deco-sites/bergerson/sections/CartierPage.tsx": $$$$$$$$1,
-    "deco-sites/bergerson/sections/CollectionData.tsx": $$$$$$$$27,
-    "deco-sites/bergerson/sections/CollectionLinks.tsx": $$$$$$$$32,
-    "deco-sites/bergerson/sections/CollectionPLP.tsx": $$$$$$$$22,
+    "deco-sites/bergerson/sections/CollectionData.tsx": $$$$$$$$28,
+    "deco-sites/bergerson/sections/CollectionLinks.tsx": $$$$$$$$33,
+    "deco-sites/bergerson/sections/CollectionPLP.tsx": $$$$$$$$23,
     "deco-sites/bergerson/sections/Collections.tsx": $$$$$$$$4,
-    "deco-sites/bergerson/sections/CookieConsent.tsx": $$$$$$$$36,
+    "deco-sites/bergerson/sections/CookieConsent.tsx": $$$$$$$$37,
     "deco-sites/bergerson/sections/DesignSystem.story.tsx": $$$$$$$$7,
     "deco-sites/bergerson/sections/Features.tsx": $$$$$$$$0,
-    "deco-sites/bergerson/sections/FloatLinks.tsx": $$$$$$$$33,
+    "deco-sites/bergerson/sections/FloatLinks.tsx": $$$$$$$$34,
     "deco-sites/bergerson/sections/Footer.tsx": $$$$$$$$14,
     "deco-sites/bergerson/sections/Head.tsx": $$$$$$$$15,
-    "deco-sites/bergerson/sections/Header.tsx": $$$$$$$$34,
-    "deco-sites/bergerson/sections/HeroLinks.tsx": $$$$$$$$31,
+    "deco-sites/bergerson/sections/Header.tsx": $$$$$$$$35,
+    "deco-sites/bergerson/sections/HeadPLP.tsx": $$$$$$$$18,
+    "deco-sites/bergerson/sections/HeroLinks.tsx": $$$$$$$$32,
     "deco-sites/bergerson/sections/Highlights.tsx": $$$$$$$$10,
-    "deco-sites/bergerson/sections/LinkTree.tsx": $$$$$$$$23,
-    "deco-sites/bergerson/sections/MontblancCarousel.tsx": $$$$$$$$30,
+    "deco-sites/bergerson/sections/LinkTree.tsx": $$$$$$$$24,
+    "deco-sites/bergerson/sections/MontblancCarousel.tsx": $$$$$$$$31,
     "deco-sites/bergerson/sections/MontblancDescription.tsx": $$$$$$$$3,
     "deco-sites/bergerson/sections/MontblancHighlights.tsx": $$$$$$$$12,
     "deco-sites/bergerson/sections/MontblancShelf.tsx": $$$$$$$$16,
-    "deco-sites/bergerson/sections/ProductDetails.tsx": $$$$$$$$29,
-    "deco-sites/bergerson/sections/ProductShelf.tsx": $$$$$$$$37,
+    "deco-sites/bergerson/sections/ProductDetails.tsx": $$$$$$$$30,
+    "deco-sites/bergerson/sections/ProductShelf.tsx": $$$$$$$$38,
     "deco-sites/bergerson/sections/RolexFooter.tsx": $$$$$$$$2,
-    "deco-sites/bergerson/sections/RolexHeader.tsx": $$$$$$$$25,
+    "deco-sites/bergerson/sections/RolexHeader.tsx": $$$$$$$$26,
     "deco-sites/bergerson/sections/RolexInfoCard.tsx": $$$$$$$$8,
-    "deco-sites/bergerson/sections/SearchResult.tsx": $$$$$$$$35,
-    "deco-sites/bergerson/sections/SpotlightHero.tsx": $$$$$$$$18,
-    "deco-sites/bergerson/sections/TagHeuer.global.tsx": $$$$$$$$20,
-    "deco-sites/bergerson/sections/TagHeuerBanner.tsx": $$$$$$$$28,
-    "deco-sites/bergerson/sections/TagHeuerCollectionList.tsx": $$$$$$$$19,
-    "deco-sites/bergerson/sections/TagHeuerDescription.tsx": $$$$$$$$24,
+    "deco-sites/bergerson/sections/SearchResult.tsx": $$$$$$$$36,
+    "deco-sites/bergerson/sections/SpotlightHero.tsx": $$$$$$$$19,
+    "deco-sites/bergerson/sections/TagHeuer.global.tsx": $$$$$$$$21,
+    "deco-sites/bergerson/sections/TagHeuerBanner.tsx": $$$$$$$$29,
+    "deco-sites/bergerson/sections/TagHeuerCollectionList.tsx": $$$$$$$$20,
+    "deco-sites/bergerson/sections/TagHeuerDescription.tsx": $$$$$$$$25,
     "deco-sites/bergerson/sections/TagHeuerHead.tsx": $$$$$$$$6,
     "deco-sites/bergerson/sections/TagHeuerHeader.tsx": $$$$$$$$5,
     "deco-sites/bergerson/sections/TagHeuerPLP.tsx": $$$$$$$$13,
-    "deco-sites/bergerson/sections/TagHeuerShelf.tsx": $$$$$$$$21,
+    "deco-sites/bergerson/sections/TagHeuerShelf.tsx": $$$$$$$$22,
     "deco-sites/bergerson/sections/WishlistGallery.tsx": $$$$$$$$17,
     "deco-sites/bergerson/sections/WristwatchHero.tsx": $$$$$$$$9,
     "deco-sites/std/sections/Analytics.tsx": i2$$$4,
