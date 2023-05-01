@@ -41,7 +41,13 @@ export default function Header(props: Props) {
               class="w-full h-full object-cover absolute top-0 left-0 z-10 object-left"
             />
 
-            <img alt="Play" src="/play-video-tag-heuer.svg" class="z-20" />
+            <img
+              alt="Play"
+              width={100}
+              class="z-20"
+              height={100}
+              src="/play-video-tag-heuer.svg"
+            />
           </div>
         )}
 
@@ -50,13 +56,12 @@ export default function Header(props: Props) {
         </div>
 
         <script
-          defer
+          async
           type="text/javascript"
           src="https://www.youtube.com/iframe_api"
         />
 
         <script
-          async
           dangerouslySetInnerHTML={{ __html: embedYoutube(props.youtubeId) }}
         />
       </div>
