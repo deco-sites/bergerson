@@ -154,6 +154,7 @@ export default function TagHeuerShelf(props: Props) {
           <div class="grid grid-cols-1 grid-rows-[1fr_64px] md:(grid-cols-[420px_1fr])">
             <a href={`/tag-heuer/${activeCollection?.slug}`}>
               <img
+                alt={activeCollection?.name}
                 src={activeCollection?.inspiration}
                 class="hidden md:(block w-[420px] h-[420px] object-cover)"
               />

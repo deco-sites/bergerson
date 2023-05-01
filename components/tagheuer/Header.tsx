@@ -36,11 +36,12 @@ export default function Header(props: Props) {
             class="cursor-pointer w-full h-full object-cover absolute top-0 left-0 z-10 flex items-center justify-center"
           >
             <img
+              alt="Tag Heuer"
               src={props.videoCover}
               class="w-full h-full object-cover absolute top-0 left-0 z-10 object-left"
             />
 
-            <img src="/play-video-tag-heuer.svg" class="z-20" />
+            <img alt="Play" src="/play-video-tag-heuer.svg" class="z-20" />
           </div>
         )}
 
