@@ -256,42 +256,19 @@ function Footer(
             </span>
             <div class="w-full  mt-2.5">
               <ul class="flex justify-center">
-                <li>
-                  <a href="https://blog.bergersonjoias.com/">
-                    <img
-                      style="filter: invert()"
-                      src="https://bergersonjoias.vteximg.com.br/arquivos/v22-blog.png?v=637872801506300000"
-                      alt="Bergerson blog"
-                    />
-                  </a>
-                </li>
-                <li class="ml-2.5">
-                  <a href="https://www.facebook.com/bergersonjoias/">
-                    <img
-                      style="filter: invert()"
-                      src="https://bergersonjoias.vteximg.com.br/arquivos/v22-facebook.png?v=637872801511300000"
-                      alt="Bergerson facebook page"
-                    />
-                  </a>
-                </li>
-                <li class="ml-2.5">
-                  <a href="https://www.instagram.com/bergersonjoias/?hl=pt-br">
-                    <img
-                      style="filter: invert()"
-                      src="https://www.bergersonjoias.com/arquivos/v22-instagram.png?v=637872801514130000"
-                      alt="Bergerson blog"
-                    />
-                  </a>
-                </li>
-                <li class="ml-2.5">
-                  <a href="https://br.pinterest.com/bergersonjoiasoficial/">
-                    <img
-                      style="filter: invert()"
-                      src="https://www.bergersonjoias.com/arquivos/v22-pinterest.png?v=637872801517400000"
-                      alt="Bergerson pinterest"
-                    />
-                  </a>
-                </li>
+                {socialMedias.map((items) => {
+                  return (
+                    <li class="ml-2.5">
+                      <a href={items.link}>
+                        <img
+                          style="filter: invert()"
+                          src={items.logo.src}
+                          alt={items.logo.alt}
+                        />
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
@@ -312,28 +289,32 @@ function Footer(
           />
           <DropDownItem
             title="Fale conosco"
-            other={[
+            other={
               <p>
                 Para entrar em contato é só ligar 0800 0414130 ou através do
                 e-mail atendimento@bergerson.com. Nosso horário de atendimento é
                 de segunda a sexta-feira das 08h30 às 11:30h e das 13h30 às
                 17h30 (exceto feriados).
-              </p>,
-            ]}
+              </p>
+            }
           />
           <DropDownItem
             title="Formas de pagamento"
-            other={paymentMethod.map((item) => (
-              <li class="pr-2.5">
-                <a href="/">
-                  <img src={item.src} alt={item.alt} />
-                </a>
-              </li>
-            ))}
+            other={
+              <>
+                {paymentMethod.map((item) => (
+                  <li class="pr-2.5">
+                    <a href="/">
+                      <img src={item.src} alt={item.alt} />
+                    </a>
+                  </li>
+                ))}
+              </>
+            }
           />
           <DropDownItem
             title="Nossas Lojas"
-            other={[
+            other={
               <div class="flex flex-col">
                 <div class="w-[396.5px] mb-2.5">
                   <ul class="">
@@ -356,8 +337,8 @@ function Footer(
                     {setCurrentAddress()}
                   </div>
                 </div>
-              </div>,
-            ]}
+              </div>
+            }
           />
         </FooterContainer>
       </footer>
