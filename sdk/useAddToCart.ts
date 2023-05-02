@@ -1,7 +1,6 @@
 import { useSignal } from "@preact/signals";
 import { useCallback } from "preact/hooks";
 import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
-import { useUI } from "deco-sites/fashion/sdk/useUI.ts";
 import { sendAnalyticsEvent } from "deco-sites/std/commerce/sdk/sendAnalyticsEvent.ts";
 
 export interface Options {
@@ -20,7 +19,6 @@ export const useAddToCart = (
   { skuId, sellerId, price, discount, name, productGroupId }: Options,
 ) => {
   const isAddingToCart = useSignal(false);
-  const { displayCart } = useUI();
   const { addItems, loading } = useCart();
 
   const onClick = useCallback(async (e: MouseEvent) => {
@@ -51,7 +49,8 @@ export const useAddToCart = (
         },
       });
 
-      displayCart.value = true;
+      window.location.href =
+        "https://bergersonjoias.vtexcommercestable.com.br/checkout";
     } finally {
       isAddingToCart.value = false;
     }

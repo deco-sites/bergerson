@@ -1,12 +1,11 @@
 import Actionable from "./Actionable.tsx";
 import { useSignal } from "@preact/signals";
-import { lazy, Suspense } from "preact/compat";
 import { Action, ImageWithAction } from "./types.ts";
 import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import type { HTML } from "deco-sites/std/components/types.ts";
 import QuillText from "deco-sites/std/components/QuillText.tsx";
 import Button from "deco-sites/bergerson/components/ui/Button.tsx";
-const SmallFaderShelf = lazy(() => import("./SmallFaderShelf.tsx"));
+import SmallFaderShelf from "./SmallFaderShelf.tsx";
 
 export interface Slide {
   /** @description image to be displayed before the texts */
@@ -100,12 +99,10 @@ export default function WristwatchHero(props: Props) {
                   class={`hidden lg:block w-[200px] h-[200px] bg-white absolute ${productClass}`}
                 >
                   {isActive && (
-                    <Suspense fallback={null}>
-                      <SmallFaderShelf
-                        key={slideIndex}
-                        images={slide.products}
-                      />
-                    </Suspense>
+                    <SmallFaderShelf
+                      key={slideIndex}
+                      images={slide.products}
+                    />
                   )}
                 </div>
 

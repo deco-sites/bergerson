@@ -101,7 +101,12 @@ function Menu({ items, img, cartImage }: {
               alt="Pesquisar produtos"
             />
           </Button>
-          <Button variant="icon" as="a" href="/checkout" aria-label="My cart">
+          <Button
+            variant="icon"
+            as="a"
+            href="https://bergersonjoias.vtexcommercestable.com.br/checkout"
+            aria-label="My cart"
+          >
             <img
               class={`w-[18px] h-[20px]`}
               src={cartImage}
@@ -140,8 +145,8 @@ function Menu({ items, img, cartImage }: {
             <Button
               as="a"
               variant="icon"
-              href="/checkout"
               aria-label="My cart"
+              href="https://bergersonjoias.vtexcommercestable.com.br/checkout"
             >
               <img
                 class={`w-[22px] h-[24.8px]`}

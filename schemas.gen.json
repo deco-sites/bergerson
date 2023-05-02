@@ -3279,44 +3279,85 @@
       ],
       "title": "deco-sites/bergerson/components/header/Header.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductDetailsPage|null",
+          "title": "Page"
+        },
+        "related": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
+          "title": "Related"
+        },
+        "info": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+              "title": "Description"
+            },
+            "highlights": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "image": {
+                    "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                    "title": "Image"
+                  },
+                  "text": {
+                    "type": "string",
+                    "title": "Text"
+                  }
+                },
+                "required": [
+                  "image",
+                  "text"
+                ]
+              },
+              "title": "Highlights"
+            }
+          },
+          "required": [
+            "description",
+            "highlights"
+          ],
+          "title": "Info"
+        }
+      },
+      "required": [
+        "page",
+        "related",
+        "info"
+      ],
+      "title": "deco-sites/bergerson/components/product/ProductDetails.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3RTaGVsZi50c3g=@Props": {
       "type": "object",
       "properties": {
-        "firstCollectionTitle": {
+        "title": {
           "type": [
             "string",
             "null"
           ],
-          "title": "First Collection Title"
+          "title": "Title"
         },
-        "secondCollectionTitle": {
+        "collection": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
+          "title": "Collection"
+        },
+        "flat": {
           "type": [
-            "string",
+            "boolean",
             "null"
           ],
-          "title": "Second Collection Title"
-        },
-        "thirdCollectionTitle": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Third Collection Title"
-        },
-        "firstProductCollection": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
-          "title": "First Product Collection"
-        },
-        "secondProductCollection": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
-          "title": "Second Product Collection"
-        },
-        "thirdProductCollection": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
-          "title": "Third Product Collection"
+          "title": "Flat"
         }
       },
-      "required": [],
+      "required": [
+        "collection"
+      ],
       "title": "deco-sites/bergerson/components/product/ProductShelf.tsx@Props"
     },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9IZWFkZXIudHN4@Item": {
@@ -4875,38 +4916,6 @@
       ],
       "title": "deco-sites/bergerson/components/montblanc/Shelf.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@Props": {
-      "type": "object",
-      "properties": {
-        "page": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductDetailsPage|null",
-          "title": "Page"
-        },
-        "variant": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "front-back"
-            },
-            {
-              "type": "string",
-              "const": "slider"
-            },
-            {
-              "type": "string",
-              "const": "auto"
-            }
-          ],
-          "type": "string",
-          "title": "Variant",
-          "description": "Ask for the developer to remove this option since this is here to help development only and should not be used in production"
-        }
-      },
-      "required": [
-        "page"
-      ],
-      "title": "deco-sites/bergerson/components/product/ProductDetails.tsx@Props"
-    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9Gb290ZXIudHN4@Item": {
       "type": "object",
       "properties": {
@@ -6178,6 +6187,27 @@
             "./islands/NavItens.tsx"
           ],
           "default": "./islands/NavItens.tsx"
+        }
+      }
+    },
+    "Li9pc2xhbmRzL1Byb2R1Y3REZXRhaWxzLnRzeA==": {
+      "title": "./islands/ProductDetails.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/ProductDetails.tsx"
+          ],
+          "default": "./islands/ProductDetails.tsx"
         }
       }
     },
@@ -8005,6 +8035,9 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL05hdkl0ZW5zLnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3REZXRhaWxzLnRzeA=="
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RJbWFnZVpvb20udHN4"
