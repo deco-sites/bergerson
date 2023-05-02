@@ -166,11 +166,14 @@ function Menu({ items, img, cartImage }: {
           <Button
             as="a"
             variant="icon"
+            aria-label="Rolex"
             href={img.badge?.href}
           >
             <img
+              loading="lazy"
+              decoding="async"
               src={img.badge?.src}
-              alt={img.badge?.alt}
+              alt={img.badge?.alt ?? "Rolex"}
               class="w-[170px] h-[70px] header:block hidden object-contain"
             />
           </Button>

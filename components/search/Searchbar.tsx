@@ -13,9 +13,7 @@ import { useEffect, useRef } from "preact/compat";
 import { useUI } from "deco-sites/fashion/sdk/useUI.ts";
 import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 import { sendAnalyticsEvent } from "deco-sites/std/commerce/sdk/sendAnalyticsEvent.ts";
-import { useAutocomplete } from "deco-sites/std/commerce/vtex/hooks/useAutocomplete.ts";
 
 function CloseButton() {
   const { displaySearchbar } = useUI();
@@ -56,30 +54,18 @@ export interface EditableProps {
   query?: string;
 }
 
-export type Props = EditableProps & {
-  /**
-   * @title Product suggestions
-   * @description Product suggestions displayed on searchs
-   */
-  products?: Product[] | null;
-  suggestions?: Suggestion | null;
-};
+export type Props = EditableProps;
 
 function Searchbar({
   placeholder = "What are you looking for?",
   action = "/s",
   name = "q",
   query,
-  suggestions: _suggestions,
 }: Props) {
-  const { setSearch } = useAutocomplete();
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (!searchInputRef.current) {
-      return;
-    }
-
+    if (!searchInputRef.current) return;
     searchInputRef.current.focus();
   }, []);
 
@@ -113,14 +99,13 @@ function Searchbar({
             defaultValue={query}
             onInput={(e) => {
               const value = e.currentTarget.value;
+
               if (value) {
                 sendAnalyticsEvent({
                   name: "search",
                   params: { search_term: value },
                 });
               }
-
-              setSearch(value);
             }}
             placeholder={placeholder}
             role="combobox"

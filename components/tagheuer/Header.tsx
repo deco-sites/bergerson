@@ -10,13 +10,21 @@ export interface Props {
 const windowMock = window as any;
 
 const embedYoutube = (videoId: string) => `
-  function onYouTubeIframeAPIReady() {
-    window.TAG_HEUER_VIDEO = new YT.Player('player', {
-      width: '100%',
-      height: '100%',
-      videoId: '${videoId}',
-    });
-  }
+  window.addEventListener('load', () => {
+    var tag = document.createElement('script');
+    tag.async = true;
+    tag.src = "/youtube_api.js";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  
+    window.onYouTubeIframeAPIReady = function() {
+      window.TAG_HEUER_VIDEO = new YT.Player('player', {
+        width: '100%',
+        height: '100%',
+        videoId: '${videoId}'
+      });
+    }
+  })
 `;
 
 export default function Header(props: Props) {
@@ -36,23 +44,24 @@ export default function Header(props: Props) {
             class="cursor-pointer w-full h-full object-cover absolute top-0 left-0 z-10 flex items-center justify-center"
           >
             <img
+              alt="Tag Heuer"
               src={props.videoCover}
               class="w-full h-full object-cover absolute top-0 left-0 z-10 object-left"
             />
 
-            <img src="/play-video-tag-heuer.svg" class="z-20" />
+            <img
+              alt="Play"
+              width={100}
+              class="z-20"
+              height={100}
+              src="/play-video-tag-heuer.svg"
+            />
           </div>
         )}
 
         <div class="w-full h-full relative">
           <div id="player" class="inset-0 top-0 z-0" />
         </div>
-
-        <script
-          defer
-          type="text/javascript"
-          src="https://www.youtube.com/iframe_api"
-        />
 
         <script
           async

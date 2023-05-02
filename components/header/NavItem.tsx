@@ -15,7 +15,7 @@ function NavItem({ item }: { item: INavItem }) {
   const imageIndex = useSignal(0);
 
   return (
-    <li class="group flex items-center">
+    <div class="group flex items-center">
       <a href={href} class="h-full px-6 flex items-center">
         <Text
           class="group-hover:border-black border-solid border-b-[3px] border-white uppercase"
@@ -32,9 +32,11 @@ function NavItem({ item }: { item: INavItem }) {
             style={{ top: "0px", left: "0px" }}
           >
             <img
+              alt={label}
+              loading="lazy"
+              decoding="async"
               class="w-[300px] h-[300px]"
               src={children[imageIndex.value].image?.src}
-              alt=""
             />
             <ul class="flex flex-col flex-wrap items-start justify-center pl-20  max-h-[356px]">
               {children.map((item, index) => (
@@ -59,7 +61,7 @@ function NavItem({ item }: { item: INavItem }) {
             </ul>
           </div>
         )}
-    </li>
+    </div>
   );
 }
 

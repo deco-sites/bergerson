@@ -18,9 +18,15 @@ export default function CollectionList(props: Props) {
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-12">
         {collections?.map((collection) => (
-          <a href={`/tag-heuer/${collection.slug}`}>
+          <a
+            href={`/tag-heuer/${collection.slug}`}
+            aria-label={collection.slug}
+          >
             <div class="flex flex-1 flex-col gap-2 items-center justify-center w-full h-full">
               <img
+                loading="lazy"
+                decoding="async"
+                alt={collection.name}
                 src={collection.avatar}
                 class="w-full h-[410px] object-cover"
               />

@@ -1,11 +1,14 @@
 import type { LoaderReturnType } from "$live/types.ts";
+import Head from "deco-sites/bergerson/components/head/Head.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import { RequestViewer } from "deco-sites/bergerson/functions/requestViewer.ts";
+import { Props as HeadProps } from "deco-sites/bergerson/components/head/interface.tsx";
 
 export interface Banner {
   /** @description RegExp to enable this banner on the current URL. Use /feminino/* to display this banner on feminino category  */
   matcher: string;
+  name: string;
 
   firstSection?: {
     image: {
@@ -59,6 +62,7 @@ export interface Banner {
 export interface Props {
   requestViewer?: LoaderReturnType<RequestViewer | null>;
   banners?: Banner[];
+  head: HeadProps;
 }
 
 function FirstSection({ data }: { data: Banner["firstSection"] }) {
@@ -78,14 +82,16 @@ function FirstSection({ data }: { data: Banner["firstSection"] }) {
           media="(min-width: 767px)"
         />
         <img
+          width="100%"
+          height={210}
           class="w-full h-[210px] lg:h-screen object-cover"
           src={data.image.desktop}
-          alt={data.image.alt}
+          alt={data.image.alt ?? "Bergerson"}
         />
       </Picture>
 
       <div class="flex flex-1 w-full h-full absolute items-center justify-center">
-        <div class="max-w-[600px] w-full flex items-center justify-between">
+        <div class="max-w-[600px] w-full flex items-center justify-center md:justify-between">
           <img
             width="57"
             height="29"
@@ -136,8 +142,8 @@ function ThirdSection({ data }: { data: Banner["thirdSection"] }) {
 
   return (
     <div class="flex flex-col lg:flex-row flex-1 h-screen relative">
-      <div class="flex flex-1 h-full w-full">
-        <Picture class="col-start-1 col-span-1 row-start-1 row-span-1 w-full">
+      <div class="flex flex-1 h-full w-full relative">
+        <Picture preload={false} class="w-full h-full absolute z-0">
           <Source
             width={360}
             src={data.leftImage.mobile}
@@ -149,16 +155,18 @@ function ThirdSection({ data }: { data: Banner["thirdSection"] }) {
             media="(min-width: 767px)"
           />
           <img
+            loading="lazy"
+            decoding="async"
             class="w-full h-full object-cover"
             src={data.leftImage.desktop}
-            alt={data.leftImage.alt}
+            alt={data.leftImage.alt ?? "Bergerson"}
           />
         </Picture>
       </div>
 
-      <div class="flex flex-1 w-full h-full absolute items-center justify-center">
+      <div class="flex flex-1 w-full h-full absolute z-10 items-center justify-center">
         <div class="w-[200px] h-[200px] bg-white">
-          <Picture class="col-start-1 col-span-1 row-start-1 row-span-1 w-full">
+          <Picture class="w-full" preload={false}>
             <Source
               width={360}
               src={data.spotlight.mobile}
@@ -170,16 +178,20 @@ function ThirdSection({ data }: { data: Banner["thirdSection"] }) {
               media="(min-width: 767px)"
             />
             <img
+              width={200}
+              height={200}
+              loading="lazy"
+              decoding="async"
               class="w-full h-full object-cover"
               src={data.spotlight.desktop}
-              alt={data.spotlight.alt}
+              alt={data.spotlight.alt ?? "Bergerson"}
             />
           </Picture>
         </div>
       </div>
 
-      <div class="flex flex-1 h-full w-full">
-        <Picture class="col-start-1 col-span-1 row-start-1 row-span-1 w-full">
+      <div class="flex flex-1 h-full w-full relative">
+        <Picture class="w-full h-full absolute z-0" preload={false}>
           <Source
             width={360}
             src={data.rightImage.mobile}
@@ -191,9 +203,11 @@ function ThirdSection({ data }: { data: Banner["thirdSection"] }) {
             media="(min-width: 767px)"
           />
           <img
-            class="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
             src={data.rightImage.desktop}
-            alt={data.rightImage.alt}
+            class="w-full h-full object-cover"
+            alt={data.rightImage.alt ?? "Bergerson"}
           />
         </Picture>
       </div>
@@ -213,7 +227,7 @@ function BannerUI({ banner }: { banner: Banner }) {
   );
 }
 
-function Banner({ requestViewer, banners = [] }: Props) {
+function Banner({ head, requestViewer, banners = [] }: Props) {
   if (!requestViewer || !requestViewer.request.url) {
     return null;
   }
@@ -226,7 +240,16 @@ function Banner({ requestViewer, banners = [] }: Props) {
     return null;
   }
 
-  return <BannerUI banner={matching} />;
+  const { title, description, ...headProps } = head;
+  const finalTitle = title.replace(":name", matching.name);
+  const finalDescription = matching.secondSection?.description ?? description;
+
+  return (
+    <>
+      <Head title={finalTitle} description={finalDescription} {...headProps} />
+      <BannerUI banner={matching} />
+    </>
+  );
 }
 
 export default Banner;

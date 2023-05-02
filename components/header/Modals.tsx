@@ -49,9 +49,11 @@ function Modals({ menu, img }: Props) {
               <div class="w-full flex justify-center">
                 <a href={img?.badge?.href}>
                   <img
-                    class={`w-[160px] h-[70px]`}
+                    loading="lazy"
+                    decoding="async"
                     src={img?.badge?.src}
-                    alt={img?.badge?.alt}
+                    class={`w-[160px] h-[70px]`}
+                    alt={img?.badge?.alt ?? "Rolex"}
                   />
                 </a>
               </div>
