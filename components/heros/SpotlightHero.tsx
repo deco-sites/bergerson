@@ -1,10 +1,11 @@
 import Actionable from "./Actionable.tsx";
 import { useSignal } from "@preact/signals";
-import SmallFaderShelf from "./SmallFaderShelf.tsx";
+import { lazy, Suspense } from "preact/compat";
 import { Action, ImageWithAction } from "./types.ts";
 import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import Button from "deco-sites/bergerson/components/ui/Button.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
+const SmallFaderShelf = lazy(() => import("./SmallFaderShelf.tsx"));
 
 export interface Slide {
   /** @description image to be displayed before the texts */
@@ -100,10 +101,12 @@ export default function Spotlight(props: Props) {
                 {/** products */}
                 <div class="block w-[200px] h-[200px] bg-white absolute z-30 md:(left-[100%] top-[50%]) left-[50%] -ml-[100px] top-[100%] -mt-[100px]">
                   {isActive && (
-                    <SmallFaderShelf
-                      key={slideIndex}
-                      images={slide.products}
-                    />
+                    <Suspense fallback={null}>
+                      <SmallFaderShelf
+                        key={slideIndex}
+                        images={slide.products}
+                      />
+                    </Suspense>
                   )}
                 </div>
               </div>
