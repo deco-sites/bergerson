@@ -21,6 +21,7 @@ export interface Collection {
 
 export default function Collections({ collections, interval }: Props) {
   const id = useId();
+
   return (
     <div class="py-20 px-5">
       {/* Desktop */}
@@ -29,6 +30,7 @@ export default function Collections({ collections, interval }: Props) {
           {collections?.map((collection) => <ItemDesktop {...collection} />)}
         </div>
       </div>
+
       {/* Mobile */}
       <Container
         id={id}
@@ -102,6 +104,7 @@ function ItemDesktop(
     </div>
   );
 }
+
 function ItemMobile(
   { title, image, description, titleButton, href }: Collection,
 ) {
