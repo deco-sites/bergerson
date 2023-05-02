@@ -85,7 +85,7 @@ function Footer(
   return (
     <>
       {/*Desktop*/}
-      <footer class="w-full px-28 pt-10 pb-8 bg-footer justify-between hidden lg:flex">
+      <footer class="w-full px-28 pt-10 pb-8 bg-footer gap-5 justify-center hidden lg:flex">
         {/*first div*/}
         <div class="w-full max-w-[213.5px]">
           <h3 class="text-center text-[15px] font-normal leading-4">
@@ -198,7 +198,7 @@ function Footer(
           </h3>
           {/*City list flex*/}
           <div class="w-[396.5px] mb-2.5">
-            <ul class="flex">
+            <ul class="flex gap-0.5">
               {address.map((item, index) => (
                 <>
                   <button class="focus:outline-none focus:border-b-2 border-black">
@@ -226,7 +226,7 @@ function Footer(
         {/*Contact*/}
         <div class="bg-[#272727] py-[30px] px-[20px] flex flex-col items-center">
           <h3 class="max-w-[250px] text-center text-[18px] text-white font-normal leading-[1.1]">
-            Fique por dentro de todas as novidades da
+            Fique por dentro de todas as novidades da{" "}
             <strong>Bergerson</strong>,
           </h3>
           <h3 class="max-w-[310px] mb-2 text-center text-[18px] text-white font-normal leading-[1.1]">
@@ -274,7 +274,7 @@ function Footer(
           </div>
         </div>
         {/*Drop down*/}
-        <FooterContainer class="text-[#4b4b4b]">
+        <FooterContainer class="text-[#4b4b4b] bg-footer">
           <DropDownItem
             title={column1.title}
             itens={column1.footerLink}
