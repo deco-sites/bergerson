@@ -41,7 +41,6 @@ function BannerUI({ banner }: { banner: Banner }) {
           />
           <Source
             width={1440}
-            height={190}
             src={image.desktop}
             media="(min-width: 767px)"
           />
@@ -50,7 +49,7 @@ function BannerUI({ banner }: { banner: Banner }) {
       </div>
 
       {description && (
-        <Container class="px-4 sm:py-10 flex flex-col gap-2 items-center justify-center">
+        <Container class="px-4 flex flex-col gap-0 items-center justify-center">
           <img
             width={200}
             height={115}
@@ -59,7 +58,9 @@ function BannerUI({ banner }: { banner: Banner }) {
             class="mx-[15px] h-[115px] w-full lg:w-[200px] object-contain"
           />
 
-          <p class="text-center">{description.text}</p>
+          <p class="text-center text-[15px] text-[#333] leading-[1.1]">
+            {description.text}
+          </p>
         </Container>
       )}
     </>

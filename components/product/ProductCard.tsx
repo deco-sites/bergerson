@@ -29,7 +29,7 @@ function ProductCard({ product, preload }: Props) {
       id={`product-card-${productID}`}
     >
       <a href={url} aria-label="product link" class="h-full flex flex-col">
-        <div class="relative w-full bg-white">
+        <div class="relative w-full bg-white max-w-[220px] self-center grid grid-cols-1">
           <Image
             width={500}
             src={front.url!}
@@ -38,7 +38,7 @@ function ProductCard({ product, preload }: Props) {
             style={{ aspectRatio: "1 / 1" }}
             loading={preload ? "eager" : "lazy"}
             sizes="(max-width: 640px) 50vw, 20vw"
-            class="rounded w-full group-hover:hidden object-contain object-center"
+            class="col-start-1 row-start-1 rounded w-full group-hover:opacity-0 opacity-100 object-contain object-center transition ease-in-out duration-500"
           />
           <Image
             width={500}
@@ -46,12 +46,12 @@ function ProductCard({ product, preload }: Props) {
             style={{ aspectRatio: "1 / 1" }}
             sizes="(max-width: 640px) 50vw, 20vw"
             alt={back?.alternateName ?? front.alternateName}
-            class="w-full hidden group-hover:block object-contain object-center"
+            class="col-start-1 row-start-1 w-full opacity-0 group-hover:opacity-100 object-contain object-center transition ease-in-out duration-500"
           />
         </div>
 
         <div class="flex flex-col gap-1 py-2 h-full">
-          <span class="text-[16px] uppercase font-heading-1 text-center mb-auto">
+          <span class="text-[15px] uppercase font-heading-1 text-center mb-auto">
             {name}
           </span>
 
@@ -61,7 +61,7 @@ function ProductCard({ product, preload }: Props) {
                 10x {formatPrice(price / 10, offers!.priceCurrency!)}
               </span>
             )}
-            <span class="text-lg">
+            <span class="text-[15px]">
               {formatPrice(price, offers!.priceCurrency!)}
             </span>
           </div>
