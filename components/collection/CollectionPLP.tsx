@@ -100,9 +100,10 @@ function FirstSection({ data }: { data: Banner["firstSection"] }) {
             class="hidden md:block filter invert"
           />
 
-          <h1 class="font-serif text-white font-bold text-4xl lg:text-5xl text-center">
-            {data.title}
-          </h1>
+          <h1
+            class="font-serif text-white font-bold text-4xl lg:text-5xl text-center"
+            dangerouslySetInnerHTML={{ __html: data.title }}
+          />
 
           <img
             width="57"
