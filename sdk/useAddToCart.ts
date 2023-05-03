@@ -15,11 +15,14 @@ export interface Options {
   productGroupId: string;
 }
 
+const CHECKOUT_URL =
+  "https://bergersonjoias.vtexcommercestable.com.br/checkout";
+
 export const useAddToCart = (
   { skuId, sellerId, price, discount, name, productGroupId }: Options,
 ) => {
   const isAddingToCart = useSignal(false);
-  const { addItems, loading } = useCart();
+  const { cart, addItems, loading } = useCart();
 
   const onClick = useCallback(async (e: MouseEvent) => {
     e.preventDefault();
@@ -49,8 +52,8 @@ export const useAddToCart = (
         },
       });
 
-      window.location.href =
-        "https://bergersonjoias.vtexcommercestable.com.br/checkout";
+      const url = `${CHECKOUT_URL}?orderFormId=${cart.value?.orderFormId}`;
+      window.location.href = url;
     } finally {
       isAddingToCart.value = false;
     }

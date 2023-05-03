@@ -89,7 +89,7 @@ function Cart() {
           <a
             class="inline-block w-full"
             target="_blank"
-            href={`${CHECKOUT_URL}?orderFormId=${cart.value!.orderFormId}`}
+            href={`${CHECKOUT_URL}?orderFormId=${cart.value?.orderFormId}`}
           >
             <Button
               data-deco="buy-button"

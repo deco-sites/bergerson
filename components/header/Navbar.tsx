@@ -10,6 +10,10 @@ import type { Props as SearchbarProps } from "deco-sites/fashion/components/sear
 import Logo from "../ui/Logo.tsx";
 import { useUI } from "../../sdk/useUI.ts";
 import Icon from "../ui/Icon.tsx";
+import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
+
+const CHECKOUT_URL =
+  "https://bergersonjoias.vtexcommercestable.com.br/checkout";
 
 function Navbar({ items, searchbar, img, cartImage }: {
   items: INavItem[];
@@ -70,6 +74,9 @@ function Menu({ items, img, cartImage }: {
   cartImage: LiveImage;
 }) {
   const { displaySearchbar } = useUI();
+  const { cart, loading } = useCart();
+  const cartWithId = `${CHECKOUT_URL}?orderFormId=${cart?.value?.orderFormId}`;
+  const cartUrl = loading.value ? CHECKOUT_URL : cartWithId;
 
   return (
     <>
@@ -102,10 +109,11 @@ function Menu({ items, img, cartImage }: {
             />
           </Button>
           <Button
-            variant="icon"
             as="a"
-            href="https://bergersonjoias.vtexcommercestable.com.br/checkout"
+            variant="icon"
+            href={cartUrl}
             aria-label="My cart"
+            loading={loading.value}
           >
             <img
               class={`w-[18px] h-[20px]`}
@@ -145,26 +153,27 @@ function Menu({ items, img, cartImage }: {
             <Button
               as="a"
               variant="icon"
-              aria-label="My cart"
-              href="https://bergersonjoias.vtexcommercestable.com.br/checkout"
+              href={cartUrl}
+              aria-label="Meu carrinho"
+              loading={loading.value}
             >
               <img
                 class={`w-[22px] h-[24.8px]`}
                 src={cartImage}
-                alt="My cart button"
+                alt="Meu carrinho"
               />
             </Button>
             <Button
               as="a"
               variant="icon"
               href="/login"
-              aria-label="Log in"
+              aria-label="Entrar"
             >
               <Icon
                 id="User"
                 width={24}
                 height={24}
-                alt="Search products button"
+                alt="Pesquisar produtos"
               />
             </Button>
           </div>

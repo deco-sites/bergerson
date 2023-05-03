@@ -31,13 +31,14 @@ import * as $$$$$16 from "./islands/Filters.tsx";
 import * as $$$$$17 from "./islands/BannerPLP.tsx";
 import * as $$$$$18 from "./islands/SendEventButton.tsx";
 import * as $$$$$19 from "./islands/ProductDetails.tsx";
-import * as $$$$$20 from "./islands/ViewSendEvent.tsx";
-import * as $$$$$21 from "./islands/ProductImageZoom.tsx";
-import * as $$$$$22 from "./islands/Header.tsx";
-import * as $$$$$23 from "./islands/SmallFaderShelf.tsx";
-import * as $$$$$24 from "./islands/SliderJS.tsx";
-import * as $$$$$25 from "./islands/NavItens.tsx";
-import * as $$$$$26 from "./islands/ProductShelf.tsx";
+import * as $$$$$20 from "./islands/Navbar.tsx";
+import * as $$$$$21 from "./islands/ViewSendEvent.tsx";
+import * as $$$$$22 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$23 from "./islands/Header.tsx";
+import * as $$$$$24 from "./islands/SmallFaderShelf.tsx";
+import * as $$$$$25 from "./islands/SliderJS.tsx";
+import * as $$$$$26 from "./islands/NavItens.tsx";
+import * as $$$$$27 from "./islands/ProductShelf.tsx";
 import * as $$$$$$$$0 from "./sections/Features.tsx";
 import * as $$$$$$$$1 from "./sections/CartierPage.tsx";
 import * as $$$$$$$$2 from "./sections/RolexFooter.tsx";
@@ -182,25 +183,26 @@ const manifest = {
     "./islands/DropDown.tsx": $$$$$8,
     "./islands/Filters.tsx": $$$$$16,
     "./islands/Footer.tsx": $$$$$5,
-    "./islands/Header.tsx": $$$$$22,
+    "./islands/Header.tsx": $$$$$23,
     "./islands/HeaderButton.tsx": $$$$$3,
     "./islands/HeaderModals.tsx": $$$$$2,
     "./islands/HeaderSearchMenu.tsx": $$$$$13,
-    "./islands/NavItens.tsx": $$$$$25,
+    "./islands/Navbar.tsx": $$$$$20,
+    "./islands/NavItens.tsx": $$$$$26,
     "./islands/ProductDetails.tsx": $$$$$19,
-    "./islands/ProductImageZoom.tsx": $$$$$21,
-    "./islands/ProductShelf.tsx": $$$$$26,
+    "./islands/ProductImageZoom.tsx": $$$$$22,
+    "./islands/ProductShelf.tsx": $$$$$27,
     "./islands/RolexHeader.tsx": $$$$$15,
     "./islands/SearchControls.tsx": $$$$$6,
     "./islands/SendEventButton.tsx": $$$$$18,
     "./islands/ShippingSimulation.tsx": $$$$$14,
-    "./islands/SliderJS.tsx": $$$$$24,
-    "./islands/SmallFaderShelf.tsx": $$$$$23,
+    "./islands/SliderJS.tsx": $$$$$25,
+    "./islands/SmallFaderShelf.tsx": $$$$$24,
     "./islands/SpotlightHero.tsx": $$$$$7,
     "./islands/TagHeuerHeader.tsx": $$$$$0,
     "./islands/TagHeuerPLP.tsx": $$$$$4,
     "./islands/TagHeuerShelf.tsx": $$$$$10,
-    "./islands/ViewSendEvent.tsx": $$$$$20,
+    "./islands/ViewSendEvent.tsx": $$$$$21,
     "./islands/WishlistButton.tsx": $$$$$11,
     "./islands/WristwatchHero.tsx": $$$$$1,
   },
