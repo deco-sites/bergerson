@@ -110,7 +110,7 @@ export default function Spotlight(props: Props) {
 
               {/** texts */}
               <div class="flex flex-1 items-center justify-center pb-8 mt-8 relative z-30 pt-[100px] md:(mt-0 pt-0)">
-                <div class="flex flex-col items-center justify-center max-w-[280px] gap-4">
+                <div class="flex flex-col w-min gap-4">
                   <img
                     width="57"
                     height="29"
@@ -121,7 +121,7 @@ export default function Spotlight(props: Props) {
                     class="hidden md:block"
                   />
 
-                  <h3 class="font-serif font-bold text-4xl lg:text-6xl text-center text-default">
+                  <h3 class="font-serif font-bold text-4xl lg:text-6xl text-default">
                     {slide.title}
                   </h3>
 
@@ -147,11 +147,12 @@ export default function Spotlight(props: Props) {
                     />
                   </div>
 
-                  <div class="mx-[15px] border-y-1 border-black p-2.5">
+                  <div class="border-y-1 border-black p-2.5">
                     <Button
                       as="a"
                       variant="quaternary"
                       href={slide.action.href}
+                      class="flex flex-1 items-center justify-center w-full"
                     >
                       {slide.action.title}
                     </Button>

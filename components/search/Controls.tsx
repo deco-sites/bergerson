@@ -30,19 +30,19 @@ function SearchControls(
   const validFilters = getValidFilters(filters);
 
   return (
-    <div class="flex flex-col justify-between mb-4 p-4 sm:p-0 md:gap-4 border-b-1 border-default border-dotted md:border-b-0">
+    <div class="flex flex-col justify-between mb-4 p-4 sm:p-0 md:gap-2 border-b-1 border-default border-dotted md:border-b-0">
       <div class="flex flex-row items-center sm:p-0 mb-2">
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
       </div>
 
       <div class="flex flex-col">
-        <h1 class="font-bold uppercase">
+        <h1 class="font-bold text-xl uppercase">
           {lastBreadcrumb?.name ?? "Resultados da Busca"}
         </h1>
 
         <hr class="mt-4 md:mb-6" />
 
-        <div class="hidden md:block">
+        <div class="hidden md:block px-4">
           <Filters filters={validFilters} />
         </div>
       </div>
