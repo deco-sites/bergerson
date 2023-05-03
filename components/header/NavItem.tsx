@@ -21,7 +21,11 @@ function NavItem({ item }: { item: INavItem }) {
 
   return (
     <div class="group flex items-center">
-      <a href={href} target={target} class="h-full px-6 flex items-center">
+      <a
+        href={href}
+        target={target}
+        class="h-full px-[35px] flex items-center whitespace-nowrap"
+      >
         <Text
           class="group-hover:border-black border-solid border-b-[3px] border-white uppercase"
           variant="caption"

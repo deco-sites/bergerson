@@ -102,8 +102,8 @@ function Menu({ items, img, cartImage }: {
             variant="icon"
           >
             <Icon
-              width={24}
-              height={24}
+              width={26}
+              height={26}
               id="MagnifyingGlass"
               alt="Pesquisar produtos"
             />
@@ -116,9 +116,9 @@ function Menu({ items, img, cartImage }: {
             loading={loading.value}
           >
             <img
-              class={`w-[18px] h-[20px]`}
               src={cartImage}
               alt="My cart button"
+              class={`w-[26px] h-[26px] object-contain`}
             />
           </Button>
         </div>
@@ -132,19 +132,19 @@ function Menu({ items, img, cartImage }: {
             <Logo img={img} />
           </a>
         </div>
-        <div class="px-3 flex-auto flex max-w-[893px] h-[135px]">
+        <div class="px-[30px] flex h-[135px]">
           {items.map((item) => <NavItem item={item} />)}
         </div>
         <div class="flex-none  flex items-center justify-between">
-          <div class="flex gap-5 items-center header:pr-4 ">
+          <div class="flex gap-4 items-center mr-[30px]">
             <Button
               onClick={() => displaySearchbar.value = true}
               aria-label="Pesquisar produtos"
               variant="icon"
             >
               <Icon
-                width={24}
-                height={24}
+                width={26}
+                height={26}
                 id="MagnifyingGlass"
                 alt="Pesquisar produtos"
               />
@@ -158,9 +158,9 @@ function Menu({ items, img, cartImage }: {
               loading={loading.value}
             >
               <img
-                class={`w-[22px] h-[24.8px]`}
                 src={cartImage}
                 alt="Meu carrinho"
+                class={`w-[26px] h-[26px] object-contain`}
               />
             </Button>
             <Button
@@ -171,8 +171,8 @@ function Menu({ items, img, cartImage }: {
             >
               <Icon
                 id="User"
-                width={24}
-                height={24}
+                width={26}
+                height={26}
                 alt="Pesquisar produtos"
               />
             </Button>
