@@ -50,7 +50,7 @@ function Header(
 
   return (
     <header class={`lg:h-[${navbarHeightDesktop}] h-[${navbarHeight}]`}>
-      <div class="flex items-center justify-center bg-default fixed w-full z-50 shadow-header border-b-1 border-default">
+      <div class="flex items-center justify-center bg-default fixed w-full z-50 shadow">
         <Navbar
           items={menu}
           searchbar={searchbar}

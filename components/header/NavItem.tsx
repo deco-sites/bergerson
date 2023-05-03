@@ -24,10 +24,10 @@ function NavItem({ item }: { item: INavItem }) {
       <a
         href={href}
         target={target}
-        class="h-full px-[35px] flex items-center whitespace-nowrap"
+        class="h-full flex items-center"
       >
         <Text
-          class="group-hover:border-black border-solid border-b-[3px] border-white uppercase"
+          class="group-hover:border-black border-solid border-b-[2px] pb-[1px] transition-all border-white uppercase"
           variant="caption"
         >
           {label}

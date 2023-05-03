@@ -24,7 +24,7 @@ function Sort({ sortOptions }: Props) {
   const sort = useSort();
 
   return (
-    <div class="flex flex-1 md:flex-none flex-row gap-4 items-center justify-center ml-auto">
+    <div class="flex flex-1 md:flex-none flex-row gap-0 items-center justify-center ml-auto">
       <span class="font-semibold text-xs hidden md:block">Ordenar por:</span>
       <select
         id="sort"

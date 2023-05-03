@@ -132,7 +132,7 @@ function Menu({ items, img, cartImage }: {
             <Logo img={img} />
           </a>
         </div>
-        <div class="px-[30px] flex h-[135px]">
+        <div class="px-[30px] flex h-[135px] gap-[70px] pt-[1px] ml-[8px]">
           {items.map((item) => <NavItem item={item} />)}
         </div>
         <div class="flex-none  flex items-center justify-between">

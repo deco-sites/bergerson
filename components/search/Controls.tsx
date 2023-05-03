@@ -40,14 +40,14 @@ function SearchControls(
           {lastBreadcrumb?.name ?? "Resultados da Busca"}
         </h1>
 
-        <hr class="mt-4 md:mb-6" />
+        <hr class="mt-2 md:mb-6" />
 
-        <div class="hidden md:block px-4">
+        <div class="hidden md:block px-6">
           <Filters filters={validFilters} />
         </div>
       </div>
 
-      <div class="flex flex-row items-center justify-between md:(gap-4 mt-12) gap-2 pt-4 sm:pt-0">
+      <div class="flex flex-row items-center justify-between md:(gap-4 mt-20) gap-2 pt-4 sm:pt-0">
         {Boolean(validFilters && validFilters.length) && (
           <div class="md:hidden flex-1 border-1 border-solid border-gray-400 rounded">
             <Button

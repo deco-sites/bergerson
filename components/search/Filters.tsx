@@ -58,8 +58,8 @@ function renderFilter(filter: FilterToggle) {
       onClick={toggle}
     >
       <span class="flex flex-row justify-between cursor-pointer">
-        <Text variant="caption">{filter.label}</Text>
-        <Icon id="ChevronDown" width={16} height={16} strokeWidth={1} />
+        <Text variant="caption" class="text-[15px]">{filter.label}</Text>
+        <Icon id="ChevronDown" width={16} height={16} strokeWidth={2} />
       </span>
 
       {isOpen.value && (

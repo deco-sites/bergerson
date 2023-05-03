@@ -43,7 +43,7 @@ function Result({
 
   return (
     <>
-      <Container class="px-4 sm:py-10">
+      <Container class="px-4 sm:py-6">
         <SearchControls
           filters={filters}
           sortOptions={sortOptions}
