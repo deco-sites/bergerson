@@ -27,15 +27,23 @@ export interface Address {
   telephone?: string;
 }
 
+export interface SocialMedia {
+  link: string;
+  logo: Image;
+}
+
 export interface Props {
   paymentMethod: Image[];
   column1: Column;
   column2: Column;
   column3: Column;
   address: Address[];
+  socialMedias: SocialMedia[];
 }
 
-function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
+function Footer(
+  { paymentMethod, column1, column2, column3, address, socialMedias }: Props,
+) {
   function FooterContainer(
     { children, class: _class = "" }: {
       class?: string;
@@ -74,31 +82,10 @@ function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
     );
   };
 
-  const footerData = {
-    institucional: [
-      "Sobre a bergerson",
-      "Fale conosco",
-      "Nossas Lojas",
-      "Cuidados com as Joias",
-    ],
-    politicas: [
-      "Política de Privacidade",
-      "Políticas de Garantia",
-      "Políticas de Serviço",
-      "Políticas de Trocas e Devoluções",
-      "Políticas de Entrega",
-      "Política PLD/FTP",
-    ],
-    ajuda: [
-      "Dúvidas Frequentes",
-      "Regulamento de Promoções",
-    ],
-  };
-
   return (
     <>
       {/*Desktop*/}
-      <footer class="w-full px-28 pt-10 pb-8 bg-footer justify-between hidden lg:flex">
+      <footer class="w-full px-28 pt-10 pb-8 bg-footer gap-5 justify-center hidden lg:flex">
         {/*first div*/}
         <div class="w-full max-w-[213.5px]">
           <h3 class="text-center text-[15px] font-normal leading-4">
@@ -129,38 +116,15 @@ function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
             </span>
             <div class="w-full">
               <ul class="flex justify-center">
-                <li class="pr-1.5">
-                  <a href="https://blog.bergersonjoias.com/">
-                    <img
-                      src="https://bergersonjoias.vteximg.com.br/arquivos/v22-blog.png?v=637872801506300000"
-                      alt="Bergerson blog"
-                    />
-                  </a>
-                </li>
-                <li class="pr-1.5">
-                  <a href="https://www.facebook.com/bergersonjoias/">
-                    <img
-                      src="https://bergersonjoias.vteximg.com.br/arquivos/v22-facebook.png?v=637872801511300000"
-                      alt="Bergerson facebook page"
-                    />
-                  </a>
-                </li>
-                <li class="pr-1.5">
-                  <a href="https://www.instagram.com/bergersonjoias/?hl=pt-br">
-                    <img
-                      src="https://www.bergersonjoias.com/arquivos/v22-instagram.png?v=637872801514130000"
-                      alt="Bergerson blog"
-                    />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://br.pinterest.com/bergersonjoiasoficial/">
-                    <img
-                      src="https://www.bergersonjoias.com/arquivos/v22-pinterest.png?v=637872801517400000"
-                      alt="Bergerson pinterest"
-                    />
-                  </a>
-                </li>
+                {socialMedias.map((items) => {
+                  return (
+                    <li class="pr-1.5">
+                      <a href={items.link}>
+                        <img src={items.logo.src} alt={items.logo.alt} />
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
@@ -234,7 +198,7 @@ function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
           </h3>
           {/*City list flex*/}
           <div class="w-[396.5px] mb-2.5">
-            <ul class="flex">
+            <ul class="flex gap-0.5">
               {address.map((item, index) => (
                 <>
                   <button class="focus:outline-none focus:border-b-2 border-black">
@@ -262,7 +226,7 @@ function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
         {/*Contact*/}
         <div class="bg-[#272727] py-[30px] px-[20px] flex flex-col items-center">
           <h3 class="max-w-[250px] text-center text-[18px] text-white font-normal leading-[1.1]">
-            Fique por dentro de todas as novidades da
+            Fique por dentro de todas as novidades da{" "}
             <strong>Bergerson</strong>,
           </h3>
           <h3 class="max-w-[310px] mb-2 text-center text-[18px] text-white font-normal leading-[1.1]">
@@ -292,48 +256,25 @@ function Footer({ paymentMethod, column1, column2, column3, address }: Props) {
             </span>
             <div class="w-full  mt-2.5">
               <ul class="flex justify-center">
-                <li>
-                  <a href="https://blog.bergersonjoias.com/">
-                    <img
-                      style="filter: invert()"
-                      src="https://bergersonjoias.vteximg.com.br/arquivos/v22-blog.png?v=637872801506300000"
-                      alt="Bergerson blog"
-                    />
-                  </a>
-                </li>
-                <li class="ml-2.5">
-                  <a href="https://www.facebook.com/bergersonjoias/">
-                    <img
-                      style="filter: invert()"
-                      src="https://bergersonjoias.vteximg.com.br/arquivos/v22-facebook.png?v=637872801511300000"
-                      alt="Bergerson facebook page"
-                    />
-                  </a>
-                </li>
-                <li class="ml-2.5">
-                  <a href="https://www.instagram.com/bergersonjoias/?hl=pt-br">
-                    <img
-                      style="filter: invert()"
-                      src="https://www.bergersonjoias.com/arquivos/v22-instagram.png?v=637872801514130000"
-                      alt="Bergerson blog"
-                    />
-                  </a>
-                </li>
-                <li class="ml-2.5">
-                  <a href="https://br.pinterest.com/bergersonjoiasoficial/">
-                    <img
-                      style="filter: invert()"
-                      src="https://www.bergersonjoias.com/arquivos/v22-pinterest.png?v=637872801517400000"
-                      alt="Bergerson pinterest"
-                    />
-                  </a>
-                </li>
+                {socialMedias.map((items) => {
+                  return (
+                    <li class="ml-2.5">
+                      <a href={items.link}>
+                        <img
+                          style="filter: invert()"
+                          src={items.logo.src}
+                          alt={items.logo.alt}
+                        />
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
         </div>
         {/*Drop down*/}
-        <FooterContainer class="text-[#4b4b4b]">
+        <FooterContainer class="text-[#4b4b4b] bg-footer">
           <DropDownItem
             title={column1.title}
             itens={column1.footerLink}
