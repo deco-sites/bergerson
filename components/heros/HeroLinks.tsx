@@ -18,11 +18,20 @@ export interface Props {
 }
 
 export default function HeroLinks(props: Props) {
-  const { links, detail } = props;
+  const { links, background, detail } = props;
   const { left, right, alt } = detail;
 
+  const backgroundStyle = {
+    backgroundSize: "100% 100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url('${background}')`,
+  };
+
   return (
-    <div class="h-[100vh] max-h-[1120px] flex flex-row justify-between items-center relative">
+    <div
+      style={backgroundStyle}
+      class="h-[100vh] max-h-[1120px] flex flex-row justify-between items-center relative"
+    >
       <div class="h-full lg:max-w-[532px] w-full">
         <img
           alt={alt}

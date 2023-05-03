@@ -7,6 +7,7 @@ import type { EditableProps as SearchbarProps } from "deco-sites/fashion/compone
 export interface NavItem {
   label: string;
   href: string;
+  newPage?: boolean;
   children?: Array<{
     label: string;
     href: string;

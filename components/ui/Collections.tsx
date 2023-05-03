@@ -93,7 +93,7 @@ function ItemDesktop(
       <Text class="mt-5 mb-2.5 font-serif font-bold text-3xl">
         {title}
       </Text>
-      <Text class="h-[240px] w-[85%] text-center text-base leading-6 font-light text-primary font-mont mb-[15px] overflow-hidden ">
+      <Text class="h-[240px] w-[85%] text-center text-base leading-6 text-primary font-mont mb-[15px] overflow-hidden ">
         {description}
       </Text>
       <div class="mx-[15px] border-y-1 w-full flex flex-row justify-center border-primary p-2.5">

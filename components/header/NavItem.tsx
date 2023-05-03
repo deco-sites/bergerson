@@ -6,17 +6,19 @@ import { headerHeightDesktop } from "./constants.ts";
 export interface INavItem {
   label: string;
   href: string;
+  newPage?: boolean;
   children?: INavItem[];
   image?: { src?: LiveImage; alt?: string };
 }
 
 function NavItem({ item }: { item: INavItem }) {
-  const { href, label, children } = item;
+  const { href, label, children, newPage } = item;
   const imageIndex = useSignal(0);
+  const target = newPage ? "_blank" : "_self";
 
   return (
     <div class="group flex items-center">
-      <a href={href} class="h-full px-6 flex items-center">
+      <a href={href} target={target} class="h-full px-6 flex items-center">
         <Text
           class="group-hover:border-black border-solid border-b-[3px] border-white uppercase"
           variant="caption"

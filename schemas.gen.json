@@ -3064,6 +3064,31 @@
       },
       "title": "Address[]"
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@SocialMedia": {
+      "type": "object",
+      "properties": {
+        "link": {
+          "type": "string",
+          "title": "Link"
+        },
+        "logo": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@Image",
+          "title": "Logo"
+        }
+      },
+      "required": [
+        "link",
+        "logo"
+      ],
+      "title": "SocialMedia"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@SocialMedia[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@SocialMedia"
+      },
+      "title": "SocialMedia[]"
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@Props": {
       "type": "object",
       "properties": {
@@ -3086,6 +3111,10 @@
         "address": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@Address[]",
           "title": "Address"
+        },
+        "socialMedias": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@SocialMedia[]",
+          "title": "Social Medias"
         }
       },
       "required": [
@@ -3093,7 +3122,8 @@
         "column1",
         "column2",
         "column3",
-        "address"
+        "address",
+        "socialMedias"
       ],
       "title": "deco-sites/bergerson/components/footer/Footer.tsx@Props"
     },
@@ -3148,6 +3178,13 @@
         "href": {
           "type": "string",
           "title": "Href"
+        },
+        "newPage": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "New Page"
         },
         "children": {
           "type": "array",
