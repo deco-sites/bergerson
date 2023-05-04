@@ -75,7 +75,12 @@ function Banner({ requestViewer, banners = [] }: Props) {
   const url = new URL(requestViewer.request.url);
   const fullUrl = url.pathname + url.search;
   const blockedList = ["/relogios?ft=Victorinox"];
-  const matching = banners.find(({ matcher }) => matcher === url.pathname);
+
+  const matching = banners.find(({ matcher }) =>
+    new RegExp(matcher.toLocaleLowerCase()).test(
+      url.pathname.toLocaleLowerCase(),
+    )
+  );
 
   if (blockedList.includes(fullUrl) || !matching) {
     return null;
