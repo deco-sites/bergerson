@@ -1,10 +1,12 @@
-import { useId } from "preact/hooks";
+import { useEffect } from "preact/hooks";
+import { useSignal } from "@preact/signals";
 import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
-import SliderControllerJS from "deco-sites/fashion/islands/SliderJS.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+
+// TIMER
+let PRODUCT_TIMER: number;
 
 export interface Banner {
   /** @description desktop otimized image */
@@ -39,7 +41,7 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
   } = image;
 
   return (
-    <div class="relative min-w-[100vw] overflow-y-hidden">
+    <div class="relative min-w-screen overflow-y-hidden">
       <a href={href ?? "#"}>
         <Picture class="w-full" preload={lcp}>
           <Source
@@ -68,59 +70,95 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
   );
 }
 
-function Controls() {
+function BannerCarousel({ images = [], preload, interval = 1 }: Props) {
+  const currentImage = useSignal(0);
+
+  useEffect(() => {
+    onChangeImages();
+    return () => clearInterval(PRODUCT_TIMER);
+  }, []);
+
+  const onChangeImages = () => {
+    if (PRODUCT_TIMER) clearInterval(PRODUCT_TIMER);
+    PRODUCT_TIMER = setInterval(changeImage, interval * 1000);
+  };
+
+  const changeImage = () => {
+    const imagesLength = images.length - 1;
+
+    if (currentImage.value >= imagesLength) {
+      currentImage.value = 0;
+      return;
+    }
+
+    currentImage.value += 1;
+    return;
+  };
+
+  const goToNext = () => {
+    const imagesLength = images.length - 1;
+    const nextImage = currentImage.value + 1;
+    currentImage.value = nextImage > imagesLength ? 0 : nextImage;
+    onChangeImages();
+  };
+
+  const goToPrevious = () => {
+    const maxImage = images.length - 1;
+    const nextImage = currentImage.value - 1;
+    currentImage.value = nextImage < 0 ? maxImage : nextImage;
+    onChangeImages();
+  };
+
   return (
-    <>
-      <div class="flex items-center justify-start z-10 col-start-1 row-start-2">
+    <div class="relative">
+      <div class="grid grid-cols-1">
+        {images?.map((image, index) => {
+          const isActive = index === currentImage.value;
+          const opacityClass = isActive ? "opacity-100 z-10" : "opacity-0";
+
+          return (
+            <div
+              class={`col-start-1 row-start-1 transition ease-in-out duration-1000 ${opacityClass}`}
+            >
+              <BannerItem image={image} lcp={index === 0 && preload} />
+            </div>
+          );
+        })}
+      </div>
+
+      <div class="flex items-center justify-center z-10 absolute top-0 left-0 h-full">
         <Button
           class="h-12 w-12"
           variant="icon"
           data-slide="prev"
+          onClick={goToPrevious}
           aria-label="Previous item"
         >
           <Icon
-            class="text-default-inverse"
-            size={20}
-            id="ChevronLeft"
+            size={24}
             strokeWidth={3}
+            id="ChevronLeft"
+            class="text-black"
           />
         </Button>
       </div>
-      <div class="flex items-center justify-end z-10 col-start-3 row-start-2">
+
+      <div class="flex items-center justify-center z-10 absolute top-0 right-0 h-full">
         <Button
           class="h-12 w-12"
           variant="icon"
           data-slide="next"
+          onClick={goToNext}
           aria-label="Next item"
         >
           <Icon
-            class="text-default-inverse"
-            size={20}
-            id="ChevronRight"
+            size={24}
             strokeWidth={3}
+            id="ChevronRight"
+            class="text-black"
           />
         </Button>
       </div>
-    </>
-  );
-}
-
-function BannerCarousel({ images, preload, interval }: Props) {
-  const id = useId();
-
-  return (
-    <div
-      id={id}
-      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px]"
-    >
-      <Slider class="col-span-full row-span-full scrollbar-none gap-6">
-        {images?.map((image, index) => (
-          <BannerItem image={image} lcp={index === 0 && preload} />
-        ))}
-      </Slider>
-
-      <Controls />
-      <SliderControllerJS rootId={id} interval={interval && interval * 1e3} />
     </div>
   );
 }
