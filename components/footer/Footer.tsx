@@ -85,12 +85,13 @@ function Footer(
   return (
     <>
       {/*Desktop*/}
-      <footer class="w-full px-28 pt-10 pb-8 bg-footer gap-5 justify-center hidden lg:flex">
+      <footer class="w-full px-28 pt-10 pb-8 bg-footer gap-7 justify-center hidden lg:flex">
         {/*first div*/}
-        <div class="w-full max-w-[213.5px]">
-          <h3 class="text-center text-[15px] font-normal leading-4">
+        <div class="w-full max-w-[213px]">
+          <h3 class="text-center text-[15px] leading-[16.5px] font-light">
             Fique por dentro de todas as novidades da{" "}
-            <strong>Bergerson</strong>, faça parte da nossa lista de e-mail
+            <line class="font-black">Bergerson</line>,{"  "}
+            faça parte da nossa lista de e-mail
           </h3>
           <form class="w-full my-2.5">
             <div class="my-3.5">
@@ -118,7 +119,7 @@ function Footer(
               <ul class="flex justify-center">
                 {socialMedias.map((items) => {
                   return (
-                    <li class="pr-1.5">
+                    <li class="pr-2">
                       <a href={items.link}>
                         <img src={items.logo.src} alt={items.logo.alt} />
                       </a>
@@ -162,10 +163,10 @@ function Footer(
           </div>
           {/*Fale conosco*/}
           <div class="mb-5">
-            <h3 class="font-serif text-[17px] mb-2">
+            <h3 class="font-serif text-[17px] leading-[18.7px] mb-2">
               Fale conosco
             </h3>
-            <p class="text-[#333] leading-5">
+            <p class="text-[#333] text-[15px] leading-[22.5px]">
               Para entrar em contato é só ligar 0800 0414130 ou através do
               e-mail atendimento@bergerson.com. Nosso horário de atendimento é
               de segunda a sexta-feira das 08h30 às 11:30h e das 13h30 às 17h30
