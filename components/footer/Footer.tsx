@@ -87,7 +87,7 @@ function Footer(
       {/*Desktop*/}
       <footer class="w-full px-28 pt-10 pb-8 bg-footer gap-7 justify-center hidden lg:flex">
         {/*first div*/}
-        <div class="w-full max-w-[213px]">
+        <div class="w-full max-w-[205px]">
           <h3 class="text-center text-[15px] leading-[16.5px] font-light">
             Fique por dentro de todas as novidades da{" "}
             <line class="font-black">Bergerson</line>,{"  "}
@@ -162,7 +162,7 @@ function Footer(
             </div>
           </div>
           {/*Fale conosco*/}
-          <div class="mb-5">
+          <div class="my-5">
             <h3 class="font-serif text-[17px] leading-[18.7px] mb-2">
               Fale conosco
             </h3>
