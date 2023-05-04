@@ -14,7 +14,7 @@ export interface Props {
 export default function MontblancDescription(props: Props) {
   return (
     <div class="bg-black">
-      <Container class="sm:max-w-[1000px] py-20 px-5">
+      <Container class="sm:max-w-[1070px] py-20 px-5">
         <div class="flex flex-col sm:flex-row gap-8 items-center justify-center sm:items-start">
           <img
             width={334}
@@ -33,14 +33,14 @@ export default function MontblancDescription(props: Props) {
               class="ml-[14px] mb-[24px] animate-bounce "
             />
 
-            <div class="text-[#a2a2a2]">
+            <div class="text-[#a2a2a2] opacity-80">
               <QuillText html={props.text} />
             </div>
 
             <div class="mt-8 block">
               <a
                 href={props.href}
-                class="uppercase ml-[14px] border-1 border-solid border-white py-4 px-6 transition-all bg-transparent hover:(px-8 bg-white text-black)"
+                class="text-[15px] uppercase ml-[14px] border-1 border-solid border-white py-4 px-6 transition-all bg-transparent hover:(px-8 bg-white text-black)"
               >
                 {props.action}
               </a>

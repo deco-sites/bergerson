@@ -33,7 +33,7 @@ function ProductShelf({
       class="grid grid-cols-[38px_1fr_38px] grid-rows-[64px_1fr_38px_1fr] py-20 px-0 sm:px-5"
     >
       <div class="row-start-1 col-span-full flex flex-row w-full px-5">
-        <div class="flex flex-1 w-full text-xl md:text-2xl font-semibold">
+        <div class="flex flex-1 w-full text-xl md:text-[22px] font-heading-1">
           {title}
         </div>
 
@@ -41,30 +41,30 @@ function ProductShelf({
         <div class="hidden md:flex flex-row gap-4">
           <div class="bg-interactive-inverse border-black border h-10 w-10">
             <Button
-              class="h-10 w-10"
+              class="h-10 w-10 pr-1 pb-0.5"
               variant="icon"
               data-slide="prev"
               aria-label="Previous item"
             >
               <Icon
-                size={16}
-                id="ChevronLeft"
-                strokeWidth={3}
+                size={25}
+                id="LeftArrow"
+                strokeWidth={1}
                 class="text-black"
               />
             </Button>
           </div>
           <div class="bg-interactive-inverse border-black border h-10 w-10">
             <Button
-              class="h-10 w-10"
+              class="h-10 w-10 pr-1 pb-0.5"
               variant="icon"
               data-slide="next"
               aria-label="Next item"
             >
               <Icon
-                size={16}
-                id="ChevronRight"
-                strokeWidth={3}
+                size={25}
+                id="RightArrow"
+                strokeWidth={1}
                 class="text-black"
               />
             </Button>
