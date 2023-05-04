@@ -33,7 +33,7 @@ export default function MontblancDescription(props: Props) {
               class="ml-[14px] mb-[24px] animate-bounce "
             />
 
-            <div class="text-gray-500">
+            <div class="text-[#a2a2a2]">
               <QuillText html={props.text} />
             </div>
 
