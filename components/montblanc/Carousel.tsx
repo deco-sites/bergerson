@@ -75,7 +75,7 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
 function Controls() {
   return (
     <>
-      <div class="flex items-center justify-start z-10 col-start-1 row-start-2">
+      <div class="flex items-center justify-start z-10 col-start-1 row-start-2 pl-3 pt-6">
         <Button
           class="h-12 w-12"
           variant="icon"
@@ -84,13 +84,13 @@ function Controls() {
         >
           <Icon
             class="text-default-inverse"
-            size={20}
+            size={32}
             id="ChevronLeft"
-            strokeWidth={3}
+            strokeWidth={4}
           />
         </Button>
       </div>
-      <div class="flex items-center justify-end z-10 col-start-3 row-start-2">
+      <div class="flex items-center justify-end z-10 col-start-3 row-start-2 pr-3 pt-6">
         <Button
           class="h-12 w-12"
           variant="icon"
@@ -99,9 +99,9 @@ function Controls() {
         >
           <Icon
             class="text-default-inverse"
-            size={20}
+            size={32}
             id="ChevronRight"
-            strokeWidth={3}
+            strokeWidth={4}
           />
         </Button>
       </div>
@@ -123,10 +123,10 @@ function ProgressiveDots({ images, interval = 0 }: Props) {
         }}
       >
       </style>
-      <SliderDots class="hidden lg:flex col-span-full gap-4 z-10 row-start-4 scrollbar-none">
+      <SliderDots class="hidden lg:flex col-span-full gap-1 z-10 row-start-4 scrollbar-none pb-7">
         {images?.map((_) => (
           <div class="py-6">
-            <div class="w-[13px] h-[13px] rounded-full bg-white opacity-50 group-disabled:opacity-100" />
+            <div class="w-[13px] h-[13px] rounded-full bg-transparent group-disabled:bg-white border-2 border-white" />
           </div>
         ))}
       </SliderDots>
