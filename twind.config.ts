@@ -39,6 +39,9 @@ const scrollSnap = ([arg]: string[]) => {
 const options: Omit<Options, "selfURL"> = {
   theme: {
     extend: {
+      backgroundSize: {
+        "50%": "50%",
+      },
       colors: {
         "default": "#FFFFFF",
         "header": "#FFFFFF",
@@ -129,6 +132,7 @@ const options: Omit<Options, "selfURL"> = {
       mont: ["Montserrat", "sans-serif"],
       sans: ["sans-serif"],
       serif: ["DM Serif Display", "serif"],
+      montblanc: ["Montblanc"],
     },
     screens: {
       sm: "640px",

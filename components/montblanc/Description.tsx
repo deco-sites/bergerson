@@ -30,17 +30,17 @@ export default function MontblancDescription(props: Props) {
               height={71}
               alt="Montblanc"
               src={props.logo}
-              class="ml-[14px] mb-[24px] animate-bounce "
+              class="ml-[14px] mb-[24px] animate-bounce"
             />
 
-            <div class="text-[#a2a2a2] opacity-80">
+            <div class="font-montblanc font-light text-[#a2a2a2] text-[15px] opacity-80">
               <QuillText html={props.text} />
             </div>
 
             <div class="mt-8 block">
               <a
                 href={props.href}
-                class="text-[15px] uppercase ml-[14px] border-1 border-solid border-white py-4 px-6 transition-all bg-transparent hover:(px-8 bg-white text-black)"
+                class="font-montblanc font-light text-[15px] uppercase ml-[13px] border-1 border-solid border-white py-3 px-4 transition-all bg-transparent hover:(px-8 bg-white text-black)"
               >
                 {props.action}
               </a>

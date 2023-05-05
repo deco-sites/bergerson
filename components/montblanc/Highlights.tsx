@@ -27,7 +27,7 @@ function renderItem(item: any) {
         />
 
         <div class="absolute top-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
-          <p class="text-white md:text-xl font-normal text-center text-center w-3/4">
+          <p class="text-white md:text-[18px] font-normal font-montblanc text-center text-center w-3/4">
             {item.title}
           </p>
         </div>
@@ -46,7 +46,7 @@ function Highlights(props: Props) {
         id={id}
         class="py-20 px-0 sm:px-5"
       >
-        <h1 class="font-semibold text-2xl md:text-[37px] font-mont text-center mb-10 px-5">
+        <h1 class="font-semibold text-2xl md:text-[37px] font-montblanc text-center mb-10 px-5">
           {title}
         </h1>
 
