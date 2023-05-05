@@ -30,7 +30,7 @@ export default function Header(props: Props) {
               <li>
                 <a
                   href={item.url}
-                  class="transition uppercase text-xs text-[#127749] border-1 border-solid border-[#127749] py-2 px-6 rounded-full hover:(bg-[#127749] text-white)"
+                  class="font-helvetica transition uppercase text-xs text-[#127749] border-1 border-solid border-[#127749] py-2 px-6 rounded-full hover:(bg-[#127749] text-white)"
                 >
                   {item.label}
                 </a>

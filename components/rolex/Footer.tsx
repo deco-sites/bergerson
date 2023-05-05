@@ -23,7 +23,7 @@ export default function Footer(props: Props) {
             <li class="border-t-1 boder-solid border-gray-200 md:border-t-0 py-2 w-full">
               <a
                 href={item.url}
-                class="block transition uppercase text-xs text-[#1b1b1b] hover:text-[#127749] w-full text-center"
+                class="block transition uppercase text-xs text-[#1b1b1b] hover:text-[#127749] w-full text-center font-helvetica"
               >
                 {item.label}
               </a>
@@ -32,7 +32,7 @@ export default function Footer(props: Props) {
         </ul>
       </div>
 
-      <span class="flex items-center justify-center w-[34px] h-[34px] rounded-full bg-[#127749]">
+      <span class="cursor-pointer flex items-center justify-center w-[34px] h-[34px] rounded-full bg-[#127749]">
         <Icon
           width={18}
           height={18}

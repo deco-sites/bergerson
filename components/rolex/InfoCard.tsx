@@ -14,20 +14,20 @@ export default function InfoCard(props: Props) {
   const { description, title, action, caption, image } = props;
   return (
     <div class="w-full flex items-center justify-center py-20 px-5">
-      <div class="w-full sm:max-w-[660px] flex flex-col gap-6 items-center justify-center">
-        {image && <img src={image} alt={title} />}
+      <div class="w-full flex flex-col gap-6 items-center justify-center">
+        {image && <img src={image} alt={title} width={660} />}
 
         {caption && (
-          <span class="uppercase text-sm text-center">
+          <span class="uppercase text-[14px] text-center font-helvetica">
             {caption}
           </span>
         )}
 
-        <h1 class="uppercase text-3xl text-center">
+        <h1 class="uppercase text-3xl text-center font-rolex">
           {title}
         </h1>
 
-        <div class="text-gray-600 text-center">
+        <div class="text-gray-600 text-center font-helvetica font-light sm:max-w-[580px]">
           <QuillText html={description} />
         </div>
 

@@ -7544,6 +7544,22 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUm9sZXhIZWFkLnRzeA==": {
+      "title": "deco-sites/bergerson/sections/RolexHead.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/bergerson/sections/RolexHead.tsx"
+          ],
+          "default": "deco-sites/bergerson/sections/RolexHead.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUm9sZXhIZWFkZXIudHN4": {
       "title": "deco-sites/bergerson/sections/RolexHeader.tsx",
       "type": "object",
@@ -8595,6 +8611,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUm9sZXhGb290ZXIudHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUm9sZXhIZWFkLnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUm9sZXhIZWFkZXIudHN4"

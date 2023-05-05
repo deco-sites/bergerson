@@ -134,6 +134,8 @@ const options: Omit<Options, "selfURL"> = {
       serif: ["DM Serif Display", "serif"],
       montblanc: ["Montblanc"],
       arapey: ["Arapey"],
+      helvetica: ["Helvetica"],
+      rolex: ["Rolex"],
     },
     screens: {
       sm: "640px",
