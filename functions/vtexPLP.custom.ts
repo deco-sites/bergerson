@@ -3,17 +3,16 @@ import {
   ClientVTEX,
   createClient,
 } from "deco-sites/std/commerce/vtex/client.ts";
-import {
-  legacyFacetToFilter,
-  toProduct,
-} from "deco-sites/std/commerce/vtex/transform.ts";
+import { toProduct } from "deco-sites/std/commerce/vtex/transform.ts";
 import { slugify } from "deco-sites/std/commerce/vtex/utils/slugify.ts";
 import { withSegment } from "deco-sites/std/commerce/vtex/withSegment.ts";
 import type {
   Filter,
+  FilterToggle,
   ProductListingPage,
 } from "deco-sites/std/commerce/types.ts";
 import type {
+  LegacyFacet,
   LegacySort,
   PageType,
 } from "deco-sites/std/commerce/vtex/types.ts";
@@ -64,24 +63,28 @@ export const pageTypesFromPathname = async (
   const segments = segmentsFromTerm(term);
 
   const results = await Promise.all(
-    segments.map((_, index) => {
-      return vtex.catalog_system.portal.pageType({
+    segments.map((_, index) =>
+      vtex.catalog_system.portal.pageType({
         slug: segments.slice(0, index + 1).join("/"),
-      });
-    }),
+      })
+    ),
   );
 
   return results.filter((result) => PAGE_TYPE_TO_MAP_PARAM[result.pageType]);
 };
 
-export const pageTypesToBreadcrumbList = (pages: PageType[], url: URL) => {
+export const pageTypesToBreadcrumbList = (
+  pages: PageType[],
+  filters: Filter[],
+  url: URL,
+) => {
   const filteredPages = pages
     .filter(({ pageType }) =>
       pageType === "Category" || pageType === "Department" ||
       pageType === "SubCategory"
     );
 
-  return filteredPages.map((page, index) => {
+  const pagesBreadcrumb = filteredPages.map((page, index) => {
     const position = index + 1;
     const slug = filteredPages.slice(0, position).map((x) => slugify(x.name!));
 
@@ -92,6 +95,35 @@ export const pageTypesToBreadcrumbList = (pages: PageType[], url: URL) => {
       position,
     });
   });
+
+  const activeFilters: FilterToggle[] = filters.filter((filter) => {
+    if (filter["@type"] === "FilterRange") return false;
+    return filter.values.find((v) => v.selected);
+  }) as FilterToggle[];
+
+  const filtersBreadcrumb = activeFilters.map((filter, index) => {
+    const selectedValue = filter.values.find((v) => v.selected);
+    const position = index + 1;
+
+    return ({
+      "@type": "ListItem" as const,
+      name: selectedValue!.label,
+      item: selectedValue!.url,
+      position,
+    });
+  });
+
+  const allFilters = [...pagesBreadcrumb, ...filtersBreadcrumb];
+
+  // deno-lint-ignore no-explicit-any
+  return allFilters.reduce<any>((unique, filter) => {
+    // deno-lint-ignore no-explicit-any
+    if (unique.find((u: any) => u.name === filter.name)) {
+      return unique;
+    }
+
+    return [...unique, filter];
+  }, []);
 };
 
 const PAGE_TYPE_TO_MAP_PARAM = {
@@ -127,6 +159,70 @@ const getMapAndTerm = (
     .join(",");
 
   return [map, term];
+};
+
+function getValidFilters(filters: Filter[]) {
+  const isToggle = (filter: Filter): filter is FilterToggle => {
+    return filter["@type"] === "FilterToggle";
+  };
+
+  const redundantFilters = (filter: Filter): boolean => {
+    return filter.key !== "Departments" && filter.key !== "Brands";
+  };
+
+  return filters.filter(isToggle).filter(redundantFilters);
+}
+
+const unselect = (facet: LegacyFacet, url: URL, map: string) => {
+  const mapSegments = map.split(",");
+
+  // Do not allow removing root facet to avoid going back to home page
+  if (mapSegments.length === 1) {
+    return `${url.pathname}${url.search}`;
+  }
+
+  const index = mapSegments.findIndex((segment) => segment === facet.Map);
+  mapSegments.splice(index, index > -1 ? 1 : 0);
+  const newUrl = new URL(
+    url.pathname.replace(`/${facet.Value}`, ""),
+    url.origin,
+  );
+  newUrl.search = url.search;
+  if (mapSegments.length > 0) {
+    newUrl.searchParams.set("map", mapSegments.join(","));
+  }
+
+  return `${newUrl.pathname}${newUrl.search}`;
+};
+
+const legacyFacetToFilter = (
+  name: string,
+  facets: LegacyFacet[],
+  url: URL,
+  map: string,
+): Filter | null => {
+  const mapSegments = map.split(",");
+  const pathSegments = url.pathname.split("/");
+
+  return {
+    "@type": "FilterToggle",
+    quantity: facets.length,
+    label: name,
+    key: name,
+    values: facets.map((facet) => {
+      const selected = mapSegments.includes(facet.Map) &&
+        pathSegments.includes(facet.Value);
+      const href = selected ? unselect(facet, url, map) : facet.LinkEncoded;
+
+      return ({
+        value: facet.Value,
+        quantity: facet.Quantity,
+        url: href,
+        label: facet.Name,
+        selected,
+      });
+    }),
+  };
 };
 
 /**
@@ -188,14 +284,20 @@ const legacyPLPLoader: LoaderFunction<
   const products = vtexProducts.map((p) =>
     toProduct(p, p.items[0], 0, { url, priceCurrency: vtex.currency() })
   );
-  const filters = Object.entries({
-    Departments: vtexFacets.Departments,
-    Brands: vtexFacets.Brands,
-    ...vtexFacets.SpecificationFilters,
-  }).map(([name, facets]) => legacyFacetToFilter(name, facets, url, map))
-    .flat()
-    .filter((x): x is Filter => Boolean(x));
-  const itemListElement = pageTypesToBreadcrumbList(pageTypes, url);
+
+  const filters = getValidFilters(
+    Object.entries({
+      Departments: vtexFacets.Departments,
+      Brands: vtexFacets.Brands,
+      ...vtexFacets.SpecificationFilters,
+    }).map(([name, facets]) => {
+      return legacyFacetToFilter(name, facets, url, map);
+    })
+      .flat()
+      .filter((x): x is Filter => Boolean(x)),
+  );
+
+  const itemListElement = pageTypesToBreadcrumbList(pageTypes, filters, url);
 
   const hasNextPage = Boolean(page < 50 && products.length === count);
   const hasPreviousPage = page > 0;
