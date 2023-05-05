@@ -35,11 +35,15 @@ function ProductShelf(props: Props) {
       <div class="grid grid-cols-[38px_1fr_38px] grid-rows-[1fr_38px_1fr] md:grid-rows-[1fr_38px_1fr]">
         <Slider
           class="gap-6 col-span-full row-start-1 row-end-4 scrollbar-none overflow-x-scroll"
-          snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
+          snap="snap-center sm:snap-start flex flex-1 h-full first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
         >
           {products?.map((product) => (
             <div class="min-w-[270px] max-w-[270px] sm:min-w-[292px] sm:max-w-[292px]">
-              <ProductCard product={product} preload={false} />
+              <ProductCard
+                preload={false}
+                product={product}
+                largeImage={true}
+              />
             </div>
           ))}
         </Slider>

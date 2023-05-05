@@ -1500,6 +1500,95 @@
       ],
       "title": "deco-sites/bergerson/functions/vtexCollectionPLP.custom.ts@Props"
     },
+    "ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[][]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]"
+      },
+      "title": "Product[][]"
+    },
+    "ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[][]|null": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Resolvable"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[][]"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "title": "deco-sites/bergerson/functions/vtexLegacyMultiShelf.ts",
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vZnVuY3Rpb25zL3Z0ZXhMZWdhY3lNdWx0aVNoZWxmLnRz@Props"
+            }
+          ],
+          "required": [
+            "__resolveType"
+          ],
+          "properties": {
+            "__resolveType": {
+              "type": "string",
+              "enum": [
+                "deco-sites/bergerson/functions/vtexLegacyMultiShelf.ts"
+              ],
+              "default": "deco-sites/bergerson/functions/vtexLegacyMultiShelf.ts"
+            }
+          }
+        }
+      ]
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vZnVuY3Rpb25zL3Z0ZXhMZWdhY3lNdWx0aVNoZWxmLnRz@Props": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "number",
+          "description": "total number of items to display",
+          "title": "Count"
+        },
+        "collection": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "title": "Id"
+              },
+              "term": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "title": "Term"
+              },
+              "order": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "title": "Order"
+              }
+            },
+            "required": []
+          },
+          "description": "Collection ID or (Product Cluster id). For more info: https://developers.vtex.com/docs/api-reference/search-api#get-/api/catalog_system/pub/products/search .",
+          "pattern": "\\d*",
+          "title": "Collection"
+        }
+      },
+      "required": [
+        "count",
+        "collection"
+      ],
+      "title": "deco-sites/bergerson/functions/vtexLegacyMultiShelf.ts@Props"
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vZnVuY3Rpb25zL3Z0ZXhQTFAuY3VzdG9tLnRz@Props": {
       "type": "object",
       "properties": {
@@ -3384,6 +3473,27 @@
       ],
       "title": "deco-sites/bergerson/components/header/Header.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9wcm9kdWN0L011bHRpUHJvZHVjdFNoZWxmLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "titles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Titles"
+        },
+        "collection": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[][]|null",
+          "title": "Collection"
+        }
+      },
+      "required": [
+        "titles",
+        "collection"
+      ],
+      "title": "deco-sites/bergerson/components/product/MultiProductShelf.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvTmF2SXRlbS50c3g=@INavItem": {
       "type": "object",
       "properties": {
@@ -4523,6 +4633,14 @@
             {
               "type": "string",
               "const": "Microphone"
+            },
+            {
+              "type": "string",
+              "const": "LeftArrow"
+            },
+            {
+              "type": "string",
+              "const": "RightArrow"
             }
           ],
           "type": "string",
@@ -5588,6 +5706,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vZnVuY3Rpb25zL3Z0ZXhMZWdhY3lNdWx0aVNoZWxmLnRz": {
+      "title": "deco-sites/bergerson/functions/vtexLegacyMultiShelf.ts",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vZnVuY3Rpb25zL3Z0ZXhMZWdhY3lNdWx0aVNoZWxmLnRz@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/bergerson/functions/vtexLegacyMultiShelf.ts"
+          ],
+          "default": "deco-sites/bergerson/functions/vtexLegacyMultiShelf.ts"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vZnVuY3Rpb25zL3Z0ZXhQTFAuY3VzdG9tLnRz": {
       "title": "deco-sites/bergerson/functions/vtexPLP.custom.ts",
       "type": "object",
@@ -6281,6 +6420,27 @@
             "./islands/HeaderSearchMenu.tsx"
           ],
           "default": "./islands/HeaderSearchMenu.tsx"
+        }
+      }
+    },
+    "Li9pc2xhbmRzL011bHRpUHJvZHVjdFNoZWxmLnRzeA==": {
+      "title": "./islands/MultiProductShelf.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9wcm9kdWN0L011bHRpUHJvZHVjdFNoZWxmLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/MultiProductShelf.tsx"
+          ],
+          "default": "./islands/MultiProductShelf.tsx"
         }
       }
     },
@@ -7263,6 +7423,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvTXVsdGlQcm9kdWN0U2hlbGYudHN4": {
+      "title": "deco-sites/bergerson/sections/MultiProductShelf.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9wcm9kdWN0L011bHRpUHJvZHVjdFNoZWxmLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/bergerson/sections/MultiProductShelf.tsx"
+          ],
+          "default": "deco-sites/bergerson/sections/MultiProductShelf.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUHJvZHVjdERldGFpbHMudHN4": {
       "title": "deco-sites/bergerson/sections/ProductDetails.tsx",
       "type": "object",
@@ -8044,6 +8225,9 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vZnVuY3Rpb25zL3Z0ZXhDb2xsZWN0aW9uUExQLmN1c3RvbS50cw=="
         },
         {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vZnVuY3Rpb25zL3Z0ZXhMZWdhY3lNdWx0aVNoZWxmLnRz"
+        },
+        {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vZnVuY3Rpb25zL3Z0ZXhQTFAuY3VzdG9tLnRz"
         },
         {
@@ -8166,6 +8350,9 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlclNlYXJjaE1lbnUudHN4"
+        },
+        {
+          "$ref": "#/definitions/Li9pc2xhbmRzL011bHRpUHJvZHVjdFNoZWxmLnRzeA=="
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL05hdmJhci50c3g="
@@ -8337,6 +8524,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvTW9udGJsYW5jU2hlbGYudHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvTXVsdGlQcm9kdWN0U2hlbGYudHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUHJvZHVjdERldGFpbHMudHN4"

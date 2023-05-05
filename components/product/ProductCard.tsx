@@ -8,9 +8,10 @@ interface Props {
   product: Product;
   /** Preload card image */
   preload?: boolean;
+  largeImage?: boolean;
 }
 
-function ProductCard({ product, preload }: Props) {
+function ProductCard({ product, preload, largeImage }: Props) {
   const {
     url,
     productID,
@@ -21,6 +22,7 @@ function ProductCard({ product, preload }: Props) {
 
   const [front, back] = images ?? [];
   const { price } = useOffer(offers);
+  const imageWidth = largeImage ? "" : `max-w-[220px]`;
 
   return (
     <div
@@ -29,7 +31,9 @@ function ProductCard({ product, preload }: Props) {
       id={`product-card-${productID}`}
     >
       <a href={url} aria-label="product link" class="h-full flex flex-col">
-        <div class="relative w-full bg-white max-w-[220px] self-center grid grid-cols-1">
+        <div
+          class={`relative w-full bg-white ${imageWidth} self-center grid grid-cols-1`}
+        >
           <Image
             width={500}
             src={front.url!}
