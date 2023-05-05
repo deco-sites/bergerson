@@ -7712,6 +7712,22 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvVGFnSGV1ZXJGb250cy50c3g=": {
+      "title": "deco-sites/bergerson/sections/TagHeuerFonts.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/bergerson/sections/TagHeuerFonts.tsx"
+          ],
+          "default": "deco-sites/bergerson/sections/TagHeuerFonts.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvVGFnSGV1ZXJIZWFkLnRzeA==": {
       "title": "deco-sites/bergerson/sections/TagHeuerHead.tsx",
       "type": "object",
@@ -8603,6 +8619,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvVGFnSGV1ZXJEZXNjcmlwdGlvbi50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvVGFnSGV1ZXJGb250cy50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvVGFnSGV1ZXJIZWFkLnRzeA=="

@@ -133,6 +133,7 @@ const options: Omit<Options, "selfURL"> = {
       sans: ["sans-serif"],
       serif: ["DM Serif Display", "serif"],
       montblanc: ["Montblanc"],
+      arapey: ["Arapey"],
     },
     screens: {
       sm: "640px",

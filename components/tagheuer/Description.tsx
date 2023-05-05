@@ -23,11 +23,13 @@ export default function Description(props: Props) {
         />
       </div>
 
-      <Container class="mt-20 px-5 sm:max-w-[1500px]">
-        <h1 class="ml-[15px] text-4xl md:text-6xl mb-8">{props.title}</h1>
+      <Container class="mt-20 px-5 sm:max-w-[1500px] text-[#333]">
+        <h1 class="ml-[15px] text-4xl md:text-6xl mb-8 font-arapey">
+          {props.title}
+        </h1>
 
         <div class="flex flex-col lg:flex-row gap-8">
-          <div class="text-lg md:text-xl w-full lg:w-[40%]">
+          <div class="text-[16px] font-mont w-full lg:w-[40%] text-[#333]">
             <QuillText html={props.description} />
           </div>
 

@@ -12,7 +12,7 @@ export default function CollectionList(props: Props) {
 
   return (
     <Container class="py-20 px-5">
-      <h1 class="text-4xl md:text-6xl text-center mb-12">
+      <h1 class="text-4xl md:text-6xl text-center mb-12 font-arapey text-[#333]">
         {props.title}
       </h1>
 

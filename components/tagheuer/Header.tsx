@@ -41,7 +41,7 @@ export default function Header(props: Props) {
         {!isPlaying.value && (
           <div
             onClick={playVideo}
-            class="cursor-pointer w-full h-full object-cover absolute top-0 left-0 z-10 flex items-center justify-center"
+            class="cursor-pointer w-full h-full object-cover absolute top-0 left-0 z-10 flex items-center justify-center hover:scale-105 transition-all"
           >
             <img
               alt="Tag Heuer"

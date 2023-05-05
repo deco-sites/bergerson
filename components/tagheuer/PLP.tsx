@@ -65,7 +65,7 @@ function MenuDesktop(props: Props) {
             <div class="group cursor-pointer tracking-widest w-auto whitespace-nowrap flex flex-row items-center gap-3">
               <div class="h-[1px] w-[25px] block bg-[#1d1d1b]" />
 
-              <span class="font-serif uppercase text-[25px] group-hover:text-underline">
+              <span class="font-arapey uppercase text-[25px] group-hover:text-underline">
                 {collection.nickname}
               </span>
             </div>
@@ -86,15 +86,18 @@ function PLP(props: Props) {
   }
 
   return (
-    <Container class="py-20 px-0 sm:px-5 flex flex-col md:flex-row gap-12 md:gap-20">
+    <Container class="sm:max-w-[1170px] py-20 px-0 sm:px-5 flex flex-col md:flex-row gap-12 md:gap-20">
       <div class="w-full md:w-[300px] flex flex-col gap-6 mt-[6px] px-[15px] md:px-0">
+        <a href="/" class="text-xs text-[#333] -mt-[35px]">Bergerson Joias</a>
         <img alt="Tag Heuer" src={props.logo} width={190} height={30} />
         <MenuMobile {...props} />
         <MenuDesktop {...props} />
       </div>
 
       <div class="flex flex-col gap-4">
-        <h1 class="text-4xl md:text-6xl ml-[15px]">{matching.name}</h1>
+        <h1 class="text-4xl md:text-6xl ml-[15px] font-arapey text-[#333]">
+          {matching.name}
+        </h1>
 
         <div class="text-[#666]">
           <QuillText html={matching.description} />

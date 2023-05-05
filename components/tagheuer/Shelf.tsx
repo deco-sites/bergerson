@@ -86,7 +86,7 @@ function ShelfControllerDesktop(props: Props & ControllerProps) {
         const isActive = index === props.activeTab;
         const offset = isActive ? "-ml-[38px]" : "";
         const fontSize = isActive ? "40px" : "25px";
-        const opacity = isActive ? "opacity-100" : "opacity-50";
+        const opacity = isActive ? "opacity-100" : "opacity-30";
         const fontAnimation = isActive ? increaseFont : decreaseFont;
         const marginAnimation = isActive ? increaseMargin : decreaseMargin;
 
@@ -99,7 +99,7 @@ function ShelfControllerDesktop(props: Props & ControllerProps) {
               <div class="h-[1px] w-[25px] block bg-[#1d1d1b]" />
 
               <span
-                class={tw`font-serif uppercase text-[${fontSize}] ${fontAnimation}`}
+                class={tw`font-arapey uppercase text-[${fontSize}] ${fontAnimation}`}
               >
                 {collection.nickname}
               </span>
@@ -111,7 +111,7 @@ function ShelfControllerDesktop(props: Props & ControllerProps) {
       <div class="mt-[60px] w-min">
         <a
           href={`/tag-heuer/${activeCollection?.slug}`}
-          class="block whitespace-nowrap border-1 border-solid border-[#292929] text-[#606060] rounded-full py-4 px-8 hover:text-underline"
+          class="block whitespace-nowrap border-1 border-solid border-[#292929] text-[#606060] rounded-full py-3 px-6 hover:text-underline"
         >
           Conheça a coleção
         </a>
@@ -150,8 +150,11 @@ export default function TagHeuerShelf(props: Props) {
       <div class="flex flex-col md:(absolute flex-row) h-full flex-1 w-full top-0 z-0 items-center">
         <div class="flex flex-1" />
 
-        <div id={id} class="flex flex-1 md:(h-[420px] -ml-[620px])">
-          <div class="grid grid-cols-1 grid-rows-[1fr_64px] md:(grid-cols-[420px_1fr])">
+        <div class="flex flex-1 md:(h-[420px] -ml-[620px])">
+          <div
+            id={id}
+            class="grid grid-cols-1 grid-rows-[1fr_64px] md:(grid-cols-[420px_1fr])"
+          >
             <a
               aria-label={activeCollection?.slug}
               href={`/tag-heuer/${activeCollection?.slug}`}
@@ -167,7 +170,7 @@ export default function TagHeuerShelf(props: Props) {
 
             <Slider
               class="gap-6 col-start-1 row-start-1 md:(col-start-2 row-start-1 row-end-1) overflow-x-scroll scrollbar-none"
-              snap="snap-center block first:ml-6 last:mr-6"
+              snap="snap-center sm:snap-start flex flex-1 h-full first:pl-6 last:pr-6 sm:last:pr-0"
             >
               {collectionProducts?.map((product) => (
                 <div class="min-w-[270px] max-w-[270px] md:min-w-[292px] md:max-w-[292px]">
@@ -209,9 +212,9 @@ export default function TagHeuerShelf(props: Props) {
                 </Button>
               </div>
             </div>
-          </div>
 
-          <SliderControllerJS rootId={id} />
+            <SliderControllerJS rootId={id} />
+          </div>
         </div>
       </div>
     </div>

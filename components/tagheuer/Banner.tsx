@@ -27,8 +27,8 @@ function Banner(props: Props) {
           media="(max-width: 767px)"
         />
         <Source
-          width={1440}
-          height={440}
+          width={1920}
+          height={520}
           src={matching.banner.desktop}
           media="(min-width: 767px)"
         />
