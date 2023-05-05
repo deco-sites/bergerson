@@ -34,7 +34,7 @@ function ProductShelf(props: Props) {
 
       <div class="grid grid-cols-[38px_1fr_38px] grid-rows-[1fr_38px_1fr] md:grid-rows-[1fr_38px_1fr]">
         <Slider
-          class="gap-6 col-span-full row-start-1 row-end-4 scrollbar-none overflow-x-scroll"
+          class="gap-6 col-start-2 col-end-2 row-start-1 row-end-4 scrollbar-none overflow-x-scroll"
           snap="snap-center sm:snap-start flex flex-1 h-full first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
         >
           {products?.map((product) => (
@@ -50,7 +50,7 @@ function ProductShelf(props: Props) {
 
         {/** CONTROLS MOBILE */}
         <div class="block relative z-10 col-start-1 row-start-2">
-          <div class="absolute left-5">
+          <div class="absolute left-0">
             <Button
               variant="icon"
               data-slide="prev"
@@ -67,7 +67,7 @@ function ProductShelf(props: Props) {
         </div>
 
         <div class="block relative z-10 col-start-3 row-start-2">
-          <div class="absolute right-5">
+          <div class="absolute right-0">
             <Button
               variant="icon"
               data-slide="next"

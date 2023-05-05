@@ -9,7 +9,7 @@ interface Props {
 }
 
 /** TIMER PROPERTIES */
-const TIMER_INTERVAL = 1500;
+const TIMER_INTERVAL = 6000;
 
 export default function SmallFaderShelf(props: Props) {
   let PRODUCT_TIMER: number;

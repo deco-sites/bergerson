@@ -59,6 +59,7 @@ function ProductShelf(props: Props) {
                   <img
                     width={24}
                     height={12.21}
+                    alt="Black Star"
                     src="/black-star.png"
                     class="hidden md:block opacity-50 w-[24px] h-[12.21px]"
                   />
@@ -75,7 +76,7 @@ function ProductShelf(props: Props) {
 
       <Slider
         ref={sliderRef}
-        class="gap-6 col-span-full row-start-2 row-end-5 scrollbar-none overflow-x-scroll px-5"
+        class="gap-6 col-start-2 col-end-2 row-start-2 row-end-5 scrollbar-none overflow-x-scroll px-5"
         snap="snap-center sm:snap-start flex flex-1 h-full first:ml-[30px] sm:first:ml-0 last:mr-[30px] sm:last:mr-0"
       >
         {products?.map((product, index) => {
@@ -99,7 +100,7 @@ function ProductShelf(props: Props) {
 
       {/** CONTROLS MOBILE */}
       <div class="block relative z-10 col-start-1 row-start-3">
-        <div class="absolute left-5">
+        <div class="absolute left-0">
           <Button
             variant="icon"
             data-slide="prev"
@@ -116,7 +117,7 @@ function ProductShelf(props: Props) {
       </div>
 
       <div class="block relative z-10 col-start-3 row-start-3">
-        <div class="absolute right-5">
+        <div class="absolute right-0">
           <Button
             variant="icon"
             data-slide="next"
