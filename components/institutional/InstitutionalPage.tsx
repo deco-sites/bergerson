@@ -2,6 +2,7 @@ import Markdown from "deco-sites/std/components/Markdown.tsx";
 import type { HTML } from "deco-sites/std/components/types.ts";
 import { InstituionalContainer } from "../ui/Container.tsx";
 import { Head } from "$fresh/runtime.ts";
+import { AccordionItem } from "./AccordionItem.tsx";
 
 export interface Props {
   title: string;
@@ -14,8 +15,8 @@ export interface Props {
    * @description Required for ACCORDION page type
    */
   accordions?: {
-    title: string;
-    content: string;
+    label: string;
+    content: HTML;
   }[];
   /**
    * @description Required for TEXT page type
@@ -33,39 +34,38 @@ function InstitutionalPage(
         <style
           dangerouslySetInnerHTML={{
             __html: `
-
-            #institutional-content h2 {
+            .markdown-body h2 {
               font-size: 18px;
               font-weight: 700;
               line-height: 1.4;
               margin: 0 0 20px 0;
               text-transform: uppercase;
             }
-            #institutional-content h3 {
+            .markdown-body h3 {
               font-size: 18px;
               font-weight: 700;
               line-height: 1.4;
               margin: 0 0 20px 0;
             }
-            #institutional-content p:empty {
+            .markdown-body p:empty {
               display: none;
             }
-            #institutional-content p {
+            .markdown-body p {
               color: #616161;
               font-size: 16px;
               font-weight: 400;
               line-height: 20px;
             }
-            #institutional-content ul {
+            .markdown-body ul {
               margin-left: 2rem;
               padding-left: 2rem;
             }
-            #institutional-content li {
+            .markdown-body li {
               list-style-type: disc;
             }
 
             @media screen and (min-width: 992px) {
-              #institutional-content h2 {
+              .markdown-body h2 {
                 font-size: 20px;
               }
             }
@@ -93,7 +93,7 @@ function InstitutionalPage(
             )}
           </ul>
         </aside>
-        <article id="institutional-content" class="px-[15px]">
+        <article class="px-[15px] w-full">
           <h1 class="text-black text-[28px] font-medium leading-[25px] mb-[20px] text-uppercase border-b-1 border-[#ccc] pb-[10px]">
             {title}
           </h1>
@@ -105,10 +105,11 @@ function InstitutionalPage(
               <div>
                 {accordions.map(
                   (item, index) => (
-                    <details key={index}>
-                      <summary>{item.title}</summary>
-                      {item.content}
-                    </details>
+                    <AccordionItem
+                      title={item.label}
+                      content={item.content}
+                      key={index}
+                    />
                   ),
                 )}
               </div>

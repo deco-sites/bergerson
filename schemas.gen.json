@@ -3520,17 +3520,17 @@
           "items": {
             "type": "object",
             "properties": {
-              "title": {
+              "label": {
                 "type": "string",
-                "title": "Title"
+                "title": "Label"
               },
               "content": {
-                "type": "string",
+                "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
                 "title": "Content"
               }
             },
             "required": [
-              "title",
+              "label",
               "content"
             ]
           },
