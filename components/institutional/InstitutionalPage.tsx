@@ -50,6 +50,9 @@ function InstitutionalPage(
             .markdown-body p:empty {
               display: none;
             }
+            .markdown-body p:last-child {
+              margin-bottom: 20px;
+            }
             .markdown-body p {
               color: #616161;
               font-size: 16px;
