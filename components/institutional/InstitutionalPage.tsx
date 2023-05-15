@@ -29,7 +29,7 @@ function InstitutionalPage(
   { menuItems = [], pageType, content = "", accordions = [], title }: Props,
 ) {
   return (
-    <InstituionalContainer class="mt-[30px]">
+    <InstituionalContainer class="mt-[30px] mb-[80px]">
       <Head>
         <style
           dangerouslySetInnerHTML={{
