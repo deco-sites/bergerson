@@ -3473,6 +3473,84 @@
       ],
       "title": "deco-sites/bergerson/components/header/Header.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9pbnN0aXR1dGlvbmFsL0luc3RpdHV0aW9uYWxQYWdlLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "pageType": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "ACCORDION"
+            },
+            {
+              "type": "string",
+              "const": "TEXT"
+            }
+          ],
+          "type": "string",
+          "title": "Page Type"
+        },
+        "menuItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "title": "Label"
+              },
+              "href": {
+                "type": "string",
+                "title": "Href"
+              }
+            },
+            "required": [
+              "label",
+              "href"
+            ]
+          },
+          "title": "Menu Items"
+        },
+        "accordions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "title": "Title"
+              },
+              "content": {
+                "type": "string",
+                "title": "Content"
+              }
+            },
+            "required": [
+              "title",
+              "content"
+            ]
+          },
+          "description": "Required for ACCORDION page type",
+          "title": "Accordions"
+        },
+        "content": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "description": "Required for TEXT page type",
+          "format": "html",
+          "title": "Content"
+        }
+      },
+      "required": [
+        "title",
+        "pageType",
+        "menuItems"
+      ],
+      "title": "deco-sites/bergerson/components/institutional/InstitutionalPage.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9tb250YmxhbmMvU2hlbGYudHN4@Props": {
       "type": "object",
       "properties": {
@@ -6423,6 +6501,27 @@
         }
       }
     },
+    "Li9pc2xhbmRzL0luc3RpdHV0aW9uYWxQYWdlLnRzeA==": {
+      "title": "./islands/InstitutionalPage.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9pbnN0aXR1dGlvbmFsL0luc3RpdHV0aW9uYWxQYWdlLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/InstitutionalPage.tsx"
+          ],
+          "default": "./islands/InstitutionalPage.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL01vbnRibGFuY1NoZWxmLnRzeA==": {
       "title": "./islands/MontblancShelf.tsx",
       "type": "object",
@@ -7336,6 +7435,27 @@
             "deco-sites/bergerson/sections/Highlights.tsx"
           ],
           "default": "deco-sites/bergerson/sections/Highlights.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSW5zdGl0dXRpb25hbFBhZ2UudHN4": {
+      "title": "deco-sites/bergerson/sections/InstitutionalPage.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9pbnN0aXR1dGlvbmFsL0luc3RpdHV0aW9uYWxQYWdlLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/bergerson/sections/InstitutionalPage.tsx"
+          ],
+          "default": "deco-sites/bergerson/sections/InstitutionalPage.tsx"
         }
       }
     },
@@ -8421,6 +8541,9 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlclNlYXJjaE1lbnUudHN4"
         },
         {
+          "$ref": "#/definitions/Li9pc2xhbmRzL0luc3RpdHV0aW9uYWxQYWdlLnRzeA=="
+        },
+        {
           "$ref": "#/definitions/Li9pc2xhbmRzL01vbnRibGFuY1NoZWxmLnRzeA=="
         },
         {
@@ -8581,6 +8704,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGlnaGxpZ2h0cy50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSW5zdGl0dXRpb25hbFBhZ2UudHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvTGlua1RyZWUudHN4"
