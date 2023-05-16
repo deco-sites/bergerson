@@ -15,11 +15,11 @@ function FilterValues({ values }: FilterToggle) {
     return (
       <>
         <a href={selectedValue.url} class="flex items-center gap-2">
-          <span class="text-xs">{selectedValue.label}</span>
+          <span class="text-[14px] font-light">{selectedValue.label}</span>
         </a>
 
         <a href={selectedValue.url} class="flex items-center gap-2">
-          <span class="text-xs">
+          <span class="text-[14px] font-light">
             Veja todas as opções
           </span>
         </a>
@@ -40,7 +40,7 @@ function FilterValues({ values }: FilterToggle) {
               class="cursor-pointer"
             />
 
-            <span class="text-xs">{label} ({quantity})</span>
+            <span class="text-[14px] font-light">{label} ({quantity})</span>
           </a>
         );
       })}
@@ -54,7 +54,7 @@ function renderFilter(filter: FilterToggle) {
 
   return (
     <li
-      class="relative flex flex-col gap-4 md:(gap-0)"
+      class="relative flex flex-col gap-4 md:(gap-0) border-1 border-black py-[19px] px-[20px]"
       onClick={toggle}
     >
       <span class="flex flex-row justify-between cursor-pointer">
@@ -63,7 +63,7 @@ function renderFilter(filter: FilterToggle) {
       </span>
 
       {isOpen.value && (
-        <ul class="flex flex-wrap gap-8 flex-col md:(gap-4 shadow-lg p-3 absolute top-full) w-full z-10 bg-white mt-4">
+        <ul class="flex flex-wrap gap-8 flex-col md:(gap-4 p-4 absolute left-0 top-full border-x-1 border-b-1 border-black w-[calc(100%+2px)] -ml-[1px]) w-full z-10 bg-white">
           <FilterValues {...filter} />
         </ul>
       )}
@@ -73,7 +73,7 @@ function renderFilter(filter: FilterToggle) {
 
 function Filters({ filters }: Props) {
   return (
-    <ul class="flex flex-col gap-8 md:(grid grid-cols-5 gap-x-20 gap-y-8)">
+    <ul class="flex flex-col gap-8 md:(grid grid-cols-4 gap-[17px])">
       {filters.map(renderFilter)}
     </ul>
   );
