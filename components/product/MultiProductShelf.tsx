@@ -41,7 +41,7 @@ function ProductShelf(props: Props) {
   return (
     <Container
       id={id}
-      class="grid grid-cols-[38px_1fr_38px] grid-rows-[1fr_1fr_38px_1fr] md:grid-rows-[182px_1fr_38px_1fr] py-20 px-0 sm:px-5"
+      class="grid grid-cols-[38px_1fr_38px] grid-rows-[1fr_1fr_38px_1fr] md:grid-rows-[182px_1fr_38px_1fr] py-20 px-0 sm:px-5 override:md:(max-w-full p-[100px])"
     >
       <div class="row-start-1 col-span-full flex flex-row w-full px-5">
         <div class="font-serif flex flex-col gap-2 md:gap-8 flex-1 w-full text-2xl font-semibold md:(flex-row text-4xl) items-center md:items-start justify-center">
