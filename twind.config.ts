@@ -101,8 +101,17 @@ const options: Omit<Options, "selfURL"> = {
         "slide-right": "slide-right-frame 0.4s ease normal",
         "slide-bottom": "slide-bottom-frame 0.4s ease normal",
         "fade-in": "fade-in 0.8s ease forwards",
+        "bounce-montblanc": "bounce-montblanc 1s infinite alternate",
       },
       keyframes: {
+        "bounce-montblanc": {
+          "0%": {
+            transform: "translateY(0) translateX(0)",
+          },
+          "100%": {
+            transform: "translateY(-10px) translateX(0)",
+          },
+        },
         "slide-left-frame": {
           from: { transform: "translateX(100%)" },
           to: { transform: "translateX(0)" },

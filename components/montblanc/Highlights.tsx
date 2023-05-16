@@ -50,7 +50,7 @@ function Highlights(props: Props) {
           {title}
         </h1>
 
-        <div class="hidden md:flex flex-row justify-center gap-6">
+        <div class="hidden md:flex flex-row justify-center gap-[20px]">
           {items.map(renderItem)}
         </div>
 
