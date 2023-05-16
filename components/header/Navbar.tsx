@@ -113,7 +113,6 @@ function Menu({ items, img, cartImage }: {
             variant="icon"
             href={cartUrl}
             aria-label="My cart"
-            loading={loading.value}
           >
             <img
               src={cartImage}
