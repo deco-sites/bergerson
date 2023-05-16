@@ -37,7 +37,7 @@ export default function Header(props: Props) {
 
   return (
     <div class="bg-black w-full h-[310px] sm:h-[410px] relative flex items-center justify-center">
-      <div class="aspect-w-16 aspect-h-9 w-full h-full z-30 lg:(aspect-w-16 aspect-h-9 relative top-[25%] max-w-[990px] max-h-[460px])">
+      <div class="w-full h-full z-30 lg:(relative top-[50px] max-w-[996px] max-h-[464px])">
         {!isPlaying.value && (
           <div
             onClick={playVideo}
@@ -46,7 +46,9 @@ export default function Header(props: Props) {
             <img
               alt="Tag Heuer"
               src={props.videoCover}
-              class="w-full h-full object-cover absolute top-0 left-0 z-10 object-left"
+              width={996}
+              height={464}
+              class=" lg:(top-0 w-[996px] h-[464px]) object-cover absolute top-[50px] left-0 z-10"
             />
 
             <img
@@ -59,7 +61,11 @@ export default function Header(props: Props) {
           </div>
         )}
 
-        <div class="w-full h-full relative">
+        <div
+          class={`${
+            isPlaying.value ? "visible" : "invisible"
+          } w-full h-full relative`}
+        >
           <div id="player" class="inset-0 top-0 z-0" />
         </div>
 
