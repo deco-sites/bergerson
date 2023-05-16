@@ -88,7 +88,7 @@ function Footer(
       <footer class="w-full px-28 pt-10 pb-8 bg-footer gap-7 justify-center hidden lg:flex">
         {/*first div*/}
         <div class="w-full max-w-[205px]">
-          <h3 class="text-center text-[15px] leading-[16.5px] font-light">
+          <h3 class="text-center text-[15px] leading-[16.5px]">
             Fique por dentro de todas as novidades da{" "}
             <line class="font-black">Bergerson</line>,{"  "}
             faça parte da nossa lista de e-mail
@@ -163,10 +163,10 @@ function Footer(
           </div>
           {/*Fale conosco*/}
           <div class="my-5">
-            <h3 class="font-serif text-[17px] leading-[18.7px] mb-2">
+            <h3 class="font-serif text-[17px] leading-[18.7px] mb-[10px]">
               Fale conosco
             </h3>
-            <p class="text-[#333] text-[15px] leading-[22.5px]">
+            <p class="text-[#333] text-[15px] leading-[22.5px] font-light">
               Para entrar em contato é só ligar 0800 0414130 ou através do
               e-mail atendimento@bergerson.com. Nosso horário de atendimento é
               de segunda a sexta-feira das 08h30 às 11:30h e das 13h30 às 17h30
@@ -198,13 +198,19 @@ function Footer(
             Nossas lojas
           </h3>
           {/*City list flex*/}
-          <div class="w-[396.5px] mb-2.5">
+          <div class="w-[396.5px] mb-2.5 font-sans">
             <ul class="flex gap-0.5">
               {address.map((item, index) => (
                 <>
-                  <button class="focus:outline-none focus:border-b-2 border-black">
+                  <button
+                    class={`outline-none border-b-2 ${
+                      index === currentIndex.value
+                        ? "border-black text-[#1b1b1b]"
+                        : "border-transparent"
+                    }`}
+                  >
                     <li
-                      class="pr-1 pb-1 cursor-pointer border-black"
+                      class="pr-1 pb-1 cursor-pointer font-light"
                       onClick={(e) => getCurrentAddress(e, index)}
                     >
                       {item.city}
@@ -214,7 +220,7 @@ function Footer(
               ))}
             </ul>
           </div>
-          <div class="font-light">
+          <div class="font-light font-sans">
             <div class="mb-5">
               {setCurrentAddress()}
             </div>
