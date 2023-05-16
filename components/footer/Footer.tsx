@@ -21,10 +21,8 @@ export interface Column {
 }
 
 export interface Address {
-  city?: string;
-  establishment?: string;
-  address?: string;
-  telephone?: string;
+  city: string;
+  info: { establishment?: string; address?: string; telephone?: string }[];
 }
 
 export interface SocialMedia {
@@ -42,7 +40,8 @@ export interface Props {
 }
 
 function Footer(
-  { paymentMethod, column1, column2, column3, address, socialMedias }: Props,
+  { paymentMethod, column1, column2, column3, address = [], socialMedias }:
+    Props,
 ) {
   function FooterContainer(
     { children, class: _class = "" }: {
@@ -65,21 +64,21 @@ function Footer(
   };
 
   const setCurrentAddress = () => {
-    const currentCity = currentIndex.value;
+    const currentCity = address[currentIndex.value];
 
-    return (
-      <ul>
+    return currentCity?.info?.map((city) => (
+      <ul class="md:mb-[30px]">
         <li>
-          {address[currentCity].establishment}
+          {city.establishment}
         </li>
         <li>
-          {address[currentCity].address}
+          {city.address}
         </li>
         <li>
-          {address[currentCity].telephone}
+          {city.telephone}
         </li>
       </ul>
-    );
+    ));
   };
 
   return (

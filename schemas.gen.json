@@ -3605,35 +3605,45 @@
       "type": "object",
       "properties": {
         "city": {
-          "type": [
-            "string",
-            "null"
-          ],
+          "type": "string",
           "title": "City"
         },
-        "establishment": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Establishment"
-        },
-        "address": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Address"
-        },
-        "telephone": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Telephone"
+        "info": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "establishment": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "title": "Establishment"
+              },
+              "address": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "title": "Address"
+              },
+              "telephone": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "title": "Telephone"
+              }
+            },
+            "required": []
+          },
+          "title": "Info"
         }
       },
-      "required": [],
+      "required": [
+        "city",
+        "info"
+      ],
       "title": "Address"
     },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@Address[]": {
