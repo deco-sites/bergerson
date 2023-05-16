@@ -3473,6 +3473,20 @@
       ],
       "title": "deco-sites/bergerson/components/header/Header.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9JZnJhbWVDb250YWluZXIudHN4@Props": {
+      "type": "object",
+      "properties": {
+        "test": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Test"
+        }
+      },
+      "required": [],
+      "title": "deco-sites/bergerson/islands/IframeContainer.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9pbnN0aXR1dGlvbmFsL0luc3RpdHV0aW9uYWxQYWdlLnRzeA==@Props": {
       "type": "object",
       "properties": {
@@ -6501,6 +6515,27 @@
         }
       }
     },
+    "Li9pc2xhbmRzL0lmcmFtZUNvbnRhaW5lci50c3g=": {
+      "title": "./islands/IframeContainer.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9JZnJhbWVDb250YWluZXIudHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/IframeContainer.tsx"
+          ],
+          "default": "./islands/IframeContainer.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL0luc3RpdHV0aW9uYWxQYWdlLnRzeA==": {
       "title": "./islands/InstitutionalPage.tsx",
       "type": "object",
@@ -7435,6 +7470,27 @@
             "deco-sites/bergerson/sections/Highlights.tsx"
           ],
           "default": "deco-sites/bergerson/sections/Highlights.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSWZyYW1lQ29udGFpbmVyLnRzeA==": {
+      "title": "deco-sites/bergerson/sections/IframeContainer.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vaXNsYW5kcy9JZnJhbWVDb250YWluZXIudHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/bergerson/sections/IframeContainer.tsx"
+          ],
+          "default": "deco-sites/bergerson/sections/IframeContainer.tsx"
         }
       }
     },
@@ -8541,6 +8597,9 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlclNlYXJjaE1lbnUudHN4"
         },
         {
+          "$ref": "#/definitions/Li9pc2xhbmRzL0lmcmFtZUNvbnRhaW5lci50c3g="
+        },
+        {
           "$ref": "#/definitions/Li9pc2xhbmRzL0luc3RpdHV0aW9uYWxQYWdlLnRzeA=="
         },
         {
@@ -8704,6 +8763,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGlnaGxpZ2h0cy50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSWZyYW1lQ29udGFpbmVyLnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSW5zdGl0dXRpb25hbFBhZ2UudHN4"
