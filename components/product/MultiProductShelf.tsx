@@ -133,7 +133,7 @@ function ProductShelf(props: Props) {
         </div>
       </div>
 
-      <SliderControllerJS rootId={id} />
+      <SliderControllerJS rootId={id} interval={7000} />
     </Container>
   );
 }

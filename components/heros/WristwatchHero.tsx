@@ -68,8 +68,8 @@ export default function WristwatchHero(props: Props) {
       <ul class="grid grid-cols-1">
         {slides.map((slide, slideIndex) => {
           const isLeft = slide.textPosition === "left";
-          const productLeftClass = "bottom-[-50px] left-[-100px]";
-          const productRightClass = "bottom-[-50px] right-[-100px]";
+          const productLeftClass = "bottom-[-150px] left-0 -translate-x-1/2";
+          const productRightClass = "bottom-[-150px] right-0 translate-x-1/2";
           const productClass = isLeft ? productLeftClass : productRightClass;
           const textsOrderClass = isLeft ? "order-1" : "order-2";
           const detailsOrderClass = isLeft ? "order-2" : "order-1";
@@ -82,7 +82,8 @@ export default function WristwatchHero(props: Props) {
             >
               {/** detail */}
               <div
-                class={`relative w-full lg:h-[600px] lg:w-[728px] lg:mx-[15px] lg:${detailsOrderClass}`}
+                class={`relative w-full lg:max-h-[600px] lg:w-1/2 lg:mx-[15px] lg:${detailsOrderClass}`}
+                style={{ height: "max-content" }}
               >
                 <Actionable action={slide.detail.action}>
                   <img
@@ -90,7 +91,9 @@ export default function WristwatchHero(props: Props) {
                     decoding="async"
                     src={slide.detail.image}
                     alt={slide.detail.action?.title || title}
-                    class="h-[600px] w-full lg:w-[728px] object-cover"
+                    class={`max-h-[600px] w-full lg:max-w-[728px] object-cover ${
+                      isLeft ? "mr-auto" : "ml-auto"
+                    }`}
                   />
                 </Actionable>
 
@@ -116,7 +119,7 @@ export default function WristwatchHero(props: Props) {
 
               {/** texts */}
               <div
-                class={`lg:max-w-[740px] py-8 flex flex-col items-center justify-center lg:items-start lg:justify-start gap-8 relative lg:${textsOrderClass}`}
+                class={`lg:max-w-[740px] py-8 flex flex-col items-center justify-center lg:items-start lg:justify-start gap-8 relative lg:${textsOrderClass} lg:w-1/2`}
               >
                 {/** mobile controllers */}
                 <div class="lg:hidden flex w-full absolute justify-between px-2 top-12">
