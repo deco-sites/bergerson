@@ -87,7 +87,7 @@ function ShelfControllerDesktop(props: Props & ControllerProps) {
         const offset = isActive ? "-ml-[38px]" : "";
         const fontSize = isActive ? "40px" : "25px";
         const leading = isActive ? "60px" : "45px";
-        const color = isActive ? "#c8c8c8" : "#1d1d1b";
+        const color = isActive ? "#1d1d1b" : "#c8c8c8";
         const fontAnimation = isActive ? increaseFont : decreaseFont;
         const marginAnimation = isActive ? increaseMargin : decreaseMargin;
 
