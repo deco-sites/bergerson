@@ -36,8 +36,6 @@ function ProductShelf(props: Props) {
     }
   }, [sliderRef]);
 
-  console.log(activeCollection.value);
-
   return (
     <Container
       id={id}
