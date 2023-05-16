@@ -29,7 +29,7 @@ function InstitutionalPage(
   { menuItems = [], pageType, content = "", accordions = [], title }: Props,
 ) {
   return (
-    <InstituionalContainer class="mt-[30px]">
+    <InstituionalContainer class="mt-[30px] mb-[80px]">
       <Head>
         <style
           dangerouslySetInnerHTML={{
@@ -49,6 +49,9 @@ function InstitutionalPage(
             }
             .markdown-body p:empty {
               display: none;
+            }
+            .markdown-body p:last-child {
+              margin-bottom: 20px;
             }
             .markdown-body p {
               color: #616161;

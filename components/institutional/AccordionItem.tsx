@@ -20,7 +20,7 @@ export function AccordionItem({ title, content }: Props) {
 
   return (
     <details ref={ref}>
-      <summary class="marker::hidden list-none flex justify-between items-center font-bold text-[20px] leading-[35px] mt-[20px] mb-[25px] border-b-1 border-[#ccc]">
+      <summary class="marker::hidden list-none flex justify-between items-center font-bold text-[20px] leading-[35px] mb-[25px] border-b-1 border-[#ccc]">
         {title}
         {open.value
           ? <span class={operationClasses}>-</span>
