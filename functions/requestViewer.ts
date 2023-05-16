@@ -1,8 +1,8 @@
-import type { LoaderContext, LoaderFunction } from "$live/types.ts";
+import type { LoaderFunction, StatefulContext } from "$live/types.ts";
 
 export interface RequestViewer {
   request: Request;
-  context: LoaderContext;
+  context: StatefulContext<null>;
 }
 
 /**

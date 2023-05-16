@@ -97,7 +97,7 @@ function ShelfControllerDesktop(props: Props & ControllerProps) {
             onClick={() => props.changeTab(index)}
           >
             <div class="group cursor-pointer tracking-widest w-auto whitespace-nowrap flex flex-row items-center gap-3">
-              <div class="h-[1px] w-[25px] block bg-[#1d1d1b]" />
+              <div class="h-[1px] w-[25px] block bg-[#1d1d1b] relative group-hover:left-[5px] transition-[left]" />
 
               <span
                 class={tw`font-arapey uppercase text-[${fontSize}] leading-[${leading}] ${fontAnimation}`}
@@ -130,11 +130,12 @@ export default function TagHeuerShelf(props: Props) {
   const onChange = (n: number) => (activeTab.value = n);
   const controllerProps = { activeTab: activeTab.value, changeTab: onChange };
   const activeCollection = collections?.find((_, i) => i === activeTab.value);
-
+  console.log(products?.length);
   const collectionProducts = products?.filter((product) => {
     const addProperties = product.additionalProperty ?? [];
     const clusters = addProperties.filter((add) => add.name === "cluster");
     const clustersIds = clusters.map((cluster) => cluster.propertyID);
+    console.log(activeCollection?.clusterId);
     return clustersIds.includes(activeCollection?.clusterId.toString());
   });
 
