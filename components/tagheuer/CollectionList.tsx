@@ -21,7 +21,16 @@ export default function CollectionList(props: Props) {
           <a
             href={`/tag-heuer/${collection.slug}`}
             aria-label={collection.slug}
+            class="group relative"
           >
+            <div
+              aria-hidden="true"
+              class="group-hover:opacity-100 opacity-0 transition-opacity absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,.4)] z-10"
+            />
+            <div
+              aria-hidden="true"
+              class="group-hover:(w-3/4 h-3/4) absolute ease-in-out duration-[300ms] transition-[width,height] -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-[105%] h-[105%] z-20 border-1 border-[rgba(255,255,255,.3)]"
+            />
             <div class="flex flex-1 flex-col gap-2 items-center justify-center w-full h-full">
               <img
                 loading="lazy"
