@@ -24,8 +24,6 @@ function ProductShelf(props: Props) {
 
   const id = useId() + titles.length;
   const activeCollection = useSignal(0);
-  const changeCollection = (i: number) => () => (activeCollection.value = i);
-  const products = collection ? collection[activeCollection.value] : [];
 
   useEffect(() => {
     const width = sliderRef?.current?.base?.offsetWidth ?? 0;
@@ -37,6 +35,8 @@ function ProductShelf(props: Props) {
       largeCardWidth.value = cardSize;
     }
   }, [sliderRef]);
+
+  console.log(activeCollection.value);
 
   return (
     <Container
@@ -52,7 +52,7 @@ function ProductShelf(props: Props) {
 
             return (
               <div
-                onClick={changeCollection(i)}
+                onClick={() => activeCollection.value = i}
                 class="flex flex-row gap-8 cursor-pointer items-center"
               >
                 {!isFirst && (
@@ -79,7 +79,7 @@ function ProductShelf(props: Props) {
         class="gap-6 col-start-2 col-end-2 row-start-2 row-end-5 scrollbar-none overflow-x-scroll px-5"
         snap="snap-center sm:snap-start flex flex-1 h-full first:ml-[30px] sm:first:ml-0 last:mr-[30px] sm:last:mr-0"
       >
-        {products?.map((product, index) => {
+        {collection?.[activeCollection.value]?.map((product, index) => {
           const smallWidth = sliderWidth.value + "px";
           const largeWidth = largeCardWidth.value + "px";
 
