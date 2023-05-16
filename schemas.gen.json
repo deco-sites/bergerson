@@ -13,6 +13,26 @@
         }
       }
     },
+    "ZGVjby1jeC9saXZlL3R5cGVzLnRz@StatefulContext": {
+      "type": "object",
+      "properties": {
+        "params": {
+          "title": "Params",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "state": {
+          "title": "State"
+        }
+      },
+      "required": [
+        "params",
+        "state"
+      ],
+      "title": "StatefulContext"
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vZnVuY3Rpb25zL3JlcXVlc3RWaWV3ZXIudHM=@RequestViewer": {
       "type": "object",
       "properties": {
@@ -20,21 +40,7 @@
           "title": "Request"
         },
         "context": {
-          "allOf": [
-            {},
-            {
-              "type": "object",
-              "properties": {
-                "reqUrl": {
-                  "type": "string",
-                  "title": "Req Url"
-                }
-              },
-              "required": [
-                "reqUrl"
-              ]
-            }
-          ],
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL3R5cGVzLnRz@StatefulContext",
           "title": "Context"
         }
       },

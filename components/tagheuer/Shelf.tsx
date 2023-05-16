@@ -97,7 +97,7 @@ function ShelfControllerDesktop(props: Props & ControllerProps) {
             onClick={() => props.changeTab(index)}
           >
             <div class="group cursor-pointer tracking-widest w-auto whitespace-nowrap flex flex-row items-center gap-3">
-              <div class="h-[1px] w-[25px] block bg-[#1d1d1b] relative group-hover:left-[5px] transition-[left]" />
+              <div class="h-[1px] w-[25px] block bg-[#1d1d1b] relative group-hover:left-[5px] left-0 transition-all" />
 
               <span
                 class={tw`font-arapey uppercase text-[${fontSize}] leading-[${leading}] ${fontAnimation}`}

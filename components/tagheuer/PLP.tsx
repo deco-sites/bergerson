@@ -36,7 +36,7 @@ function MenuMobile(props: Props) {
               aria-label={collection.slug}
               href={`/tag-heuer/${collection.slug}`}
             >
-              <div class="cursor-pointer tracking-widest h-[30px] w-auto whitespace-nowrap font-serif font-semibold uppercase flex flex-col items-center justify-between">
+              <div class="cursor-pointer h-[30px] w-auto whitespace-nowrap font-serif font-semibold uppercase flex flex-col items-center justify-between">
                 {collection.nickname}
                 <div class="h-[2px] w-[20px] block bg-[#1d1d1b]" />
               </div>
@@ -62,8 +62,8 @@ function MenuDesktop(props: Props) {
             aria-label={collection.slug}
             href={`/tag-heuer/${collection.slug}`}
           >
-            <div class="group cursor-pointer tracking-widest w-auto whitespace-nowrap flex flex-row items-center gap-3">
-              <div class="h-[1px] w-[25px] block bg-[#1d1d1b]" />
+            <div class="group cursor-pointer w-auto whitespace-nowrap flex flex-row items-center gap-3">
+              <div class="h-[1px] w-[25px] block bg-[#1d1d1b] relative group-hover:left-[5px] left-0 transition-all" />
 
               <span class="font-arapey uppercase text-[25px] group-hover:text-underline">
                 {collection.nickname}
@@ -95,11 +95,11 @@ function PLP(props: Props) {
       </div>
 
       <div class="flex flex-col gap-4">
-        <h1 class="text-4xl md:text-6xl ml-[15px] font-arapey text-[#333]">
+        <h1 class="text-[40px] md:text-[63px] ml-[15px] font-arapey text-[#333]">
           {matching.name}
         </h1>
 
-        <div class="text-[#666]">
+        <div class="text-[#666] font-light">
           <QuillText html={matching.description} />
         </div>
 
