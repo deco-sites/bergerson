@@ -7,7 +7,7 @@ export interface Props {
   description: HTML;
   image?: LiveImage;
   caption?: string;
-  action?: { label: string; href: string };
+  action?: { label?: string; href?: string };
 }
 
 export default function InfoCard(props: Props) {

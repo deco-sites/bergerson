@@ -271,6 +271,10 @@ const legacyPLPLoader: LoaderFunction<
     ft,
     fq,
   };
+  Object.keys(searchArgs).forEach((key) =>
+    (searchArgs as Record<string, unknown>)[key] === undefined &&
+    delete (searchArgs as Record<string, unknown>)[key]
+  );
 
   // search products on VTEX. Feel free to change any of these parameters
   const [vtexProducts, vtexFacets] = await Promise.all([

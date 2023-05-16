@@ -5706,18 +5706,21 @@
           "type": "object",
           "properties": {
             "label": {
-              "type": "string",
+              "type": [
+                "string",
+                "null"
+              ],
               "title": "Label"
             },
             "href": {
-              "type": "string",
+              "type": [
+                "string",
+                "null"
+              ],
               "title": "Href"
             }
           },
-          "required": [
-            "label",
-            "href"
-          ],
+          "required": [],
           "title": "Action"
         }
       },
