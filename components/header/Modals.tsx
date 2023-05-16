@@ -61,20 +61,6 @@ function Modals({ menu, img }: Props) {
           </div>
         </Suspense>
       </Modal>
-
-      <Modal
-        title="Minha sacola"
-        mode="sidebar-right"
-        loading="lazy"
-        open={displayCart.value}
-        onClose={() => {
-          displayCart.value = false;
-        }}
-      >
-        <Suspense fallback={<Loading />}>
-          <Cart />
-        </Suspense>
-      </Modal>
     </>
   );
 }
