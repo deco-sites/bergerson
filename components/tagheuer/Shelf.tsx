@@ -81,25 +81,26 @@ function ShelfControllerDesktop(props: Props & ControllerProps) {
   });
 
   return (
-    <div class="hidden md:flex flex-col gap-4 min-w-[300px] ml-[38px]">
+    <div class="hidden md:flex flex-col min-w-[300px] ml-[38px]">
       {collections?.map((collection, index) => {
         const isActive = index === props.activeTab;
         const offset = isActive ? "-ml-[38px]" : "";
         const fontSize = isActive ? "40px" : "25px";
-        const opacity = isActive ? "opacity-100" : "opacity-30";
+        const leading = isActive ? "60px" : "45px";
+        const color = isActive ? "#c8c8c8" : "#1d1d1b";
         const fontAnimation = isActive ? increaseFont : decreaseFont;
         const marginAnimation = isActive ? increaseMargin : decreaseMargin;
 
         return (
           <div
-            class={tw`${offset} transition-all ${opacity} hover:opacity-100 ${marginAnimation}`}
+            class={tw`${offset} transition-all text-[${color}] hover:text-[#666] ${marginAnimation}`}
             onClick={() => props.changeTab(index)}
           >
             <div class="group cursor-pointer tracking-widest w-auto whitespace-nowrap flex flex-row items-center gap-3">
               <div class="h-[1px] w-[25px] block bg-[#1d1d1b]" />
 
               <span
-                class={tw`font-arapey uppercase text-[${fontSize}] ${fontAnimation}`}
+                class={tw`font-arapey uppercase text-[${fontSize}] leading-[${leading}] ${fontAnimation}`}
               >
                 {collection.nickname}
               </span>
