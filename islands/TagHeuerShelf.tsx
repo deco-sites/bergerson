@@ -1,1 +1,1 @@
-export { default } from "deco-sites/bergerson/sections/TagHeuerShelf.tsx";
+export { default } from "deco-sites/bergerson/components/tagheuer/Shelf.tsx";
