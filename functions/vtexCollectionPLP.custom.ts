@@ -1,9 +1,11 @@
 import type { LoaderFunction } from "$live/types.ts";
-import { createClient } from "deco-sites/std/commerce/vtex/client.ts";
-import { toProduct } from "deco-sites/std/commerce/vtex/transform.ts";
-import type { StateVTEX } from "deco-sites/std/commerce/vtex/types.ts";
-import { withSegment } from "deco-sites/std/commerce/vtex/withSegment.ts";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import { createClient } from "deco-sites/std-legacy/commerce/vtex/client.ts";
+import { StateVTEX } from "deco-sites/std-legacy/commerce/vtex/types.ts";
+import {
+  withSegment,
+} from "deco-sites/std-legacy/commerce/vtex/withSegment.ts";
+import { toProduct } from "deco-sites/std/packs/vtex/utils/transform.ts";
+import { ProductListingPage } from "https://denopkg.com/deco-sites/std@1.7.1/commerce/types.ts";
 
 export interface Props {
   /**
@@ -62,7 +64,10 @@ const legacyPLPLoader: LoaderFunction<
   // If a property is missing from the final `products` array you can add
   // it in here
   const products = vtexProducts.map((p) =>
-    toProduct(p, p.items[0], 0, { url, priceCurrency: vtex.currency() })
+    toProduct(p, p.items[0], 0, {
+      baseUrl: req.url,
+      priceCurrency: vtex.currency(),
+    })
   );
 
   const hasNextPage = Boolean(page < 50 && products.length === count);
