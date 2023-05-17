@@ -1,13 +1,12 @@
 import type { LoaderFunction } from "$live/types.ts";
-import { withSegment } from "deco-sites/std/commerce/vtex/withSegment.ts";
-import { createClient } from "deco-sites/std/commerce/vtex/client.ts";
-import { toProduct } from "deco-sites/std/commerce/vtex/transform.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
-
-import type {
-  LegacySort,
-  StateVTEX,
-} from "deco-sites/std/commerce/vtex/types.ts";
+import { createClient } from "deco-sites/std-legacy/commerce/vtex/client.ts";
+import { StateVTEX } from "deco-sites/std-legacy/commerce/vtex/types.ts";
+import {
+  withSegment,
+} from "deco-sites/std-legacy/commerce/vtex/withSegment.ts";
+import { Product } from "deco-sites/std/commerce/types.ts";
+import type { LegacySort } from "deco-sites/std/packs/vtex/types.ts";
+import { toProduct } from "deco-sites/std/packs/vtex/utils/transform.ts";
 
 export interface Props {
   /** @description total number of items to display */
@@ -38,7 +37,6 @@ const legacyProductListLoader: LoaderFunction<
 ) => {
   const { global: { configVTEX }, segment } = ctx.state;
   const vtex = createClient(configVTEX);
-  const url = new URL(req.url);
 
   const count = props.count ?? 12;
 
@@ -56,7 +54,10 @@ const legacyProductListLoader: LoaderFunction<
     });
 
     return vtexProducts.map((p) =>
-      toProduct(p, p.items[0], 0, { url, priceCurrency: vtex.currency() })
+      toProduct(p, p.items[0], 0, {
+        baseUrl: req.url,
+        priceCurrency: vtex.currency(),
+      })
     );
   });
 

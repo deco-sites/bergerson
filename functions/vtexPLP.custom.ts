@@ -2,10 +2,11 @@ import type { LoaderFunction } from "$live/types.ts";
 import {
   ClientVTEX,
   createClient,
-} from "deco-sites/std/commerce/vtex/client.ts";
-import { toProduct } from "deco-sites/std/commerce/vtex/transform.ts";
-import { slugify } from "deco-sites/std/commerce/vtex/utils/slugify.ts";
-import { withSegment } from "deco-sites/std/commerce/vtex/withSegment.ts";
+} from "deco-sites/std-legacy/commerce/vtex/client.ts";
+import { StateVTEX } from "deco-sites/std-legacy/commerce/vtex/types.ts";
+import {
+  withSegment,
+} from "deco-sites/std-legacy/commerce/vtex/withSegment.ts";
 import type {
   Filter,
   FilterToggle,
@@ -15,8 +16,9 @@ import type {
   LegacyFacet,
   LegacySort,
   PageType,
-} from "deco-sites/std/commerce/vtex/types.ts";
-import type { StateVTEX } from "deco-sites/std/commerce/vtex/types.ts";
+} from "deco-sites/std/packs/vtex/types.ts";
+import { slugify } from "deco-sites/std/packs/vtex/utils/slugify.ts";
+import { toProduct } from "deco-sites/std/packs/vtex/utils/transform.ts";
 
 export interface Props {
   /**
@@ -286,7 +288,10 @@ const legacyPLPLoader: LoaderFunction<
   // If a property is missing from the final `products` array you can add
   // it in here
   const products = vtexProducts.map((p) =>
-    toProduct(p, p.items[0], 0, { url, priceCurrency: vtex.currency() })
+    toProduct(p, p.items[0], 0, {
+      priceCurrency: vtex.currency(),
+      baseUrl: req.url,
+    })
   );
 
   const filters = getValidFilters(

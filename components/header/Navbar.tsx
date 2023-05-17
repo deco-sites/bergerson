@@ -1,9 +1,9 @@
 import HeaderButton from "deco-sites/fashion/components/header/Buttons.tsx";
+import HeaderSearchMenu from "deco-sites/fashion/components/header/HeaderSearchMenu.tsx";
 import type { Props as SearchbarProps } from "deco-sites/fashion/components/search/Searchbar.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import HeaderSearchMenu from "deco-sites/fashion/components/header/HeaderSearchMenu.tsx";
-import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
 import { useUI } from "../../sdk/useUI.ts";
 import Icon from "../ui/Icon.tsx";
 import Logo from "../ui/Logo.tsx";
