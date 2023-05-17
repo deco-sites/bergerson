@@ -208,35 +208,33 @@ function Searchbar({
               alternateName: prod.Title,
               url: `https:${prod.SecondImageLink}`,
             }],
-            offers: prod.Availability === "in stock"
-              ? {
-                "@type": "AggregateOffer",
-                priceCurrency: "BRL",
-                highPrice: prod.Price,
-                lowPrice: prod.FinalPrice,
-                offerCount: 1,
-                offers: [{
-                  "@type": "Offer",
-                  availability: prod.Availability === "in stock"
-                    ? "https://schema.org/InStock"
-                    : "https://schema.org/OutOfStock",
-                  gtin: prod.Mpn,
-                  inventoryLevel: { value: 1 },
-                  itemCondition: "https://schema.org/NewCondition",
+            offers: {
+              "@type": "AggregateOffer",
+              priceCurrency: "BRL",
+              highPrice: prod.Price,
+              lowPrice: prod.FinalPrice,
+              offerCount: 1,
+              offers: [{
+                "@type": "Offer",
+                availability: prod.Availability === "in stock"
+                  ? "https://schema.org/InStock"
+                  : "https://schema.org/OutOfStock",
+                gtin: prod.Mpn,
+                inventoryLevel: { value: 1 },
+                itemCondition: "https://schema.org/NewCondition",
+                price: prod.FinalPrice,
+                priceSpecification: [{
+                  "@type": "UnitPriceSpecification",
+                  priceComponentType: "https://schema.org/Installment",
+                  priceType: "https://schema.org/ListPrice",
+                  billingDuration: prod.Installment,
+                  billingIncrement: prod.InstallmentAmount,
                   price: prod.FinalPrice,
-                  priceSpecification: [{
-                    "@type": "UnitPriceSpecification",
-                    priceComponentType: "https://schema.org/Installment",
-                    priceType: "https://schema.org/ListPrice",
-                    billingDuration: prod.Installment,
-                    billingIncrement: prod.InstallmentAmount,
-                    price: prod.FinalPrice,
-                  }],
-                  seller: "1",
-                  sku: prod.Sku,
                 }],
-              } as AggregateOffer
-              : undefined,
+                seller: "1",
+                sku: prod.Sku,
+              }],
+            } as AggregateOffer,
           };
         })}
       />

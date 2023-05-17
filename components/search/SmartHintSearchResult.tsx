@@ -17,7 +17,8 @@ export interface Props {
 }
 
 export function SmartHintSearchResult(
-  { products, open, loading, searchTerm, totalResults, onOrderBy }: Props,
+  { products, open, loading, searchTerm, totalResults, onOrderBy, onNextPage }:
+    Props,
 ) {
   return (
     <div
@@ -55,7 +56,7 @@ export function SmartHintSearchResult(
           </div>
         </div>
         <div class="flex-1 h-auto">
-          {products && !loading
+          {products
             ? (
               <ProductGallery
                 products={products}
@@ -65,16 +66,27 @@ export function SmartHintSearchResult(
                 }}
               />
             )
-            : (
+            : null}
+          {loading && !products
+            ? (
               <div class="flex items-center justify-center h-full w-full">
                 <Spinner size={50} />
               </div>
-            )}
+            )
+            : null}
         </div>
         <div class="text-center mt-[40px] pb-[50px]">
-          <Button class="w-[250px] text-[18px] font-semibold text-white py-[12px] uppercase override:h-auto">
-            Ver Mais
-          </Button>
+          {products?.length !== totalResults
+            ? (
+              <Button
+                loading={Boolean(loading && products)}
+                class="w-[250px] text-[18px] font-semibold text-white py-[12px] uppercase override:h-auto"
+                onClick={() => onNextPage()}
+              >
+                Ver Mais
+              </Button>
+            )
+            : null}
         </div>
       </Container>
     </div>

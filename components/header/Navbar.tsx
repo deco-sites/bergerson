@@ -69,7 +69,7 @@ function Navbar({ items, searchbar, img, cartImage }: {
                 as="a"
                 variant="icon"
                 href={cartUrl}
-                class="override:w-[26px]"
+                class="override:w-[26px] ml-1"
                 aria-label="My cart"
               >
                 <img
@@ -92,7 +92,7 @@ function Navbar({ items, searchbar, img, cartImage }: {
         </div>
         {open ? <HeaderSearchMenu searchbar={searchbar} /> : (
           <>
-            <div class="px-[30px] flex h-[135px] pt-[1px] ml-[8px] justify-between w-full">
+            <div class="px-[30px] flex h-[135px] pt-[1px] ml-[8px] justify-around w-full">
               {items.map((item) => <NavItem item={item} />)}
             </div>
             <div class="flex-none  flex items-center justify-between">
