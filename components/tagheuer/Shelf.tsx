@@ -1,14 +1,15 @@
-import { useId } from "preact/hooks";
-import { animation, tw } from "twind/css";
-import { useSignal } from "@preact/signals";
-import ProductCard from "./ProductCard.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import { useSignal } from "@preact/signals";
+import type { Props as TagHeuerConfig } from "deco-sites/bergerson/sections/TagHeuer.global.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
+import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
 import SliderControllerJS from "deco-sites/fashion/islands/SliderJS.tsx";
-import type { Props as TagHeuerConfig } from "deco-sites/bergerson/sections/TagHeuer.global.tsx";
+import type { Product } from "deco-sites/std/commerce/types.ts";
+import { useEffect, useRef } from "preact/compat";
+import { useId } from "preact/hooks";
+import { animation, tw } from "twind/css";
+import ProductCard from "./ProductCard.tsx";
 
 export interface Props {
   tagHeuerConfig?: LoaderReturnType<TagHeuerConfig | null>;
@@ -126,18 +127,32 @@ export default function TagHeuerShelf(props: Props) {
   const { products, tagHeuerConfig } = props;
   const { collections } = tagHeuerConfig ?? {};
 
+  const sliderRef = useRef<HTMLUListElement>(null);
+  const sliderWidth = useSignal(292);
+  const largeCardWidth = useSignal(292);
+
   const activeTab = useSignal(0);
   const onChange = (n: number) => (activeTab.value = n);
   const controllerProps = { activeTab: activeTab.value, changeTab: onChange };
   const activeCollection = collections?.find((_, i) => i === activeTab.value);
-  console.log(products?.length);
+
   const collectionProducts = products?.filter((product) => {
     const addProperties = product.additionalProperty ?? [];
     const clusters = addProperties.filter((add) => add.name === "cluster");
     const clustersIds = clusters.map((cluster) => cluster.propertyID);
-    console.log(activeCollection?.clusterId);
     return clustersIds.includes(activeCollection?.clusterId.toString());
   });
+
+  useEffect(() => {
+    const width = sliderRef.current?.offsetWidth ?? 0;
+
+    if (width) {
+      const safeWidth = width - 60;
+      const cardSize = Math.round(safeWidth / 2);
+      sliderWidth.value = width - 40;
+      largeCardWidth.value = cardSize;
+    }
+  }, [sliderRef.current]);
 
   return (
     <div class="bg-[#fafafa] relative py-20">
@@ -171,14 +186,22 @@ export default function TagHeuerShelf(props: Props) {
             </a>
 
             <Slider
+              ref={sliderRef}
               class="gap-6 col-start-1 row-start-1 md:(col-start-2 row-start-1 row-end-1) overflow-x-scroll scrollbar-none"
               snap="snap-center sm:snap-start flex flex-1 h-full first:pl-6 last:pr-6 sm:last:pr-0"
             >
-              {collectionProducts?.map((product) => (
-                <div class="min-w-[270px] max-w-[270px] md:min-w-[292px] md:max-w-[292px]">
-                  <ProductCard product={product} preload={false} />
-                </div>
-              ))}
+              {collectionProducts?.map((product) => {
+                const smallWidth = sliderWidth.value + "px";
+                const largeWidth = largeCardWidth.value + "px";
+
+                return (
+                  <div
+                    class={`w-[${smallWidth}] md:override:w-[${largeWidth}] flex items-center`}
+                  >
+                    <ProductCard product={product} preload={false} />
+                  </div>
+                );
+              })}
             </Slider>
 
             {/** CONTROLS DESKTOP */}

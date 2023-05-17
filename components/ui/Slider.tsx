@@ -1,33 +1,31 @@
-import { Children } from "preact/compat";
+import { Children, forwardRef } from "preact/compat";
 import type { JSX } from "preact";
 
 type SliderProps = JSX.IntrinsicElements["ul"] & {
   snap?: string;
 };
-
-export function Slider({
+export const Slider = forwardRef<HTMLUListElement, SliderProps>(({
   children,
   snap = "scroll-snap-center",
   class: _class = "gap-6 scrollbar-none",
   ...props
-}: SliderProps) {
-  return (
-    <ul
-      data-slider
-      class={`grid grid-flow-col items-center overflow-x-hidden overscroll-x-contain snap-x snap-mandatory ${_class}`}
-      {...props}
-    >
-      {Children.map(children, (child, index) => (
-        <li
-          data-slider-item={index}
-          class={snap}
-        >
-          {child}
-        </li>
-      ))}
-    </ul>
-  );
-}
+}, ref) => ((
+  <ul
+    data-slider
+    ref={ref}
+    class={`grid grid-flow-col items-center overflow-x-hidden overscroll-x-contain snap-x snap-mandatory ${_class}`}
+    {...props}
+  >
+    {Children.map(children, (child, index) => (
+      <li
+        data-slider-item={index}
+        class={snap}
+      >
+        {child}
+      </li>
+    ))}
+  </ul>
+)));
 
 type SliderDotsProps = JSX.IntrinsicElements["ol"];
 

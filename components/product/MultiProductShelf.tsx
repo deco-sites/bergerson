@@ -26,15 +26,15 @@ function ProductShelf(props: Props) {
   const activeCollection = useSignal(0);
 
   useEffect(() => {
-    const width = sliderRef?.current?.base?.offsetWidth ?? 0;
+    const width = sliderRef.current?.offsetWidth ?? 0;
 
     if (width) {
       const safeWidth = width - 60;
-      const cardSize = safeWidth / 3;
+      const cardSize = Math.round(safeWidth / 3);
       sliderWidth.value = width - 40;
       largeCardWidth.value = cardSize;
     }
-  }, [sliderRef]);
+  }, [sliderRef.current]);
 
   return (
     <Container
@@ -84,7 +84,7 @@ function ProductShelf(props: Props) {
           return (
             <div
               key={`${activeCollection.value}-${index}`}
-              class={`min-w-[${smallWidth}] max-w-[${smallWidth}] sm:(min-w-[${largeWidth}] max-w-[${largeWidth}]) h-full animate-fade-in`}
+              class={`w-[${smallWidth}] sm:(w-[${largeWidth}]) h-full animate-fade-in`}
             >
               <ProductCard
                 preload={false}

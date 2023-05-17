@@ -26,10 +26,14 @@ function ProductCard({ product, preload }: Props) {
     <div
       data-deco="view-product"
       id={`product-card-${productID}`}
-      class="w-full group h-full bg-white"
+      class="w-full group bg-white"
     >
-      <a href={url} aria-label="product link" class="h-full flex flex-col">
-        <div class="relative w-full bg-white">
+      <a
+        href={url}
+        aria-label="product link"
+        class="flex flex-col items-center"
+      >
+        <div class="relative w-full bg-white w-4/5">
           <Image
             width={500}
             src={front.url!}
@@ -50,8 +54,8 @@ function ProductCard({ product, preload }: Props) {
           />
         </div>
 
-        <div class="flex flex-col gap-1 py-2 h-full px-4">
-          <span class="text-[16px] uppercase font-heading-1 text-center mb-auto truncate">
+        <div class="flex flex-col gap-1 py-2 w-full x-4">
+          <span class="text-[16px] uppercase font-heading-1 text-center mb-auto">
             {name}
           </span>
 
