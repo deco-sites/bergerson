@@ -36,15 +36,14 @@ import * as $$$$$19 from "./islands/SliderJS.tsx";
 import * as $$$$$20 from "./islands/DropDown.tsx";
 import * as $$$$$21 from "./islands/ProductImageZoom.tsx";
 import * as $$$$$22 from "./islands/ViewSendEvent.tsx";
-import * as $$$$$23 from "./islands/Header.tsx";
-import * as $$$$$24 from "./islands/TagHeuerHeader.tsx";
-import * as $$$$$25 from "./islands/SpotlightHero.tsx";
-import * as $$$$$26 from "./islands/SmallFaderShelf.tsx";
-import * as $$$$$27 from "./islands/WristwatchHero.tsx";
-import * as $$$$$28 from "./islands/RolexHeader.tsx";
-import * as $$$$$29 from "./islands/ProductDetails.tsx";
-import * as $$$$$30 from "./islands/TagHeuerPLP.tsx";
-import * as $$$$$31 from "./islands/SearchControls.tsx";
+import * as $$$$$23 from "./islands/TagHeuerHeader.tsx";
+import * as $$$$$24 from "./islands/SpotlightHero.tsx";
+import * as $$$$$25 from "./islands/SmallFaderShelf.tsx";
+import * as $$$$$26 from "./islands/WristwatchHero.tsx";
+import * as $$$$$27 from "./islands/RolexHeader.tsx";
+import * as $$$$$28 from "./islands/ProductDetails.tsx";
+import * as $$$$$29 from "./islands/TagHeuerPLP.tsx";
+import * as $$$$$30 from "./islands/SearchControls.tsx";
 import * as $$$$$$$$0 from "./sections/WishlistGallery.tsx";
 import * as $$$$$$$$1 from "./sections/TagHeuerShelf.tsx";
 import * as $$$$$$$$2 from "./sections/FloatLinks.tsx";
@@ -205,7 +204,6 @@ const manifest = {
     "./islands/DropDown.tsx": $$$$$20,
     "./islands/Filters.tsx": $$$$$5,
     "./islands/Footer.tsx": $$$$$17,
-    "./islands/Header.tsx": $$$$$23,
     "./islands/HeaderButton.tsx": $$$$$9,
     "./islands/HeaderModals.tsx": $$$$$18,
     "./islands/HeaderSearchMenu.tsx": $$$$$11,
@@ -214,22 +212,22 @@ const manifest = {
     "./islands/MultiProductShelf.tsx": $$$$$12,
     "./islands/Navbar.tsx": $$$$$0,
     "./islands/NavItens.tsx": $$$$$3,
-    "./islands/ProductDetails.tsx": $$$$$29,
+    "./islands/ProductDetails.tsx": $$$$$28,
     "./islands/ProductImageZoom.tsx": $$$$$21,
     "./islands/ProductShelf.tsx": $$$$$16,
-    "./islands/RolexHeader.tsx": $$$$$28,
-    "./islands/SearchControls.tsx": $$$$$31,
+    "./islands/RolexHeader.tsx": $$$$$27,
+    "./islands/SearchControls.tsx": $$$$$30,
     "./islands/SendEventButton.tsx": $$$$$10,
     "./islands/ShippingSimulation.tsx": $$$$$4,
     "./islands/SliderJS.tsx": $$$$$19,
-    "./islands/SmallFaderShelf.tsx": $$$$$26,
-    "./islands/SpotlightHero.tsx": $$$$$25,
-    "./islands/TagHeuerHeader.tsx": $$$$$24,
-    "./islands/TagHeuerPLP.tsx": $$$$$30,
+    "./islands/SmallFaderShelf.tsx": $$$$$25,
+    "./islands/SpotlightHero.tsx": $$$$$24,
+    "./islands/TagHeuerHeader.tsx": $$$$$23,
+    "./islands/TagHeuerPLP.tsx": $$$$$29,
     "./islands/TagHeuerShelf.tsx": $$$$$1,
     "./islands/ViewSendEvent.tsx": $$$$$22,
     "./islands/WishlistButton.tsx": $$$$$2,
-    "./islands/WristwatchHero.tsx": $$$$$27,
+    "./islands/WristwatchHero.tsx": $$$$$26,
   },
   "sections": {
     "$live/sections/PageInclude.tsx": i2$$$$0,

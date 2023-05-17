@@ -3716,195 +3716,6 @@
       ],
       "title": "deco-sites/bergerson/components/footer/Footer.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoYmFyLnRzeA==@EditableProps": {
-      "type": "object",
-      "properties": {
-        "placeholder": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Placeholder",
-          "description": "Search bar default placeholder message",
-          "default": "What are you looking for?"
-        },
-        "action": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Action",
-          "description": "When user clicks on the search button, navigate it to",
-          "default": "/s"
-        },
-        "name": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Name",
-          "description": "Querystring param used when navigating the user",
-          "default": "q"
-        },
-        "query": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Query"
-        }
-      },
-      "required": [],
-      "title": "EditableProps"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem": {
-      "type": "object",
-      "properties": {
-        "label": {
-          "type": "string",
-          "title": "Label"
-        },
-        "href": {
-          "type": "string",
-          "title": "Href"
-        },
-        "newPage": {
-          "type": [
-            "boolean",
-            "null"
-          ],
-          "title": "New Page"
-        },
-        "children": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "label": {
-                "type": "string",
-                "title": "Label"
-              },
-              "href": {
-                "type": "string",
-                "title": "Href"
-              },
-              "image": {
-                "type": "object",
-                "properties": {
-                  "src": {
-                    "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-                    "title": "Src"
-                  },
-                  "alt": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "title": "Alt"
-                  }
-                },
-                "required": [],
-                "title": "Image"
-              }
-            },
-            "required": [
-              "label",
-              "href"
-            ]
-          },
-          "title": "Children"
-        }
-      },
-      "required": [
-        "label",
-        "href"
-      ],
-      "title": "NavItem"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem"
-      },
-      "title": "NavItem[]"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavImage": {
-      "type": "object",
-      "properties": {
-        "logo": {
-          "type": "object",
-          "properties": {
-            "src": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-              "title": "Src"
-            },
-            "alt": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Alt"
-            }
-          },
-          "required": [],
-          "title": "Logo"
-        },
-        "badge": {
-          "type": "object",
-          "properties": {
-            "src": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-              "title": "Src"
-            },
-            "alt": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Alt"
-            },
-            "href": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Href"
-            }
-          },
-          "required": [],
-          "title": "Badge"
-        }
-      },
-      "required": [],
-      "title": "NavImage"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@Props": {
-      "type": "object",
-      "properties": {
-        "searchbar": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoYmFyLnRzeA==@EditableProps",
-          "title": "Searchbar"
-        },
-        "menu": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem[]",
-          "title": "Menu",
-          "description": "Navigation items used both on mobile and desktop menus"
-        },
-        "navImage": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavImage",
-          "title": "Nav Image",
-          "description": "Navigation items used both on mobile and desktop menus"
-        },
-        "cartImage": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-          "title": "Cart Image"
-        }
-      },
-      "required": [
-        "cartImage"
-      ],
-      "title": "deco-sites/bergerson/components/header/Header.tsx@Props"
-    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9pbnN0aXR1dGlvbmFsL0luc3RpdHV0aW9uYWxQYWdlLnRzeA==@Props": {
       "type": "object",
       "properties": {
@@ -4085,6 +3896,170 @@
         "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvTmF2SXRlbS50c3g=@INavItem"
       },
       "title": "INavItem[]"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoYmFyLnRzeA==@EditableProps": {
+      "type": "object",
+      "properties": {
+        "placeholder": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Placeholder",
+          "description": "Search bar default placeholder message",
+          "default": "What are you looking for?"
+        }
+      },
+      "required": [],
+      "title": "EditableProps"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavImage": {
+      "type": "object",
+      "properties": {
+        "logo": {
+          "type": "object",
+          "properties": {
+            "src": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Src"
+            },
+            "alt": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Alt"
+            }
+          },
+          "required": [],
+          "title": "Logo"
+        },
+        "badge": {
+          "type": "object",
+          "properties": {
+            "src": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Src"
+            },
+            "alt": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Alt"
+            },
+            "href": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Href"
+            }
+          },
+          "required": [],
+          "title": "Badge"
+        }
+      },
+      "required": [],
+      "title": "NavImage"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Label"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        },
+        "newPage": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "New Page"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "title": "Label"
+              },
+              "href": {
+                "type": "string",
+                "title": "Href"
+              },
+              "image": {
+                "type": "object",
+                "properties": {
+                  "src": {
+                    "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                    "title": "Src"
+                  },
+                  "alt": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "title": "Alt"
+                  }
+                },
+                "required": [],
+                "title": "Image"
+              }
+            },
+            "required": [
+              "label",
+              "href"
+            ]
+          },
+          "title": "Children"
+        }
+      },
+      "required": [
+        "label",
+        "href"
+      ],
+      "title": "NavItem"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem"
+      },
+      "title": "NavItem[]"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "searchbar": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoYmFyLnRzeA==@EditableProps",
+          "title": "Searchbar"
+        },
+        "menu": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem[]",
+          "title": "Menu",
+          "description": "Navigation items used both on mobile and desktop menus"
+        },
+        "navImage": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavImage",
+          "title": "Nav Image",
+          "description": "Navigation items used both on mobile and desktop menus"
+        },
+        "cartImage": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Cart Image"
+        }
+      },
+      "required": [
+        "cartImage"
+      ],
+      "title": "deco-sites/bergerson/components/header/Header.tsx@Props"
     },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@Props": {
       "type": "object",
@@ -6987,27 +6962,6 @@
         }
       }
     },
-    "Li9pc2xhbmRzL0hlYWRlci50c3g=": {
-      "title": "./islands/Header.tsx",
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@Props"
-        }
-      ],
-      "required": [
-        "__resolveType"
-      ],
-      "properties": {
-        "__resolveType": {
-          "type": "string",
-          "enum": [
-            "./islands/Header.tsx"
-          ],
-          "default": "./islands/Header.tsx"
-        }
-      }
-    },
     "Li9pc2xhbmRzL0hlYWRlckJ1dHRvbi50c3g=": {
       "title": "./islands/HeaderButton.tsx",
       "type": "object",
@@ -9108,9 +9062,6 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL0Zvb3Rlci50c3g="
-        },
-        {
-          "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlci50c3g="
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlckJ1dHRvbi50c3g="

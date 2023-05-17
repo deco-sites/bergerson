@@ -128,7 +128,7 @@ export default function Spotlight(props: Props) {
                   {slide.description}
 
                   {/** mobile controllers */}
-                  <div class="lg:hidden flex w-full absolute justify-between pt-[100px] top-12">
+                  <div class="lg:hidden flex w-full absolute justify-between pt-[100px] top-12 left-0">
                     <Icon
                       width={36}
                       height={36}

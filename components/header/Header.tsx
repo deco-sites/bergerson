@@ -1,8 +1,8 @@
-import Navbar from "./Navbar.tsx";
-import { navbarHeight, navbarHeightDesktop } from "./constants.ts";
+import Navbar from "deco-sites/bergerson/islands/Navbar.tsx";
+import type { EditableProps as SearchbarProps } from "deco-sites/fashion/components/search/Searchbar.tsx";
 import Modals from "deco-sites/fashion/islands/HeaderModals.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-import type { EditableProps as SearchbarProps } from "deco-sites/fashion/components/search/Searchbar.tsx";
+import { navbarHeight, navbarHeightDesktop } from "./constants.ts";
 
 export interface NavItem {
   label: string;

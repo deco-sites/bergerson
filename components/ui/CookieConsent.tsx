@@ -1,3 +1,5 @@
+import { asset, Head } from "https://deno.land/x/fresh@1.1.5/runtime.ts";
+
 const styleContent = `
   .cookiealert {
     display: none;
@@ -68,20 +70,20 @@ const styleContent = `
 
 function CookieConsent() {
   return (
-    <>
+    <Head>
       <style dangerouslySetInnerHTML={{ __html: styleContent }} />
       <script
         async
         charSet="UTF-8"
         type="text/javascript"
-        src="/9a691e22311ca302830a0cf322edf008.js"
+        src={asset("/scripts/9a691e22311ca302830a0cf322edf008.js")}
       />
       <script
         async
         type="text/javascript"
-        src="/rlx-consent-v3.js"
+        src={asset("/scripts/rlx-consent-v3.js")}
       />
-    </>
+    </Head>
   );
 }
 

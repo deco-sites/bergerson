@@ -1,3 +1,4 @@
+import { asset } from "$fresh/runtime.ts";
 import { useSignal } from "@preact/signals";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
@@ -13,7 +14,7 @@ const embedYoutube = (videoId: string) => `
   window.addEventListener('load', () => {
     var tag = document.createElement('script');
     tag.async = true;
-    tag.src = "/youtube_api.js";
+    tag.src = ${asset("/scripts/youtube_api.js")};
     var firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
   

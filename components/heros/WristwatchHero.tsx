@@ -122,7 +122,7 @@ export default function WristwatchHero(props: Props) {
                 class={`lg:max-w-[740px] py-8 flex flex-col items-center justify-center lg:items-start lg:justify-start gap-8 relative lg:${textsOrderClass} lg:w-1/2`}
               >
                 {/** mobile controllers */}
-                <div class="lg:hidden flex w-full absolute justify-between px-2 top-12">
+                <div class="lg:hidden flex w-full absolute justify-between px-2 top-12 left-0">
                   <Icon
                     width={36}
                     height={36}

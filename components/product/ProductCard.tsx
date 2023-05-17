@@ -22,7 +22,7 @@ function ProductCard({ product, preload, largeImage }: Props) {
   } = product;
 
   const [front, back] = images ?? [];
-  const { price } = useOffer(offers);
+  const { price, installments } = useOffer(offers);
   const imageWidth = largeImage ? "" : `max-w-[220px]`;
 
   return (
@@ -71,14 +71,14 @@ function ProductCard({ product, preload, largeImage }: Props) {
             aria-label="product link"
             class="py-2 flex items-center justify-between"
           >
-            {price && (
-              <span class="font-semibold font-serif text-[#585858]">
-                10x {formatPrice(price / 10, offers!.priceCurrency!)}
-              </span>
-            )}
             <span class="text-[15px]">
               {formatPrice(price, offers!.priceCurrency!)}
             </span>
+            {!installments?.startsWith("1x") && (
+              <span class="font-semibold font-serif text-[#585858]">
+                {installments?.replace(/ de| sem juros/g, "")}
+              </span>
+            )}
           </a>
 
           <a
