@@ -28,7 +28,7 @@ export function SmartHintSearchResult(
       } fixed md:override:top-[130px] top-[50px] left-0 transition-all duration-[200ms] ease-in-out bg-white overflow-auto border-t-1 border-[#e5e5e5] pt-[15px]`}
     >
       <Container class="flex flex-col h-full px-[30px]">
-        <div class="flex flex-col md:override:(flex-row justify-between) items-center justify-center gap-10 mb-[15px]">
+        <div class="flex flex-col md:override:(flex-row justify-between) items-center justify-center gap-[10px] md:override:mb-[15px] mb-[30px]">
           <p class="text-[14px] leading-[20px] font-light text-[#1b1b1b]">
             Foram encontrados {totalResults} resultados para a busca por{" "}
             {searchTerm}

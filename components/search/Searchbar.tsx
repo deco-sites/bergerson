@@ -106,7 +106,7 @@ function Searchbar({
   };
 
   return (
-    <div class="flex flex-col flex-grow md:px-16 px-3">
+    <div class="flex flex-col flex-grow md:px-16">
       <div class="flex gap-4 justify-center">
         <form
           id="searchbar"

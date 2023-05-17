@@ -34,43 +34,52 @@ function Navbar({ items, searchbar, img, cartImage }: {
       <div
         class={`md:hidden flex flex-row justify-between items-center h-[${navbarHeight}] w-full px-5 gap-2`}
       >
-        <div class={`w-[51px] flex justify-start`}>
-          <HeaderButton variant="menu" />
-        </div>
+        {displaySearchbar.value
+          ? null
+          : (
+            <div class={`w-[51px] flex justify-start`}>
+              <HeaderButton variant="menu" />
+            </div>
+          )}
         <a
           href="/"
-          class={`md:hidden flex-grow inline-flex justify-center items-center min-h-[${navbarHeight}]`}
+          class="md:hidden flex-grow inline-flex justify-center items-center w-full"
           aria-label="Store logo"
         >
           <Logo img={img} />
         </a>
 
-        <div class="w-[51px] flex justify-between">
-          <Button
-            onClick={() => displaySearchbar.value = true}
-            aria-label="Pesquisar produtos"
-            variant="icon"
-          >
-            <Icon
-              width={26}
-              height={26}
-              id="MagnifyingGlass"
-              alt="Pesquisar produtos"
-            />
-          </Button>
-          <Button
-            as="a"
-            variant="icon"
-            href={cartUrl}
-            aria-label="My cart"
-          >
-            <img
-              src={cartImage}
-              alt="My cart button"
-              class={`w-[26px] h-[26px] object-contain`}
-            />
-          </Button>
-        </div>
+        {displaySearchbar.value
+          ? <HeaderSearchMenu searchbar={searchbar} />
+          : (
+            <div class="w-[51px] flex justify-between">
+              <Button
+                onClick={() => displaySearchbar.value = true}
+                aria-label="Pesquisar produtos"
+                variant="icon"
+              >
+                <Icon
+                  width={26}
+                  height={26}
+                  id="MagnifyingGlass"
+                  alt="Pesquisar produtos"
+                />
+              </Button>
+              <Button
+                as="a"
+                variant="icon"
+                href={cartUrl}
+                class="override:w-[26px]"
+                aria-label="My cart"
+              >
+                <img
+                  src={cartImage}
+                  alt="My cart button"
+                  class={`w-[26px] h-[26px] object-contain`}
+                />
+              </Button>
+            </div>
+          )}
       </div>
       {/* Desktop */}
       <div
