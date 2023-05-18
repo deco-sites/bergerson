@@ -7,6 +7,8 @@ import { RequestViewer } from "deco-sites/bergerson/functions/requestViewer.ts";
 export interface Banner {
   /** @description RegExp to enable this banner on the current URL. Use /feminino/* to display this banner on feminino category  */
   matcher: string;
+  /** @description RegExp to exclude this banner on some URLs. Use /feminino/blusa to hide this banner only at this page  */
+  exclude?: string;
   image: {
     /** @description Image for big screens */
     desktop: LiveImage;
@@ -26,9 +28,30 @@ export interface Props {
   banners?: Banner[];
 }
 
-function BannerUI({ banner }: { banner: Banner }) {
-  const { image, description } = banner;
+function Banner({ requestViewer, banners = [] }: Props) {
+  console.log(requestViewer?.request.url);
+  if (!requestViewer?.request?.url) {
+    return <div aria-hidden="true" class="hidden" />;
+  }
 
+  const url = new URL(requestViewer.request.url);
+  const fullUrl = url.pathname + url.search;
+  const blockedList = ["/relogios?ft=Victorinox"];
+
+  const matching = banners.find(({ matcher, exclude }) => {
+    return new RegExp(matcher.toLocaleLowerCase()).test(
+      url.pathname.toLocaleLowerCase(),
+    ) && !(exclude &&
+      new RegExp(exclude.toLocaleLowerCase()).test(
+        url.pathname.toLocaleLowerCase(),
+      ));
+  });
+
+  if (blockedList.includes(fullUrl) || !matching) {
+    return <div aria-hidden="true" class="hidden" />;
+  }
+
+  console.log(matching);
   return (
     <>
       <div class="grid grid-cols-1 grid-rows-1">
@@ -36,57 +59,39 @@ function BannerUI({ banner }: { banner: Banner }) {
           <Source
             width={360}
             height={275}
-            src={image.mobile}
+            src={matching.image.mobile}
             media="(max-width: 767px)"
           />
           <Source
             width={1440}
-            src={image.desktop}
+            src={matching.image.desktop}
             media="(min-width: 767px)"
           />
-          <img class="w-full" src={image.desktop} alt={image.alt} />
+          <img
+            class="w-full"
+            src={matching.image.desktop}
+            alt={matching.image.alt}
+          />
         </Picture>
       </div>
 
-      {description && (
+      {matching.description && (
         <Container class="px-4 flex flex-col gap-0 items-center justify-center">
           <img
             width={200}
             height={115}
-            alt={image.alt}
-            src={description.logo}
+            alt={matching.image.alt}
+            src={matching.description.logo}
             class="mx-[15px] h-[115px] w-full lg:w-[200px] object-contain"
           />
 
           <p class="text-center text-[15px] text-[#333] leading-[1.1]">
-            {description.text}
+            {matching.description.text}
           </p>
         </Container>
       )}
     </>
   );
-}
-
-function Banner({ requestViewer, banners = [] }: Props) {
-  if (!requestViewer || !requestViewer.request.url) {
-    return null;
-  }
-
-  const url = new URL(requestViewer.request.url);
-  const fullUrl = url.pathname + url.search;
-  const blockedList = ["/relogios?ft=Victorinox"];
-
-  const matching = banners.find(({ matcher }) =>
-    new RegExp(matcher.toLocaleLowerCase()).test(
-      url.pathname.toLocaleLowerCase(),
-    )
-  );
-
-  if (blockedList.includes(fullUrl) || !matching) {
-    return null;
-  }
-
-  return <BannerUI banner={matching} />;
 }
 
 export default Banner;

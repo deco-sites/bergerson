@@ -37,7 +37,7 @@ function FilterValues({ values }: FilterToggle) {
               type="checkbox"
               checked={selected}
               onClick={goTo(url)}
-              class="cursor-pointer"
+              class="cursor-pointer appearance-none border-[3px] border-[#ccc] w-4 h-4 rounded-full"
             />
 
             <span class="text-[14px] font-light">{label} ({quantity})</span>
