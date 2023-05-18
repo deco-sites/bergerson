@@ -1,4 +1,5 @@
 import { useEffect } from "preact/hooks";
+import { JSX } from "preact/jsx-runtime";
 
 interface Props {
   rootId: string;
@@ -48,10 +49,12 @@ const isHTMLElement = (x: Element): x is HTMLElement =>
 
 const setup = ({ rootId, scroll, interval, infinite }: Props) => {
   const root = document.getElementById(rootId);
-  const slider = root?.querySelector(`[${ATTRIBUTES["data-slider"]}]`);
+  const slider = root?.querySelector<HTMLUListElement>(
+    `[${ATTRIBUTES["data-slider"]}]`,
+  );
   let items = root?.querySelectorAll(`[${ATTRIBUTES["data-slider-item"]}]`);
-  const prev = root?.querySelector(`[${ATTRIBUTES['data-slide="prev"']}]`);
-  const next = root?.querySelector(`[${ATTRIBUTES['data-slide="next"']}]`);
+  const prev = root?.querySelectorAll(`[${ATTRIBUTES['data-slide="prev"']}]`);
+  const next = root?.querySelectorAll(`[${ATTRIBUTES['data-slide="next"']}]`);
   const dots = root?.querySelectorAll(`[${ATTRIBUTES["data-dot"]}]`);
 
   if (!root || !slider || !items || items.length === 0) {
@@ -205,16 +208,24 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
         if (!infinite) {
           if (index === 0) {
             if (item.isIntersecting) {
-              prev?.setAttribute("disabled", "");
+              prev?.forEach((item) => {
+                item.setAttribute("disabled", "");
+              });
             } else {
-              prev?.removeAttribute("disabled");
+              prev?.forEach((item) => {
+                item.removeAttribute("disabled");
+              });
             }
           }
           if (index === items!.length - 1) {
             if (item.isIntersecting) {
-              next?.setAttribute("disabled", "");
+              next?.forEach((item) => {
+                item.setAttribute("disabled", "");
+              });
             } else {
-              next?.removeAttribute("disabled");
+              next?.forEach((item) => {
+                item.removeAttribute("disabled");
+              });
             }
           }
         }
@@ -228,8 +239,30 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     dots?.item(it).addEventListener("click", () => goToItem(it));
   }
 
-  prev?.addEventListener("click", () => onClickPrev(true));
-  next?.addEventListener("click", () => onClickNext(true));
+  let touchstartX = 0;
+  function handleTouchStart(event: TouchEvent) {
+    touchstartX = event.touches[0]?.pageX;
+  }
+
+  function handleTouchEnd(event: TouchEvent) {
+    const touchendX = event.changedTouches[0]?.pageX;
+    if (touchendX < touchstartX) {
+      return onClickNext(true);
+    }
+    if (touchendX > touchstartX) {
+      return onClickPrev(true);
+    }
+  }
+
+  slider.addEventListener("touchstart", handleTouchStart, false);
+  slider.addEventListener("touchend", handleTouchEnd, false);
+
+  prev?.forEach((item) => {
+    item.addEventListener("click", () => onClickPrev(true));
+  });
+  next?.forEach((item) => {
+    item.addEventListener("click", () => onClickNext(true));
+  });
 
   timeout = interval && setInterval(onClickNext, interval);
 
@@ -239,8 +272,15 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
       dots?.item(it).removeEventListener("click", () => goToItem(it));
     }
 
-    prev?.removeEventListener("click", () => onClickPrev(true));
-    next?.removeEventListener("click", () => onClickNext(true));
+    prev?.forEach((item) => {
+      item.removeEventListener("click", () => onClickPrev(true));
+    });
+    next?.forEach((item) => {
+      item.removeEventListener("click", () => onClickNext(true));
+    });
+
+    slider.removeEventListener("touchstart", handleTouchStart);
+    slider.removeEventListener("touchend", handleTouchEnd);
 
     observer.disconnect();
 

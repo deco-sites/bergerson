@@ -34,7 +34,7 @@ function ProductShelf({
   const largeCardWidth = useSignal(292);
 
   useEffect(() => {
-    const width = sliderRef?.current?.base?.offsetWidth ?? 0;
+    const width = sliderRef.current?.offsetWidth ?? 0;
 
     if (width) {
       const safeWidth = width - 60;

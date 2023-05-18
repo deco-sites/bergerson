@@ -15,7 +15,7 @@ export const Slider = forwardRef<HTMLUListElement, SliderProps>(({
   <ul
     data-slider
     ref={ref}
-    class={`grid grid-flow-col items-center overflow-x-hidden overscroll-x-contain snap-x snap-mandatory ${_class}`}
+    class={`grid grid-flow-col items-center override:overflow-x-hidden overscroll-x-contain snap-x snap-mandatory ${_class}`}
     {...props}
   >
     {Children.map(children, (child, index) => (
