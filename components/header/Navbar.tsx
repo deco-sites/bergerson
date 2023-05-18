@@ -136,20 +136,22 @@ function Navbar({ items, searchbar, img, cartImage }: {
                   />
                 </Button>
               </div>
-              <Button
-                as="a"
-                variant="icon"
-                aria-label="Rolex"
-                href={img.badge?.href}
-              >
-                <img
-                  loading="lazy"
-                  decoding="async"
-                  src={img.badge?.src}
-                  alt={img.badge?.alt ?? "Rolex"}
-                  class="w-[170px] h-[70px] header:block hidden object-contain"
-                />
-              </Button>
+              {window.location?.pathname.includes("cartier") ? null : (
+                <Button
+                  as="a"
+                  variant="icon"
+                  aria-label="Rolex"
+                  href={img.badge?.href}
+                >
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    src={img.badge?.src}
+                    alt={img.badge?.alt ?? "Rolex"}
+                    class="w-[170px] h-[70px] header:block hidden object-contain"
+                  />
+                </Button>
+              )}
             </div>
           </>
         )}
