@@ -187,6 +187,7 @@ export default function TagHeuerShelf(props: Props) {
 
             <Slider
               ref={sliderRef}
+              infinite
               class="gap-6 col-start-1 row-start-1 md:(col-start-2 row-start-1 row-end-1) overflow-x-scroll scrollbar-none"
               snap="snap-center sm:snap-start flex flex-1 h-full first:pl-6 last:pr-6 sm:last:pr-0"
             >

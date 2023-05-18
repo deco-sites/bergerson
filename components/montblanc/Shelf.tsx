@@ -92,6 +92,7 @@ function ProductShelf({
 
       <Slider
         ref={sliderRef}
+        infinite
         class="gap-6 col-span-full row-start-2 row-end-5 scrollbar-none overflow-x-scroll"
         snap="snap-center sm:snap-start flex flex-1 h-full first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
       >

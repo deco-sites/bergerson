@@ -34,6 +34,7 @@ function ProductShelf(props: Props) {
 
       <div class="grid grid-cols-[38px_1fr_38px] grid-rows-[1fr_38px_1fr] md:grid-rows-[1fr_38px_1fr]">
         <Slider
+          infinite
           class="gap-6 col-start-2 col-end-2 row-start-1 row-end-4 scrollbar-none overflow-x-scroll"
           snap="snap-center sm:snap-start flex flex-1 h-full first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
         >
