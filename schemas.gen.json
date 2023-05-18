@@ -1734,7 +1734,7 @@
       "properties": {
         "count": {
           "type": "number",
-          "title": "Items per page",
+          "title": "Count",
           "description": "number of products per page to display"
         },
         "config": {
@@ -2152,7 +2152,7 @@
         },
         "count": {
           "type": "number",
-          "title": "Items per page",
+          "title": "Count",
           "description": "number of products per page to display"
         },
         "ft": {
@@ -3001,7 +3001,7 @@
         },
         "count": {
           "type": "number",
-          "title": "Items per page",
+          "title": "Count",
           "description": "number of products per page to display"
         }
       },
@@ -3092,7 +3092,7 @@
         },
         "count": {
           "type": "number",
-          "title": "Items per page",
+          "title": "Count",
           "description": "number of products per page to display"
         }
       },
@@ -3145,7 +3145,7 @@
         },
         "count": {
           "type": "number",
-          "title": "Items per page",
+          "title": "Count",
           "description": "number of products per page to display"
         },
         "ft": {
@@ -3215,7 +3215,7 @@
             }
           ],
           "type": "string",
-          "title": "Sorting"
+          "title": "Sort"
         },
         "filters": {
           "anyOf": [
@@ -3229,7 +3229,7 @@
             }
           ],
           "type": "string",
-          "title": "Filter behavior",
+          "title": "Filters",
           "description": "Set to static to not change the facets when the user filters the search. Dynamic will only show the filters containing products after each filter action"
         },
         "pageOffset": {
@@ -3237,7 +3237,7 @@
             "number",
             "null"
           ],
-          "title": "Starting page query parameter offset.",
+          "title": "Page Offset",
           "description": "Set the starting page offset. Default to 1."
         }
       },
@@ -3281,7 +3281,7 @@
             }
           ],
           "type": "string",
-          "title": "Related Products",
+          "title": "Cross Selling",
           "description": "VTEX Cross Selling API. This loader only works on routes of type /:slug/p"
         },
         "count": {
@@ -3491,7 +3491,7 @@
           "items": {
             "type": "string"
           },
-          "title": "Collection ID",
+          "title": "Collection",
           "pattern": "\\d*"
         }
       },
@@ -3539,7 +3539,7 @@
         },
         "count": {
           "type": "number",
-          "title": "Items per page",
+          "title": "Count",
           "description": "number of products per page to display"
         },
         "sort": {
@@ -3578,7 +3578,7 @@
             }
           ],
           "type": "string",
-          "title": "Sorting"
+          "title": "Sort"
         },
         "fuzzy": {
           "anyOf": [
@@ -3616,7 +3616,7 @@
             "number",
             "null"
           ],
-          "title": "Starting page query parameter offset.",
+          "title": "Page Offset",
           "description": "Set the starting page offset. Default to 1."
         }
       },
@@ -3744,7 +3744,7 @@
       "properties": {
         "count": {
           "type": "number",
-          "title": "Items per page",
+          "title": "Count",
           "description": "Number of products per page to display",
           "default": "12"
         }
@@ -6603,7 +6603,7 @@
       "properties": {
         "collection": {
           "type": "string",
-          "title": "Collection ID (e.g.: 139)",
+          "title": "Collection",
           "pattern": "\\d*"
         },
         "sort": {
@@ -6987,7 +6987,7 @@
             }
           ],
           "type": "string",
-          "title": "Related Products",
+          "title": "Cross Selling",
           "description": "VTEX Cross Selling API. This loader only works on routes of type /:slug/p"
         },
         "count": {
@@ -7142,7 +7142,7 @@
       "properties": {
         "count": {
           "type": "number",
-          "title": "Items per page",
+          "title": "Count",
           "description": "Number of products per page to display",
           "default": "12"
         }
@@ -7213,7 +7213,7 @@
             "number",
             "null"
           ],
-          "title": "Autoplay interval",
+          "title": "Interval",
           "description": "time (in seconds) to start the carousel autoplay"
         }
       },
@@ -8068,16 +8068,16 @@
       "properties": {
         "searchbar": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoYmFyLnRzeA==@EditableProps",
-          "title": "Search Bar"
+          "title": "Searchbar"
         },
         "menu": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem[]",
-          "title": "Navigation items",
+          "title": "Menu",
           "description": "Navigation items used both on mobile and desktop menus"
         },
         "navImage": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavImage",
-          "title": "Logo and badge image",
+          "title": "Nav Image",
           "description": "Navigation items used both on mobile and desktop menus"
         },
         "cartImage": {
@@ -9631,7 +9631,7 @@
             "number",
             "null"
           ],
-          "title": "Autoplay interval",
+          "title": "Interval",
           "description": "time (in seconds) to start the carousel autoplay"
         }
       },
@@ -9938,7 +9938,7 @@
       "properties": {
         "label": {
           "type": "string",
-          "title": "Locale"
+          "title": "Label"
         },
         "authToken": {
           "type": "string",
@@ -10014,7 +10014,7 @@
             "string",
             "null"
           ],
-          "title": "Canonical URL",
+          "title": "Canonical",
           "default": "https://example.com"
         },
         "imageUrl": {
@@ -10044,7 +10044,7 @@
         },
         "titleTemplate": {
           "type": "string",
-          "title": "Title template",
+          "title": "Title Template",
           "description": "add a %s whenever you want it to be replaced with the product name",
           "default": "%s | Fashion Store"
         },
@@ -10053,7 +10053,7 @@
             "string",
             "null"
           ],
-          "title": "Meta tag description",
+          "title": "Description",
           "description": "If not set, the product description will be used instead"
         },
         "themeColor": {
@@ -10421,7 +10421,7 @@
       ],
       "title": "WorkflowRef"
     },
-    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef|ce8a781f5f6005ca66fa5203d86e259e": {
+    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@958c7e60da0cd9c5672403f5ba578090|WorkflowRef": {
       "anyOf": [
         {
           "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef"
@@ -10439,13 +10439,13 @@
           ]
         }
       ],
-      "title": "WorkflowRef|ce8a781f5f6005ca66fa5203d86e259e"
+      "title": "958c7e60da0cd9c5672403f5ba578090|WorkflowRef"
     },
     "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@Props": {
       "type": "object",
       "properties": {
         "workflow": {
-          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef|ce8a781f5f6005ca66fa5203d86e259e",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@958c7e60da0cd9c5672403f5ba578090|WorkflowRef",
           "title": "Workflow"
         },
         "id": {
@@ -14575,6 +14575,21 @@
       ],
       "title": "deco-cx/live/routes/_middleware.ts@MiddlewareConfig",
       "description": "Global configurations for ./routes/_middleware.ts route"
+    },
+    "ZGVjby1jeC9saXZlL3JvdXRlcy9bLi4uY2F0Y2hhbGxdLnRzeA==@Entrypoint": {
+      "type": "object",
+      "properties": {
+        "handler": {
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9oYW5kbGVyLnRz@Handler",
+          "description": "configure how to handle requests.",
+          "title": "Handler"
+        }
+      },
+      "required": [
+        "handler"
+      ],
+      "title": "deco-cx/live/routes/[...catchall].tsx@Entrypoint",
+      "description": "Site entrypoint, configure your audiences and routes."
     }
   },
   "root": {
@@ -15224,14 +15239,14 @@
         "./routes/[...catchall].tsx": {
           "anyOf": [
             {
-              "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9oYW5kbGVyLnRz@Handler"
+              "$ref": "#/definitions/ZGVjby1jeC9saXZlL3JvdXRlcy9bLi4uY2F0Y2hhbGxdLnRzeA==@Entrypoint"
             }
           ]
         },
         "./routes/index.tsx": {
           "anyOf": [
             {
-              "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9oYW5kbGVyLnRz@Handler"
+              "$ref": "#/definitions/ZGVjby1jeC9saXZlL3JvdXRlcy9bLi4uY2F0Y2hhbGxdLnRzeA==@Entrypoint"
             }
           ]
         }

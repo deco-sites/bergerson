@@ -20,6 +20,7 @@ export const Slider = forwardRef<HTMLUListElement, SliderProps>(({
   >
     {Children.map(children, (child, index) => (
       <li
+        key={index}
         data-slider-item={index}
         class={`${snap}`}
       >
@@ -29,6 +30,7 @@ export const Slider = forwardRef<HTMLUListElement, SliderProps>(({
     {infinite
       ? Children.map(children, (child, index) => (
         <li
+          key={`${index}-clone`}
           data-slider-item={index}
           data-slider-clone-item
           class={`clone ${snap}`}

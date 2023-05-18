@@ -53,8 +53,8 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     `[${ATTRIBUTES["data-slider"]}]`,
   );
   let items = root?.querySelectorAll(`[${ATTRIBUTES["data-slider-item"]}]`);
-  const prev = root?.querySelectorAll(`[${ATTRIBUTES['data-slide="prev"']}]`);
-  const next = root?.querySelectorAll(`[${ATTRIBUTES['data-slide="next"']}]`);
+  const prev = root?.querySelector(`[${ATTRIBUTES['data-slide="prev"']}]`);
+  const next = root?.querySelector(`[${ATTRIBUTES['data-slide="next"']}]`);
   const dots = root?.querySelectorAll(`[${ATTRIBUTES["data-dot"]}]`);
 
   if (!root || !slider || !items || items.length === 0) {
@@ -208,24 +208,16 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
         if (!infinite) {
           if (index === 0) {
             if (item.isIntersecting) {
-              prev?.forEach((item) => {
-                item.setAttribute("disabled", "");
-              });
+              prev?.setAttribute("disabled", "");
             } else {
-              prev?.forEach((item) => {
-                item.removeAttribute("disabled");
-              });
+              prev?.removeAttribute("disabled");
             }
           }
           if (index === items!.length - 1) {
             if (item.isIntersecting) {
-              next?.forEach((item) => {
-                item.setAttribute("disabled", "");
-              });
+              next?.setAttribute("disabled", "");
             } else {
-              next?.forEach((item) => {
-                item.removeAttribute("disabled");
-              });
+              next?.removeAttribute("disabled");
             }
           }
         }
@@ -257,12 +249,8 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
   slider.addEventListener("touchstart", handleTouchStart, false);
   slider.addEventListener("touchend", handleTouchEnd, false);
 
-  prev?.forEach((item) => {
-    item.addEventListener("click", () => onClickPrev(true));
-  });
-  next?.forEach((item) => {
-    item.addEventListener("click", () => onClickNext(true));
-  });
+  prev?.addEventListener("click", () => onClickPrev(true));
+  next?.addEventListener("click", () => onClickNext(true));
 
   timeout = interval && setInterval(onClickNext, interval);
 
@@ -272,12 +260,8 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
       dots?.item(it).removeEventListener("click", () => goToItem(it));
     }
 
-    prev?.forEach((item) => {
-      item.removeEventListener("click", () => onClickPrev(true));
-    });
-    next?.forEach((item) => {
-      item.removeEventListener("click", () => onClickNext(true));
-    });
+    prev?.removeEventListener("click", () => onClickPrev(true));
+    next?.removeEventListener("click", () => onClickNext(true));
 
     slider.removeEventListener("touchstart", handleTouchStart);
     slider.removeEventListener("touchend", handleTouchEnd);

@@ -39,7 +39,7 @@ function ShelfControllerMobile(props: Props & ControllerProps) {
           const markerSize = isActive ? "4px" : "2px";
 
           return (
-            <div onClick={() => props.changeTab(index)}>
+            <div onClick={() => props.changeTab(index)} key={index}>
               <div class="cursor-pointer tracking-widest h-[30px] w-auto whitespace-nowrap font-serif font-semibold uppercase flex flex-col items-center justify-between">
                 <span class={isActive ? "opacity-100" : "opacity-50"}>
                   {collection.nickname}
@@ -51,7 +51,6 @@ function ShelfControllerMobile(props: Props & ControllerProps) {
           );
         })}
       </Slider>
-
       <SliderControllerJS rootId={id} />
     </div>
   );
@@ -94,6 +93,7 @@ function ShelfControllerDesktop(props: Props & ControllerProps) {
 
         return (
           <div
+            key={index}
             class={tw`${offset} transition-all text-[${color}] hover:text-[#666] ${marginAnimation}`}
             onClick={() => props.changeTab(index)}
           >
@@ -168,10 +168,7 @@ export default function TagHeuerShelf(props: Props) {
         <div class="flex flex-1" />
 
         <div class="flex flex-1 md:(h-[420px] -ml-[620px])">
-          <div
-            id={id}
-            class="grid grid-cols-1 grid-rows-[1fr_64px] md:(grid-cols-[420px_1fr])"
-          >
+          <div class="grid grid-cols-1 grid-rows-[1fr_64px] md:(grid-cols-[420px_1fr])">
             <a
               aria-label={activeCollection?.slug}
               href={`/tag-heuer/${activeCollection?.slug}`}
@@ -184,62 +181,73 @@ export default function TagHeuerShelf(props: Props) {
                 class="hidden md:(block w-[420px] h-[420px] object-cover)"
               />
             </a>
-
-            <Slider
-              ref={sliderRef}
-              infinite
-              class="gap-6 col-start-1 row-start-1 md:(col-start-2 row-start-1 row-end-1) overflow-x-scroll scrollbar-none"
-              snap="snap-center sm:snap-start flex flex-1 h-full first:pl-6 last:pr-6 sm:last:pr-0"
+            <div
+              id={id}
+              class="grid items-center col-start-1 row-start-1 md:(col-start-2 row-start-1 row-end-1)"
             >
-              {collectionProducts?.map((product) => {
-                const smallWidth = sliderWidth.value + "px";
-                const largeWidth = largeCardWidth.value + "px";
+              <Slider
+                ref={sliderRef}
+                infinite
+                key={`slider-${activeCollection?.clusterId.toString()}`}
+                class="gap-6 overflow-x-scroll scrollbar-none"
+                snap="last:override:snap-end snap-start flex flex-1 h-full first:pl-6 last:pr-6 sm:last:pr-0"
+              >
+                {collectionProducts?.map((product, index) => {
+                  const smallWidth = sliderWidth.value + "px";
+                  const largeWidth = largeCardWidth.value + "px";
 
-                return (
-                  <div
-                    class={`w-[${smallWidth}] md:override:w-[${largeWidth}] flex items-center`}
+                  return (
+                    <div
+                      class={`w-[${smallWidth}] md:override:w-[${largeWidth}] flex items-center`}
+                      key={`${product.sku}-${index}`}
+                    >
+                      <ProductCard product={product} preload={false} />
+                    </div>
+                  );
+                })}
+              </Slider>
+
+              {/** CONTROLS DESKTOP */}
+              <div class="flex flex-row gap-4 items-center justify-center col-start-1 row-start-2">
+                <div class="bg-interactive-inverse border-black border h-10 w-10 rounded-full">
+                  <Button
+                    class="h-10 w-10"
+                    variant="icon"
+                    data-slide="prev"
+                    aria-label="Previous item"
                   >
-                    <ProductCard product={product} preload={false} />
-                  </div>
-                );
-              })}
-            </Slider>
+                    <Icon
+                      size={16}
+                      id="ChevronLeft"
+                      strokeWidth={3}
+                      class="text-black"
+                    />
+                  </Button>
+                </div>
+                <div class="bg-interactive-inverse border-black border h-10 w-10 rounded-full">
+                  <Button
+                    class="h-10 w-10"
+                    variant="icon"
+                    data-slide="next"
+                    aria-label="Next item"
+                  >
+                    <Icon
+                      size={16}
+                      id="ChevronRight"
+                      strokeWidth={3}
+                      class="text-black"
+                    />
+                  </Button>
+                </div>
+              </div>
 
-            {/** CONTROLS DESKTOP */}
-            <div class="flex flex-row gap-4 items-center justify-center col-start-1 row-start-2 md:col-start-2">
-              <div class="bg-interactive-inverse border-black border h-10 w-10 rounded-full">
-                <Button
-                  class="h-10 w-10"
-                  variant="icon"
-                  data-slide="prev"
-                  aria-label="Previous item"
-                >
-                  <Icon
-                    size={16}
-                    id="ChevronLeft"
-                    strokeWidth={3}
-                    class="text-black"
-                  />
-                </Button>
-              </div>
-              <div class="bg-interactive-inverse border-black border h-10 w-10 rounded-full">
-                <Button
-                  class="h-10 w-10"
-                  variant="icon"
-                  data-slide="next"
-                  aria-label="Next item"
-                >
-                  <Icon
-                    size={16}
-                    id="ChevronRight"
-                    strokeWidth={3}
-                    class="text-black"
-                  />
-                </Button>
-              </div>
+              <SliderControllerJS
+                key={`controller-${activeCollection?.clusterId.toString()}`}
+                infinite
+                interval={7000}
+                rootId={id}
+              />
             </div>
-
-            <SliderControllerJS infinite interval={7000} rootId={id} />
           </div>
         </div>
       </div>
