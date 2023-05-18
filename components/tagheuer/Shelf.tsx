@@ -238,7 +238,7 @@ export default function TagHeuerShelf(props: Props) {
               </div>
             </div>
 
-            <SliderControllerJS rootId={id} />
+            <SliderControllerJS infinite interval={7000} rootId={id} />
           </div>
         </div>
       </div>

@@ -2,8 +2,9 @@ import { useEffect } from "preact/hooks";
 
 interface Props {
   rootId: string;
-  behavior?: "smooth" | "auto";
+  scroll?: "smooth" | "auto";
   interval?: number;
+  infinite?: boolean;
 }
 
 const ATTRIBUTES = {
@@ -45,10 +46,10 @@ const isHTMLElement = (x: Element): x is HTMLElement =>
   // deno-lint-ignore no-explicit-any
   typeof (x as any).offsetLeft === "number";
 
-const setup = ({ rootId, behavior, interval }: Props) => {
+const setup = ({ rootId, scroll, interval, infinite }: Props) => {
   const root = document.getElementById(rootId);
   const slider = root?.querySelector(`[${ATTRIBUTES["data-slider"]}]`);
-  const items = root?.querySelectorAll(`[${ATTRIBUTES["data-slider-item"]}]`);
+  let items = root?.querySelectorAll(`[${ATTRIBUTES["data-slider-item"]}]`);
   const prev = root?.querySelector(`[${ATTRIBUTES['data-slide="prev"']}]`);
   const next = root?.querySelector(`[${ATTRIBUTES['data-slide="next"']}]`);
   const dots = root?.querySelectorAll(`[${ATTRIBUTES["data-dot"]}]`);
@@ -65,6 +66,7 @@ const setup = ({ rootId, behavior, interval }: Props) => {
   const getElementsInsideContainer = () => {
     const indices: number[] = [];
     const sliderRect = slider.getBoundingClientRect();
+    items = root?.querySelectorAll(`[${ATTRIBUTES["data-slider-item"]}]`);
 
     for (let index = 0; index < items.length; index++) {
       const item = items.item(index);
@@ -84,7 +86,7 @@ const setup = ({ rootId, behavior, interval }: Props) => {
   };
 
   const goToItem = (index: number) => {
-    const item = items.item(index);
+    const item = items!.item(index);
 
     if (!isHTMLElement(item)) {
       console.warn(
@@ -96,46 +98,122 @@ const setup = ({ rootId, behavior, interval }: Props) => {
 
     slider.scrollTo({
       top: 0,
-      behavior,
+      behavior: scroll,
       left: item.offsetLeft - root.offsetLeft,
     });
   };
 
   const onClickPrev = () => {
+    const firstItem = root.querySelector('[data-slider-item="0"]:not(.clone)');
+    const rect = firstItem!.getBoundingClientRect();
+    const sliderRect = slider.getBoundingClientRect();
+
+    const firstItemRatio = intersectionX(
+      rect,
+      sliderRect,
+    ) / rect.width;
+
+    if (infinite && firstItemRatio > 0) {
+      items!.forEach((item) => {
+        if (item.classList.contains("clone")) {
+          item.classList.remove("clone");
+          firstItem!.before(item);
+          return;
+        }
+        item.classList.add("clone");
+      });
+    }
+
     const indices = getElementsInsideContainer();
     // Wow! items per page is how many elements are being displayed inside the container!!
     const itemsPerPage = indices.length;
 
-    const isShowingFirst = indices[0] === 0;
     const pageIndex = Math.floor(indices[indices.length - 1] / itemsPerPage);
+    const isShowingFirst = indices[0] === 0;
+
+    if (infinite) {
+      return goToItem(
+        (pageIndex - 1) * itemsPerPage,
+      );
+    }
 
     goToItem(
-      isShowingFirst ? items.length - 1 : (pageIndex - 1) * itemsPerPage,
+      isShowingFirst ? items!.length - 1 : (pageIndex - 1) * itemsPerPage,
     );
   };
 
   const onClickNext = () => {
+    const notCloneItems = root.querySelectorAll(
+      "[data-slider-item]:not(.clone)",
+    );
+    const lastItem = notCloneItems[notCloneItems.length - 1];
+    const rect = lastItem!.getBoundingClientRect();
+    const sliderRect = slider.getBoundingClientRect();
+
+    const lastItemRatio = intersectionX(
+      rect,
+      sliderRect,
+    ) / rect.width;
+
+    if (infinite && lastItemRatio > 0) {
+      for (let i = 0; i < items!.length; i++) {
+        const item = items![i];
+        const realLast = root.querySelector(
+          "[data-slider-item]:last-child",
+        );
+
+        if (item.classList.contains("clone")) {
+          item.classList.remove("clone");
+          realLast!.after(item);
+          continue;
+        }
+        item.classList.add("clone");
+      }
+    }
+
     const indices = getElementsInsideContainer();
     // Wow! items per page is how many elements are being displayed inside the container!!
     const itemsPerPage = indices.length;
 
-    const isShowingLast = indices[indices.length - 1] === items.length - 1;
+    const isShowingLast = indices[indices.length - 1] === items!.length - 1;
     const pageIndex = Math.floor(indices[0] / itemsPerPage);
+
+    if (infinite) {
+      return goToItem(
+        (pageIndex + 1) * itemsPerPage,
+      );
+    }
 
     goToItem(isShowingLast ? 0 : (pageIndex + 1) * itemsPerPage);
   };
 
   const observer = new IntersectionObserver(
-    (items) =>
-      items.forEach((item) => {
-        const index =
-          Number(item.target.getAttribute(ATTRIBUTES["data-slider-item"])) || 0;
+    (elements) =>
+      elements.forEach((item) => {
+        const index = Number(item.target.getAttribute("data-slider-item")) || 0;
         const dot = dots?.item(index);
 
         if (item.isIntersecting) {
           dot?.setAttribute("disabled", "");
         } else {
           dot?.removeAttribute("disabled");
+        }
+
+        if (!infinite) {
+          if (index === 0) {
+            if (item.isIntersecting) {
+              prev?.setAttribute("disabled", "");
+            } else {
+              prev?.removeAttribute("disabled");
+            }
+          }
+          if (index === items!.length - 1) {
+            if (item.isIntersecting) {
+              next?.setAttribute("disabled", "");
+            } else {
+              next?.removeAttribute("disabled");
+            }
+          }
         }
       }),
     { threshold: THRESHOLD, root: slider },
@@ -167,11 +245,17 @@ const setup = ({ rootId, behavior, interval }: Props) => {
   };
 };
 
-function Slider({ rootId, behavior = "smooth", interval }: Props) {
-  useEffect(() => setup({ rootId, behavior, interval }), [
+function Slider({
+  rootId,
+  scroll = "smooth",
+  interval,
+  infinite = false,
+}: Props) {
+  useEffect(() => setup({ rootId, scroll, interval, infinite }), [
     rootId,
-    behavior,
+    scroll,
     interval,
+    infinite,
   ]);
 
   return <div data-slider-controller-js />;

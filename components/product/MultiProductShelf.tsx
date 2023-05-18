@@ -74,8 +74,8 @@ function ProductShelf(props: Props) {
 
       <Slider
         ref={sliderRef}
-        class="gap-6 col-start-2 col-end-2 row-start-2 row-end-5 scrollbar-none overflow-x-scroll px-5"
-        snap="snap-center sm:snap-start flex flex-1 h-full first:ml-[30px] sm:first:ml-0 last:mr-[30px] sm:last:mr-0"
+        class="gap-6 col-start-1 col-end-5 row-start-2 row-end-5 scrollbar-none overflow-x-scroll px-5"
+        snap="first:snap-start last:snap-end snap-center flex flex-1 h-full first:ml-[30px] sm:first:ml-0 last:mr-[30px] sm:last:mr-0"
       >
         {collection?.[activeCollection.value]?.map((product, index) => {
           const smallWidth = sliderWidth.value + "px";
@@ -131,7 +131,7 @@ function ProductShelf(props: Props) {
         </div>
       </div>
 
-      <SliderControllerJS rootId={id} interval={7000} />
+      <SliderControllerJS rootId={id} interval={7000} infinite />
     </Container>
   );
 }

@@ -10423,7 +10423,7 @@
       ],
       "title": "WorkflowRef"
     },
-    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@70f35990a0ed3390572157e7c6c96793|WorkflowRef": {
+    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@16c4bfc6ba0390ebdf9d1ecf6dc83774|WorkflowRef": {
       "anyOf": [
         {
           "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef"
@@ -10441,13 +10441,13 @@
           ]
         }
       ],
-      "title": "70f35990a0ed3390572157e7c6c96793|WorkflowRef"
+      "title": "16c4bfc6ba0390ebdf9d1ecf6dc83774|WorkflowRef"
     },
     "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@Props": {
       "type": "object",
       "properties": {
         "workflow": {
-          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@70f35990a0ed3390572157e7c6c96793|WorkflowRef",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@16c4bfc6ba0390ebdf9d1ecf6dc83774|WorkflowRef",
           "title": "Workflow"
         },
         "id": {
@@ -14778,6 +14778,10 @@
         }
       ]
     },
+    "routes": {
+      "title": "routes",
+      "anyOf": []
+    },
     "islands": {
       "title": "islands",
       "anyOf": [
@@ -15215,6 +15219,10 @@
         }
       ]
     },
+    "workflows": {
+      "title": "workflows",
+      "anyOf": []
+    },
     "entrypoint": {
       "type": "object",
       "required": [
@@ -15264,6 +15272,9 @@
             "$ref": "#/root/loaders"
           },
           {
+            "$ref": "#/root/routes"
+          },
+          {
             "$ref": "#/root/islands"
           },
           {
@@ -15283,6 +15294,9 @@
           },
           {
             "$ref": "#/root/actions"
+          },
+          {
+            "$ref": "#/root/workflows"
           }
         ]
       }

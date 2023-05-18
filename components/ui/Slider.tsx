@@ -3,9 +3,11 @@ import type { JSX } from "preact";
 
 type SliderProps = JSX.IntrinsicElements["ul"] & {
   snap?: string;
+  infinite?: boolean;
 };
 export const Slider = forwardRef<HTMLUListElement, SliderProps>(({
   children,
+  infinite,
   snap = "scroll-snap-center",
   class: _class = "gap-6 scrollbar-none",
   ...props
@@ -19,11 +21,22 @@ export const Slider = forwardRef<HTMLUListElement, SliderProps>(({
     {Children.map(children, (child, index) => (
       <li
         data-slider-item={index}
-        class={snap}
+        class={`${snap}`}
       >
         {child}
       </li>
     ))}
+    {infinite
+      ? Children.map(children, (child, index) => (
+        <li
+          data-slider-item={index}
+          data-slider-clone-item
+          class={`clone ${snap}`}
+        >
+          {child}
+        </li>
+      ))
+      : null}
   </ul>
 )));
 

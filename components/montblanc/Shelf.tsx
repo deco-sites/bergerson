@@ -146,7 +146,7 @@ function ProductShelf({
         </div>
       </div>
 
-      <SliderControllerJS rootId={id} />
+      <SliderControllerJS infinite interval={7000} rootId={id} />
 
       <ViewSendEvent
         event={{
