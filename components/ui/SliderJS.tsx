@@ -18,7 +18,7 @@ const ATTRIBUTES = {
 // Percentage of the item that has to be inside the container
 // for it it be considered as inside the container
 const THRESHOLD = 0.6;
-
+let timeout: number | undefined;
 const intersectionX = (element: DOMRect, container: DOMRect): number => {
   const delta = container.width / 1_000;
 
@@ -103,7 +103,8 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     });
   };
 
-  const onClickPrev = () => {
+  const onClickPrev = (clear?: boolean) => {
+    if (clear) clearInterval(timeout);
     const firstItem = root.querySelector('[data-slider-item="0"]:not(.clone)');
     const rect = firstItem!.getBoundingClientRect();
     const sliderRect = slider.getBoundingClientRect();
@@ -142,7 +143,9 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     );
   };
 
-  const onClickNext = () => {
+  const onClickNext = (clear?: boolean) => {
+    if (clear) clearInterval(timeout);
+
     const notCloneItems = root.querySelectorAll(
       "[data-slider-item]:not(.clone)",
     );
@@ -225,10 +228,10 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     dots?.item(it).addEventListener("click", () => goToItem(it));
   }
 
-  prev?.addEventListener("click", onClickPrev);
-  next?.addEventListener("click", onClickNext);
+  prev?.addEventListener("click", () => onClickPrev(true));
+  next?.addEventListener("click", () => onClickNext(true));
 
-  const timeout = interval && setInterval(onClickNext, interval);
+  timeout = interval && setInterval(onClickNext, interval);
 
   // Unregister callbacks
   return () => {
@@ -236,8 +239,8 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
       dots?.item(it).removeEventListener("click", () => goToItem(it));
     }
 
-    prev?.removeEventListener("click", onClickPrev);
-    next?.removeEventListener("click", onClickNext);
+    prev?.removeEventListener("click", () => onClickPrev(true));
+    next?.removeEventListener("click", () => onClickNext(true));
 
     observer.disconnect();
 
