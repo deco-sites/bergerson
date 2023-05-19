@@ -15,7 +15,7 @@ export interface Props {
   items: Item[];
 }
 
-export default function Header(props: Props) {
+export default function TopMenu(props: Props) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (

@@ -1,45 +1,109 @@
-import type { HTML } from "deco-sites/std/components/types.ts";
-import QuillText from "deco-sites/std/components/QuillText.tsx";
-import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import type { Image } from "deco-sites/std/components/types.ts";
 
+type PositionType = "normal" | "right" | "left" | "below";
+type ContainerType = "full" | "large" | "natural";
 export interface Props {
-  title: string;
-  description: HTML;
-  image?: LiveImage;
-  caption?: string;
-  action?: { label?: string; href?: string };
+  image: Image;
+  imageAlt: string;
+  imageContain?: boolean;
+  /** @title Title */
+  label?: string;
+  text?: string;
+  /** @description It can be hexdecimal, rgb, rgba or color name */
+  colors: {
+    backgroundColor?: string;
+    textColor?: string;
+  };
+  /** @default normal */
+  textPosition?: PositionType;
+  /** @default full */
+  container?: "full" | "large" | "natural";
 }
 
-export default function InfoCard(props: Props) {
-  const { description, title, action, caption, image } = props;
+const POSITION_CLASSES: Record<PositionType, string> = {
+  "normal": "",
+  "right": "flex-row",
+  "left": "flex-row-reverse	",
+  "below": "flex-col",
+} as const;
+
+const SIZE_CLASSES: Record<PositionType, {
+  imageSize: string;
+  textSize: string;
+}> = {
+  "normal": {
+    imageSize: "w-full",
+    textSize: "",
+  },
+  "right": {
+    imageSize: "w-[45%]",
+    textSize: "w-[55%]",
+  },
+  "left": {
+    imageSize: "w-[45%]",
+    textSize: "w-[55%]",
+  },
+  "below": {
+    imageSize: "w-auto",
+    textSize: "w-full",
+  },
+} as const;
+
+const IMAGE_CONTAIN: Record<Partial<PositionType>, string> = {
+  "normal": "",
+  "right": "md:ml-[5vw]",
+  "left": "md:mr-[5vw]",
+  "below": "",
+} as const;
+
+const CONTAINER_CLASSES: Record<ContainerType, string> = {
+  "full": "w-full",
+  "large": "w-full px-[5vw]",
+  "natural": "px-[5vw]",
+} as const;
+
+export function InfoCard({
+  image,
+  imageAlt,
+  imageContain = false,
+  text,
+  label = "",
+  colors: {
+    backgroundColor = "transparent",
+    textColor = "#333",
+  },
+  textPosition = "normal",
+  container = "full",
+}: Props) {
+  const bgColorClass = `bg-[${backgroundColor}] text-[${textColor}]`;
+  const posClass = POSITION_CLASSES[textPosition];
+  const containerClass = CONTAINER_CLASSES[container];
+
+  const { textSize, imageSize } = SIZE_CLASSES[textPosition];
+
   return (
-    <div class="w-full flex items-center justify-center py-20 px-5">
-      <div class="w-full flex flex-col gap-6 items-center justify-center">
-        {image && <img src={image} alt={title} width={660} />}
-
-        {caption && (
-          <span class="uppercase text-[14px] text-center font-helvetica">
-            {caption}
-          </span>
-        )}
-
-        <h1 class="uppercase text-3xl text-center font-rolex">
-          {title}
-        </h1>
-
-        <div class="text-gray-600 text-center font-helvetica font-light sm:max-w-[580px]">
-          <QuillText html={description} />
+    <article
+      class={`flex ${bgColorClass} ${posClass} ${containerClass}`}
+    >
+      <img
+        src={image}
+        alt={imageAlt}
+        class={`${imageSize} ${
+          imageContain ? "" : IMAGE_CONTAIN[textPosition]
+        }`}
+        width="auto"
+        height="auto"
+      />
+      <div class={`${textSize}`}>
+        <div class="max-w-[650px] text-center">
+          <h2 class="font-rolex text-[25px] md:text-[calc(1.525rem+.625vw)] tracking-[4px] font-medium mb-[20px]">
+            {label}
+          </h2>
+          <p class="font-helvetica font-light leading-[1.7] text-[16px]">
+            {text}
+          </p>
         </div>
-
-        {action && (
-          <a
-            href={action.href}
-            class="text-xs uppercase text-white bg-[#147749] px-4 py-2 rounded-full"
-          >
-            {action.label}
-          </a>
-        )}
       </div>
-    </div>
+    </article>
   );
 }
