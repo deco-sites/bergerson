@@ -246,8 +246,8 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     }
   }
 
-  slider.addEventListener("touchstart", handleTouchStart, false);
-  slider.addEventListener("touchend", handleTouchEnd, false);
+  slider.addEventListener("touchstart", handleTouchStart, { passive: true });
+  slider.addEventListener("touchend", handleTouchEnd, { passive: true });
 
   prev?.addEventListener("click", () => onClickPrev(true));
   next?.addEventListener("click", () => onClickNext(true));
