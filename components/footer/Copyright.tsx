@@ -10,6 +10,8 @@ function Copyright() {
               <img
                 src="https://www.bergersonjoias.com/arquivos/VTEX_LOGO_BLACK.png?v=638010963531930000"
                 alt="Vtex logo"
+                width={49}
+                height={18}
               />
             </a>
           </li>
@@ -18,6 +20,8 @@ function Copyright() {
               <img
                 src="https://www.bergersonjoias.com/arquivos/TDZAIN_LOGO_BLACK.png?v=638010963531330000"
                 alt="tdzain logo"
+                width={70}
+                height={18}
               />
             </a>
           </li>

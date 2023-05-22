@@ -184,7 +184,12 @@ function Footer(
               {paymentMethod.map((item) => (
                 <li class="pr-2.5">
                   <a href="/">
-                    <img src={item.src} alt={item.alt} />
+                    <img
+                      src={item.src}
+                      width="auto"
+                      height={28}
+                      alt={item.alt}
+                    />
                   </a>
                 </li>
               ))}
@@ -270,6 +275,8 @@ function Footer(
                           style="filter: invert()"
                           src={items.logo.src}
                           alt={items.logo.alt}
+                          width={35}
+                          height={35}
                         />
                       </a>
                     </li>

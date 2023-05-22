@@ -91,6 +91,7 @@ export default function WristwatchHero(props: Props) {
                     decoding="async"
                     src={slide.detail.image}
                     alt={slide.detail.action?.title || title}
+                    width={728}
                     class={`max-h-[600px] w-full lg:max-w-[728px] object-cover ${
                       isLeft ? "mr-auto" : "ml-auto"
                     }`}
