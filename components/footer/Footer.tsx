@@ -318,7 +318,12 @@ function Footer(
                 {paymentMethod.map((item) => (
                   <li class="pr-2.5">
                     <a href="/">
-                      <img src={item.src} alt={item.alt} />
+                      <img
+                        width="auto"
+                        height={28}
+                        src={item.src}
+                        alt={item.alt}
+                      />
                     </a>
                   </li>
                 ))}
