@@ -42,9 +42,11 @@ export const Slider = forwardRef<HTMLUListElement, SliderProps>(({
   </ul>
 )));
 
-type SliderDotsProps = JSX.IntrinsicElements["ol"];
+type SliderDotsProps = JSX.IntrinsicElements["ol"] & { buttonClass?: string };
 
-export function SliderDots({ children, class: _class }: SliderDotsProps) {
+export function SliderDots(
+  { children, class: _class, buttonClass }: SliderDotsProps,
+) {
   return (
     <ol
       class={`flex items-center justify-center overflow-auto overscroll-contain snap-x snap-mandatory ${_class}`}
@@ -54,7 +56,7 @@ export function SliderDots({ children, class: _class }: SliderDotsProps) {
           <button
             data-dot={index}
             aria-label={`go to slider item ${index}`}
-            class="focus:outline-none group"
+            class={`${buttonClass} focus:outline-none group`}
           >
             {child}
           </button>

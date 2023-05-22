@@ -82,6 +82,7 @@
               "./islands/ProductDetails.tsx",
               "./islands/ProductImageZoom.tsx",
               "./islands/ProductShelf.tsx",
+              "./islands/RolexImageSlider.tsx",
               "./islands/SearchControls.tsx",
               "./islands/SendEventButton.tsx",
               "./islands/ShippingSimulation.tsx",
@@ -137,6 +138,7 @@
               "deco-sites/bergerson/sections/RolexFooter.tsx",
               "deco-sites/bergerson/sections/RolexHead.tsx",
               "deco-sites/bergerson/sections/RolexHero.tsx",
+              "deco-sites/bergerson/sections/RolexImageSlider.tsx",
               "deco-sites/bergerson/sections/RolexInfoCard.tsx",
               "deco-sites/bergerson/sections/RolexTopMenu.tsx",
               "deco-sites/bergerson/sections/SearchResult.tsx",
@@ -7993,6 +7995,46 @@
       ],
       "title": "deco-sites/bergerson/components/product/ProductShelf.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9JbWFnZVNsaWRlci50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "image": {
+                "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                "title": "Image"
+              },
+              "title": {
+                "type": "string",
+                "title": "Title"
+              },
+              "href": {
+                "type": "string",
+                "title": "Href"
+              }
+            },
+            "required": [
+              "image",
+              "title",
+              "href"
+            ]
+          },
+          "title": "Items"
+        }
+      },
+      "required": [
+        "title",
+        "items"
+      ],
+      "title": "deco-sites/bergerson/components/rolex/ImageSlider.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC90eXBlcy50cw==@SKU": {
       "type": "object",
       "properties": {
@@ -10459,7 +10501,11 @@
         },
         "name": {
           "type": "string",
-          "title": "Name"
+          "title": "The audience name (will be used on cookies).",
+          "description": "Add a meaningful short word for the audience name.",
+          "maxLength": 22,
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9_]+$"
         },
         "routes": {
           "$ref": "#/definitions/ZGVjby1jeC9saXZlL2ZsYWdzL2F1ZGllbmNlLnRz@Route[]",
@@ -10575,7 +10621,7 @@
       ],
       "title": "WorkflowRef"
     },
-    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@95abd76f92dd138f258080286726977e|WorkflowRef": {
+    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@6fafe0f553db3c0685828404a37be338|WorkflowRef": {
       "anyOf": [
         {
           "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef"
@@ -10593,13 +10639,13 @@
           ]
         }
       ],
-      "title": "95abd76f92dd138f258080286726977e|WorkflowRef"
+      "title": "6fafe0f553db3c0685828404a37be338|WorkflowRef"
     },
     "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@Props": {
       "type": "object",
       "properties": {
         "workflow": {
-          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@95abd76f92dd138f258080286726977e|WorkflowRef",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@6fafe0f553db3c0685828404a37be338|WorkflowRef",
           "title": "Workflow"
         },
         "id": {
@@ -12446,6 +12492,27 @@
         }
       }
     },
+    "Li9pc2xhbmRzL1JvbGV4SW1hZ2VTbGlkZXIudHN4": {
+      "title": "./islands/RolexImageSlider.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9JbWFnZVNsaWRlci50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/RolexImageSlider.tsx"
+          ],
+          "default": "./islands/RolexImageSlider.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL1NlYXJjaENvbnRyb2xzLnRzeA==": {
       "title": "./islands/SearchControls.tsx",
       "type": "object",
@@ -13547,6 +13614,27 @@
             "deco-sites/bergerson/sections/RolexHero.tsx"
           ],
           "default": "deco-sites/bergerson/sections/RolexHero.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUm9sZXhJbWFnZVNsaWRlci50c3g=": {
+      "title": "deco-sites/bergerson/sections/RolexImageSlider.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9JbWFnZVNsaWRlci50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/bergerson/sections/RolexImageSlider.tsx"
+          ],
+          "default": "deco-sites/bergerson/sections/RolexImageSlider.tsx"
         }
       }
     },
@@ -14967,6 +15055,9 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RTaGVsZi50c3g="
         },
         {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1JvbGV4SW1hZ2VTbGlkZXIudHN4"
+        },
+        {
           "$ref": "#/definitions/Li9pc2xhbmRzL1NlYXJjaENvbnRyb2xzLnRzeA=="
         },
         {
@@ -15154,6 +15245,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUm9sZXhIZXJvLnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUm9sZXhJbWFnZVNsaWRlci50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUm9sZXhJbmZvQ2FyZC50c3g="
