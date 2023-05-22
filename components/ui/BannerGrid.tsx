@@ -41,7 +41,7 @@ export default function BannnerGrid({
   banners = [],
 }: Props) {
   return (
-    <Container class="mt-4">
+    <Container class="override:(max-w-[1140px] mt-4 px-[20px] lg:px-0)">
       <section class="w-full px-4 md:px-0 mx-auto">
         {title &&
           (
@@ -52,7 +52,7 @@ export default function BannnerGrid({
             </div>
           )}
         <div
-          class={`grid gap-4 md:gap-6 grid-cols-${
+          class={`grid gap-x-4 gap-y-[33px] md:gap-6 grid-cols-${
             itemsPerLine && itemsPerLine.mobile ? itemsPerLine.mobile : "2"
           } md:grid-cols-${
             itemsPerLine && itemsPerLine.desktop
@@ -93,7 +93,7 @@ export default function BannnerGrid({
               </Picture>
 
               {title && (
-                <span class="transition block mt-2 uppercase text-sm text-gray-500 group-hover:text-black">
+                <span class="transition block mt-2 uppercase text-sm text-[#1b1b1b] group-hover:text-black">
                   {title}
                 </span>
               )}

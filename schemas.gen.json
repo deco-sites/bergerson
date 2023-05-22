@@ -79,11 +79,9 @@
               "./islands/MontblancShelf.tsx",
               "./islands/MultiProductShelf.tsx",
               "./islands/Navbar.tsx",
-              "./islands/NavItens.tsx",
               "./islands/ProductDetails.tsx",
               "./islands/ProductImageZoom.tsx",
               "./islands/ProductShelf.tsx",
-              "./islands/RolexHeader.tsx",
               "./islands/SearchControls.tsx",
               "./islands/SendEventButton.tsx",
               "./islands/ShippingSimulation.tsx",
@@ -138,8 +136,9 @@
               "deco-sites/bergerson/sections/ProductShelf.tsx",
               "deco-sites/bergerson/sections/RolexFooter.tsx",
               "deco-sites/bergerson/sections/RolexHead.tsx",
-              "deco-sites/bergerson/sections/RolexHeader.tsx",
+              "deco-sites/bergerson/sections/RolexHero.tsx",
               "deco-sites/bergerson/sections/RolexInfoCard.tsx",
+              "deco-sites/bergerson/sections/RolexTopMenu.tsx",
               "deco-sites/bergerson/sections/SearchResult.tsx",
               "deco-sites/bergerson/sections/SpotlightHero.tsx",
               "deco-sites/bergerson/sections/TagHeuer.global.tsx",
@@ -1735,7 +1734,7 @@
       "properties": {
         "count": {
           "type": "number",
-          "title": "Count",
+          "title": "Items per page",
           "description": "number of products per page to display"
         },
         "config": {
@@ -2153,7 +2152,7 @@
         },
         "count": {
           "type": "number",
-          "title": "Count",
+          "title": "Items per page",
           "description": "number of products per page to display"
         },
         "ft": {
@@ -3002,7 +3001,7 @@
         },
         "count": {
           "type": "number",
-          "title": "Count",
+          "title": "Items per page",
           "description": "number of products per page to display"
         }
       },
@@ -3093,7 +3092,7 @@
         },
         "count": {
           "type": "number",
-          "title": "Count",
+          "title": "Items per page",
           "description": "number of products per page to display"
         }
       },
@@ -3146,7 +3145,7 @@
         },
         "count": {
           "type": "number",
-          "title": "Count",
+          "title": "Items per page",
           "description": "number of products per page to display"
         },
         "ft": {
@@ -3216,7 +3215,7 @@
             }
           ],
           "type": "string",
-          "title": "Sort"
+          "title": "Sorting"
         },
         "filters": {
           "anyOf": [
@@ -3230,7 +3229,7 @@
             }
           ],
           "type": "string",
-          "title": "Filters",
+          "title": "Filter behavior",
           "description": "Set to static to not change the facets when the user filters the search. Dynamic will only show the filters containing products after each filter action"
         },
         "pageOffset": {
@@ -3238,7 +3237,7 @@
             "number",
             "null"
           ],
-          "title": "Page Offset",
+          "title": "Starting page query parameter offset.",
           "description": "Set the starting page offset. Default to 1."
         }
       },
@@ -3282,7 +3281,7 @@
             }
           ],
           "type": "string",
-          "title": "Cross Selling",
+          "title": "Related Products",
           "description": "VTEX Cross Selling API. This loader only works on routes of type /:slug/p"
         },
         "count": {
@@ -3492,7 +3491,7 @@
           "items": {
             "type": "string"
           },
-          "title": "Collection",
+          "title": "Collection ID",
           "pattern": "\\d*"
         }
       },
@@ -3540,7 +3539,7 @@
         },
         "count": {
           "type": "number",
-          "title": "Count",
+          "title": "Items per page",
           "description": "number of products per page to display"
         },
         "sort": {
@@ -3579,7 +3578,7 @@
             }
           ],
           "type": "string",
-          "title": "Sort"
+          "title": "Sorting"
         },
         "fuzzy": {
           "anyOf": [
@@ -3617,7 +3616,7 @@
             "number",
             "null"
           ],
-          "title": "Page Offset",
+          "title": "Starting page query parameter offset.",
           "description": "Set the starting page offset. Default to 1."
         }
       },
@@ -3745,7 +3744,7 @@
       "properties": {
         "count": {
           "type": "number",
-          "title": "Count",
+          "title": "Items per page",
           "description": "Number of products per page to display",
           "default": "12"
         }
@@ -6604,7 +6603,7 @@
       "properties": {
         "collection": {
           "type": "string",
-          "title": "Collection",
+          "title": "Collection ID (e.g.: 139)",
           "pattern": "\\d*"
         },
         "sort": {
@@ -6988,7 +6987,7 @@
             }
           ],
           "type": "string",
-          "title": "Cross Selling",
+          "title": "Related Products",
           "description": "VTEX Cross Selling API. This loader only works on routes of type /:slug/p"
         },
         "count": {
@@ -7143,7 +7142,7 @@
       "properties": {
         "count": {
           "type": "number",
-          "title": "Count",
+          "title": "Items per page",
           "description": "Number of products per page to display",
           "default": "12"
         }
@@ -7214,7 +7213,7 @@
             "number",
             "null"
           ],
-          "title": "Interval",
+          "title": "Autoplay interval",
           "description": "time (in seconds) to start the carousel autoplay"
         }
       },
@@ -7913,104 +7912,6 @@
       "required": [],
       "title": "NavImage"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem": {
-      "type": "object",
-      "properties": {
-        "label": {
-          "type": "string",
-          "title": "Label"
-        },
-        "href": {
-          "type": "string",
-          "title": "Href"
-        },
-        "newPage": {
-          "type": [
-            "boolean",
-            "null"
-          ],
-          "title": "New Page"
-        },
-        "children": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "label": {
-                "type": "string",
-                "title": "Label"
-              },
-              "href": {
-                "type": "string",
-                "title": "Href"
-              },
-              "image": {
-                "type": "object",
-                "properties": {
-                  "src": {
-                    "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-                    "title": "Src"
-                  },
-                  "alt": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "title": "Alt"
-                  }
-                },
-                "required": [],
-                "title": "Image"
-              }
-            },
-            "required": [
-              "label",
-              "href"
-            ]
-          },
-          "title": "Children"
-        }
-      },
-      "required": [
-        "label",
-        "href"
-      ],
-      "title": "NavItem"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem"
-      },
-      "title": "NavItem[]"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@Props": {
-      "type": "object",
-      "properties": {
-        "searchbar": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoYmFyLnRzeA==@EditableProps",
-          "title": "Searchbar"
-        },
-        "menu": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem[]",
-          "title": "Menu",
-          "description": "Navigation items used both on mobile and desktop menus"
-        },
-        "navImage": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavImage",
-          "title": "Nav Image",
-          "description": "Navigation items used both on mobile and desktop menus"
-        },
-        "cartImage": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-          "title": "Cart Image"
-        }
-      },
-      "required": [
-        "cartImage"
-      ],
-      "title": "deco-sites/bergerson/components/header/Header.tsx@Props"
-    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@Props": {
       "type": "object",
       "properties": {
@@ -8091,65 +7992,6 @@
         "collection"
       ],
       "title": "deco-sites/bergerson/components/product/ProductShelf.tsx@Props"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9IZWFkZXIudHN4@Item": {
-      "type": "object",
-      "properties": {
-        "url": {
-          "type": "string",
-          "title": "Url"
-        },
-        "label": {
-          "type": "string",
-          "title": "Label"
-        },
-        "type": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "normal"
-            },
-            {
-              "type": "string",
-              "const": "highlighted"
-            }
-          ],
-          "type": "string",
-          "default": "highlighted",
-          "title": "Type"
-        }
-      },
-      "required": [
-        "url",
-        "label",
-        "type"
-      ],
-      "title": "Item"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9IZWFkZXIudHN4@Item[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9IZWFkZXIudHN4@Item"
-      },
-      "title": "Item[]"
-    },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9IZWFkZXIudHN4@Props": {
-      "type": "object",
-      "properties": {
-        "logo": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-          "title": "Logo"
-        },
-        "items": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9IZWFkZXIudHN4@Item[]",
-          "title": "Items"
-        }
-      },
-      "required": [
-        "logo",
-        "items"
-      ],
-      "title": "deco-sites/bergerson/components/rolex/Header.tsx@Props"
     },
     "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC90eXBlcy50cw==@SKU": {
       "type": "object",
@@ -9345,6 +9187,104 @@
       ],
       "title": "deco-sites/bergerson/components/ui/FloatLinks.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Label"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        },
+        "newPage": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "New Page"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "title": "Label"
+              },
+              "href": {
+                "type": "string",
+                "title": "Href"
+              },
+              "image": {
+                "type": "object",
+                "properties": {
+                  "src": {
+                    "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                    "title": "Src"
+                  },
+                  "alt": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "title": "Alt"
+                  }
+                },
+                "required": [],
+                "title": "Image"
+              }
+            },
+            "required": [
+              "label",
+              "href"
+            ]
+          },
+          "title": "Children"
+        }
+      },
+      "required": [
+        "label",
+        "href"
+      ],
+      "title": "NavItem"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem"
+      },
+      "title": "NavItem[]"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "searchbar": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoYmFyLnRzeA==@EditableProps",
+          "title": "Search Bar"
+        },
+        "menu": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem[]",
+          "title": "Navigation items",
+          "description": "Navigation items used both on mobile and desktop menus"
+        },
+        "navImage": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavImage",
+          "title": "Logo and badge image",
+          "description": "Navigation items used both on mobile and desktop menus"
+        },
+        "cartImage": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Cart Image"
+        }
+      },
+      "required": [
+        "cartImage"
+      ],
+      "title": "deco-sites/bergerson/components/header/Header.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvSGVhZFBMUC50c3g=@Props": {
       "type": "object",
       "properties": {
@@ -9640,7 +9580,7 @@
             "number",
             "null"
           ],
-          "title": "Interval",
+          "title": "Autoplay interval",
           "description": "time (in seconds) to start the carousel autoplay"
         }
       },
@@ -9763,7 +9703,7 @@
       ],
       "title": "deco-sites/bergerson/components/rolex/Footer.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9JbmZvQ2FyZC50c3g=@Props": {
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9IZXJvLnRzeA==@Props": {
       "type": "object",
       "properties": {
         "title": {
@@ -9771,7 +9711,7 @@
           "title": "Title"
         },
         "description": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "type": "string",
           "title": "Description"
         },
         "image": {
@@ -9785,33 +9725,238 @@
           ],
           "title": "Caption"
         },
-        "action": {
-          "type": "object",
-          "properties": {
-            "label": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Label"
-            },
-            "href": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Href"
-            }
-          },
-          "required": [],
-          "title": "Action"
+        "containerSize": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": "100%",
+          "title": "Container Size"
+        },
+        "actionLabel": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Action Label"
+        },
+        "actionHref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Action Href"
         }
       },
       "required": [
         "title",
         "description"
       ],
+      "title": "deco-sites/bergerson/components/rolex/Hero.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9JbmZvQ2FyZC50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Image"
+        },
+        "imageAlt": {
+          "type": "string",
+          "title": "Image Alt"
+        },
+        "imageContain": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Image Contain"
+        },
+        "label": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Title"
+        },
+        "text": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Text"
+        },
+        "textWidth": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": "100%",
+          "title": "Text Width"
+        },
+        "colors": {
+          "type": "object",
+          "properties": {
+            "backgroundColor": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Background Color"
+            },
+            "textColor": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Text Color"
+            }
+          },
+          "required": [],
+          "title": "Colors",
+          "description": "It can be hexdecimal, rgb, rgba or color name"
+        },
+        "textPosition": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "normal"
+            },
+            {
+              "type": "string",
+              "const": "right"
+            },
+            {
+              "type": "string",
+              "const": "left"
+            },
+            {
+              "type": "string",
+              "const": "below"
+            },
+            {
+              "type": "string",
+              "const": "right-equal"
+            },
+            {
+              "type": "string",
+              "const": "left-equal"
+            }
+          ],
+          "type": "string",
+          "default": "normal",
+          "title": "Text Position"
+        },
+        "container": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "full"
+            },
+            {
+              "type": "string",
+              "const": "large"
+            },
+            {
+              "type": "string",
+              "const": "small"
+            },
+            {
+              "type": "string",
+              "const": "natural"
+            }
+          ],
+          "type": "string",
+          "default": "full",
+          "title": "Container"
+        },
+        "containerSpacing": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Container Spacing"
+        },
+        "actionLabel": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Action Label"
+        },
+        "actionHref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Action Href"
+        }
+      },
+      "required": [
+        "image",
+        "imageAlt",
+        "colors"
+      ],
       "title": "deco-sites/bergerson/components/rolex/InfoCard.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9Ub3BNZW51LnRzeA==@Item": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "Url"
+        },
+        "label": {
+          "type": "string",
+          "title": "Label"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "normal"
+            },
+            {
+              "type": "string",
+              "const": "highlighted"
+            }
+          ],
+          "type": "string",
+          "default": "highlighted",
+          "title": "Type"
+        }
+      },
+      "required": [
+        "url",
+        "label",
+        "type"
+      ],
+      "title": "Item"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9Ub3BNZW51LnRzeA==@Item[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9Ub3BNZW51LnRzeA==@Item"
+      },
+      "title": "Item[]"
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9Ub3BNZW51LnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "logo": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Logo"
+        },
+        "items": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9Ub3BNZW51LnRzeA==@Item[]",
+          "title": "Items"
+        }
+      },
+      "required": [
+        "logo",
+        "items"
+      ],
+      "title": "deco-sites/bergerson/components/rolex/TopMenu.tsx@Props"
     },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoUmVzdWx0LnRzeA==@Props": {
       "type": "object",
@@ -9947,7 +10092,7 @@
       "properties": {
         "label": {
           "type": "string",
-          "title": "Label"
+          "title": "Locale"
         },
         "authToken": {
           "type": "string",
@@ -10023,7 +10168,7 @@
             "string",
             "null"
           ],
-          "title": "Canonical",
+          "title": "Canonical URL",
           "default": "https://example.com"
         },
         "imageUrl": {
@@ -10053,7 +10198,7 @@
         },
         "titleTemplate": {
           "type": "string",
-          "title": "Title Template",
+          "title": "Title template",
           "description": "add a %s whenever you want it to be replaced with the product name",
           "default": "%s | Fashion Store"
         },
@@ -10062,7 +10207,7 @@
             "string",
             "null"
           ],
-          "title": "Description",
+          "title": "Meta tag description",
           "description": "If not set, the product description will be used instead"
         },
         "themeColor": {
@@ -10430,7 +10575,7 @@
       ],
       "title": "WorkflowRef"
     },
-    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@958c7e60da0cd9c5672403f5ba578090|WorkflowRef": {
+    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@95abd76f92dd138f258080286726977e|WorkflowRef": {
       "anyOf": [
         {
           "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef"
@@ -10448,13 +10593,13 @@
           ]
         }
       ],
-      "title": "958c7e60da0cd9c5672403f5ba578090|WorkflowRef"
+      "title": "95abd76f92dd138f258080286726977e|WorkflowRef"
     },
     "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@Props": {
       "type": "object",
       "properties": {
         "workflow": {
-          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@958c7e60da0cd9c5672403f5ba578090|WorkflowRef",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@95abd76f92dd138f258080286726977e|WorkflowRef",
           "title": "Workflow"
         },
         "id": {
@@ -12243,27 +12388,6 @@
         }
       }
     },
-    "Li9pc2xhbmRzL05hdkl0ZW5zLnRzeA==": {
-      "title": "./islands/NavItens.tsx",
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@Props"
-        }
-      ],
-      "required": [
-        "__resolveType"
-      ],
-      "properties": {
-        "__resolveType": {
-          "type": "string",
-          "enum": [
-            "./islands/NavItens.tsx"
-          ],
-          "default": "./islands/NavItens.tsx"
-        }
-      }
-    },
     "Li9pc2xhbmRzL1Byb2R1Y3REZXRhaWxzLnRzeA==": {
       "title": "./islands/ProductDetails.tsx",
       "type": "object",
@@ -12319,27 +12443,6 @@
             "./islands/ProductShelf.tsx"
           ],
           "default": "./islands/ProductShelf.tsx"
-        }
-      }
-    },
-    "Li9pc2xhbmRzL1JvbGV4SGVhZGVyLnRzeA==": {
-      "title": "./islands/RolexHeader.tsx",
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9IZWFkZXIudHN4@Props"
-        }
-      ],
-      "required": [
-        "__resolveType"
-      ],
-      "properties": {
-        "__resolveType": {
-          "type": "string",
-          "enum": [
-            "./islands/RolexHeader.tsx"
-          ],
-          "default": "./islands/RolexHeader.tsx"
         }
       }
     },
@@ -13426,12 +13529,12 @@
         }
       }
     },
-    "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUm9sZXhIZWFkZXIudHN4": {
-      "title": "deco-sites/bergerson/sections/RolexHeader.tsx",
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUm9sZXhIZXJvLnRzeA==": {
+      "title": "deco-sites/bergerson/sections/RolexHero.tsx",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9IZWFkZXIudHN4@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9IZXJvLnRzeA==@Props"
         }
       ],
       "required": [
@@ -13441,9 +13544,9 @@
         "__resolveType": {
           "type": "string",
           "enum": [
-            "deco-sites/bergerson/sections/RolexHeader.tsx"
+            "deco-sites/bergerson/sections/RolexHero.tsx"
           ],
-          "default": "deco-sites/bergerson/sections/RolexHeader.tsx"
+          "default": "deco-sites/bergerson/sections/RolexHero.tsx"
         }
       }
     },
@@ -13465,6 +13568,27 @@
             "deco-sites/bergerson/sections/RolexInfoCard.tsx"
           ],
           "default": "deco-sites/bergerson/sections/RolexInfoCard.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUm9sZXhUb3BNZW51LnRzeA==": {
+      "title": "deco-sites/bergerson/sections/RolexTopMenu.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9Ub3BNZW51LnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/bergerson/sections/RolexTopMenu.tsx"
+          ],
+          "default": "deco-sites/bergerson/sections/RolexTopMenu.tsx"
         }
       }
     },
@@ -14595,21 +14719,6 @@
       ],
       "title": "deco-cx/live/routes/_middleware.ts@MiddlewareConfig",
       "description": "Global configurations for ./routes/_middleware.ts route"
-    },
-    "ZGVjby1jeC9saXZlL3JvdXRlcy9bLi4uY2F0Y2hhbGxdLnRzeA==@Entrypoint": {
-      "type": "object",
-      "properties": {
-        "handler": {
-          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9oYW5kbGVyLnRz@Handler",
-          "description": "configure how to handle requests.",
-          "title": "Handler"
-        }
-      },
-      "required": [
-        "handler"
-      ],
-      "title": "deco-cx/live/routes/[...catchall].tsx@Entrypoint",
-      "description": "Site entrypoint, configure your audiences and routes."
     }
   },
   "root": {
@@ -14849,9 +14958,6 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL05hdmJhci50c3g="
         },
         {
-          "$ref": "#/definitions/Li9pc2xhbmRzL05hdkl0ZW5zLnRzeA=="
-        },
-        {
           "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3REZXRhaWxzLnRzeA=="
         },
         {
@@ -14859,9 +14965,6 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RTaGVsZi50c3g="
-        },
-        {
-          "$ref": "#/definitions/Li9pc2xhbmRzL1JvbGV4SGVhZGVyLnRzeA=="
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1NlYXJjaENvbnRyb2xzLnRzeA=="
@@ -15050,10 +15153,13 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUm9sZXhIZWFkLnRzeA=="
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUm9sZXhIZWFkZXIudHN4"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUm9sZXhIZXJvLnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUm9sZXhJbmZvQ2FyZC50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvUm9sZXhUb3BNZW51LnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vc2VjdGlvbnMvU2VhcmNoUmVzdWx0LnRzeA=="
@@ -15262,14 +15368,14 @@
         "./routes/[...catchall].tsx": {
           "anyOf": [
             {
-              "$ref": "#/definitions/ZGVjby1jeC9saXZlL3JvdXRlcy9bLi4uY2F0Y2hhbGxdLnRzeA==@Entrypoint"
+              "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9oYW5kbGVyLnRz@Handler"
             }
           ]
         },
         "./routes/index.tsx": {
           "anyOf": [
             {
-              "$ref": "#/definitions/ZGVjby1jeC9saXZlL3JvdXRlcy9bLi4uY2F0Y2hhbGxdLnRzeA==@Entrypoint"
+              "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9oYW5kbGVyLnRz@Handler"
             }
           ]
         }

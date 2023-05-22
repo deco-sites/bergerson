@@ -7,16 +7,28 @@ export interface Props {
   description: string;
   image?: LiveImage;
   caption?: string;
-  action?: { label?: string; href?: string };
+  /** @default 100% */
+  containerSize?: string;
+  actionLabel?: string;
+  actionHref?: string;
 }
 
 export default function Hero(props: Props) {
-  const { description, title, action, caption, image } = props;
+  const {
+    description,
+    title,
+    actionHref,
+    actionLabel,
+    caption,
+    image,
+    containerSize = "100%",
+  } = props;
   return (
-    <div class="w-full flex items-center justify-center py-20 px-5">
-      <div class="w-full flex flex-col gap-6 items-center justify-center">
-        {image && <img src={image} alt={title} width={660} />}
-
+    <div class="w-full">
+      {image && <img src={image} alt={title} width="100%" height="auto" />}
+      <div
+        class={`w-full flex flex-col gap-6 items-center justify-center mt-[35px] px-5 text-[#212121] max-w-[${containerSize}] mx-auto`}
+      >
         {caption && (
           <span class="uppercase text-[14px] text-center font-helvetica">
             {caption}
@@ -27,18 +39,20 @@ export default function Hero(props: Props) {
           {title}
         </h1>
 
-        <div class="text-gray-600 text-center font-helvetica font-light sm:max-w-[580px]">
+        <p class="text-[16px] text-center font-helvetica leading-[1.7] font-light max-w-[650px]">
           {description}
-        </div>
+        </p>
 
-        {action && (
-          <a
-            href={action.href}
-            class="text-xs uppercase text-white bg-[#147749] px-4 py-2 rounded-full"
-          >
-            {action.label}
-          </a>
-        )}
+        {actionHref && actionLabel
+          ? (
+            <a
+              href={actionHref}
+              class="text-xs uppercase text-white bg-[#147749] px-4 py-2 rounded-full"
+            >
+              {actionLabel}
+            </a>
+          )
+          : null}
       </div>
     </div>
   );

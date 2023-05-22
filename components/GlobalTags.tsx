@@ -153,7 +153,142 @@ function GlobalTags() {
             font-style: normal;
             font-display: swap
           }
-      `,
+          @font-face {
+            font-family: Helvetica;
+            src: url(https://static.rolex.com/Fonts/Rolex/HelveticaNow/8d8e92a7-bfd4-4de7-bc65-45be2306bf81.woff2) format("woff2"),url(https://static.rolex.com/Fonts/Rolex/HelveticaNow/858c1d6a-cfc6-4367-91da-cd8209dcdc6e.woff) format("woff");
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap
+          }
+        
+          @font-face {
+            font-family: Helvetica;
+            src: url(https://static.rolex.com/Fonts/Rolex/HelveticaNow/74164382-f210-4a60-95bc-999091a2ed5c.woff2) format("woff2"),url(https://static.rolex.com/Fonts/Rolex/HelveticaNow/1204057f-8fdd-4c47-98f8-6eadb6bfe197.woff) format("woff");
+            font-weight: 300;
+            font-style: italic;
+            font-display: swap
+          }
+        
+          @font-face {
+            font-family: Helvetica;
+            src: url(https://static.rolex.com/Fonts/Rolex/HelveticaNow/aa38329d-5165-4fb4-82c8-fa97778b7cbd.woff2) format("woff2"),url(https://static.rolex.com/Fonts/Rolex/HelveticaNow/7a5a445e-de3f-4690-9002-552575769c45.woff) format("woff");
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap
+          }
+        
+          @font-face {
+            font-family: Helvetica;
+            src: url(https://static.rolex.com/Fonts/Rolex/HelveticaNow/bd4b5949-893c-4f87-843f-a84867b2b03a.woff2) format("woff2"),url(https://static.rolex.com/Fonts/Rolex/HelveticaNow/362618f8-b6bb-4cfa-aaea-8bc0115c0347.woff) format("woff");
+            font-weight: 400;
+            font-style: italic;
+            font-display: block
+          }
+        
+          @font-face {
+            font-family: Helvetica;
+            src: url(https://static.rolex.com/Fonts/Rolex/HelveticaNow/10d97c98-c7f0-4958-b294-92319d027783.woff2) format("woff2"),url(https://static.rolex.com/Fonts/Rolex/HelveticaNow/e4caf272-7860-4dd4-9768-8ecc229ce7c3.woff) format("woff");
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap
+          }
+
+          @font-face {
+            font-family: Rolex;
+            src: url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-Light-WebS.woff2),format("woff2"),url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-Light-WebS.woff) format("woff");
+            font-weight: 300;
+            font-style: normal;
+            font-display: block
+          }
+
+          @font-face {
+            font-family: Rolex;
+            src: url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-LightItalic-WebS.woff2) format("woff2"),url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-LightItalic-WebS.woff) format("woff");
+            font-weight: 300;
+            font-style: italic;
+            font-display: swap
+          }
+
+          @font-face {
+            font-family: Rolex;
+            src: url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-Regular-WebS.woff2) format("woff2"),url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-Regular-WebS.woff) format("woff");
+            font-weight: 400;
+            font-style: normal;
+            font-display: block
+          }
+
+          @font-face {
+            font-family: Rolex;
+            src: url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-Italic-WebS.woff2) format("woff2"),url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-Italic-WebS.woff) format("woff");
+            font-weight: 400;
+            font-style: italic;
+            font-display: swap
+          }
+
+          @font-face {
+            font-family: Rolex;
+            src: url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-Bold-WebS.woff2) format("woff2"),url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-Bold-WebS.woff) format("woff");
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap
+          }
+
+          @font-face {
+            font-family: Rolex;
+            src: url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-BoldItalic-WebS.woff2) format("woff2"),url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-BoldItalic-WebS.woff) format("woff");
+            font-weight: 700;
+            font-style: italic;
+            font-display: swap
+          }
+
+          @font-face {
+            font-family: Rolex;
+            src: url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-Light-WebXL.woff2) format("woff2"),url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-Light-WebXL.woff) format("woff");
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap
+          }
+
+          @font-face {
+            font-family: Rolex;
+            src: url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-LightItalic-WebXL.woff2) format("woff2"),url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-LightItalic-WebXL.woff) format("woff");
+            font-weight: 300;
+            font-style: italic;
+            font-display: swap
+          }
+
+          @font-face {
+            font-family: Rolex;
+            src: url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-Regular-WebXL.woff2) format("woff2"),url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-Regular-WebXL.woff) format("woff");
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap
+          }
+
+          @font-face {
+            font-family: Rolex;
+            src: url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-Italic-WebXL.woff2) format("woff2"),url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-Italic-WebXL.woff) format("woff");
+            font-weight: 400;
+            font-style: italic;
+            font-display: swap
+          }
+
+          @font-face {
+            font-family: Rolex;
+            src: url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-Bold-WebXL.woff2) format("woff2"),url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-Bold-WebXL.woff) format("woff");
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap
+          }
+
+          @font-face {
+            font-family: Rolex;
+            src: url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-BoldItalic-WebXL.woff2) format("woff2"),url(https://static.rolex.com/Fonts/Rolex/RolexFont/2.1/RolexFont-BoldItalic-WebXL.woff) format("woff");
+            font-weight: 700;
+            font-style: italic;
+            font-display: swap
+          }
+        `,
         }}
       />
     </Head>

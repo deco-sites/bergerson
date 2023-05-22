@@ -4,7 +4,7 @@
     "deco-sites/fashion/": "./",
     "deco-sites/std-legacy/": "https://denopkg.com/deco-sites/std@1.0.0/",
     "deco-sites/std/": "https://denopkg.com/deco-sites/std@1.8.2/",
-    "$live/": "https://denopkg.com/deco-cx/live@7f2b2f56d609f08c2604b8571c61e255dfd57989/",
+    "$live/": "https://denopkg.com/deco-cx/live@1.5.1/",
     "$fresh/": "https://deno.land/x/fresh@1.1.5/",
     "preact": "https://esm.sh/preact@10.13.2",
     "preact/": "https://esm.sh/preact@10.13.2/",
