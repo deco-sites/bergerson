@@ -9751,7 +9751,11 @@
       "properties": {
         "src": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-          "title": "Src"
+          "title": "Desktop source"
+        },
+        "mobileSrc": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Mobile source"
         },
         "alt": {
           "type": "string",
@@ -9762,7 +9766,11 @@
           "title": "Label"
         },
         "description": {
-          "type": "string",
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Required only for 3 columns variation",
           "title": "Description"
         },
         "href": {
@@ -9774,7 +9782,6 @@
         "src",
         "alt",
         "label",
-        "description",
         "href"
       ],
       "title": "Banner"
@@ -9792,9 +9799,26 @@
         "images": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9HYWxsZXJ5LnRzeA==@Banner[]",
           "title": "Images"
+        },
+        "variation": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "3-columns"
+            },
+            {
+              "type": "string",
+              "const": "2-columns"
+            }
+          ],
+          "type": "string",
+          "default": "3-columns",
+          "title": "Variation"
         }
       },
-      "required": [],
+      "required": [
+        "variation"
+      ],
       "title": "deco-sites/bergerson/components/rolex/Gallery.tsx@Props"
     },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9IZXJvLnRzeA==@Props": {
