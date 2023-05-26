@@ -9,8 +9,8 @@ export type PositionType =
   | "left-equal";
 export type ContainerType = "full" | "large" | "small" | "natural";
 export interface Props {
-  image: Image;
-  imageAlt: string;
+  image?: Image;
+  imageAlt?: string;
   imageContain?: boolean;
   /** @title Title */
   label?: string;
@@ -35,10 +35,10 @@ export interface Props {
 
 const POSITION_CLASSES: Record<PositionType, string> = {
   "normal": "",
-  "right": "flex-row items-center",
-  "left": "flex-row-reverse	items-center",
-  "right-equal": "flex-row items-center",
-  "left-equal": "flex-row-reverse	items-center",
+  "right": "md:flex-row items-center flex-col gap-4 md:gap-0",
+  "left": "md:flex-row-reverse	items-center flex-col gap-4 md:gap-0",
+  "right-equal": "md:flex-row items-center flex-col gap-4 md:gap-0",
+  "left-equal": "md:flex-row-reverse	items-center flex-col gap-4 md:gap-0",
   "below": "flex-col",
 } as const;
 
@@ -51,24 +51,24 @@ const CONTENT_CLASSES: Record<PositionType, {
     textSize: "w-full",
   },
   "right": {
-    imageSize: "w-[45%]",
+    imageSize: "md:w-[45%] w-full",
     textSize:
-      "w-[55%] text-left md:px-[60px] flex flex-col gap-[10px] justify-center",
+      "md:w-[55%] w-full text-left md:px-[60px] flex flex-col gap-[10px] justify-center ",
   },
   "left": {
-    imageSize: "w-[45%]",
+    imageSize: "md:w-[45%] w-full",
     textSize:
-      "w-[55%] text-left md:px-[60px] flex flex-col gap-[10px] justify-center",
+      "md:w-[55%] w-full text-left md:px-[60px] flex flex-col gap-[10px] justify-center ",
   },
   "right-equal": {
-    imageSize: "w-[50%]",
+    imageSize: "md:w-[50%] w-full",
     textSize:
-      "w-[50%] text-left md:px-[60px] self-stretch flex flex-col items-center justify-center gap-[10px]",
+      "md:w-[50%] w-full text-left md:px-[60px] self-stretch flex flex-col items-center justify-center gap-[10px] ",
   },
   "left-equal": {
-    imageSize: "w-[50%]",
+    imageSize: "md:w-[50%] w-full",
     textSize:
-      "w-[50%] text-left md:px-[60px] self-stretch flex flex-col items-center justify-center gap-[10px]",
+      "md:w-[50%] w-full text-left md:px-[60px] self-stretch flex flex-col items-center justify-center gap-[10px] ",
   },
   "below": {
     imageSize: "w-auto",
@@ -119,29 +119,41 @@ export default function InfoCard({
   return (
     <article
       class={`flex ${
-        containerSpacing ? "mt-[20px] md:mt-[70px]" : ""
+        containerSpacing ? "mt-[20px] md:mt-[70px]" : "mt-[20px] md:mt-0"
       } ${posClass} ${containerClass}`}
     >
-      <img
-        src={image}
-        alt={imageAlt}
-        class={`${imageSize} ${
-          imageContain ? "" : IMAGE_CONTAIN[textPosition]
-        }`}
-        width="auto"
-        height="auto"
-      />
+      {image
+        ? (
+          <img
+            src={image}
+            alt={imageAlt}
+            class={`${imageSize} ${
+              imageContain ? "" : IMAGE_CONTAIN[textPosition]
+            }`}
+            width="auto"
+            height="auto"
+          />
+        )
+        : null}
       <div class={`${textSize} ${bgColorClass}`}>
         <h2
-          class={`max-w-[${textWidth}] mx-auto font-rolex text-[25px] md:text-[calc(1.525rem+0.125vw)] leading-[1.1] tracking-[4px] font-medium w-full`}
+          class={`${
+            !image && !text && !actionHref && !actionLabel
+              ? "py-20 px-[10px]"
+              : ""
+          } max-w-[${textWidth}] mx-auto font-rolex text-[25px] md:text-[calc(1.525rem+0.125vw)] leading-[1.1] tracking-[4px] font-medium w-full`}
         >
           {label}
         </h2>
-        <p
-          class={`max-w-[${textWidth}] mx-auto font-helvetica font-light leading-[1.7] text-[16px]`}
-        >
-          {text}
-        </p>
+        {text
+          ? (
+            <p
+              class={`max-w-[${textWidth}] mx-auto font-helvetica font-light leading-[1.7] text-[16px]`}
+            >
+              {text}
+            </p>
+          )
+          : null}
         {actionHref && actionLabel
           ? (
             <a

@@ -9880,7 +9880,10 @@
           "title": "Image"
         },
         "imageAlt": {
-          "type": "string",
+          "type": [
+            "string",
+            "null"
+          ],
           "title": "Image Alt"
         },
         "imageContain": {
@@ -10011,8 +10014,6 @@
         }
       },
       "required": [
-        "image",
-        "imageAlt",
         "colors"
       ],
       "title": "deco-sites/bergerson/components/rolex/InfoCard.tsx@Props"
