@@ -5,7 +5,10 @@ import {
   withSegment,
 } from "deco-sites/std-legacy/commerce/vtex/withSegment.ts";
 import { Product } from "deco-sites/std/commerce/types.ts";
-import type { LegacySort } from "deco-sites/std/packs/vtex/types.ts";
+import type {
+  LegacyProduct,
+  LegacySort,
+} from "deco-sites/std/packs/vtex/types.ts";
 import { toProduct } from "deco-sites/std/packs/vtex/utils/transform.ts";
 
 export interface Props {
@@ -54,7 +57,7 @@ const legacyProductListLoader: LoaderFunction<
     });
 
     return vtexProducts.map((p) =>
-      toProduct(p, p.items[0], 0, {
+      toProduct(p as LegacyProduct, p.items[0], 0, {
         baseUrl: req.url,
         priceCurrency: vtex.currency(),
       })

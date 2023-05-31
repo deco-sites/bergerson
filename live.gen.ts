@@ -40,9 +40,8 @@ import * as $$$$$23 from "./islands/TagHeuerHeader.tsx";
 import * as $$$$$24 from "./islands/SpotlightHero.tsx";
 import * as $$$$$25 from "./islands/SmallFaderShelf.tsx";
 import * as $$$$$26 from "./islands/WristwatchHero.tsx";
-import * as $$$$$27 from "./islands/ProductDetails.tsx";
-import * as $$$$$28 from "./islands/TagHeuerPLP.tsx";
-import * as $$$$$29 from "./islands/SearchControls.tsx";
+import * as $$$$$27 from "./islands/TagHeuerPLP.tsx";
+import * as $$$$$28 from "./islands/SearchControls.tsx";
 import * as $$$$$$$$0 from "./sections/WishlistGallery.tsx";
 import * as $$$$$$$$1 from "./sections/TagHeuerShelf.tsx";
 import * as $$$$$$$$2 from "./sections/FloatLinks.tsx";
@@ -98,6 +97,7 @@ import * as $live_invoke from "$live/routes/live/invoke/index.ts";
 import * as $live_invoke_key from "$live/routes/live/invoke/[...key].ts";
 import * as $live_editorData from "$live/routes/live/editorData.ts";
 import * as $live_inspect from "$live/routes/live/inspect/[...block].ts";
+import * as $live_release from "$live/routes/live/release.ts";
 import * as $live_meta from "$live/routes/live/_meta.ts";
 import * as $live_previews from "$live/routes/live/previews/[...block].tsx";
 import * as $live_catchall from "$live/routes/[...catchall].tsx";
@@ -116,6 +116,7 @@ import * as i2$$$$1 from "$live/sections/Slot.tsx";
 import * as i2$$$$2 from "$live/sections/UseSlot.tsx";
 import * as i2$$$$$$$$0 from "$live/matchers/MatchAlways.ts";
 import * as i2$$$$$$$$1 from "$live/matchers/MatchDate.ts";
+import * as i1$$$$$2 from "$live/matchers/MatchDevice.ts";
 import * as i2$$$$$$$$2 from "$live/matchers/MatchEnvironment.ts";
 import * as i2$$$$$$$$3 from "$live/matchers/MatchHost.ts";
 import * as i2$$$$$$$$4 from "$live/matchers/MatchMulti.ts";
@@ -180,8 +181,7 @@ import * as i2$$$$7 from "deco-sites/std/sections/configVNDA.global.tsx";
 import * as i2$$$$8 from "deco-sites/std/sections/configVTEX.global.tsx";
 import * as i2$$$$9 from "deco-sites/std/sections/configYourViews.global.tsx";
 import * as i2$$$$10 from "deco-sites/std/sections/SEO.tsx";
-import * as i2$$$$11 from "deco-sites/std/sections/SEOPDP.tsx";
-import * as i2$$$$12 from "deco-sites/std/sections/SEOPLP.tsx";
+import * as i2$$$$11 from "deco-sites/std/sections/VTEXPortalDataLayerCompatibility.tsx";
 import * as i2$$$$$4 from "deco-sites/std/actions/vtex/cart/addItems.ts";
 import * as i2$$$$$5 from "deco-sites/std/actions/vtex/cart/getInstallment.ts";
 import * as i2$$$$$6 from "deco-sites/std/actions/vtex/cart/removeItemAttachment.ts";
@@ -248,6 +248,7 @@ const manifest = {
     "./routes/live/invoke/[...key].ts": $live_invoke_key,
     "./routes/live/invoke/index.ts": $live_invoke,
     "./routes/live/previews/[...block].tsx": $live_previews,
+    "./routes/live/release.ts": $live_release,
     "./routes/live/workbench.ts": $live_workbench,
   },
   "islands": {
@@ -265,18 +266,17 @@ const manifest = {
     "./islands/MontblancShelf.tsx": $$$$$6,
     "./islands/MultiProductShelf.tsx": $$$$$11,
     "./islands/Navbar.tsx": $$$$$0,
-    "./islands/ProductDetails.tsx": $$$$$27,
     "./islands/ProductImageZoom.tsx": $$$$$21,
     "./islands/ProductShelf.tsx": $$$$$15,
     "./islands/RolexImageSlider.tsx": $$$$$3,
-    "./islands/SearchControls.tsx": $$$$$29,
+    "./islands/SearchControls.tsx": $$$$$28,
     "./islands/SendEventButton.tsx": $$$$$9,
     "./islands/ShippingSimulation.tsx": $$$$$4,
     "./islands/SliderJS.tsx": $$$$$19,
     "./islands/SmallFaderShelf.tsx": $$$$$25,
     "./islands/SpotlightHero.tsx": $$$$$24,
     "./islands/TagHeuerHeader.tsx": $$$$$23,
-    "./islands/TagHeuerPLP.tsx": $$$$$28,
+    "./islands/TagHeuerPLP.tsx": $$$$$27,
     "./islands/TagHeuerShelf.tsx": $$$$$1,
     "./islands/ViewSendEvent.tsx": $$$$$22,
     "./islands/WishlistButton.tsx": $$$$$2,
@@ -343,8 +343,7 @@ const manifest = {
     "deco-sites/std/sections/configVTEX.global.tsx": i2$$$$8,
     "deco-sites/std/sections/configYourViews.global.tsx": i2$$$$9,
     "deco-sites/std/sections/SEO.tsx": i2$$$$10,
-    "deco-sites/std/sections/SEOPDP.tsx": i2$$$$11,
-    "deco-sites/std/sections/SEOPLP.tsx": i2$$$$12,
+    "deco-sites/std/sections/VTEXPortalDataLayerCompatibility.tsx": i2$$$$11,
   },
   "loaders": {
     "$live/loaders/workflows/events.ts": i2$$$0,
@@ -379,6 +378,7 @@ const manifest = {
   "matchers": {
     "$live/matchers/MatchAlways.ts": i2$$$$$$$$0,
     "$live/matchers/MatchDate.ts": i2$$$$$$$$1,
+    "$live/matchers/MatchDevice.ts": i1$$$$$2,
     "$live/matchers/MatchEnvironment.ts": i2$$$$$$$$2,
     "$live/matchers/MatchHost.ts": i2$$$$$$$$3,
     "$live/matchers/MatchMulti.ts": i2$$$$$$$$4,

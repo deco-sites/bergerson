@@ -6,6 +6,7 @@ import {
 } from "deco-sites/std-legacy/commerce/vtex/withSegment.ts";
 import { toProduct } from "deco-sites/std/packs/vtex/utils/transform.ts";
 import { ProductListingPage } from "https://denopkg.com/deco-sites/std@1.7.1/commerce/types.ts";
+import type { LegacyProduct } from "deco-sites/std/packs/vtex/types.ts";
 
 export interface Props {
   /**
@@ -64,7 +65,7 @@ const legacyPLPLoader: LoaderFunction<
   // If a property is missing from the final `products` array you can add
   // it in here
   const products = vtexProducts.map((p) =>
-    toProduct(p, p.items[0], 0, {
+    toProduct(p as LegacyProduct, p.items[0], 0, {
       baseUrl: req.url,
       priceCurrency: vtex.currency(),
     })

@@ -14,6 +14,7 @@ import type {
 } from "deco-sites/std/commerce/types.ts";
 import type {
   LegacyFacet,
+  LegacyProduct,
   LegacySort,
   PageType,
 } from "deco-sites/std/packs/vtex/types.ts";
@@ -288,7 +289,7 @@ const legacyPLPLoader: LoaderFunction<
   // If a property is missing from the final `products` array you can add
   // it in here
   const products = vtexProducts.map((p) =>
-    toProduct(p, p.items[0], 0, {
+    toProduct(p as LegacyProduct, p.items[0], 0, {
       priceCurrency: vtex.currency(),
       baseUrl: req.url,
     })
