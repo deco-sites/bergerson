@@ -25,23 +25,33 @@ export interface Props {
 export default function MapCard(props: Props) {
   return (
     <Container class="w-full">
-      <div class="bg-[#f7f7f7] lg:flex m-8">
+      <div class="bg-[#f7f7f7] lg:flex mx-8 my-8 lg:mx-0">
         <img class="lg:w-1/2" src={props.mapImage} alt="Rolex" />
-        <div class="lg:w-1/2 text-center flex flex-col py-20">
-          <span class="text-[#12784A] font-bold text-sm">{props.subtitle}</span>
-          <span class="font-rolex m-2 tracking-widest text-xl">
+        <div class="lg:w-1/2 text-center lg:text-left flex flex-col py-20">
+          <span class="text-[#12784A] font-bold text-sm lg:mx-16">
+            {props.subtitle}
+          </span>
+          <span class="font-rolex m-2 tracking-widest text-xl lg:mx-16">
             {props.title}
           </span>
-          <span class="text-[#333333] font-light text-sm">{props.store}</span>
-          <span class="text-[#333333] font-light text-sm">
+          <span class="text-[#333333] font-light text-sm lg:text-lg lg:mx-16">
+            {props.store}
+          </span>
+          <span class="text-[#333333] font-light text-sm lg:text-lg lg:mx-16">
             {props.fullAddress}
           </span>
-          <span class="text-[#333333] font-light text-sm">{props.city}</span>
-          <span class="text-[#333333] font-light text-sm">{props.state}</span>
-          <span class="text-[#333333] font-light text-sm">{props.country}</span>
-          <span class="py-4">{props.time}</span>
-          <div class="flex lg:flex-col justify-evenly mx-6">
-            <a class="flex pointer" href={props.telephone.label}>
+          <span class="text-[#333333] font-light text-sm lg:text-lg lg:mx-16">
+            {props.city}
+          </span>
+          <span class="text-[#333333] font-light text-sm lg:text-lg lg:mx-16">
+            {props.state}
+          </span>
+          <span class="text-[#333333] font-light text-sm lg:text-lg lg:mx-16">
+            {props.country}
+          </span>
+          <span class="py-4 lg:mx-16">{props.time}</span>
+          <div class="flex lg:flex-col justify-evenly mx-6 lg:mx-16">
+            <a class="flex pointer mx-3 my-1" href={props.telephone.href}>
               <div class="bg-white rounded-full p-4 hover:bg-[#12784A] max-w-min">
                 <svg
                   height="15"
@@ -57,9 +67,11 @@ export default function MapCard(props: Props) {
                   </path>
                 </svg>
               </div>
-              <span class="hidden lg:flex">{props.telephone.label}</span>
+              <span class="hidden lg:flex items-center mx-2">
+                {props.telephone.label}
+              </span>
             </a>
-            <a class="flex pointer" href={props.whatsapp.label}>
+            <a class="flex pointer mx-3 my-1" href={props.whatsapp.href}>
               <div class="bg-white rounded-full p-4 hover:bg-[#12784A] max-w-min">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -84,9 +96,11 @@ export default function MapCard(props: Props) {
                   </g>
                 </svg>
               </div>
-              <span class="hidden lg:flex">{props.whatsapp.label}</span>
+              <span class="hidden lg:flex items-center mx-2">
+                {props.whatsapp.label}
+              </span>
             </a>
-            <a class="flex pointer" href={props.mail.label}>
+            <a class="flex pointer mx-3 my-1" href={props.mail.href}>
               <div class="bg-white rounded-full p-4 hover:bg-[#12784A] max-w-min">
                 <svg
                   height="15"
@@ -102,9 +116,11 @@ export default function MapCard(props: Props) {
                   </path>
                 </svg>
               </div>
-              <span class="hidden lg:flex">{props.mail.label}</span>
+              <span class="hidden lg:flex items-center mx-2">
+                {props.mail.label}
+              </span>
             </a>
-            <a class="flex pointer" href={props.directions.label}>
+            <a class="flex pointer mx-3 my-1" href={props.directions.href}>
               <div class="bg-white rounded-full p-4 hover:bg-[#12784A] max-w-min">
                 <svg
                   height="15"
@@ -120,7 +136,9 @@ export default function MapCard(props: Props) {
                   </path>
                 </svg>
               </div>
-              <span class="hidden lg:flex">{props.directions.label}</span>
+              <span class="hidden lg:flex items-center mx-2">
+                {props.directions.label}
+              </span>
             </a>
           </div>
         </div>
