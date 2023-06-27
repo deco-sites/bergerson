@@ -10577,6 +10577,24 @@
       ],
       "title": "deco-sites/bergerson/components/rolex/InfoCard.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9NYXBDYXJkLnRzeA==@Link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "title": "Href"
+        },
+        "label": {
+          "type": "string",
+          "title": "Label"
+        }
+      },
+      "required": [
+        "href",
+        "label"
+      ],
+      "title": "Link"
+    },
     "ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9NYXBDYXJkLnRzeA==@Props": {
       "type": "object",
       "properties": {
@@ -10592,41 +10610,61 @@
           "type": "string",
           "title": "Title"
         },
-        "address": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
-          "title": "Address"
+        "store": {
+          "type": "string",
+          "title": "Store"
+        },
+        "fullAddress": {
+          "type": "string",
+          "title": "Full Address"
+        },
+        "city": {
+          "type": "string",
+          "title": "City"
+        },
+        "state": {
+          "type": "string",
+          "title": "State"
+        },
+        "country": {
+          "type": "string",
+          "title": "Country"
         },
         "time": {
           "type": "string",
           "title": "Time"
         },
-        "telText": {
-          "type": "string",
-          "title": "Tel Text"
+        "telephone": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9NYXBDYXJkLnRzeA==@Link",
+          "title": "Telephone"
         },
-        "whatsappText": {
-          "type": "string",
-          "title": "Whatsapp Text"
+        "whatsapp": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9NYXBDYXJkLnRzeA==@Link",
+          "title": "Whatsapp"
         },
-        "mailText": {
-          "type": "string",
-          "title": "Mail Text"
+        "mail": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9NYXBDYXJkLnRzeA==@Link",
+          "title": "Mail"
         },
-        "directionsText": {
-          "type": "string",
-          "title": "Directions Text"
+        "directions": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9iZXJnZXJzb24vY29tcG9uZW50cy9yb2xleC9NYXBDYXJkLnRzeA==@Link",
+          "title": "Directions"
         }
       },
       "required": [
         "mapImage",
         "subtitle",
         "title",
-        "address",
+        "store",
+        "fullAddress",
+        "city",
+        "state",
+        "country",
         "time",
-        "telText",
-        "whatsappText",
-        "mailText",
-        "directionsText"
+        "telephone",
+        "whatsapp",
+        "mail",
+        "directions"
       ],
       "title": "deco-sites/bergerson/components/rolex/MapCard.tsx@Props"
     },
